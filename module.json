@@ -1,0 +1,71 @@
+{
+  "id": "pf2e-narrative-assistant",
+  "title": "PF2e Narrative Assistant",
+  "description": "Suggests short narrative descriptions to the GM after PF2e Strikes, skill actions, saving throws and recovery checks. English and French narration. Read-only: never touches PF2e mechanics.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Hugo Grellier",
+      "url": "https://github.com/grellier-hugo"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.369",
+    "maximum": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "8.6.0"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "src/module.mjs"
+  ],
+  "styles": [
+    "styles/narrative.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "narration-en",
+      "label": "PF2e Narrative Assistant (EN)",
+      "path": "packs/narration-en",
+      "type": "RollTable",
+      "system": "pf2e",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "narration-fr",
+      "label": "PF2e Narrative Assistant (FR)",
+      "path": "packs/narration-fr",
+      "type": "RollTable",
+      "system": "pf2e",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "license": "MIT"
+}

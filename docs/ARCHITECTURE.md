@@ -1,0 +1,97 @@
+# Architecture
+
+```text
+PF2e chat message (createChatMessage, active GM only)
+  → extractContext()          src/extract.mjs   PF2e flags → plain NarrativeContext
+  → Hook "pf2e-narrative-assistant.context"     other modules may enrich or cancel
+  → shouldNarrate()           src/engine.mjs    settings filters
+  → candidates()              src/engine.mjs    tables whose `when` matches, most specific first
+  → pickEntry()                                 weighted, avoids the last 5 texts of that table
+  → interpolate() + contract()                  {placeholders}, component tables, French elision
+  → output                    src/module.mjs    GM whisper card / public card / notification
+```
+
+`engine.mjs`, `extract.mjs` and `languages.mjs` have no Foundry dependency and are unit-tested. `module.mjs` is the
+only file touching Foundry; `tests/module.test.mjs` runs it against fakes.
+
+## PF2e detection
+
+Everything comes from `message.flags.pf2e.context`, written by PF2e's `Check.roll`
+(`src/module/system/check/check.ts` in the PF2e repo, checked against PF2e 8.6.1 / Foundry 14.369).
+No rendered HTML is parsed.
+
+| Event | Detection |
+|---|---|
+| Strike | `type: "attack-roll"` and `identifier` = `<itemId>.<slug>.<melee\|ranged>` |
+| Skill action | roll option `action:<slug>` (implicit for every PF2e action, e.g. `action:trip`) |
+| Saving throw | `type: "saving-throw"` + `check:statistic:<fortitude\|reflex\|will>` |
+| Recovery | `type: "flat-check"` + `check:statistic:dying-recovery` (from `CreaturePF2e#rollRecovery`) |
+| Spell attack | `type: "attack-roll"` without a strike identifier → `spell` ("other" events) |
+
+Context fields come from roll options: `item:damage:type:*` → `damageTypes`, `item:trait:*` + action
+traits → `traits`, `target:trait:*` → `targetTraits`, `item:group:*`, `item:category:*`. Thrown
+attacks: `altUsage: "thrown"` or `item:thrown` on a ranged strike → `thrown: true`.
+
+`outcome` is the degree after PF2e's adjustments. When it is null (no target, no DC), nothing is
+narrated: the module never guesses a result.
+
+Duplicates: `createChatMessage` fires only for new documents (never for history loaded at startup),
+only the active GM processes it, message ids are remembered, damage rolls have no outcome, and our
+own cards carry a module flag. PF2e Hero Point rerolls create a new message with a new outcome and are
+narrated again, which is intended.
+
+## Tables and resolution
+
+Sources: `src/data/rules.json` holds each category's `when` (shared), `src/data/narration/<lang>/` the
+text. The build joins them into one compendium per language, `narration-en` and `narration-fr`. Each
+RollTable carries `flags["pf2e-narrative-assistant"]`:
+
+```json
+{ "key": "strike.melee.slashing.criticalSuccess", "slot": "narration",
+  "when": { "eventType": "strike", "range": "melee", "damageTypes": ["slashing"], "degreeOfSuccess": "criticalSuccess" },
+  "priority": 0, "gmOnly": false, "lang": "en" }
+```
+
+The tables are the rules: there is no separate rule list. Matching (`matches`):
+
+- context value is a list (`traits`, `damageTypes`, `targetTraits`): every wanted value must be present;
+- context value is scalar: equal, or one of the wanted values if `when` gives a list;
+- `{ "anyOf": [...] }`: at least one value present, whatever the shape.
+
+Specificity = number of `when` keys + `priority`. The fallback chain is therefore implicit:
+
+```text
+strike.melee.slashing.criticalSuccess   (eventType, range, damageTypes, degree = 4)
+strike.melee.criticalSuccess            (3)
+generic.criticalSuccess                 (1)
+```
+
+Tables with no entries are skipped, so an emptied world table falls back too.
+
+`slot` other than `narration` defines a component: `{bodyPart}` picks the most specific matching
+table of slot `bodyPart` (humanoid / beast / generic by `targetTraits`).
+
+## Languages
+
+The *Narration language* setting (default: UI language) picks the pack; unknown languages fall back
+to English. Fallback resolution stays inside one language: a missing French table falls back to a
+less specific French table, never to English text. `src/languages.mjs` holds per-language fallback
+words for missing names and a `fix` pass applied after interpolation (French elision/contraction;
+identity for English).
+
+## Overrides
+
+Setting *Narrative source* = *World RollTables*: world tables with the same `key` flag replace the
+module ones, and world tables with new keys join the pool. World tables flagged with another `lang`
+are ignored; tables without `lang` apply to every language. Importing a table from the compendium keeps
+the flags, so the GM just imports and edits. The cache is dropped on any RollTable/TableResult change.
+
+## Extending
+
+- New narration for an existing event: a rule in `rules.json` and one JSON file per language (see
+  `docs/WRITING.md`).
+- New event: return a context with a new `eventType` from `extractContext`, add a setting group in
+  `EVENT_SETTINGS`, add rules and JSON files. The engine does not change.
+- From another module: `Hooks.on("pf2e-narrative-assistant.context", (ctx, message) => …)` to add
+  fields or return `false` to cancel; `game.modules.get("pf2e-narrative-assistant").api.suggest(ctx)`
+  narrates any context you build yourself.

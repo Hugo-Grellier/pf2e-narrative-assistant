@@ -1,0 +1,50 @@
+{
+  "key": "skill.recall-knowledge",
+  "label": ["Skills", "Recall Knowledge"],
+  "outcomes": {
+    "criticalSuccess": [
+      "GM prompt: deliver the information as plain fact, then add a precise detail only {actor} would notice.",
+      "GM prompt: present the answer as a perfectly sharp memory, naming the book, mentor or place where {actor} learned it.",
+      "GM prompt: describe an anatomical or behavioral detail that confirms the information, as if {actor} saw it proven before their eyes.",
+      "GM prompt: let {actor} state the conclusion aloud, then confirm it with an extra detail from the stat block.",
+      "GM prompt: tell the information as an anecdote lived or overheard, vivid enough for the other players to remember.",
+      "GM prompt: tie the information to a clue already visible in the scene, which {actor} suddenly understands.",
+      "GM prompt: give the main information, then a concrete tactical lead that follows from it, without revealing exact numbers.",
+      "GM prompt: describe how {actor} recognizes the creature or subject at once, before even finishing a first look.",
+      "GM prompt: present the answer as a quote from a treatise, a song or a saying {actor} knows by heart.",
+      "GM prompt: deliver the information with confidence, and convey how timely this knowledge is."
+    ],
+    "success": [
+      "GM prompt: present the information as something {actor} has already read, studied or observed.",
+      "GM prompt: describe an anatomical or behavioral detail that hints at an important ability.",
+      "GM prompt: give the information as a slightly hazy but reliable memory that comes back bit by bit.",
+      "GM prompt: tie the answer to a rumor, a legend or a traveler's tale {actor} once heard.",
+      "GM prompt: let {actor} notice a clue in the scene that confirms what comes to mind.",
+      "GM prompt: give the main information plainly, in one or two sentences, then move on.",
+      "GM prompt: present the answer as a logical deduction by {actor} from what is visible.",
+      "GM prompt: mention the mentor, the book or the past experience that lets {actor} know this.",
+      "GM prompt: describe the knowledge as a specialist's reflex, without drama.",
+      "GM prompt: phrase the information as practical advice {actor} could whisper to allies."
+    ],
+    "failure": [
+      "GM prompt: {actor} remembers nothing useful; describe a vague impression, with no false information.",
+      "GM prompt: let {actor} hesitate between several memories, without confirming any of them.",
+      "GM prompt: the subject feels familiar to {actor}, but the memory slips away. Add no detail.",
+      "GM prompt: describe the frustration of {actor}, who has the answer on the tip of the tongue.",
+      "GM prompt: {actor} recognizes only what everyone can already see; nothing more.",
+      "GM prompt: indicate that {actor} has never read or heard anything reliable on this subject.",
+      "GM prompt: describe a memory too distant or too muddled to be of use.",
+      "GM prompt: let the doubt hang, without nudging the players in any direction."
+    ],
+    "criticalFailure": [
+      "GM prompt: under the rules, a critical failure can yield false information. Present it with the same confidence as a true answer.",
+      "GM prompt: if you give false information, tie it to a source {actor} would trust: a rumor, a dubious book, a folk tale.",
+      "GM prompt: {actor} is certain. Choose a plausible error and present it without any warning sign.",
+      "GM prompt: in the memory of {actor}, mix this creature or subject up with a similar one, convincingly.",
+      "GM prompt: make the answer as convincing as a success: the table must not be able to guess the mistake.",
+      "GM prompt: avoid errors that would endanger the group out of all proportion; prefer a minor tactical misunderstanding.",
+      "GM prompt: let {actor} assert something false but consistent with what the players can see.",
+      "GM prompt: describe a vivid, precise memory... that happens to be wrong."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "key": "skill.medicine.treat-wounds",
+    "label": [
+      "Compétences",
+      "Médecine",
+      "Soigner les blessures"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} nettoie, recoud et bande avec des gestes d'une sûreté exemplaire.",
+        "Les mains de {actor} travaillent vite et bien ; le soulagement se lit aussitôt sur le visage du blessé.",
+        "{actor} trouve chaque plaie, chaque contusion, et les traite comme un chirurgien chevronné.",
+        "Un pansement serré, un onguent bien choisi : le travail de {actor} est remarquable.",
+        "{actor} murmure quelques mots rassurants en refermant la dernière plaie avec soin.",
+        "Les sutures de {actor} sont si nettes qu'elles en deviennent presque élégantes.",
+        "{actor} improvise une attelle, ajuste un bandage, et tout semble aller mieux d'un coup.",
+        "Le blessé respire plus librement sous les soins attentifs de {actor}.",
+        "{actor} prend le temps qu'il faut, et chaque geste porte ses fruits.",
+        "Un travail de maître : {actor} range ses instruments avec satisfaction."
+      ],
+      "success": [
+        "{actor} nettoie les plaies et les bande proprement.",
+        "Des gestes simples et efficaces : {actor} panse les blessures.",
+        "{actor} applique un onguent et serre un bandage ; le blessé grimace, puis se détend.",
+        "Avec patience, {actor} soigne les entailles une par une.",
+        "{actor} recoud une plaie avec application.",
+        "Les soins de {actor} sont sobres, mais ils font du bien.",
+        "{actor} rince, désinfecte, bande : la routine du soigneur.",
+        "Le blessé serre les dents pendant que {actor} fait son office.",
+        "{actor} fait ce qu'il faut, sans fioritures.",
+        "Quelques bandages bien posés, et le blessé se sent mieux."
+      ],
+      "failure": [
+        "{actor} s'applique, mais les bandages ne tiennent pas comme prévu.",
+        "Malgré les efforts de {actor}, les soins restent sans effet notable.",
+        "{actor} hésite sur la marche à suivre et le temps file.",
+        "Le pansement glisse, se défait, et tout est à refaire.",
+        "{actor} ne parvient pas à trouver l'origine du mal.",
+        "Les soins de {actor} n'apportent qu'un réconfort de façade.",
+        "{actor} fronce les sourcils : la plaie résiste aux soins.",
+        "Le blessé ne se sent guère mieux après l'intervention de {actor}."
+      ],
+      "criticalFailure": [
+        "{actor} rouvre maladroitement une plaie en voulant la refermer.",
+        "Un geste malheureux de {actor} arrache un cri au blessé.",
+        "{actor} serre trop fort, mal, au mauvais endroit : les soins font plus de mal que de bien.",
+        "L'onguent choisi par {actor} irrite la plaie au lieu de l'apaiser.",
+        "{actor} tremble au mauvais moment et l'aiguille dérape.",
+        "Le blessé se tord de douleur sous les mains maladroites de {actor}.",
+        "{actor} confond deux remèdes, avec des conséquences douloureuses.",
+        "Un faux mouvement de {actor}, et la blessure s'aggrave."
+      ]
+    }
+  },
+  {
+    "key": "skill.medicine.administer-first-aid",
+    "label": [
+      "Compétences",
+      "Médecine",
+      "Prodiguer les premiers soins"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "{actor} comprime la plaie d'une main ferme et le flot s'apaise.",
+        "Un garrot improvisé, une pression au bon endroit : {actor} reprend le contrôle de la situation.",
+        "{actor} dégage les voies respiratoires et le blessé reprend une respiration plus calme.",
+        "Les gestes de {actor} sont rapides, sûrs, salvateurs.",
+        "{actor} parle doucement au blessé tout en bandant serré.",
+        "En quelques secondes, {actor} a fait exactement ce qu'il fallait.",
+        "{actor} presse un tampon de tissu sur la blessure et attend que tout se stabilise.",
+        "Le pouls du blessé se raffermit sous les doigts de {actor}.",
+        "{actor} applique les gestes appris tant de fois, et ils fonctionnent.",
+        "Une main sur la plaie, l'autre sur l'épaule : {actor} reste calme, et cela suffit."
+      ],
+      "failure": [
+        "{actor} presse la plaie, mais le tissu se gorge trop vite.",
+        "Les mains de {actor} tremblent ; les premiers soins restent sans effet.",
+        "{actor} cherche le bon geste, sans le trouver à temps.",
+        "Le bandage glisse entre les doigts de {actor}.",
+        "{actor} fait de son mieux, mais l'état du blessé ne change pas.",
+        "La pression de {actor} n'est pas au bon endroit.",
+        "{actor} hésite une seconde de trop.",
+        "Malgré l'urgence, les gestes de {actor} restent maladroits."
+      ],
+      "criticalFailure": [
+        "{actor} panique et ses gestes aggravent la situation.",
+        "Un bandage mal posé par {actor} fait plus de mal que de bien.",
+        "{actor} appuie au mauvais endroit, et le blessé gémit de plus belle.",
+        "Dans la précipitation, {actor} commet l'erreur à ne pas commettre.",
+        "{actor} déplace le blessé au pire moment.",
+        "Les mains de {actor} s'agitent sans méthode, et l'état du blessé empire.",
+        "{actor} confond l'urgence et la hâte : le résultat est désastreux.",
+        "Un geste brusque de {actor}, et la situation devient plus critique encore."
+      ]
+    }
+  }
+]

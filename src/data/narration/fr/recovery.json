@@ -1,0 +1,49 @@
+{
+  "key": "recovery",
+  "label": [
+    "Récupération",
+    "Test de récupération"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "Une inspiration profonde, presque un sursaut : la vie reprend ses droits chez {actor}.",
+      "Les paupières de {actor} frémissent, et un souffle plus fort soulève sa poitrine.",
+      "Quelque chose, au fond de {actor}, refuse catégoriquement d'abandonner.",
+      "Le pouls de {actor} se raffermit d'un coup, régulier et têtu.",
+      "{actor} tousse, crache, et s'accroche à la vie de toutes ses forces.",
+      "Un éclat de lucidité traverse le regard de {actor}, comme une flamme ravivée.",
+      "La respiration de {actor} retrouve un rythme presque normal.",
+      "{actor} serre faiblement le poing : pas aujourd'hui."
+    ],
+    "success": [
+      "La respiration de {actor} se fait un peu moins sifflante.",
+      "Le pouls de {actor}, faible, gagne en régularité.",
+      "{actor} gémit doucement : un signe de vie bienvenu.",
+      "Un souffle plus long que les autres soulève la poitrine de {actor}.",
+      "Les doigts de {actor} se crispent un instant ; la volonté de vivre est là.",
+      "{actor} s'accroche, un battement de cœur après l'autre.",
+      "Le visage de {actor} reprend une infime couleur.",
+      "{actor} lutte en silence, et gagne un peu de terrain."
+    ],
+    "failure": [
+      "La respiration de {actor} se fait plus faible, plus espacée.",
+      "Le pouls de {actor} vacille, de plus en plus ténu.",
+      "Le visage de {actor} pâlit encore.",
+      "{actor} glisse un peu plus loin dans l'obscurité.",
+      "Un râle léger échappe à {actor}, puis le silence.",
+      "Les forces de {actor} s'amenuisent, goutte à goutte.",
+      "La poitrine de {actor} se soulève à peine.",
+      "Le froid gagne les mains de {actor}."
+    ],
+    "criticalFailure": [
+      "La respiration de {actor} s'arrête un instant, puis reprend, affreusement faible.",
+      "Le teint de {actor} vire au gris, inquiétant.",
+      "Le pouls de {actor} n'est plus qu'un murmure sous les doigts.",
+      "{actor} sombre plus profondément, loin des voix qui l'appellent.",
+      "Un long frisson parcourt {actor}, puis plus rien ne bouge.",
+      "Les lèvres de {actor} bleuissent ; le temps presse.",
+      "Le souffle de {actor} devient si ténu qu'il faut tendre l'oreille.",
+      "{actor} s'éloigne, et l'obscurité se referme un peu plus."
+    ]
+  }
+}

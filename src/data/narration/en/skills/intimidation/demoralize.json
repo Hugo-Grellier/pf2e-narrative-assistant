@@ -1,0 +1,48 @@
+{
+  "key": "skill.intimidation.demoralize",
+  "label": ["Skills", "Intimidation", "Demoralize"],
+  "outcomes": {
+    "criticalSuccess": [
+      "The gaze of {actor} locks onto {target}, who goes pale and backs away despite themselves.",
+      "{actor} growls a few barely audible words; fear shows at once on the face of {target}.",
+      "{actor} bangs weapon against shield and roars. {target} visibly trembles.",
+      "A cold, measured, terrible threat: {target} loses all composure.",
+      "{actor} takes one step forward, and all the courage of {target} takes a step back.",
+      "The war cry of {actor} chills {target} to the bone.",
+      "{actor} smiles, slowly. That smile is one {target} will not soon forget.",
+      "{target} swallows hard: what the eyes of {actor} promise is anything but reassuring.",
+      "{actor} calmly lists what awaits {target}. The voice of {target}, afterward, shakes.",
+      "A single word from {actor}, spoken at the right moment, is enough to make {target} falter.",
+      "{actor} draws up to full height; {target} suddenly feels very small.",
+      "The threat from {actor} hits harder than a blade: the confidence of {target} shatters."
+    ],
+    "success": [
+      "{actor} delivers a threat that gives {target} pause.",
+      "The black look from {actor} visibly unsettles {target}.",
+      "{target} grits their teeth, but a shadow of fear crosses their eyes.",
+      "{actor} growls, and {target} steps back half a pace.",
+      "The words of {actor} hit home: {target} loses some confidence.",
+      "{actor} twirls a weapon meaningfully; {target} does not enjoy it.",
+      "{target} casts a worried glance at {actor}.",
+      "A menacing sneer from {actor}, and {target} seems to regret being there.",
+      "{actor} promises a thousand torments in a low voice; {target} shivers.",
+      "{target} tries to put on a brave face, without much success.",
+      "{actor} steps forward to full stature; the nerves of {target} are palpable.",
+      "The shout from {actor} makes {target} flinch."
+    ],
+    "failure,criticalFailure": [
+      "{target} holds the gaze of {actor} without blinking.",
+      "The threat from {actor} rolls off {target} like water off stone.",
+      "{target} shrugs: it takes more than that to impress.",
+      "{actor} growls, {target} sniggers.",
+      "The words of {actor} ring hollow to {target}.",
+      "{target} does not flinch at the display from {actor}.",
+      "{actor} puts on a menacing air; {target} stays stony.",
+      "A burst of laughter from {target} answers the threat.",
+      "{target} narrows their eyes, not troubled in the least.",
+      "The intimidation attempt from {actor} falls flat.",
+      "{target} answers the threat with a contemptuous look.",
+      "{actor} raises their voice; {target} does not even bother to reply."
+    ]
+  }
+}

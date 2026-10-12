@@ -1,0 +1,67 @@
+{
+  "key": "skill.athletics.grapple",
+  "label": [
+    "Compétences",
+    "Athlétisme",
+    "Saisir"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "{attacker} referme sa prise comme un étau : {target} ne peut plus faire un geste.",
+      "Une clé de bras, un genou bien placé, et {target} n'a plus aucune liberté de mouvement.",
+      "{attacker} enserre {target} avec une force implacable ; chaque tentative de bouger semble vaine.",
+      "{target} se débat un instant, puis comprend qu'il n'y a plus rien à faire contre cette prise.",
+      "{attacker} plaque {target} contre son propre corps et verrouille ses membres d'une prise parfaite.",
+      "La prise de {attacker} se resserre jusqu'à ce que {target} ne puisse plus que haleter.",
+      "{attacker} se glisse dans le dos de {target} et verrouille une étreinte sans faille.",
+      "Les bras de {attacker} se referment sur {target} comme des chaînes.",
+      "{attacker} saisit, tord, verrouille : plus un geste n'est possible pour {target}.",
+      "{target} sent la prise se refermer sur chacune de ses articulations, sans le moindre jeu.",
+      "{attacker} cueille {target} en plein élan et l'immobilise sur place d'une prise imparable.",
+      "Une étreinte d'ours, implacable : {target} ne peut plus que gronder de frustration."
+    ],
+    "success": [
+      "{attacker} agrippe fermement {target} et refuse de lâcher.",
+      "Une main sur le col, l'autre sur le bras : la prise sur {target} est solide.",
+      "{attacker} referme ses doigts sur le poignet de {target} et serre.",
+      "{target} tente de reculer, mais la main de {attacker} est déjà refermée sur son bras.",
+      "{attacker} se colle à {target} et maintient sa prise.",
+      "D'un geste sûr, {attacker} attrape {target} par l'épaule et l'arrime à sa poigne.",
+      "{target} se tortille, mais la prise de {attacker} tient bon.",
+      "{attacker} saisit {target} à bras-le-corps.",
+      "Une poigne de fer se referme sur {target}.",
+      "{attacker} accroche l'équipement de {target} et ne le lâche plus.",
+      "{target} sent la prise de {attacker} se refermer sur son bras.",
+      "{attacker} bondit et empoigne {target} avant toute retraite.",
+      "{attacker} capture le bras de {target} sous son aisselle et serre."
+    ],
+    "failure": [
+      "{target} se dégage d'une torsion avant que la prise ne se referme.",
+      "Les mains de {attacker} glissent sur {target} sans trouver de prise.",
+      "{target} recule d'un bond et {attacker} n'agrippe que l'air.",
+      "{attacker} attrape une manche, qui lui échappe aussitôt.",
+      "{target} écarte les bras de {attacker} d'un geste sec.",
+      "{attacker} plonge sur {target}, qui pivote et se libère.",
+      "La prise se forme à moitié, puis {target} s'en arrache.",
+      "{target} se fait glissant comme une anguille.",
+      "{attacker} referme ses mains une seconde trop tard.",
+      "{target} repousse l'épaule de {attacker} et garde ses distances.",
+      "{attacker} tente de saisir, mais {target} se tord hors de portée.",
+      "Les doigts de {attacker} effleurent {target} sans parvenir à se refermer."
+    ],
+    "criticalFailure": [
+      "{attacker} se jette sur {target}, qui retourne la situation d'une torsion experte.",
+      "La tentative de prise tourne mal : c'est {target} qui prend le dessus.",
+      "{target} esquive, attrape {attacker} au passage, et la situation s'inverse brutalement.",
+      "{attacker} s'avance trop, et {target} profite de l'ouverture pour reprendre l'avantage.",
+      "{target} se dégage et renvoie {attacker} en déséquilibre, à sa merci.",
+      "{attacker} cherche une prise et offre la sienne : {target} en profite aussitôt.",
+      "{target} accompagne l'élan de {attacker} et retourne la prise contre son auteur.",
+      "La lutte bascule en un instant : {attacker} se retrouve en très mauvaise posture.",
+      "{attacker} se fait surprendre par la contre-prise de {target}.",
+      "{target} rit presque en se dégageant, et c'est désormais {attacker} qui est en danger.",
+      "{attacker} plonge, rate, et {target} est déjà en position de force.",
+      "Un faux mouvement, et {attacker} perd tout le contrôle de l'empoignade."
+    ]
+  }
+}

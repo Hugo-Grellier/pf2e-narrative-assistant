@@ -1,0 +1,88 @@
+{
+  "PF2E_NA": {
+    "Title": "Inspiration",
+    "Reroll": "Autre suggestion",
+    "Publish": "Envoyer au chat",
+    "Event": {
+      "strike": "Frappe",
+      "recovery": "Test de récupération",
+      "spell": "Sort",
+      "other": "Jet"
+    },
+    "Settings": {
+      "enabled": {
+        "Name": "Activer l'assistant narratif",
+        "Hint": "Propose une description après les jets PF2e pris en charge."
+      },
+      "output": {
+        "whisper": "Murmure au MJ",
+        "public": "Chat public",
+        "notification": "Notification (MJ)",
+        "Name": "Sortie",
+        "Hint": "Où afficher les suggestions. Une suggestion sur un jet secret reste toujours murmurée au MJ."
+      },
+      "source": {
+        "module": "Tables du module",
+        "world": "Tables du monde (sinon module)",
+        "Name": "Source des descriptions",
+        "Hint": "Tables du module, ou tables du monde portant la même clé (importez une table du compendium pour la personnaliser)."
+      },
+      "frequency": {
+        "all": "Chaque jet pris en charge",
+        "successes": "Réussites et réussites critiques",
+        "criticals": "Résultats critiques uniquement",
+        "Name": "Fréquence",
+        "Hint": "Limite les suggestions pour éviter de surcharger le chat."
+      },
+      "event": {
+        "strike": {
+          "Name": "Événements : Frappes",
+          "Hint": ""
+        },
+        "skill": {
+          "Name": "Événements : actions de compétence",
+          "Hint": ""
+        },
+        "save": {
+          "Name": "Événements : jets de sauvegarde",
+          "Hint": ""
+        },
+        "recovery": {
+          "Name": "Événements : tests de récupération",
+          "Hint": ""
+        },
+        "other": {
+          "Name": "Événements : autres (sorts, jets divers)",
+          "Hint": "Narration générique uniquement."
+        }
+      },
+      "degree": {
+        "criticalSuccess": {
+          "Name": "Résultat : réussite critique",
+          "Hint": ""
+        },
+        "success": {
+          "Name": "Résultat : réussite",
+          "Hint": ""
+        },
+        "failure": {
+          "Name": "Résultat : échec",
+          "Hint": ""
+        },
+        "criticalFailure": {
+          "Name": "Résultat : échec critique",
+          "Hint": ""
+        }
+      },
+      "disabledActions": {
+        "Name": "Actions désactivées",
+        "Hint": "Slugs d'action PF2e séparés par des virgules, p. ex. : seek, hide, sneak, recall-knowledge."
+      },
+      "language": {
+        "Name": "Langue de narration",
+        "Hint": "Langue des descriptions, indépendante de l'interface. Repli sur l'anglais si la langue n'a pas de corpus.",
+        "auto": "Langue de l'interface"
+      }
+    }
+  }
+}

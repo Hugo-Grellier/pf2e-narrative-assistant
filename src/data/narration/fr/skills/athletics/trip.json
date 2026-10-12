@@ -1,0 +1,69 @@
+{
+  "key": "skill.athletics.trip",
+  "label": [
+    "Compétences",
+    "Athlétisme",
+    "Croc-en-jambe"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "{attacker} fauche les appuis de {target} d'un balayage parfait ; la chute est lourde et sonore.",
+      "Un crochet du pied, une poussée de l'épaule, et {target} s'écrase de tout son long.",
+      "{attacker} cueille la cheville de {target} en plein pas : le choc de la chute résonne sur le sol.",
+      "{target} décolle littéralement avant de retomber lourdement, le souffle coupé.",
+      "{attacker} accroche la jambe d'appui et tire d'un coup sec ; {target} heurte le sol avec fracas.",
+      "Le balayage est si net que {target} semble tomber au ralenti, puis d'un coup.",
+      "{attacker} plonge bas, fauche, et {target} bascule cul par-dessus tête.",
+      "Un mouvement circulaire de la jambe, et {target} part en arrière pour retomber durement.",
+      "{target} n'a pas le temps de se rattraper : sa chute est aussi brève que douloureuse.",
+      "{attacker} profite de l'élan de {target} et l'envoie rouler au sol comme une poupée de chiffon.",
+      "Une prise sèche derrière le genou, une poussée, et {target} s'effondre avec un bruit mat.",
+      "{attacker} fauche si vite que {target} touche le sol avant de comprendre ce qui arrive.",
+      "{target} part à la renverse et l'impact lui arrache un cri étouffé."
+    ],
+    "success": [
+      "{attacker} glisse un pied derrière la cheville de {target} et pousse : {target} part à la renverse.",
+      "Un balayage bas, et {target} bascule au sol.",
+      "{attacker} crochète la jambe de {target}, qui perd l'équilibre et tombe.",
+      "{target} trébuche sur le pied tendu de {attacker} et se retrouve à terre.",
+      "D'un coup d'épaule bien placé, {attacker} déséquilibre {target}, qui chute.",
+      "{attacker} fauche les appuis de {target} ; la chute est inévitable.",
+      "{target} mouline des bras un instant, puis s'étale.",
+      "Un pas de côté, un croche-pied discret, et {target} mord la poussière.",
+      "{attacker} accroche la jambe d'appui au bon moment : {target} tombe.",
+      "{target} perd pied sous la poussée de {attacker} et se retrouve au sol.",
+      "{attacker} tire sur la jambe de {target} et le sol fait le reste.",
+      "{target} chancelle, tente de se rattraper, mais finit à terre.",
+      "Un balayage rapide : {target} s'écroule dans un nuage de poussière.",
+      "{attacker} se baisse, crochète, se relève : {target} est au sol."
+    ],
+    "failure": [
+      "{target} sent venir le balayage et lève le pied à temps.",
+      "{attacker} crochète, mais {target} reste fermement campé sur ses appuis.",
+      "Le croche-pied ne rencontre qu'une jambe solide comme un tronc.",
+      "{target} vacille un instant, puis retrouve son équilibre.",
+      "{attacker} balaie trop haut et {target} enjambe le mouvement.",
+      "{target} déplace son poids au bon moment et la tentative échoue.",
+      "La jambe de {attacker} fauche l'air là où se tenait {target}.",
+      "{target} encaisse la poussée sans broncher.",
+      "{attacker} cherche les appuis de {target}, sans les trouver.",
+      "{target} recule d'un pas et le balayage passe dans le vide.",
+      "Le crochet glisse sur la botte de {target}, inoffensif.",
+      "{target} se raidit et le croche-pied échoue contre une jambe bien plantée."
+    ],
+    "criticalFailure": [
+      "{attacker} balaie avec trop d'élan, perd l'équilibre et tombe à la place de {target}.",
+      "Le croche-pied rate, et c'est {attacker} qui finit à terre, dans l'élan de son propre mouvement.",
+      "{target} esquive le balayage ; {attacker} pivote dans le vide et s'étale.",
+      "{attacker} accroche sa propre jambe et s'effondre lourdement.",
+      "{target} recule, et {attacker} plonge dans le vide pour s'écraser au sol.",
+      "La tentative tourne au désastre : {attacker} glisse et chute devant {target}.",
+      "{attacker} se jette sur les jambes de {target}, ne trouve que le vide, et mord la poussière.",
+      "Un balayage trop ambitieux qui envoie {attacker} au sol, sous le regard de {target}.",
+      "{target} bloque la jambe de {attacker} et l'équilibre bascule du mauvais côté : {attacker} tombe.",
+      "{attacker} pivote mal, ses appuis se dérobent, et c'est la chute.",
+      "{attacker} s'emmêle les pieds en plein mouvement et termine au sol.",
+      "{target} n'a même pas à bouger : {attacker} perd l'équilibre sans aide et s'écroule."
+    ]
+  }
+}

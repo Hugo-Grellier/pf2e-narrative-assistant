@@ -1,0 +1,42 @@
+{
+  "key": "skill.acrobatics.tumble-through",
+  "label": [
+    "Compétences",
+    "Acrobaties",
+    "Déplacement acrobatique"
+  ],
+  "outcomes": {
+    "success,criticalSuccess": [
+      "{actor} plonge entre les jambes de {target} et ressort de l'autre côté dans une roulade fluide.",
+      "Une feinte à gauche, une pirouette à droite : {actor} se faufile à travers l'espace de {target}.",
+      "{actor} prend appui sur l'épaule de {target} et passe par-dessus dans une cabriole.",
+      "{actor} glisse sous le bras levé de {target} avec une souplesse de chat.",
+      "{target} tente de barrer le passage, mais {actor} est déjà derrière, en équilibre parfait.",
+      "{actor} enchaîne pas chassés et demi-tours pour traverser l'espace de {target} sans la moindre égratignure.",
+      "Une roulade basse, un rétablissement impeccable : {actor} a franchi le barrage.",
+      "{actor} danse autour de la garde de {target} et poursuit sa route.",
+      "{target} se retourne trop tard : {actor} vient de traverser sa position.",
+      "{actor} se courbe, pivote et file à travers l'ouverture, souple comme une liane.",
+      "Avec un sens de l'équilibre déconcertant, {actor} se faufile là où il n'y avait aucune place.",
+      "{actor} saute, tourne, se réceptionne : {target} n'a vu qu'un éclair passer.",
+      "{actor} glisse sur le côté et traverse l'espace de {target} en une acrobatie effrontée.",
+      "{target} frappe dans le vide pendant que {actor} poursuit sa course dans son dos."
+    ],
+    "failure,criticalFailure": [
+      "{target} referme l'espace et {actor} doit stopper net sa course.",
+      "{actor} tente une roulade, mais {target} se décale et barre le passage.",
+      "La pirouette de {actor} s'arrête contre le corps de {target}, qui ne cède rien.",
+      "{target} lit le mouvement et bloque la route d'un pas.",
+      "{actor} cherche une ouverture qui se referme aussitôt.",
+      "{actor} s'élance, et {target} est exactement là où il ne fallait pas.",
+      "Le saut de {actor} est trop court : {target} lui coupe la route.",
+      "{target} écarte les bras et {actor} rebondit en arrière.",
+      "{actor} feinte, {target} ne mord pas : le passage reste fermé.",
+      "La roulade de {actor} s'achève face à la garde dressée de {target}.",
+      "{actor} doit renoncer au dernier moment : {target} occupe tout l'espace.",
+      "{target} accompagne le mouvement de {actor} et le passage se ferme net.",
+      "{actor} glisse, se rattrape, mais la route est barrée.",
+      "{actor} tente de se faufiler ; {target} se dresse en travers du chemin."
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+[
+  {
+    "key": "save.will",
+    "label": [
+      "Jets de sauvegarde",
+      "Volonté",
+      "Générique"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "L'esprit de {actor} se ferme comme une porte de forteresse.",
+        "{actor} sent une pression contre sa conscience et la balaie d'une pensée.",
+        "La volonté de {actor} ne fléchit pas un seul instant.",
+        "{actor} sourit, parfaitement maître de ses pensées.",
+        "L'effet se brise contre la détermination de {actor}.",
+        "{actor} reconnaît l'intrusion et la rejette avec mépris.",
+        "Pas une seconde de doute ne traverse le regard de {actor}.",
+        "{actor} s'ancre dans ses convictions, inébranlable.",
+        "La magie glisse sur l'esprit de {actor} sans y laisser la moindre trace.",
+        "{actor} reste lucide, le regard clair et posé."
+      ],
+      "success": [
+        "{actor} vacille un instant, puis se ressaisit.",
+        "Une ombre traverse l'esprit de {actor}, qui la chasse.",
+        "{actor} se concentre sur une pensée familière et tient bon.",
+        "La volonté de {actor} plie, mais ne rompt pas.",
+        "{actor} secoue la tête pour dissiper le trouble.",
+        "Un doute s'insinue, et {actor} le repousse.",
+        "{actor} serre les poings et reprend le contrôle.",
+        "Le regard de {actor} se trouble, puis redevient net.",
+        "{actor} murmure quelques mots pour garder pied.",
+        "{actor} résiste, au prix d'un effort intense."
+      ],
+      "failure": [
+        "L'esprit de {actor} vacille sous la pression.",
+        "{actor} sent sa volonté se dérober.",
+        "Un voile trouble l'esprit de {actor}.",
+        "{actor} lutte, mais les pensées lui échappent.",
+        "La détermination de {actor} se fissure.",
+        "{actor} cligne des yeux, l'air perdu un instant.",
+        "Quelque chose s'insinue dans l'esprit de {actor}, qui ne parvient pas à le chasser.",
+        "La résistance de {actor} cède sous l'assaut."
+      ],
+      "criticalFailure": [
+        "L'esprit de {actor} s'ouvre comme une fenêtre sous la tempête.",
+        "Toute la volonté de {actor} s'effondre d'un coup.",
+        "{actor} perd pied sous l'effet.",
+        "Le regard de {actor} se vide un instant.",
+        "{actor} n'oppose aucune résistance : l'effet s'empare de son esprit.",
+        "Les défenses mentales de {actor} volent en éclats.",
+        "{actor} sent son propre esprit lui échapper complètement.",
+        "Une vague irrésistible emporte la volonté de {actor}."
+      ]
+    }
+  },
+  {
+    "key": "save.will.fear",
+    "label": [
+      "Jets de sauvegarde",
+      "Volonté",
+      "Peur"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} sent la peur effleurer sa nuque et la toise avec dédain.",
+        "La terreur se brise sur le courage de {actor}.",
+        "{actor} regarde l'effroi en face, et c'est l'effroi qui détourne les yeux.",
+        "Pas un frisson : {actor} reste parfaitement calme.",
+        "{actor} rit doucement, et la peur s'évanouit.",
+        "Le cœur de {actor} bat lentement, régulièrement, imperturbable.",
+        "{actor} redresse les épaules ; la terreur n'a aucune prise.",
+        "L'effroi cherche une faille dans le courage de {actor}, sans en trouver."
+      ],
+      "success": [
+        "Un frisson glacé parcourt {actor}, qui le domine.",
+        "{actor} sent son cœur s'emballer, puis le calme revient.",
+        "La peur serre la gorge de {actor} un instant, puis relâche son étreinte.",
+        "{actor} prend une inspiration tremblante et garde contenance.",
+        "{actor} serre les dents contre la terreur et tient bon.",
+        "L'effroi frôle {actor}, qui refuse de céder.",
+        "Les mains de {actor} tremblent, mais son regard reste ferme.",
+        "{actor} repousse la panique d'un effort de volonté."
+      ],
+      "failure": [
+        "La peur s'insinue en {actor} et s'y installe.",
+        "{actor} sent son cœur cogner à tout rompre.",
+        "Un frisson d'effroi parcourt {actor}, qui ne parvient pas à le chasser.",
+        "Le regard de {actor} cherche instinctivement une issue.",
+        "La gorge de {actor} se serre sous l'emprise de la terreur.",
+        "{actor} blêmit, les mains tremblantes.",
+        "La peur gagne du terrain dans l'esprit de {actor}.",
+        "Une sueur froide perle au front de {actor}."
+      ],
+      "criticalFailure": [
+        "La terreur submerge {actor} comme une lame de fond.",
+        "{actor} sent la panique l'envahir sans partage.",
+        "Le cœur de {actor} s'emballe, incontrôlable.",
+        "Tout le courage de {actor} s'évapore d'un coup.",
+        "{actor} ne voit plus que la menace, immense et terrifiante.",
+        "Un cri d'effroi étranglé échappe à {actor}.",
+        "La peur frappe {actor} au plus profond de son être.",
+        "{actor} sent ses jambes trembler sous le poids de l'effroi."
+      ]
+    }
+  },
+  {
+    "key": "save.will.mental",
+    "label": [
+      "Jets de sauvegarde",
+      "Volonté",
+      "Mental"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Une voix étrangère murmure dans la tête de {actor}, qui la fait taire d'une pensée.",
+        "{actor} sent une présence frôler son esprit et lui claque la porte au nez.",
+        "L'intrusion mentale se heurte à un mur de certitudes.",
+        "{actor} identifie la manipulation et la démonte en un instant.",
+        "Les pensées de {actor} restent limpides, intouchables.",
+        "{actor} renvoie l'influence d'un simple froncement de sourcils.",
+        "L'esprit de {actor} est une forteresse, et ses murs tiennent.",
+        "{actor} reconnaît une pensée qui n'est pas la sienne et la chasse sans effort."
+      ],
+      "success": [
+        "{actor} sent ses pensées se brouiller, puis s'éclaircir.",
+        "Une suggestion insidieuse effleure {actor}, qui la repousse.",
+        "{actor} secoue la tête : quelque chose essayait d'entrer.",
+        "La pression sur l'esprit de {actor} se relâche après un dur combat intérieur.",
+        "{actor} se raccroche à un souvenir précis pour garder les idées claires.",
+        "Les pensées de {actor} vacillent, puis retrouvent leur cours.",
+        "{actor} repousse l'influence, non sans peine.",
+        "Un mal de tête fugace, et {actor} reprend le contrôle."
+      ],
+      "failure": [
+        "Une pensée étrangère prend racine dans l'esprit de {actor}.",
+        "{actor} sent ses idées glisser hors de son contrôle.",
+        "L'influence s'insinue dans l'esprit de {actor}.",
+        "Les pensées de {actor} s'emmêlent sous la pression.",
+        "{actor} lutte contre une voix intérieure qui n'est pas la sienne.",
+        "Le regard de {actor} se voile un instant.",
+        "{actor} sent sa propre volonté lui échapper.",
+        "Quelque chose se glisse entre {actor} et ses propres pensées."
+      ],
+      "criticalFailure": [
+        "L'esprit de {actor} s'ouvre grand à l'influence.",
+        "{actor} n'oppose aucune résistance : l'intrusion est totale.",
+        "Les pensées de {actor} se dissolvent sous la pression.",
+        "Une volonté étrangère balaie celle de {actor}.",
+        "{actor} cesse de distinguer ses propres pensées des autres.",
+        "Le regard de {actor} se vide, l'esprit submergé.",
+        "L'influence s'empare de {actor} sans le moindre combat.",
+        "{actor} sombre dans un brouillard mental épais."
+      ]
+    }
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "key": "skill.stealth.sneak",
+  "label": ["Skills", "Stealth", "Sneak"],
+  "outcomes": {
+    "success,criticalSuccess": [
+      "{actor} advances step by step, weight on the toes, without a sound.",
+      "From shadow to shadow, {actor} moves like a ghost.",
+      "{actor} slides along the wall, in tune with every background noise.",
+      "Not a creak, not a rustle: {actor} moves in total silence.",
+      "{actor} matches each step to the surrounding sounds and escapes all notice.",
+      "The floor seems to fall silent under the feet of {actor}.",
+      "{actor} slips between glances like between raindrops.",
+      "Slowly, patiently, {actor} changes position without drawing attention.",
+      "{actor} waits for eyes to turn away, then darts to the next cover.",
+      "A shadow shifts in the gloom, and nobody notices it.",
+      "{actor} steps over a creaky board with infinite care.",
+      "With the silence of a cat, {actor} reaches the new position."
+    ],
+    "failure": [
+      "A board creaks under the foot of {actor}; nobody knows where, but everyone knows someone is there.",
+      "{actor} brushes an object that sways for a moment, betraying a passage.",
+      "A rustle of fabric draws attention toward {actor}.",
+      "{actor} moves without being seen, but not without being heard.",
+      "A pebble rolls under the boot of {actor}; heads turn, seeing nothing.",
+      "The breathing of {actor} quickens, just enough to betray a presence.",
+      "{actor} stays in the shadows, but a light footfall gives away the approach.",
+      "A shadow moves, a sound follows: someone is prowling, that much is certain.",
+      "{actor} advances, and the silence breaks with a tiny clink.",
+      "The crunch of the ground follows {actor} like a trail."
+    ],
+    "criticalFailure": [
+      "{actor} stumbles into full light, in front of everyone.",
+      "A crash rings out: {actor} has just bumped into everything that could be bumped into.",
+      "{actor} steps out of the shadows at the worst moment, face to face with an attentive gaze.",
+      "The foot of {actor} slips, and all stealth flies away with the noise.",
+      "{actor} advances thinking themselves invisible; every eye follows the progress.",
+      "A sneeze, at the worst possible moment. The presence of {actor} is no longer in doubt.",
+      "{actor} picks precisely the most exposed path.",
+      "The silhouette of {actor} stands out sharply against the light.",
+      "{actor} knocks something over, and it bounces loudly across the floor.",
+      "A gaze fixes on {actor} and does not let go."
+    ]
+  }
+}

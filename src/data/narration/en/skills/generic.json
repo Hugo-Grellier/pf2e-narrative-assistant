@@ -1,0 +1,54 @@
+{
+  "key": "skill",
+  "label": ["Skills", "Any action"],
+  "outcomes": {
+    "criticalSuccess": [
+      "{actor} acts with a mastery that commands admiration.",
+      "Every move from {actor} lands just right, as if rehearsed a thousand times.",
+      "{actor} makes it look disconcertingly easy.",
+      "With a half smile, {actor} succeeds beyond all hope.",
+      "Experience speaks: the result from {actor} is remarkable.",
+      "{actor} finds the perfect solution before the problem is even posed.",
+      "It all goes even better than {actor} had imagined.",
+      "{actor} handles it with an ease that leaves onlookers speechless.",
+      "A moment of focus, then {actor} succeeds brilliantly.",
+      "{actor} seems to have anticipated every difficulty."
+    ],
+    "success": [
+      "{actor} goes about it methodically and gets what was needed.",
+      "Without flash but with confidence, {actor} gets it done.",
+      "{actor} focuses, adjusts, and succeeds.",
+      "The motion is sure; {actor} gets the desired result.",
+      "{actor} sees the matter through.",
+      "After a brief moment of hesitation, {actor} finds the right approach.",
+      "{actor} sticks to proven methods, and that is enough.",
+      "The know-how of {actor} makes the difference.",
+      "{actor} succeeds, though not without effort.",
+      "Things go just as {actor} planned."
+    ],
+    "failure": [
+      "{actor} applies themselves, but things refuse to bend.",
+      "The attempt from {actor} has no effect.",
+      "{actor} looks for the right approach without finding it.",
+      "Despite their efforts, {actor} does not get the hoped-for result.",
+      "{actor} is missing some small something to succeed.",
+      "{actor} has to face facts: not this time.",
+      "A detail escapes {actor}, and everything jams.",
+      "{actor} puts heart into it, to no avail.",
+      "The situation resists the efforts of {actor}.",
+      "{actor} frowns: nothing goes as planned."
+    ],
+    "criticalFailure": [
+      "{actor} gets completely tangled up and loses control of the situation.",
+      "Everything that could go wrong for {actor} does.",
+      "{actor} makes a glaring mistake, the kind regretted immediately.",
+      "The attempt from {actor} turns into a fiasco.",
+      "{actor} gets it wrong from start to finish.",
+      "The effort from {actor} produces exactly the opposite of what was intended.",
+      "{actor} loses composure at the worst possible moment.",
+      "One misstep, then another: {actor} sinks deeper into failure.",
+      "{actor} handles it so badly that it is best not to speak of it.",
+      "Onlookers politely look away from the fumbling of {actor}."
+    ]
+  }
+}

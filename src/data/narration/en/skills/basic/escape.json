@@ -1,0 +1,62 @@
+{
+  "key": "skill.escape",
+  "label": ["Skills", "Basic actions", "Escape"],
+  "outcomes": {
+    "criticalSuccess": [
+      "{actor} twists, slides and bursts out of the hold as if it never existed.",
+      "With a perfect twist, {actor} breaks free and immediately steps lightly away.",
+      "{actor} turns the pressure back on itself and the hold springs open.",
+      "An elbow, a turn of the hips, and {actor} is free, already moving.",
+      "{actor} waits for the exact instant the hold loosens, then slips out effortlessly.",
+      "Whatever held {actor} gives way all at once; freedom tastes wonderful.",
+      "{actor} goes supple as an eel and slides out of reach.",
+      "The hold hangs by a thread, and {actor} cuts it with a clean motion before stepping back.",
+      "{actor} breaks loose with almost insolent ease.",
+      "In a heartbeat, {actor} goes from captive to free and takes a step clear.",
+      "{actor} shifts weight, pivots, and the restraint slides away.",
+      "A sudden burst of strength: {actor} breaks free and steps away."
+    ],
+    "success": [
+      "{actor} wriggles and finally breaks free.",
+      "With a heave of the hips, {actor} escapes the hold.",
+      "{actor} forces an opening and slips out of the grip.",
+      "The fingers holding {actor} slide off, and there it is: freedom.",
+      "{actor} breaks loose at the cost of an intense effort.",
+      "A twist of the wrist, a roll of the shoulder, and {actor} is free.",
+      "{actor} finds the flaw in the hold and slips through it.",
+      "{actor} pulls, pushes, twists: the restraint finally gives.",
+      "After a tight struggle, {actor} breaks free.",
+      "{actor} exploits a tiny slackening to escape.",
+      "{actor} slides out of the hold, panting.",
+      "The bonds loosen just enough for {actor} to wriggle out."
+    ],
+    "failure": [
+      "{actor} struggles, but the hold does not give.",
+      "{actor} twists every which way without breaking free.",
+      "The grip tightens with every movement from {actor}.",
+      "{actor} strains, in vain: the hold stays firm.",
+      "One twist, then another: nothing works.",
+      "{actor} looks for a flaw in the hold, without finding one.",
+      "The hold slackens for a second, then clamps shut again.",
+      "{actor} wins a few inches of freedom, immediately lost.",
+      "{actor} grits their teeth and pulls; the restraint does not budge.",
+      "The struggle drags on without {actor} making progress.",
+      "{actor} tries to slide out of the hold, which leaves no slack.",
+      "Despite every effort from {actor}, the hold remains."
+    ],
+    "criticalFailure": [
+      "{actor} exhausts themselves in a disorderly struggle and must catch their breath before trying again.",
+      "Every movement from {actor} only tightens the hold; better to wait for a better chance.",
+      "{actor} thrashes so clumsily that any new attempt seems pointless for now.",
+      "The hold tightens a notch, and {actor} understands that insisting now would be useless.",
+      "{actor} wastes all their strength on a misdirected effort.",
+      "{actor} tries an abrupt move that only makes things worse: the hold becomes a vise.",
+      "A muddled struggle leaves {actor} panting and still in the same hold.",
+      "{actor} pulls the wrong way and only gets more tangled.",
+      "The attempt from {actor} is so badly begun that catching their breath is the wiser course.",
+      "{actor} strains against the restraint and gets nothing but frustration.",
+      "All the strength of {actor} wears itself out against a hold that does not give an inch.",
+      "{actor} thrashes, slips, and ends up in an even worse position."
+    ]
+  }
+}

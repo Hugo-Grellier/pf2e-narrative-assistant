@@ -1,0 +1,65 @@
+{
+  "key": "skill.athletics.trip",
+  "label": ["Skills", "Athletics", "Trip"],
+  "outcomes": {
+    "criticalSuccess": [
+      "{attacker} sweeps the legs of {target} with a perfect arc; the fall is heavy and loud.",
+      "A hooked foot, a shove of the shoulder, and {target} crashes down full length.",
+      "{attacker} catches the ankle of {target} mid-step: the landing thuds across the floor.",
+      "{target} practically takes flight before slamming down, breathless.",
+      "{attacker} hooks the standing leg and yanks; {target} hits the ground hard.",
+      "The sweep is so clean that {target} seems to fall in slow motion, then all at once.",
+      "{attacker} drops low, sweeps, and {target} goes head over heels.",
+      "A circular leg sweep, and {target} topples backward to land with a jolt.",
+      "{target} has no time to catch themselves: the fall is as short as it is painful.",
+      "{attacker} turns the momentum of {target} against them and sends them tumbling like a rag doll.",
+      "A sharp hook behind the knee, a push, and {target} collapses with a dull thud.",
+      "{attacker} sweeps so fast that {target} hits the floor before understanding what happened.",
+      "{target} goes over backward and the impact knocks out a stifled cry."
+    ],
+    "success": [
+      "{attacker} slips a foot behind the ankle of {target} and pushes: down they go.",
+      "A low sweep, and {target} topples to the ground.",
+      "{attacker} hooks the leg of {target}, who loses balance and falls.",
+      "{target} stumbles over the outstretched foot of {attacker} and ends up prone.",
+      "A well-placed shoulder check from {attacker} unbalances {target}, who falls.",
+      "{attacker} sweeps the footing out from under {target}; the fall is inevitable.",
+      "{target} windmills for a moment, then sprawls.",
+      "A sidestep, a quiet hook of the foot, and {target} bites the dust.",
+      "{attacker} hooks the standing leg at the right moment: {target} goes down.",
+      "{target} loses their footing under the push from {attacker} and lands on the ground.",
+      "{attacker} pulls the leg of {target} and gravity does the rest.",
+      "{target} wobbles, tries to recover, but ends up flat.",
+      "A quick sweep: {target} crumples in a cloud of dust.",
+      "{attacker} crouches, hooks, rises: {target} is down."
+    ],
+    "failure": [
+      "{target} feels the sweep coming and lifts a foot in time.",
+      "{attacker} hooks, but {target} stays firmly planted.",
+      "The trip meets a leg as solid as a tree trunk.",
+      "{target} wobbles for a moment, then finds their balance again.",
+      "{attacker} sweeps too high and {target} steps over it.",
+      "{target} shifts weight at the right moment and the attempt fails.",
+      "The leg of {attacker} sweeps air where {target} stood.",
+      "{target} absorbs the push without flinching.",
+      "{attacker} goes for the footing of {target} and does not find it.",
+      "{target} takes a step back and the sweep passes through empty space.",
+      "The hook slides off the boot of {target}, harmless.",
+      "{target} braces, and the trip fails against a well-rooted leg."
+    ],
+    "criticalFailure": [
+      "{attacker} sweeps with too much momentum, loses balance and falls instead of {target}.",
+      "The trip misses, and it is {attacker} who ends up prone, carried by their own motion.",
+      "{target} dodges the sweep; {attacker} spins on nothing and sprawls.",
+      "{attacker} catches their own leg and drops heavily.",
+      "{target} steps back, and {attacker} dives into empty space and crashes to the ground.",
+      "The attempt turns into a disaster: {attacker} slips and falls in front of {target}.",
+      "{attacker} throws themselves at the legs of {target}, finds nothing, and bites the dust.",
+      "An overambitious sweep sends {attacker} to the ground under the gaze of {target}.",
+      "{target} blocks the leg of {attacker} and the balance tips the wrong way: {attacker} falls.",
+      "{attacker} pivots badly, their footing gives out, and down they go.",
+      "{attacker} tangles their own feet mid-motion and ends up on the ground.",
+      "{target} does not even need to move: {attacker} loses balance unaided and collapses."
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "PF2E_NA": {
+    "Title": "Inspiration",
+    "Reroll": "Another suggestion",
+    "Publish": "Send to chat",
+    "Event": {
+      "strike": "Strike",
+      "recovery": "Recovery check",
+      "spell": "Spell",
+      "other": "Roll"
+    },
+    "Settings": {
+      "enabled": {
+        "Name": "Enable Narrative Assistant",
+        "Hint": "Suggests a description after supported PF2e rolls."
+      },
+      "output": {
+        "whisper": "GM whisper",
+        "public": "Public chat",
+        "notification": "UI notification (GM)",
+        "Name": "Output",
+        "Hint": "Where suggestions go. A suggestion about a secret roll is always whispered to the GM."
+      },
+      "source": {
+        "module": "Module tables",
+        "world": "World tables (else module)",
+        "Name": "Narrative source",
+        "Hint": "Module tables, or world tables carrying the same key (import a table from the compendium to customise it)."
+      },
+      "frequency": {
+        "all": "Every supported roll",
+        "successes": "Success/Critical Success only",
+        "criticals": "Critical results only",
+        "Name": "Narration frequency",
+        "Hint": "Limit suggestions to avoid chat spam."
+      },
+      "event": {
+        "strike": {
+          "Name": "Events: Strikes",
+          "Hint": ""
+        },
+        "skill": {
+          "Name": "Events: skill actions",
+          "Hint": ""
+        },
+        "save": {
+          "Name": "Events: saving throws",
+          "Hint": ""
+        },
+        "recovery": {
+          "Name": "Events: recovery checks",
+          "Hint": ""
+        },
+        "other": {
+          "Name": "Events: other (spells, misc rolls)",
+          "Hint": "Generic narration only."
+        }
+      },
+      "degree": {
+        "criticalSuccess": {
+          "Name": "Outcome: critical success",
+          "Hint": ""
+        },
+        "success": {
+          "Name": "Outcome: success",
+          "Hint": ""
+        },
+        "failure": {
+          "Name": "Outcome: failure",
+          "Hint": ""
+        },
+        "criticalFailure": {
+          "Name": "Outcome: critical failure",
+          "Hint": ""
+        }
+      },
+      "disabledActions": {
+        "Name": "Disabled actions",
+        "Hint": "Comma-separated PF2e action slugs, e.g.: seek, hide, sneak, recall-knowledge."
+      },
+      "language": {
+        "Name": "Narration language",
+        "Hint": "Language of the descriptions, independent of the UI. Falls back to English when no corpus exists for that language.",
+        "auto": "Interface language"
+      }
+    }
+  }
+}

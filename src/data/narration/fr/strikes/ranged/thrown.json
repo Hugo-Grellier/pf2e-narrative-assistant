@@ -1,0 +1,70 @@
+{
+  "key": "strike.ranged.thrown",
+  "label": [
+    "Frappes",
+    "Distance",
+    "Arme de jet"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "{attacker} lance d'un geste du poignet ; l'arme tournoie et frappe {target} de plein fouet sur {bodyPart}.",
+      "L'arme fend l'air en tourbillonnant et percute {target} exactement là où sa garde s'ouvre.",
+      "{attacker} arme son bras, attend un battement, puis lâche : le jet est parfait.",
+      "L'arme lancée file à plat, sans un tremblement, et frappe {target} au cœur de sa défense.",
+      "Un sifflement tournoyant, puis un impact net sur {bodyPart}.",
+      "{attacker} lance sans même se retourner, et l'arme trouve {target} comme guidée par une main invisible.",
+      "Le jet traverse la mêlée et s'abat sur {target} avec une force inattendue.",
+      "{attacker} vise {bodyPart} et y envoie son arme avec une netteté stupéfiante.",
+      "L'arme fait trois tours dans l'air et frappe {target} exactement par le bon bout.",
+      "Le lancer part tendu comme un trait et percute {target} avant toute réaction.",
+      "{attacker} lance en pleine course ; l'arme file droit et s'abat sur {target}.",
+      "Le jet arrive de biais, sous un angle que {target} ne surveillait pas.",
+      "{attacker} lance de toutes ses forces, et l'impact résonne jusqu'au fond de la salle.",
+      "L'arme tournoie, accroche la lumière, puis frappe {target} de plein fouet.",
+      "Un lancer sec et parfait : {target} encaisse le choc sur {bodyPart}."
+    ],
+    "success": [
+      "L'arme lancée par {attacker} atteint {target} sur {bodyPart}.",
+      "Le jet tournoie et frappe {target}.",
+      "{attacker} lance d'un geste vif et l'arme fait mouche.",
+      "L'arme fend l'air et touche {target}, qui grimace.",
+      "{target} tente d'écarter le projectile, trop tard.",
+      "Le lancer de {attacker} trouve sa cible au milieu du combat.",
+      "L'arme heurte {target} sur {bodyPart} avant de retomber.",
+      "{attacker} lance en pivotant ; le jet atteint {target}.",
+      "L'arme lancée accroche {target} au passage.",
+      "Un lancer court et sec, qui touche.",
+      "{attacker} jauge la distance d'un regard et lance : l'arme frappe juste.",
+      "L'arme tournoie une fois, deux fois, et percute {target}.",
+      "Le jet surprend {target} en plein mouvement.",
+      "{attacker} lance par-dessus la mêlée et l'arme retombe sur {target}.",
+      "L'arme frappe {target} sur {bodyPart} dans un bruit sec."
+    ],
+    "failure": [
+      "L'arme lancée passe à côté de {target} en tournoyant.",
+      "{target} se décale et le jet file plus loin.",
+      "Le lancer de {attacker} frappe le décor derrière {target}.",
+      "L'arme arrive du mauvais côté et rebondit sur {target} sans mordre.",
+      "{target} esquive le projectile d'un mouvement d'épaule.",
+      "Le jet tombe un peu court, aux pieds de {target}.",
+      "L'arme tournoie au-dessus de la tête de {target}.",
+      "{attacker} lance au moment où {target} change d'appui.",
+      "Le projectile ricoche sur la garde de {target}.",
+      "{target} voit venir le jet et le laisse passer.",
+      "Le lancer est bien parti, mais {target} n'est plus là.",
+      "L'arme frôle {target} et poursuit sa course."
+    ],
+    "criticalFailure": [
+      "L'arme échappe à {attacker} au mauvais moment et part complètement de travers.",
+      "{attacker} lance trop tôt ; l'arme s'écrase loin de toute cible.",
+      "Le jet tournoie si mal que personne ne sait vraiment qui était visé.",
+      "{attacker} arme son bras avec énergie et le lancer part mollement de côté.",
+      "L'arme frappe un obstacle tout proche et retombe avec un bruit piteux.",
+      "Le lancer est si large que {target} ne prend même pas la peine de bouger.",
+      "{attacker} lance en déséquilibre et l'arme se perd dans le vide.",
+      "L'arme part en vrille et termine sa course dans un recoin inaccessible du regard.",
+      "{attacker} hésite à la dernière seconde, et le jet perd toute sa force.",
+      "Le projectile file haut, bien trop haut, au-dessus du combat."
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+.pf2e-na-card header { font-weight: bold; font-size: var(--font-size-12, 12px); opacity: 0.8; margin-bottom: 0.25rem; }
+.pf2e-na-card .pf2e-na-text { font-style: italic; margin: 0.25rem 0; }
+.pf2e-na-card .pf2e-na-actions { display: flex; gap: 0.25rem; }
+.pf2e-na-card .pf2e-na-actions button { flex: 1; line-height: 1.5; font-size: var(--font-size-12, 12px); }
+.pf2e-na-public .pf2e-na-text { font-size: var(--font-size-14, 14px); }

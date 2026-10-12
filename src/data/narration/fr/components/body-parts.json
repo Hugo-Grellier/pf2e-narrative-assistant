@@ -1,0 +1,66 @@
+[
+  {
+    "key": "component.body-part.generic",
+    "label": [
+      "Composants",
+      "Partie du corps",
+      "Générique"
+    ],
+    "entries": [
+      "le flanc",
+      "l'épaule",
+      "le dos",
+      "le cou",
+      "la tête",
+      "le torse",
+      "une patte",
+      "un membre",
+      "le côté",
+      "la poitrine"
+    ]
+  },
+  {
+    "key": "component.body-part.humanoid",
+    "label": [
+      "Composants",
+      "Partie du corps",
+      "Humanoïde"
+    ],
+    "entries": [
+      "l'épaule",
+      "le flanc",
+      "l'avant-bras",
+      "la cuisse",
+      "la hanche",
+      "le torse",
+      "les côtes",
+      "la clavicule",
+      "le haut du bras",
+      "le mollet",
+      "la joue",
+      "le poignet",
+      "la nuque",
+      "le bas du dos",
+      "le genou"
+    ]
+  },
+  {
+    "key": "component.body-part.beast",
+    "label": [
+      "Composants",
+      "Partie du corps",
+      "Bête"
+    ],
+    "entries": [
+      "le flanc",
+      "le garrot",
+      "l'encolure",
+      "le poitrail",
+      "une patte avant",
+      "l'arrière-train",
+      "le museau",
+      "l'échine",
+      "l'épaule"
+    ]
+  }
+]

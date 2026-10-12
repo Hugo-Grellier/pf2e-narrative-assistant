@@ -1,0 +1,53 @@
+{
+  "key": "skill.recall-knowledge",
+  "label": [
+    "Compétences",
+    "Se souvenir"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "Consigne MJ : donnez l'information comme une évidence, puis ajoutez un détail précis que {actor} est seul à remarquer.",
+      "Consigne MJ : présentez la réponse comme un souvenir d'une netteté parfaite, avec la page, le maître ou le lieu où {actor} l'a apprise.",
+      "Consigne MJ : décrivez un détail anatomique ou comportemental qui confirme l'information, comme si {actor} le voyait se vérifier sous ses yeux.",
+      "Consigne MJ : laissez {actor} formuler la conclusion à voix haute, puis confirmez-la avec un détail supplémentaire tiré du bloc de statistiques.",
+      "Consigne MJ : racontez l'information comme une anecdote vécue ou entendue, assez vivante pour que les autres joueurs s'en souviennent.",
+      "Consigne MJ : reliez l'information à un indice déjà visible dans la scène, que {actor} comprend soudain.",
+      "Consigne MJ : offrez l'information principale, puis une piste tactique concrète qui en découle, sans révéler de chiffre exact.",
+      "Consigne MJ : décrivez comment {actor} reconnaît immédiatement la créature ou le sujet, avant même d'avoir fini de l'observer.",
+      "Consigne MJ : présentez la réponse sous forme de citation d'un traité, d'un chant ou d'un dicton que {actor} connaît par cœur.",
+      "Consigne MJ : donnez l'information avec assurance, et faites sentir à quel point cette connaissance tombe à point nommé."
+    ],
+    "success": [
+      "Consigne MJ : présentez l'information comme quelque chose que {actor} a déjà lu, étudié ou observé.",
+      "Consigne MJ : décrivez un détail anatomique ou comportemental qui laisse deviner une capacité importante.",
+      "Consigne MJ : donnez l'information sous forme d'un souvenir un peu flou mais fiable, qui revient progressivement.",
+      "Consigne MJ : rattachez la réponse à une rumeur, une légende ou un récit de voyageur que {actor} a entendu.",
+      "Consigne MJ : laissez {actor} remarquer un indice dans la scène qui confirme ce qui lui revient en mémoire.",
+      "Consigne MJ : donnez l'information principale sans détour, en une ou deux phrases, puis passez à la suite.",
+      "Consigne MJ : présentez la réponse comme une déduction logique de {actor} à partir de ce qui est visible.",
+      "Consigne MJ : évoquez le maître, le livre ou l'expérience passée qui permet à {actor} de savoir cela.",
+      "Consigne MJ : décrivez la connaissance comme un réflexe de spécialiste, sans dramatiser.",
+      "Consigne MJ : formulez l'information comme un conseil pratique que {actor} pourrait souffler à ses alliés."
+    ],
+    "failure": [
+      "Consigne MJ : {actor} ne se souvient de rien d'utile ; décrivez une impression vague, sans fausse information.",
+      "Consigne MJ : laissez {actor} hésiter entre plusieurs souvenirs, sans en confirmer aucun.",
+      "Consigne MJ : le sujet semble familier à {actor}, mais le souvenir se dérobe. N'ajoutez aucun détail.",
+      "Consigne MJ : décrivez la frustration de {actor}, qui a l'information sur le bout de la langue.",
+      "Consigne MJ : {actor} reconnaît seulement ce que tout le monde voit déjà ; rien de plus.",
+      "Consigne MJ : indiquez que {actor} n'a jamais rien lu ni entendu de fiable sur ce sujet.",
+      "Consigne MJ : décrivez un souvenir trop lointain ou trop confus pour être exploitable.",
+      "Consigne MJ : laissez planer le doute, sans orienter les joueurs dans une direction ou une autre."
+    ],
+    "criticalFailure": [
+      "Consigne MJ : selon les règles, un échec critique peut donner une information erronée. Présentez-la avec la même assurance qu'une vraie.",
+      "Consigne MJ : si vous fournissez une fausse information, rattachez-la à une source crédible pour {actor} : rumeur, livre douteux, conte populaire.",
+      "Consigne MJ : {actor} en a la certitude. Choisissez une erreur plausible et présentez-la sans signal d'alerte.",
+      "Consigne MJ : mélangez cette créature ou ce sujet avec un autre proche dans le souvenir de {actor}, de façon crédible.",
+      "Consigne MJ : rendez la réponse aussi convaincante qu'une réussite : la table ne doit pas pouvoir deviner l'erreur.",
+      "Consigne MJ : évitez les erreurs qui mettraient le groupe en danger de façon disproportionnée ; préférez une méprise tactique mineure.",
+      "Consigne MJ : laissez {actor} affirmer quelque chose de faux mais cohérent avec ce que les joueurs voient.",
+      "Consigne MJ : décrivez un souvenir vif et précis… qui se trouve être faux."
+    ]
+  }
+}

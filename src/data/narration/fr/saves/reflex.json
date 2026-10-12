@@ -1,0 +1,260 @@
+[
+  {
+    "key": "save.reflex",
+    "label": [
+      "Jets de sauvegarde",
+      "Réflexes",
+      "Générique"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} bondit hors de la zone avant même que le danger ne se déclenche.",
+        "Un réflexe fulgurant : {actor} est déjà ailleurs quand l'effet frappe.",
+        "{actor} plonge, roule et se relève à l'abri, comme à l'entraînement.",
+        "Le danger balaie l'endroit où {actor} se tenait un instant plus tôt.",
+        "{actor} pivote d'un mouvement souple et laisse l'effet passer sans s'y attarder.",
+        "D'un saut de côté parfaitement calculé, {actor} échappe au plus gros.",
+        "{actor} sent venir le danger et se met hors d'atteinte en un éclair.",
+        "Pas un mouvement de trop : {actor} se glisse exactement là où il fallait.",
+        "{actor} se ramasse sur soi-même et laisse tout passer au-dessus.",
+        "L'instinct de {actor} parle avant sa raison, et c'est tant mieux."
+      ],
+      "success": [
+        "{actor} se jette de côté et évite le plus gros.",
+        "Un plongeon in extremis permet à {actor} de limiter les dégâts.",
+        "{actor} se protège le visage et esquive à moitié.",
+        "{actor} s'écarte d'un bond, pas assez pour tout éviter.",
+        "Un réflexe salvateur : {actor} échappe au cœur de l'effet.",
+        "{actor} roule sur le côté et se relève d'un bond.",
+        "{actor} se baisse au dernier moment ; l'effet ne fait que l'effleurer.",
+        "{actor} se tord pour sortir de la trajectoire, avec un certain succès.",
+        "{actor} trouve un abri précaire juste à temps.",
+        "Un pas de côté instinctif sauve {actor} du pire."
+      ],
+      "failure": [
+        "{actor} tente de s'écarter, trop tard.",
+        "L'effet rattrape {actor} en plein mouvement.",
+        "{actor} se jette de côté, mais l'effet est plus rapide.",
+        "Pris de court, {actor} n'a pas le temps de réagir.",
+        "{actor} bondit, et l'effet frappe avant la fin du saut.",
+        "{actor} lève les bras pour se protéger, sans grand résultat.",
+        "Le danger frappe {actor} de plein fouet.",
+        "{actor} hésite une fraction de seconde de trop.",
+        "{actor} cherche une échappatoire qui n'existe pas.",
+        "L'esquive de {actor} part dans la mauvaise direction."
+      ],
+      "criticalFailure": [
+        "{actor} se jette exactement là où frappe l'effet.",
+        "La surprise fige {actor}, qui encaisse tout de plein fouet.",
+        "{actor} glisse en voulant esquiver et se retrouve au cœur du danger.",
+        "Tout se passe trop vite : {actor} n'esquisse même pas un geste.",
+        "{actor} trébuche au pire moment et se retrouve en plein dans l'effet.",
+        "{actor} recule droit dans la trajectoire du danger.",
+        "Les réflexes de {actor} font défaut : chaque mouvement aggrave les choses.",
+        "{actor} se retourne pour voir, et c'est la dernière chose à faire.",
+        "L'effet frappe {actor} au moment précis où sa garde est la plus basse.",
+        "{actor} n'a aucune chance : le danger s'abat de toutes parts."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.fire",
+    "label": [
+      "Jets de sauvegarde",
+      "Réflexes",
+      "Feu"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} plonge derrière un abri tandis que les flammes rugissent au-dessus.",
+        "La vague de feu déferle, mais {actor} a déjà roulé hors de sa portée.",
+        "{actor} bondit à travers la fumée et ressort de l'autre côté, effleuré par la seule chaleur.",
+        "Les flammes lèchent l'endroit où {actor} se trouvait une seconde plus tôt.",
+        "{actor} se baisse d'un coup ; le souffle brûlant passe au-dessus de sa tête.",
+        "Un saut de côté parfait : la chaleur effleure {actor} sans trouver de prise.",
+        "{actor} se met à l'abri derrière un pan de mur juste avant l'embrasement.",
+        "Le brasier gronde tout autour, mais {actor} se faufile dans la seule zone épargnée."
+      ],
+      "success": [
+        "{actor} se protège le visage tandis que la chaleur l'enveloppe brièvement.",
+        "Un plongeon évite à {actor} le cœur du brasier, pas la morsure de la chaleur.",
+        "{actor} se rejette en arrière, les vêtements fumants.",
+        "Les flammes frôlent {actor}, qui sent ses cheveux grésiller.",
+        "{actor} s'écarte, mais une langue de feu suit son mouvement un instant.",
+        "{actor} tourne le dos à l'explosion de flammes et serre les dents.",
+        "La chaleur assaille {actor}, qui parvient à sortir du plus gros.",
+        "{actor} se jette en arrière, l'air brûlant dans la gorge."
+      ],
+      "failure": [
+        "Les flammes engloutissent {actor} dans un rugissement.",
+        "{actor} tente de fuir le brasier, qui l'engloutit.",
+        "Une vague de chaleur frappe {actor} de plein fouet.",
+        "Le feu enveloppe {actor}, qui étouffe un cri.",
+        "{actor} lève un bras pour se protéger ; la chaleur passe outre.",
+        "La morsure des flammes saisit {actor} en plein mouvement.",
+        "{actor} se retrouve au milieu d'un tourbillon de feu et de cendres.",
+        "L'odeur de tissu roussi monte autour de {actor}."
+      ],
+      "criticalFailure": [
+        "{actor} se retrouve au cœur même de l'embrasement.",
+        "Les flammes déferlent sur {actor} sans laisser la moindre échappatoire.",
+        "{actor} trébuche en plein brasier et le feu rugit autour de sa silhouette.",
+        "Une colonne de feu s'abat sur {actor}, qui n'a pas esquissé un geste.",
+        "{actor} disparaît un instant dans un tourbillon de flammes.",
+        "Le feu trouve {actor}, comme guidé par une volonté propre.",
+        "{actor} est pris dans la pire bourrasque de flammes, celle qui ne pardonne pas.",
+        "Une chaleur insoutenable submerge {actor} de toutes parts."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.cold",
+    "label": [
+      "Jets de sauvegarde",
+      "Réflexes",
+      "Froid"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} bondit hors de la bourrasque glacée avant qu'elle ne se referme.",
+        "Le givre se répand partout, sauf là où {actor} vient d'atterrir.",
+        "{actor} roule à l'abri ; les éclats de glace se fichent dans le sol derrière.",
+        "Un souffle polaire balaie la zone, mais {actor} est déjà hors d'atteinte.",
+        "{actor} esquive la vague de froid avec une aisance déconcertante.",
+        "La gelée blanche cristallise l'air, et {actor} se faufile à travers sans y laisser de plume.",
+        "{actor} se courbe d'un coup ; la bise mordante passe au-dessus de son dos.",
+        "Les cristaux de glace sifflent autour de {actor}, sans jamais l'atteindre."
+      ],
+      "success": [
+        "{actor} se détourne, et le froid ne lui mord que le flanc.",
+        "Le givre saisit le bord du manteau de {actor}, qui s'écarte à temps.",
+        "{actor} plonge, mais l'air glacé lui coupe le souffle.",
+        "Une pellicule de givre se forme sur l'équipement de {actor}, qui évite le pire.",
+        "{actor} s'écarte de la bourrasque, les doigts engourdis.",
+        "Les éclats de glace égratignent {actor}, qui s'est mis à l'abri juste à temps.",
+        "{actor} se recroqueville et laisse passer le plus gros du froid.",
+        "Le froid effleure {actor} d'une caresse mordante."
+      ],
+      "failure": [
+        "Le froid s'abat sur {actor} et lui glace les os.",
+        "{actor} tente de fuir la bourrasque, qui l'enveloppe.",
+        "Une morsure glaciale saisit {actor} de la tête aux pieds.",
+        "Le givre recouvre {actor} en un instant.",
+        "{actor} sent le froid s'insinuer sous chaque couche de vêtement.",
+        "L'haleine de {actor} se fige en buée tandis que le froid submerge tout.",
+        "Des éclats de glace frappent {actor} en pleine course.",
+        "{actor} serre les dents sous l'assaut d'un froid mordant."
+      ],
+      "criticalFailure": [
+        "La tempête glacée engloutit {actor} en son cœur.",
+        "Le froid frappe {actor} si fort que son souffle se fige dans sa gorge.",
+        "{actor} glisse sur le givre et se retrouve en plein dans la bourrasque.",
+        "Une gangue de givre se referme sur {actor} en un battement de cœur.",
+        "Le froid s'engouffre partout, et {actor} n'a nulle part où se cacher.",
+        "{actor} encaisse la pleine puissance du souffle glacé.",
+        "Les éclats de glace convergent vers {actor} comme attirés par sa chaleur.",
+        "{actor} se fige de surprise, et le froid ne lui laisse aucune chance."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.electricity",
+    "label": [
+      "Jets de sauvegarde",
+      "Réflexes",
+      "Électricité"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} se jette de côté ; l'éclair frappe le sol dans un claquement assourdissant.",
+        "La foudre crépite partout, mais jamais là où se trouve {actor}.",
+        "{actor} anticipe l'arc électrique et s'en écarte d'un bond.",
+        "Une odeur d'orage emplit l'air, et {actor} est déjà hors de portée.",
+        "{actor} plonge à l'abri tandis que les arcs bleutés dansent au-dessus.",
+        "L'éclair cherche {actor}, qui ne lui offre aucune prise.",
+        "{actor} pivote sur place et la décharge passe en grésillant.",
+        "Un éclair intense illumine la scène ; quand la lumière retombe, {actor} est à l'écart, hors de danger."
+      ],
+      "success": [
+        "{actor} s'écarte, mais un arc électrique lui fait dresser les cheveux sur la tête.",
+        "La décharge frôle {actor}, qui sent ses muscles se crisper un instant.",
+        "{actor} évite le cœur de l'éclair, pas les crépitements qui l'entourent.",
+        "Un picotement parcourt la peau de {actor}, qui a esquivé le plus gros.",
+        "{actor} se baisse et la foudre ne fait que l'effleurer.",
+        "Les étincelles mordent {actor}, qui a bondi de côté à temps.",
+        "{actor} sent l'odeur de l'ozone en se mettant hors de la trajectoire principale.",
+        "{actor} serre les dents tandis qu'une partie de la décharge parcourt son corps."
+      ],
+      "failure": [
+        "L'éclair frappe {actor} dans un claquement sec.",
+        "La décharge traverse {actor} de part en part.",
+        "{actor} tente d'esquiver, mais la foudre est plus rapide.",
+        "Un arc électrique saute sur {actor} et secoue tout son corps.",
+        "Les muscles de {actor} se tétanisent un instant sous la décharge.",
+        "{actor} est pris dans un réseau d'arcs crépitants.",
+        "La foudre trouve le métal de l'équipement de {actor} et le suit.",
+        "Un éclair blanc enveloppe {actor}."
+      ],
+      "criticalFailure": [
+        "La foudre s'abat sur {actor} avec une violence inouïe.",
+        "{actor} devient le point de convergence de tous les arcs électriques.",
+        "La décharge traverse {actor}, qui se cambre sous le choc.",
+        "Un éclair d'un blanc pur frappe {actor} en plein cœur de sa course.",
+        "{actor} est pris dans une cage d'étincelles crépitantes.",
+        "Le tonnerre éclate au moment où l'éclair frappe {actor} de plein fouet.",
+        "{actor} sent chaque nerf de son corps hurler sous la décharge.",
+        "L'électricité danse sur {actor}, qui n'a aucune issue."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.acid",
+    "label": [
+      "Jets de sauvegarde",
+      "Réflexes",
+      "Acide"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} bondit hors de portée ; l'acide grésille sur le sol à ses pieds.",
+        "Les gouttes corrosives pleuvent autour de {actor}, qui se faufile entre elles.",
+        "{actor} se protège derrière un abri et entend l'acide ronger la pierre de l'autre côté.",
+        "Une flaque fumante s'étale là où {actor} se tenait un instant plus tôt.",
+        "{actor} esquive la gerbe d'acide d'un mouvement fluide.",
+        "L'odeur âcre envahit l'air, mais pas une goutte n'atteint {actor}.",
+        "{actor} roule de côté tandis que l'acide siffle sur la pierre.",
+        "D'un saut, {actor} évite le jet corrosif qui fume derrière."
+      ],
+      "success": [
+        "Quelques gouttes d'acide atteignent {actor}, qui a esquivé l'essentiel.",
+        "{actor} se jette de côté, une manche fumante.",
+        "Les éclaboussures corrosives mordent {actor} au passage.",
+        "{actor} se protège de l'avant-bras ; l'acide grésille sur le cuir.",
+        "Un jet d'acide frôle {actor}, qui en sent la morsure.",
+        "{actor} évite la gerbe principale, pas les éclaboussures.",
+        "L'odeur âcre prend {actor} à la gorge en pleine esquive.",
+        "{actor} recule et l'acide ne fait que l'effleurer."
+      ],
+      "failure": [
+        "L'acide éclabousse {actor}, qui sent sa peau brûler.",
+        "{actor} tente d'esquiver la gerbe corrosive, en vain.",
+        "Le liquide fumant s'abat sur {actor}.",
+        "Une pluie d'acide atteint {actor} de plein fouet.",
+        "{actor} entend l'acide grésiller sur son équipement et sa peau.",
+        "L'acide ronge tout ce qu'il touche, et il touche {actor}.",
+        "{actor} se protège trop tard des éclaboussures corrosives.",
+        "Une vapeur âcre s'élève là où l'acide a touché {actor}."
+      ],
+      "criticalFailure": [
+        "{actor} reçoit la gerbe d'acide en plein.",
+        "Le liquide corrosif inonde {actor} dans un sifflement sinistre.",
+        "{actor} trébuche au milieu de la flaque d'acide.",
+        "L'acide submerge {actor}, qui hurle sous la morsure.",
+        "Une vague corrosive engloutit {actor}.",
+        "{actor} n'a aucune chance d'éviter le déluge d'acide.",
+        "L'acide trouve chaque interstice de l'équipement de {actor}.",
+        "{actor} est pris au centre exact de l'aspersion corrosive."
+      ]
+    }
+  }
+]

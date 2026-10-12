@@ -1,0 +1,190 @@
+[
+  {
+    "key": "save.fortitude",
+    "label": ["Saving throws", "Fortitude", "Generic"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} takes it without flinching, solid as a rock.",
+        "The body of {actor} repels the assault like a wave against a cliff.",
+        "{actor} grits their teeth for a second, then shakes it off: nothing more.",
+        "The constitution of {actor} works wonders; the effect slides right off.",
+        "{actor} takes a deep breath and holds firm, without even wavering.",
+        "Nothing seems able to dent the endurance of {actor}.",
+        "{actor} shrugs off what would have floored many others.",
+        "A quiet strength fills {actor}, and the effect cannot shake it.",
+        "{actor} merely spits on the ground, unperturbed.",
+        "The breathing of {actor} stays steady, the gaze clear."
+      ],
+      "success": [
+        "{actor} grits their teeth and resists.",
+        "The body of {actor} absorbs it, at a visible cost.",
+        "{actor} sways for a moment, then recovers.",
+        "A grimace, a breath, and {actor} holds on.",
+        "{actor} fights the effect and keeps the upper hand.",
+        "{actor} bends without breaking.",
+        "The toughness of {actor} makes the difference.",
+        "{actor} feels the effect pass through without taking root.",
+        "{actor} holds firm, jaw clenched.",
+        "A shiver runs through {actor}, then fades."
+      ],
+      "failure": [
+        "The body of {actor} gives way under the assault.",
+        "{actor} sways, short of breath.",
+        "Despite their resolve, {actor} feels their strength waver.",
+        "The effect seeps into {actor}, who cannot drive it out.",
+        "{actor} goes pale, legs trembling.",
+        "A wave of weakness washes over {actor}.",
+        "{actor} grits their teeth, but the body does not follow.",
+        "The complexion of {actor} changes, breathing labored."
+      ],
+      "criticalFailure": [
+        "The body of {actor} gives in all at once.",
+        "{actor} doubles over under a sickness from within.",
+        "All the vigor of {actor} seems to evaporate in an instant.",
+        "{actor} sways dangerously, face ashen.",
+        "The effect strikes {actor} to the core.",
+        "{actor} feels their strength drain away like water from a cracked jar.",
+        "A spasm shakes {actor} from head to toe.",
+        "{actor} fights, but the body has already surrendered."
+      ]
+    }
+  },
+  {
+    "key": "save.fortitude.poison",
+    "label": ["Saving throws", "Fortitude", "Poison"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} feels the venom burn in their veins for a moment, then fade.",
+        "The poison meets an iron constitution and finds no hold.",
+        "{actor} spits out bitter saliva and stands tall, perfectly lucid.",
+        "The body of {actor} neutralizes the toxin like a swallow of bad wine.",
+        "A metallic taste, a brief nausea, then nothing.",
+        "{actor} blinks: the poison never found its way.",
+        "The venom circulates, exhausts itself and vanishes without a trace.",
+        "{actor} has seen worse, and their body knows it."
+      ],
+      "success": [
+        "{actor} feels the toxin spread, then recede.",
+        "A wave of nausea hits {actor}, who pushes it back.",
+        "{actor} grits their teeth as their body fights the venom.",
+        "The veins of {actor} burn for a moment, then the heat subsides.",
+        "The poison makes the head of {actor} spin, without winning.",
+        "{actor} sweats heavily, but the venom loses the battle.",
+        "The body of {actor} fights back the worst of the poison.",
+        "A taste of iron fills the mouth of {actor}, who holds firm."
+      ],
+      "failure": [
+        "The venom spreads through the veins of {actor} like a cold fire.",
+        "{actor} goes pale, vision blurred by the toxin.",
+        "A stubborn nausea takes hold of {actor}.",
+        "The poison bites from within; {actor} grimaces.",
+        "{actor} feels their limbs grow heavy under the venom.",
+        "The toxin finds its way despite the resistance of {actor}.",
+        "Cold sweat beads on the brow of {actor}.",
+        "The heart of {actor} races as the poison advances."
+      ],
+      "criticalFailure": [
+        "The venom hits {actor} like a tidal wave.",
+        "{actor} doubles over as the poison ravages their veins.",
+        "The toxin invades {actor} with terrifying speed.",
+        "The skin of {actor} turns gray within seconds.",
+        "{actor} feels the poison reach every corner of their body.",
+        "A dull pain bursts in the pit of the stomach of {actor}.",
+        "The venom takes hold of {actor} without meeting any resistance.",
+        "A dark veil passes before the eyes of {actor} as the poison settles in."
+      ]
+    }
+  },
+  {
+    "key": "save.fortitude.disease",
+    "label": ["Saving throws", "Fortitude", "Disease"],
+    "outcomes": {
+      "criticalSuccess": [
+        "The sickness brushes {actor} and moves on.",
+        "The fever does not even dare settle in {actor}.",
+        "{actor} feels perfectly fine, as if nothing happened.",
+        "The iron health of {actor} drives off the contagion before it settles.",
+        "Not a shiver, not a cough: {actor} stays in top form.",
+        "The body of {actor} recognizes the enemy and crushes it at once.",
+        "{actor} breathes deeply; the foul air finds no hold.",
+        "The disease looks for a flaw in the constitution of {actor} and finds none."
+      ],
+      "success": [
+        "A slight shiver runs through {actor}, then fades.",
+        "{actor} coughs a little, but the fever does not take.",
+        "The body of {actor} fights the infection and gets the upper hand.",
+        "A passing weariness comes over {actor}, who shakes it off.",
+        "{actor} feels the sickness lurking, unable to settle.",
+        "The throat of {actor} itches for a moment, then all is well.",
+        "{actor} keeps a clear head despite a slight fever.",
+        "The disease tries its luck; the body of {actor} pushes it back."
+      ],
+      "failure": [
+        "A dull fever settles in {actor}.",
+        "{actor} shivers, brow damp.",
+        "The cough of {actor} deepens, more worrying now.",
+        "The sickness gains ground in the body of {actor}.",
+        "{actor} feels a diffuse weakness take hold of their limbs.",
+        "The face of {actor} pales, eyes ringed with shadow.",
+        "The contagion takes root despite the efforts of {actor}.",
+        "An unhealthy heat fills {actor}."
+      ],
+      "criticalFailure": [
+        "The disease seizes {actor} with frightening virulence.",
+        "Uncontrollable shivers shake {actor}.",
+        "The sickness spreads through {actor} like wildfire.",
+        "The fever spikes at once, and {actor} sways.",
+        "A racking cough shakes {actor}.",
+        "{actor} feels the contagion root itself deep inside.",
+        "The body of {actor} buckles under the infection.",
+        "Within moments, {actor} has the face of someone gravely ill."
+      ]
+    }
+  },
+  {
+    "key": "save.fortitude.physical",
+    "label": ["Saving throws", "Fortitude", "Physical shock"],
+    "outcomes": {
+      "criticalSuccess": [
+        "The shockwave hits {actor}, who does not give an inch.",
+        "{actor} takes the impact feet planted, like an oak in a storm.",
+        "The blast sweeps over {actor} without denting their stance.",
+        "{actor} absorbs the shock with a simple tensing of the shoulders.",
+        "The din rings out, but {actor} stays upright and firm.",
+        "{actor} stands fast against the wave of force, unperturbed.",
+        "The shock only raises the dust around {actor}.",
+        "{actor} clenches both fists and lets the impact shatter against their frame."
+      ],
+      "success": [
+        "{actor} sways under the impact, then steadies.",
+        "The shockwave rattles {actor}, who keeps their footing.",
+        "{actor} grits their teeth as the din vibrates through their bones.",
+        "Winded for a moment, {actor} quickly regains composure.",
+        "{actor} bends the knees and absorbs most of the shock.",
+        "The force of the impact makes {actor} tremble, without taking over.",
+        "The ears of {actor} ring, but everything holds.",
+        "{actor} braces against the wave of force and holds on."
+      ],
+      "failure": [
+        "The impact shakes {actor} to the bone.",
+        "{actor} takes the shock full on, winded.",
+        "The wave of force rattles the whole body of {actor}.",
+        "A ringing fills the skull of {actor}.",
+        "{actor} reels under the power of the shock.",
+        "The din resonates in the chest of {actor}.",
+        "{actor} feels the shockwave pass through every fiber.",
+        "The teeth of {actor} clack together under the impact."
+      ],
+      "criticalFailure": [
+        "The shock hits {actor} with the force of a battering ram.",
+        "{actor} takes the full power of the impact, with nothing to soften it.",
+        "The world starts spinning around {actor}.",
+        "The shockwave empties the lungs of {actor} in one go.",
+        "{actor} feels the shock ring through every bone.",
+        "The blast hits {actor} squarely in the chest.",
+        "The din fills everything, and {actor} is at its center.",
+        "{actor} sways like a tree under the axe."
+      ]
+    }
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "key": "skill",
+  "label": [
+    "Compétences",
+    "Toute action"
+  ],
+  "outcomes": {
+    "criticalSuccess": [
+      "{actor} agit avec une maîtrise qui force l'admiration.",
+      "Chaque geste de {actor} tombe juste, comme répété mille fois.",
+      "{actor} fait paraître la chose d'une facilité déconcertante.",
+      "Un sourire au coin des lèvres, {actor} réussit au-delà de toute espérance.",
+      "L'expérience de {actor} parle : le résultat est remarquable.",
+      "{actor} trouve la solution parfaite avant même que le problème soit posé.",
+      "Tout se déroule mieux encore que {actor} ne l'avait imaginé.",
+      "{actor} s'y prend avec une aisance qui laisse les témoins sans voix.",
+      "Un instant de concentration, puis {actor} réussit avec éclat.",
+      "{actor} semble avoir anticipé chaque difficulté."
+    ],
+    "success": [
+      "{actor} s'y prend avec méthode et obtient ce qu'il fallait.",
+      "Sans éclat mais avec sûreté, {actor} arrive à ses fins.",
+      "{actor} se concentre, ajuste, et réussit.",
+      "Le geste est sûr ; {actor} obtient le résultat voulu.",
+      "{actor} mène l'affaire à bien.",
+      "Après un bref moment d'hésitation, {actor} trouve la bonne approche.",
+      "{actor} s'en tient à des méthodes éprouvées, et cela suffit.",
+      "Le savoir-faire de {actor} fait la différence.",
+      "{actor} réussit, non sans effort.",
+      "Les choses se passent comme {actor} l'avait prévu."
+    ],
+    "failure": [
+      "{actor} s'applique, mais les choses refusent de se plier à sa volonté.",
+      "La tentative de {actor} reste sans effet.",
+      "{actor} cherche la bonne approche sans la trouver.",
+      "Malgré ses efforts, {actor} n'obtient pas le résultat espéré.",
+      "Il manque à {actor} un petit quelque chose pour réussir.",
+      "{actor} doit se rendre à l'évidence : ce n'est pas pour cette fois.",
+      "Un détail échappe à {actor}, et tout s'enraye.",
+      "{actor} y met du cœur, sans résultat.",
+      "La situation résiste aux efforts de {actor}.",
+      "{actor} fronce les sourcils : rien ne se passe comme prévu."
+    ],
+    "criticalFailure": [
+      "{actor} s'emmêle complètement et la situation lui échappe.",
+      "Tout ce qui pouvait mal tourner pour {actor} tourne mal.",
+      "{actor} commet une erreur grossière, de celles qu'on regrette aussitôt.",
+      "La tentative de {actor} vire au fiasco.",
+      "{actor} se trompe du tout au tout.",
+      "Le geste de {actor} produit exactement l'inverse de l'effet recherché.",
+      "{actor} perd ses moyens au pire moment.",
+      "Un faux pas, puis un autre : {actor} s'enfonce dans l'échec.",
+      "{actor} s'y prend si mal que mieux vaut ne pas en parler.",
+      "Les témoins détournent poliment le regard devant la maladresse de {actor}."
+    ]
+  }
+}

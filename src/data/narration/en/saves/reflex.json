@@ -1,0 +1,240 @@
+[
+  {
+    "key": "save.reflex",
+    "label": ["Saving throws", "Reflex", "Generic"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} leaps clear before the danger even triggers.",
+        "Lightning reflexes: {actor} is already elsewhere when the effect hits.",
+        "{actor} dives, rolls and comes up in cover, as if in training.",
+        "The danger sweeps the spot where {actor} stood a moment earlier.",
+        "{actor} pivots smoothly and lets the effect pass without lingering.",
+        "With a perfectly judged sidestep, {actor} avoids the worst of it.",
+        "{actor} senses the danger coming and gets out of reach in a flash.",
+        "Not one wasted move: {actor} slips exactly where it is safe.",
+        "{actor} curls up tight and lets everything pass overhead.",
+        "The instinct of {actor} speaks before reason does, and that is just as well."
+      ],
+      "success": [
+        "{actor} throws themselves aside and avoids the worst.",
+        "A last-second dive lets {actor} limit the damage.",
+        "{actor} shields their face and half dodges.",
+        "{actor} leaps clear, not far enough to avoid everything.",
+        "A saving reflex: {actor} escapes the heart of the effect.",
+        "{actor} rolls to the side and springs back up.",
+        "{actor} ducks at the last moment; the effect only grazes.",
+        "{actor} twists out of the path, with some success.",
+        "{actor} finds precarious cover just in time.",
+        "An instinctive sidestep spares {actor} the worst."
+      ],
+      "failure": [
+        "{actor} tries to get clear, too late.",
+        "The effect catches {actor} mid-movement.",
+        "{actor} dives aside, but the effect is faster.",
+        "Caught short, {actor} has no time to react.",
+        "{actor} jumps, and the effect hits before the landing.",
+        "{actor} raises both arms for protection, to little avail.",
+        "The danger hits {actor} full on.",
+        "{actor} hesitates a fraction of a second too long.",
+        "{actor} looks for an escape that does not exist.",
+        "The dodge from {actor} goes the wrong way."
+      ],
+      "criticalFailure": [
+        "{actor} dives exactly where the effect strikes.",
+        "Frozen by surprise, {actor} takes everything full on.",
+        "{actor} slips while dodging and ends up in the heart of the danger.",
+        "It all happens too fast: {actor} does not even begin to move.",
+        "{actor} stumbles at the worst moment and lands right in the effect.",
+        "{actor} backs straight into the path of the danger.",
+        "The reflexes of {actor} fail: every movement makes things worse.",
+        "{actor} turns to look, which is the worst thing to do.",
+        "The effect hits {actor} just as their guard is at its lowest.",
+        "{actor} has no chance: the danger falls from every side."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.fire",
+    "label": ["Saving throws", "Reflex", "Fire"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} dives behind cover as the flames roar overhead.",
+        "The wave of fire breaks, but {actor} has already rolled out of its reach.",
+        "{actor} leaps through the smoke and comes out the other side, touched only by the heat.",
+        "The flames lick the spot where {actor} stood a second before.",
+        "{actor} ducks low; the scorching blast passes overhead.",
+        "A perfect sidestep: the heat brushes {actor} without finding a hold.",
+        "{actor} shelters behind a section of wall just before the blaze.",
+        "The inferno roars all around, but {actor} has slipped into the only spot it spares."
+      ],
+      "success": [
+        "{actor} shields their face as the heat briefly washes over.",
+        "A dive spares {actor} the heart of the blaze, but not the bite of the heat.",
+        "{actor} throws themselves back, clothes smoking.",
+        "The flames brush {actor}, who smells singed hair.",
+        "{actor} gets clear, but a tongue of fire follows for an instant.",
+        "{actor} turns away from the burst of flame and grits their teeth.",
+        "The heat assails {actor}, who manages to get out of the worst of it.",
+        "{actor} jerks backward, scorching air in their throat."
+      ],
+      "failure": [
+        "The flames engulf {actor} with a roar.",
+        "{actor} tries to flee the blaze, which swallows them up.",
+        "A wave of heat hits {actor} full on.",
+        "Fire wraps around {actor}, who stifles a cry.",
+        "{actor} raises an arm for protection; the heat ignores it.",
+        "The bite of the flames catches {actor} mid-motion.",
+        "{actor} ends up in a whirl of fire and ash.",
+        "The smell of scorched cloth rises around {actor}."
+      ],
+      "criticalFailure": [
+        "{actor} is caught in the very heart of the blaze.",
+        "The flames sweep over {actor} with no way out.",
+        "{actor} stumbles into the inferno and fire roars around their silhouette.",
+        "A column of fire crashes down on {actor}, who never moved a muscle.",
+        "{actor} disappears for a moment in a whirlwind of flame.",
+        "The fire finds {actor}, as if guided by a will of its own.",
+        "{actor} takes the worst gust of flame, the unforgiving kind.",
+        "Unbearable heat overwhelms {actor} from every side."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.cold",
+    "label": ["Saving throws", "Reflex", "Cold"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} leaps out of the icy gust before it closes.",
+        "Frost spreads everywhere, except where {actor} just landed.",
+        "{actor} rolls to safety; shards of ice stab into the ground behind.",
+        "A polar blast sweeps the area, but {actor} is already out of reach.",
+        "{actor} dodges the wave of cold with disconcerting ease.",
+        "Hoarfrost crystallizes the air, and {actor} slips through without a scratch.",
+        "{actor} hunches low; the biting wind passes over their back.",
+        "Ice crystals hiss all around {actor}, never landing."
+      ],
+      "success": [
+        "{actor} turns away, and the cold only bites one side.",
+        "Frost catches the edge of the cloak of {actor}, who gets clear in time.",
+        "{actor} dives, but the icy air steals their breath.",
+        "A film of frost forms on the gear of {actor}, who avoids the worst.",
+        "{actor} gets out of the gust, fingers numb.",
+        "Ice shards scratch {actor}, who found cover just in time.",
+        "{actor} curls up and lets most of the cold pass.",
+        "The cold brushes {actor} with a biting caress."
+      ],
+      "failure": [
+        "The cold crashes over {actor} and chills them to the bone.",
+        "{actor} tries to flee the gust, which wraps around them.",
+        "A glacial bite seizes {actor} from head to toe.",
+        "Frost coats {actor} in an instant.",
+        "{actor} feels the cold seep under every layer of clothing.",
+        "The breath of {actor} freezes to mist as the cold floods everything.",
+        "Ice shards hit {actor} mid-stride.",
+        "{actor} grits their teeth under an assault of biting cold."
+      ],
+      "criticalFailure": [
+        "The icy storm swallows {actor} whole.",
+        "The cold hits {actor} so hard that their breath freezes in their throat.",
+        "{actor} slips on the frost and ends up right in the gust.",
+        "A shell of frost closes around {actor} in a heartbeat.",
+        "The cold rushes in everywhere, and {actor} has nowhere to hide.",
+        "{actor} takes the full force of the frozen blast.",
+        "The ice shards converge on {actor} as if drawn by their warmth.",
+        "{actor} freezes in surprise, and the cold leaves no chance."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.electricity",
+    "label": ["Saving throws", "Reflex", "Electricity"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} hurls themselves aside; the bolt strikes the ground with a deafening crack.",
+        "Lightning crackles everywhere, but never where {actor} is.",
+        "{actor} anticipates the arc and jumps clear.",
+        "The smell of a storm fills the air, and {actor} is already out of reach.",
+        "{actor} dives to cover as blue arcs dance overhead.",
+        "The bolt seeks {actor}, who offers it nothing to grab.",
+        "{actor} pivots in place and the discharge passes with a sizzle.",
+        "A searing flash lights the scene; when it fades, {actor} is clear, out of danger."
+      ],
+      "success": [
+        "{actor} gets clear, but an arc makes their hair stand on end.",
+        "The discharge brushes {actor}, whose muscles seize for an instant.",
+        "{actor} avoids the heart of the bolt, not the crackling around it.",
+        "A tingle runs over the skin of {actor}, who dodged most of it.",
+        "{actor} ducks and the lightning only grazes.",
+        "Sparks bite {actor}, who sprang aside just in time.",
+        "{actor} smells ozone while getting out of the main path.",
+        "{actor} grits their teeth as part of the discharge runs through their body."
+      ],
+      "failure": [
+        "The bolt strikes {actor} with a sharp crack.",
+        "The discharge runs through {actor} from end to end.",
+        "{actor} tries to dodge, but the lightning is faster.",
+        "An arc jumps to {actor} and jolts their whole body.",
+        "The muscles of {actor} lock for a moment under the discharge.",
+        "{actor} is caught in a web of crackling arcs.",
+        "The lightning finds the metal in the gear of {actor} and follows it.",
+        "A white bolt wraps around {actor}."
+      ],
+      "criticalFailure": [
+        "The lightning slams into {actor} with incredible force.",
+        "{actor} becomes the point where every arc converges.",
+        "The discharge runs through {actor}, who arches under the shock.",
+        "A pure white bolt strikes {actor} mid-stride.",
+        "{actor} is caught in a cage of crackling sparks.",
+        "Thunder bursts as the bolt hits {actor} full on.",
+        "{actor} feels every nerve scream under the discharge.",
+        "Electricity dances over {actor}, who has nowhere to go."
+      ]
+    }
+  },
+  {
+    "key": "save.reflex.acid",
+    "label": ["Saving throws", "Reflex", "Acid"],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} leaps out of reach; acid sizzles on the ground at their feet.",
+        "Corrosive drops rain around {actor}, who slips between them.",
+        "{actor} shelters behind cover and hears acid eat the stone on the other side.",
+        "A smoking puddle spreads where {actor} stood a moment earlier.",
+        "{actor} dodges the spray of acid in one fluid motion.",
+        "The acrid smell fills the air, but not one drop reaches {actor}.",
+        "{actor} rolls aside as the acid hisses on the stone.",
+        "With a jump, {actor} avoids the corrosive jet now smoking behind."
+      ],
+      "success": [
+        "A few drops of acid reach {actor}, who dodged most of it.",
+        "{actor} throws themselves aside, one sleeve smoking.",
+        "Corrosive splashes bite {actor} on the way past.",
+        "{actor} shields with a forearm; the acid sizzles on the leather.",
+        "A jet of acid brushes {actor}, who feels its bite.",
+        "{actor} avoids the main spray, but not the splashes.",
+        "The acrid smell catches {actor} by the throat mid-dodge.",
+        "{actor} pulls back and the acid only grazes."
+      ],
+      "failure": [
+        "Acid splashes {actor}, whose skin begins to burn.",
+        "{actor} tries to dodge the corrosive spray, in vain.",
+        "The smoking liquid crashes down on {actor}.",
+        "A rain of acid hits {actor} full on.",
+        "{actor} hears acid sizzle on gear and skin.",
+        "Acid eats whatever it touches, and it touches {actor}.",
+        "{actor} shields too late from the corrosive splashes.",
+        "Acrid vapor rises where the acid touched {actor}."
+      ],
+      "criticalFailure": [
+        "{actor} takes the spray of acid full on.",
+        "The corrosive liquid drenches {actor} with an ominous hiss.",
+        "{actor} stumbles into the middle of the acid pool.",
+        "Acid overwhelms {actor}, who cries out at the bite.",
+        "A corrosive wave swallows {actor}.",
+        "{actor} has no chance of avoiding the deluge of acid.",
+        "The acid finds every gap in the gear of {actor}.",
+        "{actor} is caught at the exact center of the corrosive spray."
+      ]
+    }
+  }
+]

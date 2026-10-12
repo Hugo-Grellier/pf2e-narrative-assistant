@@ -1,0 +1,66 @@
+{
+  "key": "strike.ranged.thrown",
+  "label": ["Strikes", "Ranged", "Thrown weapon"],
+  "outcomes": {
+    "criticalSuccess": [
+      "{attacker} throws with a snap of the wrist; the weapon spins and slams into {bodyPart}.",
+      "The weapon cuts the air end over end and hits {target} exactly where the guard opens.",
+      "{attacker} cocks an arm, waits a beat, then lets go: the throw is perfect.",
+      "The thrown weapon flies flat, without a wobble, and hits {target} in the heart of their defense.",
+      "A spinning whistle, then a clean impact on {bodyPart}.",
+      "{attacker} throws without even turning around, and the weapon finds {target} as if guided by an unseen hand.",
+      "The throw crosses the melee and smashes into {target} with unexpected force.",
+      "{attacker} aims for {bodyPart} and sends the weapon there with stunning clarity.",
+      "The weapon turns three times in the air and hits {target} with exactly the right end.",
+      "The throw leaves taut as an arrow and strikes {target} before any reaction.",
+      "{attacker} throws at a full run; the weapon flies straight and crashes into {target}.",
+      "The throw comes in at an angle {target} was not watching.",
+      "{attacker} throws with all their strength, and the impact echoes across the room.",
+      "The weapon spins, catches the light, then hits {target} full on.",
+      "A crisp, perfect throw: {target} takes the shock on {bodyPart}."
+    ],
+    "success": [
+      "The weapon thrown by {attacker} catches {target} on {bodyPart}.",
+      "The throw spins and strikes {target}.",
+      "{attacker} throws with a quick motion and the weapon lands.",
+      "The weapon cuts the air and hits {target}, who winces.",
+      "{target} tries to bat the projectile away, too late.",
+      "The throw from {attacker} finds its target in the middle of the fight.",
+      "The weapon strikes {target} on {bodyPart} before falling away.",
+      "{attacker} throws while pivoting; the weapon reaches {target}.",
+      "The thrown weapon clips {target} on its way past.",
+      "A short, sharp throw that hits.",
+      "{attacker} gauges the distance at a glance and throws: the weapon lands true.",
+      "The weapon spins once, twice, and slams into {target}.",
+      "The throw catches {target} in mid-motion.",
+      "{attacker} lobs it over the melee and the weapon drops onto {target}.",
+      "The weapon hits {target} on {bodyPart} with a sharp crack."
+    ],
+    "failure": [
+      "The thrown weapon spins past {target}.",
+      "{target} shifts and the throw flies on.",
+      "The throw from {attacker} hits the scenery behind {target}.",
+      "The weapon arrives on the wrong end and bounces off {target} without biting.",
+      "{target} avoids the projectile with a turn of the shoulder.",
+      "The throw lands a little short, at the feet of {target}.",
+      "The weapon spins over the head of {target}.",
+      "{attacker} throws just as {target} shifts their weight.",
+      "The projectile ricochets off the guard of {target}.",
+      "{target} sees the throw coming and lets it pass.",
+      "The throw left well, but {target} is no longer there.",
+      "The weapon brushes past {target} and carries on."
+    ],
+    "criticalFailure": [
+      "The weapon slips from the grip of {attacker} at the wrong moment and flies off completely askew.",
+      "{attacker} throws too early; the weapon crashes down far from any target.",
+      "The throw tumbles so badly that nobody quite knows who it was meant for.",
+      "{attacker} winds up energetically and the throw dribbles off to the side.",
+      "The weapon hits something close by and falls with a pitiful clatter.",
+      "The throw is so wide that {target} does not even bother to move.",
+      "{attacker} throws off balance and the weapon is lost in empty air.",
+      "The weapon spins off and ends up in some corner out of sight.",
+      "{attacker} hesitates at the last second, and the throw loses all its force.",
+      "The projectile flies high, far too high, over the fight."
+    ]
+  }
+}

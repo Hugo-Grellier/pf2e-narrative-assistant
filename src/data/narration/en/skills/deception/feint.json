@@ -1,0 +1,62 @@
+{
+  "key": "skill.deception.feint",
+  "label": ["Skills", "Deception", "Feint"],
+  "outcomes": {
+    "criticalSuccess": [
+      "{actor} starts a high attack, then the whole body lies: {target} parries nothing, guard wide open.",
+      "A pointed glance to the left, a step to the right; {target} swallows the bait whole.",
+      "{actor} pretends to a weakness; {target} pounces and the guard collapses.",
+      "The feint is so convincing that {target} defends against an attack that does not exist.",
+      "{actor} fakes a slip; {target} rushes in and opens up completely.",
+      "{target} reacts exactly as {actor} hoped, and the defense falls to pieces.",
+      "{actor} changes intent three times in a single motion: {target} has no idea where to look.",
+      "A roll of the shoulder, a false start: {target} parries away from the real threat.",
+      "{actor} draws the attention of {target} elsewhere, then comes back with a predatory grin.",
+      "{target} falls into the trap set by {actor} without even realizing it.",
+      "The guard of {target} swings open like a badly latched door.",
+      "{actor} murmurs a \"behind you\" so convincing that {target} believes it."
+    ],
+    "success": [
+      "{actor} sketches an attack that lifts the guard of {target}, leaving a fleeting opening.",
+      "{target} reacts to the feint a fraction of a second too long.",
+      "A false move from {actor}, and the guard of {target} wavers.",
+      "{actor} draws the eye of {target} to one side to set up the other.",
+      "{target} parries an imaginary blow and opens up slightly.",
+      "{actor} changes angle at the last moment; {target} hesitates.",
+      "{target} bites on the feint, just enough.",
+      "A deceptive glint of steel pulls the attention of {target} away.",
+      "{actor} fakes a hesitation, and {target} steps in where they should not.",
+      "The defense of {target} shifts by a hair, but that is enough.",
+      "{actor} feigns a retreat; {target} is caught out for a second.",
+      "{target} follows the move from {actor}, fooled for a brief instant."
+    ],
+    "failure": [
+      "{target} never takes their eyes off the real danger.",
+      "The feint from {actor} is too heavy-handed to fool anyone.",
+      "{target} smiles at the maneuver without shifting their guard.",
+      "{actor} starts an attack; {target} patiently waits for the real one.",
+      "The false move from {actor} does not make {target} blink.",
+      "{target} has seen this trick before.",
+      "{actor} tries to divert the attention of {target}, in vain.",
+      "{target} keeps their defense perfectly in place.",
+      "The ruse from {actor} is exposed before it even begins.",
+      "{target} grandly ignores the feint.",
+      "{actor} lies with the body, but {target} reads the truth.",
+      "{target} stays focused on what matters."
+    ],
+    "criticalFailure": [
+      "{actor} gets caught up in the act and exposes themselves dangerously to {target}.",
+      "{target} sees through the feint and takes aim at the opening {actor} left.",
+      "The feint from {actor} is so transparent that {target} turns it against its author.",
+      "{actor} overdoes the motion and ends up badly placed, at the mercy of {target}.",
+      "{target} waits out the feint and counterattacks in thought: the guard of {actor} is wide open.",
+      "{actor} springs their own trap: their guard is in disarray in front of {target}.",
+      "{target} smiles: it is {actor} who just opened up.",
+      "{actor} feints too long and forgets to cover their flank.",
+      "The maneuver from {actor} backfires; {target} could not have hoped for more.",
+      "{actor} tries something too subtle and gets tangled in their own gestures.",
+      "{target} lets {actor} get lost in the feint, then watches with a predatory look.",
+      "A slip in the ruse, and {actor} is left exposed."
+    ]
+  }
+}
