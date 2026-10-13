@@ -26,7 +26,7 @@ globalThis.fromUuidSync = () => null;
 globalThis.ui = { notifications: { info: () => {} } };
 globalThis.ChatMessage = {
     create: async (data) => {
-        const message = { ...data, id: `m${created.length}`, update: async (u) => Object.assign(message, u) };
+        const message = { ...data, id: `m${created.length}`, author: game.user, update: async (u) => Object.assign(message, u) };
         created.push(message);
         return message;
     },
@@ -136,4 +136,16 @@ test("narration language follows the setting, independently of the UI", async ()
     assert.ok(en.has(await raw()), "unknown UI language -> English");
     game.i18n.lang = "fr";
     api.invalidateTables();
+});
+
+test("cards carrying our flag but written by a player are ignored", async () => {
+    const forged = {
+        author: { isGM: false },
+        flags: { [ID]: { header: "<img src=x onerror=alert(1)>", text: "x", context: { eventType: "recovery", degreeOfSuccess: "success", vars: {} } } },
+        update: async () => assert.fail("forged card must not be updated"),
+    };
+    const listeners = [];
+    const button = { dataset: { pf2eNa: "reroll" }, addEventListener: (_e, fn) => listeners.push(fn) };
+    fire("renderChatMessageHTML", forged, Object.assign(new HTMLElement(), { querySelectorAll: () => [button] }));
+    assert.equal(listeners.length, 0);
 });

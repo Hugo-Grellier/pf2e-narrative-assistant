@@ -250,7 +250,14 @@ async function output(context, result, settings, sourceMessage) {
 /*  Chat buttons                                */
 /* -------------------------------------------- */
 
+/**
+ * Our cards are only ever created by the active GM. Anyone can put our flag on a message, so a card
+ * written by a player is ignored: its flags would otherwise be re-rendered as HTML by the GM's client.
+ */
+const isOurCard = (message) => !!message.flags[ID] && !!message.author?.isGM;
+
 async function onButton(message, action) {
+    if (!isOurCard(message)) return;
     const data = message.flags[ID];
     if (action === "reroll") {
         // Draws another narration only: the PF2e roll is untouched.
@@ -269,7 +276,7 @@ async function onButton(message, action) {
 }
 
 function onRenderChatMessage(message, html) {
-    if (!message.flags[ID] || !game.user.isGM || !(html instanceof HTMLElement)) return;
+    if (!isOurCard(message) || !game.user.isGM || !(html instanceof HTMLElement)) return;
     for (const button of html.querySelectorAll("button[data-pf2e-na]")) {
         button.addEventListener("click", async (event) => {
             event.preventDefault();
