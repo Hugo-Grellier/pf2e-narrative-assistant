@@ -27,13 +27,6 @@
         "Name": "Source des descriptions",
         "Hint": "Tables du module, ou tables du monde portant la même clé (importez une table du compendium pour la personnaliser)."
       },
-      "frequency": {
-        "all": "Chaque jet pris en charge",
-        "successes": "Réussites et réussites critiques",
-        "criticals": "Résultats critiques uniquement",
-        "Name": "Fréquence",
-        "Hint": "Limite les suggestions pour éviter de surcharger le chat."
-      },
       "event": {
         "strike": {
           "Name": "Événements : Frappes",
@@ -52,25 +45,11 @@
           "Hint": ""
         },
         "other": {
-          "Name": "Événements : autres (sorts, jets divers)",
+          "Name": "Événements : autres jets",
           "Hint": "Narration générique uniquement."
-        }
-      },
-      "degree": {
-        "criticalSuccess": {
-          "Name": "Résultat : réussite critique",
-          "Hint": ""
         },
-        "success": {
-          "Name": "Résultat : réussite",
-          "Hint": ""
-        },
-        "failure": {
-          "Name": "Résultat : échec",
-          "Hint": ""
-        },
-        "criticalFailure": {
-          "Name": "Résultat : échec critique",
+        "spell": {
+          "Name": "Événements : attaques de sort",
           "Hint": ""
         }
       },
@@ -82,7 +61,32 @@
         "Name": "Langue de narration",
         "Hint": "Langue des descriptions, indépendante de l'interface. Repli sur l'anglais si la langue n'a pas de corpus.",
         "auto": "Langue de l'interface"
+      },
+      "chance": {
+        "criticalSuccess": {
+          "Name": "Probabilité : réussite critique",
+          "Hint": "Pourcentage des réussites critiques qui reçoivent une suggestion (0 = jamais)."
+        },
+        "success": {
+          "Name": "Probabilité : réussite",
+          "Hint": "Pourcentage des réussites qui reçoivent une suggestion. Le baisser allège les longs combats."
+        },
+        "failure": {
+          "Name": "Probabilité : échec",
+          "Hint": "Pourcentage des échecs qui reçoivent une suggestion."
+        },
+        "criticalFailure": {
+          "Name": "Probabilité : échec critique",
+          "Hint": "Pourcentage des échecs critiques qui reçoivent une suggestion."
+        }
+      },
+      "saveGroupDelay": {
+        "Name": "Regrouper les sauvegardes (secondes)",
+        "Hint": "Les sauvegardes contre un même sort ou effet faites à moins de ce délai les unes des autres partagent une carte, une ligne par créature. 0 = une carte par sauvegarde."
       }
-    }
+    },
+    "Source": "Voir le jet",
+    "SourceMissing": "Ce jet n'est plus dans le chat.",
+    "Ban": "Ne plus jamais proposer ce texte"
   }
 }

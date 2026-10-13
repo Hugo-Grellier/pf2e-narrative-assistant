@@ -6,14 +6,17 @@ import { LANGUAGES } from "../src/languages.mjs";
 import { corpusLanguages, loadRules, loadSourceTables } from "../tools/source.mjs";
 
 const VARS = new Set(["actor", "attacker", "target", "weapon", "origin"]);
-const NAME = String.raw`\{(actor|attacker|target|origin|bodyPart)\}`;
+const NAME = String.raw`\{(actor|attacker|target|origin|bodyPart)('s)?\}`;
 
-// Per-language checks. `mechanical` applies to strikes, saves, recovery and generic text: they must stay
-// cinematic. Skill actions may state their own rules outcome (Trip success: the target falls).
+// Per-language checks. `mechanical` applies to strikes, spells, saves, recovery and generic text: they must
+// stay cinematic. Skill actions may state their own rules outcome (Trip success: the target falls), and
+// condition tables may name the condition PF2e already applied (a prone target is on the ground).
+const mayStateMechanics = (key) => key.startsWith("skill.") || key.startsWith("strike.condition.");
 const STYLE = {
     fr: {
         article: new RegExp(String.raw`(?<![\p{L}'])(le|la|les|un|une|du|au|d'|l')\s?${NAME}`, "iu"),
-        mechanical: /à terre|au sol|renvers|projeté|(os|bras|jambe|côte)s? (bris|cass)|cass[ée]|fractur|(?<!re)lâche (son|sa|ses) (arme|bouclier|épée|lame)|désarm|saign|hémorrag|meurt|(?<!\p{L})tu[ée]s?(?!\p{L})|achev|inconscien|assomm|aveugl|étourdi|paralys|immunis|résistance (au|à|aux) |\d+ ?m(ètres?)?\b|points? de vie|\bPV\b|dégâts persistants/iu,
+        possessive: /'s\}/,
+        mechanical: /à terre|au sol|renvers|projeté|(os|bras|jambe|côte)s? (bris|cass)|(?<!\p{L})cass[ée]|fractur|(?<!re)lâche (son|sa|ses) (arme|bouclier|épée|lame)|désarm|saign|hémorrag|meurt|(?<!\p{L})tu[ée]s?(?!\p{L})|achev|inconscien|assomm|aveugl|étourdi|paralys|immunis|résistance (au|à|aux) |\d+ ?m(ètres?)?\b|points? de vie|\bPV\b|dégâts persistants/iu,
         overused: ["violemment", "brutalement", "avec précision", "de justesse"],
     },
     en: {
@@ -50,7 +53,7 @@ for (const lang of corpusLanguages()) {
 
     test(`[${lang}] placeholders are known variables or component slots`, () => {
         each(() => true, (text) => {
-            const unknown = [...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).filter((n) => !VARS.has(n) && !slots.has(n));
+            const unknown = [...text.matchAll(/\{(\w+)(?:'s)?\}/g)].map((m) => m[1]).filter((n) => !VARS.has(n) && !slots.has(n));
             return unknown.length ? `unknown {${unknown.join("}, {")}}` : null;
         });
     });
@@ -65,12 +68,18 @@ for (const lang of corpusLanguages()) {
         });
     }
 
+    if (style.possessive) {
+        test(`[${lang}] no English possessive placeholders`, () => {
+            each(() => true, (text) => (style.possessive.test(text) ? "{name's} is English only" : null));
+        });
+    }
+
     test(`[${lang}] no stray braces or doubled spaces`, () => {
         each(() => true, (text) => (/\{[^}]*$|^[^{]*\}| {2}/.test(text) ? "malformed" : null));
     });
 
-    test(`[${lang}] strikes, saves, recovery and generic entries do not invent mechanics`, () => {
-        each((t) => t.slot === "narration" && !t.key.startsWith("skill."), (text) =>
+    test(`[${lang}] strikes, spells, saves, recovery and generic entries do not invent mechanics`, () => {
+        each((t) => t.slot === "narration" && !mayStateMechanics(t.key), (text) =>
             style.mechanical.test(text) ? `mechanical wording ${text.match(style.mechanical)[0]}` : null,
         );
     });
@@ -122,6 +131,30 @@ for (const lang of corpusLanguages()) {
         expect({ eventType: "saving-throw", save: "fortitude", traits: ["poison"] }, "save.fortitude.poison");
         expect({ eventType: "saving-throw", save: "will", traits: ["fear", "mental"] }, "save.will.fear");
         expect({ eventType: "recovery" }, "recovery");
+
+        const melee = { eventType: "strike", range: "melee", damageTypes: ["slashing"] };
+        expect({ ...melee, damageTypes: ["bludgeoning"], weaponGroup: "brawling", traits: ["agile", "finesse"] }, "strike.unarmed");
+        expect({ ...melee, damageTypes: ["bludgeoning"], weaponGroup: "shield" }, "strike.shield");
+        expect({ eventType: "strike", range: "ranged", damageTypes: ["piercing"], weaponGroup: "firearm" }, "strike.firearm");
+        expect({ ...melee, damageTypes: ["piercing"], traits: ["finesse"] }, "strike.finesse");
+        for (const type of ["undead", "construct", "swarm", "incorporeal"]) {
+            expect({ ...melee, targetTraits: [type, "mindless"] }, `strike.vs.${type}`);
+        }
+        expect({ ...melee, traits: ["finesse"], targetTraits: ["undead"] }, "strike.vs.undead");
+        expect({ ...melee, targetTraits: ["undead"], targetConditions: ["prone"] }, "strike.condition.target-prone");
+        expect({ ...melee, targetConditions: ["frightened", "off-guard"] }, "strike.condition.target-frightened");
+        expect({ ...melee, targetConditions: ["restrained"] }, "strike.condition.target-grabbed");
+        expect({ ...melee, actorConditions: ["frightened"] }, "strike.condition.frightened");
+        expect({ ...melee, actorConditions: ["sickened"] }, "strike.condition.sickened");
+        expect({ ...melee, targetConditions: ["off-guard"] }, "strike.melee.slashing");
+
+        expect({ eventType: "spell", traits: ["concentrate"] }, "spell.attack");
+        for (const tradition of ["arcane", "divine", "occult", "primal"]) expect({ eventType: "spell", traits: [tradition] }, `spell.attack.${tradition}`);
+        for (const damage of ["fire", "cold", "electricity", "acid", "force", "void"]) {
+            expect({ eventType: "spell", traits: ["arcane", damage] }, `spell.attack.${damage}`);
+        }
+        expect({ eventType: "saving-throw", save: "fortitude", traits: ["void", "divine"] }, "save.fortitude.void");
+        expect({ eventType: "saving-throw", save: "fortitude", traits: ["vitality"] }, "save.fortitude.vitality");
     });
 
     test(`[${lang}] main strike tables have real variety`, () => {

@@ -22,7 +22,7 @@
       "{actor} sees the matter through.",
       "After a brief moment of hesitation, {actor} finds the right approach.",
       "{actor} sticks to proven methods, and that is enough.",
-      "The know-how of {actor} makes the difference.",
+      "{actor's} know-how makes the difference.",
       "{actor} succeeds, though not without effort.",
       "Things go just as {actor} planned."
     ],
@@ -35,7 +35,7 @@
       "{actor} has to face facts: not this time.",
       "A detail escapes {actor}, and everything jams.",
       "{actor} puts heart into it, to no avail.",
-      "The situation resists the efforts of {actor}.",
+      "The situation resists {actor's} efforts.",
       "{actor} frowns: nothing goes as planned."
     ],
     "criticalFailure": [
@@ -48,7 +48,7 @@
       "{actor} loses composure at the worst possible moment.",
       "One misstep, then another: {actor} sinks deeper into failure.",
       "{actor} handles it so badly that it is best not to speak of it.",
-      "Onlookers politely look away from the fumbling of {actor}."
+      "Onlookers politely look away from {actor's} fumbling."
     ]
   }
 }

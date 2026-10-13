@@ -31,9 +31,25 @@ export function matches(when = {}, context = {}) {
     });
 }
 
-/** One point per condition key, plus the table's explicit priority. */
+/**
+ * How much each condition key narrows a match. Broad keys (event, range, degree) count 1; a named action,
+ * a weapon group, a creature type or a condition says much more about the scene, so it outranks a damage type.
+ * Unlisted keys count 1.
+ */
+export const KEY_WEIGHTS = {
+    damageTypes: 2,
+    traits: 2,
+    thrown: 2,
+    weaponGroup: 3,
+    targetTraits: 3,
+    actionSlug: 4,
+    targetConditions: 4,
+    actorConditions: 4,
+};
+
+/** Sum of the weights of the `when` keys, plus the table's explicit priority. */
 export function specificity(table) {
-    return Object.keys(table.when ?? {}).length + (table.priority ?? 0);
+    return Object.keys(table.when ?? {}).reduce((sum, key) => sum + (KEY_WEIGHTS[key] ?? 1), 0) + (table.priority ?? 0);
 }
 
 /** Matching tables of a slot, most specific first. Empty tables are skipped so fallback continues. */
@@ -58,54 +74,60 @@ export function pickEntry(entries, { exclude = [], random = Math.random } = {}) 
     return pool.at(-1);
 }
 
+/** English possessive: "Valeros" -> "Valeros'", "the kobold" -> "the kobold's". */
+export const englishPossessive = (name) => (/s$/i.test(name) ? `${name}'` : `${name}'s`);
+
 /**
  * Replace `{name}` placeholders. Lookup order:
  * 1. `context.vars[name]`
  * 2. a component table whose slot is `name` (its entry is interpolated too, up to MAX_DEPTH)
  * 3. `fallbacks[name]`
+ * `{name's}` inserts the possessive form of the value (see `possessive`).
  * Unknown placeholders are dropped rather than shown raw. `fix` applies language grammar (see languages.mjs).
  */
-export function interpolate(text, context, { tables = [], fallbacks = {}, fix = (t) => t, random, depth = 0 } = {}) {
-    const result = text.replace(/\{(\w+)\}/g, (_match, name) => {
+export function interpolate(text, context, { tables = [], fallbacks = {}, fix = (t) => t, possessive = englishPossessive, random, depth = 0 } = {}) {
+    const options = { tables, fallbacks, fix, possessive, random, depth: depth + 1 };
+    const result = text.replace(/\{(\w+)('s)?\}/g, (_match, name, owner) => {
+        const value = resolve(name);
+        return owner && value ? possessive(value) : value;
+    });
+    function resolve(name) {
         const value = context.vars?.[name];
         if (value) return value;
         if (depth < MAX_DEPTH) {
             const table = candidates(tables, name, context)[0];
-            if (table) {
-                const entry = pickEntry(table.entries, { random });
-                return interpolate(entry.text, context, { tables, fallbacks, fix, random, depth: depth + 1 });
-            }
+            if (table) return interpolate(pickEntry(table.entries, { random }).text, context, options);
         }
         return fallbacks[name] ?? "";
-    });
+    }
     return fix(result).replace(/ {2,}/g, " ").replace(/ ([,.])/g, "$1").trim();
 }
 
-const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+/** Capitalise every sentence start: a name such as "the kobold" may open one. */
+const capitalize = (s) => s.replace(/(^|[.!?…] )(\p{Ll})/gu, (_m, before, letter) => before + letter.toUpperCase());
 
 /**
  * Full resolution: best narration table, pick an entry, interpolate.
  * `recent` maps a table key to recently used texts, avoided when possible.
  * Returns null when nothing matches (no table at all, not even generic).
  */
-export function narrate(tables, context, { exclude = [], recent = new Map(), fallbacks = {}, fix, random } = {}) {
+export function narrate(tables, context, { exclude = [], recent = new Map(), fallbacks = {}, fix, possessive, random } = {}) {
     const table = candidates(tables, "narration", context)[0];
     if (!table) return null;
     const entry = pickEntry(table.entries, { exclude: [...exclude, ...(recent.get(table.key) ?? [])], random });
-    const text = capitalize(interpolate(entry.text, context, { tables, fallbacks, fix, random }));
+    const text = capitalize(interpolate(entry.text, context, { tables, fallbacks, fix, possessive, random }));
     return { text, tableKey: table.key, rawText: entry.text, gmOnly: !!table.gmOnly };
 }
 
-/** Narration filters from settings. `settings` mirrors the module settings (see module.mjs). */
-export function shouldNarrate(context, settings) {
+/**
+ * Narration filters from settings. `settings` mirrors the module settings (see module.mjs);
+ * `settings.chances[degree]` is the percentage of rolls of that degree that get a narration.
+ */
+export function shouldNarrate(context, settings, random = Math.random) {
     if (!settings.enabled || !context?.degreeOfSuccess) return false;
     if (!settings.events[context.eventType]) return false;
-    if (!settings.degrees[context.degreeOfSuccess]) return false;
     if (context.actionSlug && settings.disabledActions.includes(context.actionSlug)) return false;
-    const rank = DEGREES.indexOf(context.degreeOfSuccess);
-    if (settings.frequency === "successes" && rank < 2) return false;
-    if (settings.frequency === "criticals" && rank !== 0 && rank !== 3) return false;
-    return true;
+    return random() * 100 < (settings.chances[context.degreeOfSuccess] ?? 100);
 }
 
 /** Remembers the last `size` ids; `has(id)` then `add(id)` lets a caller ignore repeats. */

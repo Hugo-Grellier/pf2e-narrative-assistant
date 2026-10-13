@@ -4,11 +4,12 @@
 PF2e chat message (createChatMessage, active GM only)
   → extractContext()          src/extract.mjs   PF2e flags → plain NarrativeContext
   → Hook "pf2e-narrative-assistant.context"     other modules may enrich or cancel
-  → shouldNarrate()           src/engine.mjs    settings filters
+  → shouldNarrate()           src/engine.mjs    settings filters, chance per degree
+  → save grouping             src/module.mjs    saves against one item wait for each other
   → candidates()              src/engine.mjs    tables whose `when` matches, most specific first
   → pickEntry()                                 weighted, avoids the last 5 texts of that table
   → interpolate() + contract()                  {placeholders}, component tables, French elision
-  → output                    src/module.mjs    GM whisper card / public card / notification
+  → output                    src/module.mjs    GM whisper card / public card / notification, one line per roll
 ```
 
 `engine.mjs`, `extract.mjs` and `languages.mjs` have no Foundry dependency and are unit-tested. `module.mjs` is the
@@ -26,11 +27,16 @@ No rendered HTML is parsed.
 | Skill action | roll option `action:<slug>` (implicit for every PF2e action, e.g. `action:trip`) |
 | Saving throw | `type: "saving-throw"` + `check:statistic:<fortitude\|reflex\|will>` |
 | Recovery | `type: "flat-check"` + `check:statistic:dying-recovery` (from `CreaturePF2e#rollRecovery`) |
-| Spell attack | `type: "attack-roll"` without a strike identifier → `spell` ("other" events) |
+| Spell attack | `type: "attack-roll"` without a strike identifier → `spell` |
 
 Context fields come from roll options: `item:damage:type:*` → `damageTypes`, `item:trait:*` + action
-traits → `traits`, `target:trait:*` → `targetTraits`, `item:group:*`, `item:category:*`. Thrown
+traits → `traits`, `target:trait:*` → `targetTraits`, `item:group:*`, `item:category:*`,
+`self:condition:*` → `actorConditions`, `target:condition:*` → `targetConditions` (values such as
+`frightened:2` are dropped). Spells add their tradition as a trait (`item:trait:arcane`). Thrown
 attacks: `altUsage: "thrown"` or `item:thrown` on a ranged strike → `thrown: true`.
+
+`tools/check-pf2e.mjs` greps a PF2e checkout for every one of these assumptions;
+`.github/workflows/pf2e-watch.yml` runs it weekly against the latest PF2e release.
 
 `outcome` is the degree after PF2e's adjustments. When it is null (no target, no DC), nothing is
 narrated: the module never guesses a result.
@@ -39,6 +45,12 @@ Duplicates: `createChatMessage` fires only for new documents (never for history 
 only the active GM processes it, message ids are remembered, damage rolls have no outcome, and our
 own cards carry a module flag. PF2e Hero Point rerolls create a new message with a new outcome and are
 narrated again, which is intended.
+
+Save grouping: a save whose message carries `flags.pf2e.origin.uuid` (the spell, poison or effect item)
+waits `saveGroupDelay` seconds; every save with the same origin and the same save type restarts the wait.
+They are then narrated together on one card, one line per creature. A card stores
+`flags["pf2e-narrative-assistant"] = { header, lines: [{ context, text, rawText, tableKey, gmOnly, sourceId }] }`,
+so *Another suggestion* redraws every line, 🚫 redraws one, and ↰ scrolls to `sourceId`.
 
 ## Tables and resolution
 
@@ -58,15 +70,23 @@ The tables are the rules: there is no separate rule list. Matching (`matches`):
 - context value is scalar: equal, or one of the wanted values if `when` gives a list;
 - `{ "anyOf": [...] }`: at least one value present, whatever the shape.
 
-Specificity = number of `when` keys + `priority`. The fallback chain is therefore implicit:
+Specificity = sum of the `when` key weights (`KEY_WEIGHTS` in `engine.mjs`) + `priority`. Broad keys
+(event, range, save, degree) weigh 1, damage types and traits 2, weapon group and creature type 3, a
+named action or a condition 4. The fallback chain is therefore implicit:
 
 ```text
-strike.melee.slashing.criticalSuccess   (eventType, range, damageTypes, degree = 4)
+strike.vs.undead.criticalSuccess        (eventType 1, targetTraits 3, degree 1, priority 3 = 8)
+strike.melee.slashing.criticalSuccess   (eventType 1, range 1, damageTypes 2, degree 1 = 5)
 strike.melee.criticalSuccess            (3)
 generic.criticalSuccess                 (1)
 ```
 
-Tables with no entries are skipped, so an emptied world table falls back too.
+Use `priority` only to order two tables that may both match and weigh the same (an agile weapon is
+also unarmed; a prone target may also be undead).
+
+Tables with no entries are skipped, so an emptied world table falls back too. Texts hidden with 🚫 (the
+`banned` world setting) are removed when tables load, so a table whose texts are all hidden falls back
+the same way.
 
 `slot` other than `narration` defines a component: `{bodyPart}` picks the most specific matching
 table of slot `bodyPart` (humanoid / beast / generic by `targetTraits`).
@@ -77,7 +97,8 @@ The *Narration language* setting (default: UI language) picks the pack; unknown 
 to English. Fallback resolution stays inside one language: a missing French table falls back to a
 less specific French table, never to English text. `src/languages.mjs` holds per-language fallback
 words for missing names and a `fix` pass applied after interpolation (French elision/contraction;
-identity for English).
+identity for English). `{target's}` inserts an English possessive ("the kobold's", "Valeros'"); French
+text uses « de {target} » instead.
 
 ## Overrides
 

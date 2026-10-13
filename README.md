@@ -11,33 +11,41 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 
 - Read-only: it never changes rolls, damage, conditions or degrees of success.
 - No LLM, no network: narration comes from RollTables shipped in the module compendiums, one per
-  language (141 tables and ~1600 entries each, written separately in English and French rather than
+  language (236 tables and ~2100 entries each, written separately in English and French rather than
   translated).
 - *Another suggestion* draws another text, never another PF2e roll. *Send to chat* posts the text
-  alone, publicly.
+  alone, publicly. Each line also has a ↰ button that scrolls the chat to the PF2e roll it narrates,
+  and a 🚫 button that hides that text for good in this world and draws another
+  (`game.modules.get("pf2e-narrative-assistant").api.unbanAll()` brings them all back).
+- Saves against the same spell or effect that arrive within a couple of seconds share one card, one
+  line per creature, instead of one card per creature.
 
 ## Supported events
 
 | Event | Specialisations |
 |---|---|
-| Strikes, melee | generic, slashing, piercing, bludgeoning; body part by target type |
-| Strikes, ranged | generic, piercing (bows, crossbows), thrown weapons |
+| Strikes, melee | generic, slashing, piercing, bludgeoning, unarmed, shield bash, agile/finesse weapons; body part by target type |
+| Strikes, ranged | generic, piercing (bows, crossbows), thrown weapons, firearms |
+| Strikes, by target | undead, constructs, swarms, incorporeal creatures |
+| Strikes, by condition | target prone, frightened, grabbed/restrained; attacker frightened or sickened |
+| Spell attacks | by tradition (arcane, divine, occult, primal) and damage (fire, cold, electricity, acid, force, void) |
 | Athletics | Trip, Grapple, Shove, Disarm, Escape |
 | Acrobatics | Tumble Through (success / failure, as in the Remaster rules) |
 | Deception, Intimidation, Stealth, Perception | Feint, Create a Diversion, Demoralize, Hide, Sneak, Seek |
 | Medicine | Treat Wounds, Administer First Aid |
 | Recall Knowledge | GM prompts on how to deliver the information, never invented facts |
-| Saving throws | Reflex (fire, cold, electricity, acid), Fortitude (poison, disease, physical), Will (fear, mental) |
+| Saving throws | Reflex (fire, cold, electricity, acid), Fortitude (poison, disease, physical, void, vitality), Will (fear, mental) |
 | Recovery checks | four degrees |
-| Anything else | generic fallback per degree (other skill actions, and spells/misc rolls if enabled) |
+| Anything else | generic fallback per degree (other skill actions, and misc rolls if enabled) |
 
 ## Settings
 
 Enable, output (GM whisper / public chat / notification), narration language (UI language / English /
-French; English when the UI language has no corpus), narrative source (module / world tables),
-frequency (all / successes only / criticals only), event families, degrees of success, and a list of
-disabled action slugs (`seek, hide, recall-knowledge`…). Narration about a secret roll or a Recall
-Knowledge prompt always stays whispered.
+French; English when the UI language has no corpus), narrative source (module / world tables), event
+families, a chance per degree of success (e.g. 100% of criticals but 30% of plain successes, to keep
+long fights readable), the save grouping delay (0 turns it off), and a list of disabled action slugs
+(`seek, hide, recall-knowledge`…). Narration about a secret roll or a Recall Knowledge prompt always
+stays whispered.
 
 ## Development
 
@@ -51,6 +59,9 @@ Symlink the repository into `Data/modules/pf2e-narrative-assistant` and run `npm
 `packs/` is generated, never edited by hand nor committed; table and result IDs are derived from table
 keys, so rebuilds are reproducible.
 
+`.github/workflows/pf2e-watch.yml` runs `tools/check-pf2e.mjs` every week against the latest PF2e
+release: it fails when PF2e stops writing one of the chat flags or roll options this module reads.
+
 Releases: publish a GitHub release tagged `vX.Y.Z`. `.github/workflows/release.yml` tests, builds the
 compendiums, stamps `version`, `url`, `manifest` and `download` into `module.json`, and attaches
 `module.json` and `module.zip` to the release. Install URL for Foundry:
@@ -59,8 +70,9 @@ compendiums, stamps `version`, `url`, `manifest` and `download` into `module.jso
 ## How a narration is chosen
 
 Every compendium table carries a key and a `when` condition (event, action, save, range, damage type,
-traits, degree…), defined once in `src/data/rules.json` for all languages. The most specific matching table wins, so missing specialisations fall back by
-themselves: `strike.melee.slashing.success` → `strike.melee.success` → `generic.success`.
+traits, creature type, conditions, degree…), defined once in `src/data/rules.json` for all languages.
+The most specific matching table wins, so missing specialisations fall back by themselves:
+`strike.melee.slashing.success` → `strike.melee.success` → `generic.success`.
 Details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Adding or changing narration
@@ -87,13 +99,14 @@ GMs can also customise in Foundry: import a table from the compendium into the w
 
 - Narration exists in English and French; the UI is localised in both.
 - Attacks without a target or DC have no degree of success in PF2e, so they are not narrated.
-- Area spells produce one save message per creature, hence one suggestion each.
+- Save grouping relies on timing: saves rolled one by one by players, further apart than the grouping
+  delay, still get one card each.
 - Names come from tokens and their gender is unknown: English text uses names or singular "their",
   French text avoids gendered pronouns and agreements; French elision and contraction are automatic
   (« d'Ezren », a token named « le kobold » gives « du kobold »). Naming generic NPC tokens with their
   article ("the kobold") reads best in both languages.
-- Spell casts, damage, conditions, Dying/Wounded changes, initiative are not narrated yet; the
-  extension points are described in the architecture doc.
+- Spell casts without a roll, damage, condition changes, Dying/Wounded changes, initiative are not
+  narrated yet; the extension points are described in the architecture doc.
 - Written against the PF2e 8.6.1 source and the Foundry 14 type declarations it ships; not yet run in
   a live Foundry session. See
   [docs/MANUAL-TESTS.md](docs/MANUAL-TESTS.md) for the in-game checklist.

@@ -40,7 +40,7 @@
       "GM prompt: under the rules, a critical failure can yield false information. Present it with the same confidence as a true answer.",
       "GM prompt: if you give false information, tie it to a source {actor} would trust: a rumor, a dubious book, a folk tale.",
       "GM prompt: {actor} is certain. Choose a plausible error and present it without any warning sign.",
-      "GM prompt: in the memory of {actor}, mix this creature or subject up with a similar one, convincingly.",
+      "GM prompt: in {actor's} memory, mix this creature or subject up with a similar one, convincingly.",
       "GM prompt: make the answer as convincing as a success: the table must not be able to guess the mistake.",
       "GM prompt: avoid errors that would endanger the group out of all proportion; prefer a minor tactical misunderstanding.",
       "GM prompt: let {actor} assert something false but consistent with what the players can see.",

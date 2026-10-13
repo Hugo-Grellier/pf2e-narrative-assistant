@@ -6,29 +6,29 @@
       "{actor} melts into the shadow and becomes one shape among many.",
       "A held breath, a step back, and {actor} disappears from sight.",
       "{actor} presses against the cover and goes as still as stone.",
-      "Eyes slide over the hiding place of {actor} without stopping.",
+      "Eyes slide over {actor's} hiding place without stopping.",
       "{actor} follows the contours of the scenery until indistinguishable from it.",
       "Not a sound, not a movement: {actor} is just a shadow now.",
       "{actor} curls up behind cover, invisible at first glance.",
       "A gaze passes very close to {actor}, then turns away.",
       "{actor} matches their breathing to the ambient noise and fades away.",
-      "The silhouette of {actor} dissolves into the gloom.",
+      "{actor's} silhouette dissolves into the gloom.",
       "{actor} slips into a nook nobody thinks to check.",
       "Motionless, {actor} waits, and the world forgets."
     ],
     "failure,criticalFailure": [
       "{actor} hides, but a corner of clothing sticks out from the cover.",
-      "A glint on the gear of {actor} gives away their presence.",
+      "A glint on {actor's} gear gives away their presence.",
       "{actor} holds their breath a little too loudly.",
       "The hiding place chosen by {actor} is less safe than it looks.",
       "A scrape of a foot reveals {actor} at the worst moment.",
       "{actor} crouches behind cover, without managing to be forgotten.",
-      "A shadow moves where nothing should move: the stealth of {actor} leaves something to be desired.",
+      "A shadow moves where nothing should move: {actor's} stealth leaves something to be desired.",
       "An insistent gaze settles on the spot where {actor} is standing.",
       "{actor} seeks the shadows, but the light finds them.",
       "The slightest gesture from {actor} seems to echo in the silence.",
       "{actor} freezes a second too late.",
-      "The breathing of {actor} betrays the hiding place."
+      "{actor's} breathing betrays the hiding place."
     ]
   }
 }

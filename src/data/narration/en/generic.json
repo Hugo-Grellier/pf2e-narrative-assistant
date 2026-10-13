@@ -6,7 +6,7 @@
       "Everything aligns: {actor} succeeds with remarkable ease.",
       "{actor} exceeds every expectation, starting with their own.",
       "A moment of grace: every move from {actor} lands just right.",
-      "The success of {actor} is dazzling.",
+      "{actor's} success is dazzling.",
       "{actor} makes the difficult look simple.",
       "Luck and talent join forces in favor of {actor}.",
       "{actor} succeeds with a flair that commands respect.",
@@ -14,7 +14,7 @@
     ],
     "success": [
       "{actor} gets it done.",
-      "The efforts of {actor} pay off.",
+      "{actor's} efforts pay off.",
       "{actor} succeeds, without fanfare but without fault.",
       "The maneuver from {actor} works.",
       "{actor} gets what was needed.",

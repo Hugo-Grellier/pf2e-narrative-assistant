@@ -8,6 +8,7 @@
  *   outcome   degree of success after adjustments, null when there was no DC
  *   options   the roll options: "action:trip", "item:damage:type:slashing", "target:trait:humanoid", ...
  *   identifier for strikes: "<itemId>.<slug>.<melee|ranged>"
+ * Spells add their tradition as a trait ("item:trait:arcane") and their damage types ("item:damage:type:fire").
  */
 
 const SAVES = ["fortitude", "reflex", "will"];
@@ -36,6 +37,9 @@ export function extractContext(systemFlags, names = {}) {
         traits: [...new Set([...simpleSuffixes(options, "item:trait:"), ...actionTraits])],
         damageTypes: simpleSuffixes(options, "item:damage:type:"),
         targetTraits: simpleSuffixes(options, "target:trait:"),
+        // Conditions already applied by PF2e: "self:condition:frightened", "target:condition:prone".
+        actorConditions: simpleSuffixes(options, "self:condition:"),
+        targetConditions: simpleSuffixes(options, "target:condition:"),
         rollOptions: options,
         isReroll: !!flag.isReroll,
         vars: {

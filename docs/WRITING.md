@@ -57,8 +57,9 @@ of `outcomes`: `{ "key": "component.body-part.humanoid", "label": [...], "entrie
 Names are whatever the GM typed on the token ("Valeros", "the kobold"), and their gender is unknown.
 
 **English**
-- Never put an article before a name: no `the {target}`. Possessives as `the guard of {target}`, which
-  works for "Valeros" and "the kobold" alike.
+- Never put an article before a name: no `the {target}`. Possessives: `{target's} guard` gives
+  "the kobold's guard" or "Valeros' guard". Keep `the guard of {target}` when a relative clause
+  follows (`the hand of {target}, who…`).
 - No he/she/him/her/his/himself/herself anywhere (the test enforces it); use the name or singular
   "their/themselves".
 - `{bodyPart}` carries its article ("the shoulder"): use it after `on`, `in`, `into`, `across`.
@@ -70,8 +71,10 @@ Names are whatever the GM typed on the token ("Valeros", "the kobold"), and thei
 - `{bodyPart}` carries its article (« l'épaule »): use it after `sur`, `vers`, `contre`, `sous`.
 - Avoid pronouns and agreements that assume a gender (« il », « le », « surpris »): prefer the name,
   « l' », possessives, or a body/gear focused sentence.
+- `{target's}` is English only (the tests reject it in French).
 
-In both languages a sentence may start with a placeholder: the first letter is capitalised.
+In both languages a sentence may start with a placeholder: the first letter of every sentence is
+capitalised.
 
 ## Style
 
@@ -79,10 +82,14 @@ In both languages a sentence may start with a placeholder: the first letter is c
 - Sensory and cinematic: sounds, motion, the feel of the impact, the reaction.
 - Vary openings and verbs. Overused adverbs are capped by the tests ("violently", "brutally",
   "precisely", "barely"; « violemment », « brutalement », « avec précision », « de justesse »).
-- Strikes, saves, recovery and generic text never state a mechanical consequence PF2e did not apply:
+- Strikes, spells, saves, recovery and generic text never state a mechanical consequence PF2e did not apply:
   no broken limb, no prone, no push, no dropped weapon, no bleeding/persistent damage, no condition,
   no death, no destroyed armour, no damage numbers, no immunity/resistance.
   "The blade bites deep into their defense" rather than "the blade severs their arm".
 - Skill actions may describe the rules result of that degree, since PF2e determined it (Trip success:
   the target falls; Grapple success: the target is held). Never add more.
+- Condition tables (`strike.condition.*`) may describe the condition PF2e already applied (a prone
+  target is on the ground), nothing more.
+- Target-type tables (`strike.vs.*`) also fire for ranged attacks: talk about "the attack" or "the
+  blow", not a blade.
 - Recall Knowledge entries are prompts to the GM, not facts about creatures.

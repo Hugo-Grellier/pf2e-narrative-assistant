@@ -1,0 +1,396 @@
+[
+  {
+    "key": "spell.attack",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Generic"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The spell leaps from {actor's} hands and strikes {target} full on.",
+        "Magic slams into {target} with a crack that shakes the air.",
+        "{actor's} spell finds its mark with uncanny accuracy.",
+        "The energy bursts across {target}, leaving the air humming.",
+        "{actor} guides the spell like an arrow, straight into {bodyPart}.",
+        "The spell hits so cleanly that {target} reels from the shock."
+      ],
+      "success": [
+        "The spell strikes {target}, crackling on impact.",
+        "{actor's} magic reaches {target} and bites.",
+        "A flash, and the spell lands.",
+        "The spell catches {target} in the middle of turning away.",
+        "{actor} releases the spell, and it finds {target}.",
+        "The magic hits and sinks into {target}."
+      ],
+      "failure": [
+        "The spell streaks past {target} and fades into nothing.",
+        "{target} ducks, and the magic splashes harmlessly behind.",
+        "The spell flies true, but {target} is no longer there.",
+        "{actor's} aim wavers and the spell goes wide.",
+        "Energy crackles past {target's} shoulder and dissipates.",
+        "The spell misses by a hand's breadth."
+      ],
+      "criticalFailure": [
+        "The spell sputters out of {actor's} fingers and fades in the air.",
+        "{actor} loses the thread of the spell, and it lashes out at nothing.",
+        "The magic goes off wildly, striking stone far from {target}.",
+        "A misspoken syllable sends the spell spiraling off course.",
+        "The spell flares, wobbles, and vanishes well wide of {target}.",
+        "{actor's} gesture comes out wrong and the magic scatters in sparks."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.arcane",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Arcane"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Runes flash in the air, and the arcane bolt strikes {target} with perfect geometry.",
+        "{actor's} formula resolves exactly as calculated, and {target} takes the full force of it.",
+        "Glyphs spin around {actor's} hand and the spell lands like a solved equation.",
+        "Raw arcane force, tightly shaped, hits {target} squarely.",
+        "The spell's pattern holds perfectly from casting to impact."
+      ],
+      "success": [
+        "Arcane sigils flicker and the spell reaches {target}.",
+        "An exact gesture, an exact hit.",
+        "{actor's} studied magic finds its mark.",
+        "Lines of light trace the spell's path into {target}.",
+        "The formula holds, and the magic lands."
+      ],
+      "failure,criticalFailure": [
+        "The calculation was right; {target} simply moved.",
+        "Runes scatter like sparks as the spell misses.",
+        "{actor's} formula slips a sign, and the magic goes astray.",
+        "The arcane bolt hisses past {target}.",
+        "A flaw in the pattern, and the spell unravels short of {target}."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.divine",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Divine"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Holy light spears through the air and strikes {target} full on.",
+        "{actor's} prayer is answered, and the blow from on high lands squarely.",
+        "Divine power hits {target} like a verdict.",
+        "A chorus only {actor} can hear rises as the spell strikes home.",
+        "Faith guides the spell straight into {target}."
+      ],
+      "success": [
+        "Sacred power reaches {target} and burns.",
+        "{actor's} invocation finds {target}.",
+        "A flash of divine radiance, and the spell lands.",
+        "The spell strikes with the weight of conviction.",
+        "Power from beyond touches {target}."
+      ],
+      "failure,criticalFailure": [
+        "The divine power passes {target} by, as if withheld.",
+        "{actor's} prayer falters and the spell goes astray.",
+        "Radiance washes past {target} without reaching them.",
+        "The answer to {actor's} prayer comes a moment too late.",
+        "The spell gutters like a candle in the wind and misses."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.occult",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Occult"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The spell slips through the seams of reality and strikes {target} from an impossible angle.",
+        "Whispers rise as the occult power sinks into {target}.",
+        "{actor's} spell lands with the feeling of something vast turning to look.",
+        "Strange colors bloom where the spell hits {target}.",
+        "The air ripples like a mirror, and the magic strikes squarely."
+      ],
+      "success": [
+        "A wrongness in the air, then the spell hits {target}.",
+        "{actor's} occult magic finds its mark with a low hum.",
+        "The spell lands, leaving an afterimage that hurts to look at.",
+        "Murmuring shadows carry the spell to {target}.",
+        "The hit feels less like force than like a revelation."
+      ],
+      "failure,criticalFailure": [
+        "The spell slides into some other angle of space and misses.",
+        "Whispers rise, then fall silent: the spell missed.",
+        "{actor's} focus slips, and the strange energy scatters.",
+        "The occult power curls around {target} without touching.",
+        "A ripple in the air, nothing more."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.primal",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Primal"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The spell surges like a storm and slams into {target}.",
+        "Nature's raw power answers {actor} and strikes {target} squarely.",
+        "The spell roars like a wild animal as it hits.",
+        "Leaves whirl and the primal force crashes into {target}.",
+        "{actor's} magic hits with the weight of a falling tree."
+      ],
+      "success": [
+        "Wild energy lashes {target}.",
+        "The scent of rain fills the air as the spell lands.",
+        "{actor's} primal magic catches {target}.",
+        "A gust of living power strikes {target}.",
+        "The spell hits with the bite of a winter wind."
+      ],
+      "failure,criticalFailure": [
+        "The wild magic veers off like a startled bird.",
+        "The spell crashes into the earth beside {target}.",
+        "Nature does not quite answer, and the spell falls short.",
+        "{target} slips out of the gust of primal power.",
+        "The spell scatters like seeds on the wind."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.fire",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Fire"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "A spear of flame hits {target} and the heat washes over everyone nearby.",
+        "Fire blooms across {target}, roaring and bright.",
+        "The flame strikes {bodyPart} with the breath of a forge.",
+        "{actor's} fire hits so hard the air shimmers long afterward.",
+        "Searing light and heat engulf {target} for a heartbeat."
+      ],
+      "success": [
+        "The flame splashes against {target}, scorching.",
+        "Heat and light: the spell lands and sizzles.",
+        "{target} flinches from the sudden blaze.",
+        "The fire licks {target} and leaves the smell of singed cloth.",
+        "A burst of flame catches {target}."
+      ],
+      "failure": [
+        "The fire roars past {target} and gutters out.",
+        "Heat brushes {target's} cheek, nothing more.",
+        "The flame streaks wide and scorches the ground.",
+        "{target} twists away from the blaze.",
+        "Sparks rain down where {target} stood a moment ago."
+      ],
+      "criticalFailure": [
+        "The flame flares too early, warming only {actor's} own fingers.",
+        "The fire sputters into smoke halfway to {target}.",
+        "A puff of embers, a cloud of smoke, and nothing else.",
+        "The spell veers and leaves a scorch mark far from {target}.",
+        "{actor} flinches from the sudden heat and the fire flies off course."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.cold",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Cold"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "A lance of frost hits {target} and rime spreads in a crackling web.",
+        "The cold bites so deep that {target's} breath turns to mist.",
+        "Ice blooms over {bodyPart} with a sharp crackle.",
+        "{actor's} frost lands with the silence of deep winter.",
+        "The chill hits {target} like a plunge into a frozen lake."
+      ],
+      "success": [
+        "Frost sweeps across {target}, leaving a white crust.",
+        "The cold strikes, and {target} shudders.",
+        "Ice crystals spark on {target's} gear.",
+        "A bitter chill wraps around {target}.",
+        "The spell lands with a crack of freezing air."
+      ],
+      "failure": [
+        "The frost misses and dusts the ground white.",
+        "Cold air streams past {target}.",
+        "{target} sidesteps the icy beam.",
+        "The chill fades before reaching {target}.",
+        "A swirl of snowflakes, and nothing more."
+      ],
+      "criticalFailure": [
+        "The frost spell fizzles into a harmless puff of snow.",
+        "{actor's} fingers go numb and the cold goes astray.",
+        "The ice shatters in midair halfway to {target}.",
+        "A burst of frost, aimed nowhere useful.",
+        "The cold whips back around and stings {actor's} cheeks."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.electricity",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Electricity"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Lightning crackles into {target}, and every hair in the room stands on end.",
+        "The arc strikes with a deafening snap and the smell of storms.",
+        "{target} jerks as electricity dances across {bodyPart}.",
+        "A blue-white bolt hits {target} squarely, leaving afterimages.",
+        "{actor's} spark finds {target} and the lightning sings."
+      ],
+      "success": [
+        "Sparks leap to {target} with a sharp crack.",
+        "The bolt hits, and {target} twitches.",
+        "Static crawls over {target's} gear.",
+        "Lightning snaps across the gap and lands.",
+        "A buzzing jolt runs through {target}."
+      ],
+      "failure": [
+        "The bolt snaps past {target} and grounds itself in the floor.",
+        "Sparks scatter wide.",
+        "{target} ducks under a crackling arc.",
+        "The lightning forks away from {target}.",
+        "A crack of thunder, but the bolt misses."
+      ],
+      "criticalFailure": [
+        "The spark jumps the wrong way and crackles into a nearby metal fitting.",
+        "The lightning fizzles out with a pathetic pop.",
+        "{actor} feels a tingle in the fingers as the spell falls apart.",
+        "The bolt wanders off in a crooked line nowhere near {target}.",
+        "A flash, a bang, and the smell of ozone where nothing was hit."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.acid",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Acid"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Acid splashes over {target} and hisses angrily.",
+        "The corrosive spell eats into {target's} gear and the skin beneath.",
+        "A green glob bursts on {bodyPart}, smoking.",
+        "The acid hits squarely and the stench is overwhelming.",
+        "{target} recoils as the acid sizzles across {bodyPart}."
+      ],
+      "success": [
+        "Acid spatters {target} with a sharp hiss.",
+        "The spell lands and smoke curls up from {target's} gear.",
+        "Corrosive droplets sting {target}.",
+        "{actor's} acid finds {target}, fizzing.",
+        "A splash of green, a hiss, a wince."
+      ],
+      "failure": [
+        "The acid splashes the ground beside {target}, smoking.",
+        "{target} dodges the corrosive spray.",
+        "Droplets of acid fall short of {target}.",
+        "The glob sails wide and hisses on stone.",
+        "A sour stench, but {target} avoids the splash."
+      ],
+      "criticalFailure": [
+        "The acid splatters into a puddle at {actor's} feet.",
+        "The spell curdles in the air and drips uselessly down.",
+        "A spray of acid hisses in every direction except toward {target}.",
+        "The glob bursts too early, spattering the floor.",
+        "{actor} jerks back from the stinging fumes, and the spell goes astray."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.force",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Force"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "An invisible fist of force slams into {target}.",
+        "The air itself hits {target} with a resounding thud.",
+        "Pure force strikes {bodyPart}, unseen and undeniable.",
+        "{actor's} spell lands like a hammer of glass.",
+        "The impact of raw force rocks {target} on the spot."
+      ],
+      "success": [
+        "Force hits {target} with a dull thump.",
+        "A shimmer in the air, then the impact.",
+        "{target} staggers as something invisible strikes.",
+        "The spell lands with a sound like a door slammed shut.",
+        "Unseen force cuffs {target}."
+      ],
+      "failure": [
+        "A ripple in the air, and the force misses.",
+        "{target} dodges the barely visible distortion.",
+        "The force thuds into the wall behind {target}.",
+        "Something invisible whooshes past {target}.",
+        "The spell's shimmer passes harmlessly by."
+      ],
+      "criticalFailure": [
+        "The force dissipates with a soft pop.",
+        "{actor's} spell thumps into the floor well short of {target}.",
+        "The invisible bolt wobbles and fades.",
+        "A gust of nothing, and the spell is gone.",
+        "The force goes off at the wrong angle and rattles some distant crockery."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.void",
+    "label": [
+      "Spells",
+      "Spell attacks",
+      "Void"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Darkness lashes out and drains the color from {target's} face.",
+        "The void energy sinks into {target} like cold water into sand.",
+        "Life itself seems to flicker in {target} as the spell lands.",
+        "{actor's} spell hits, and the air grows still and gray.",
+        "A hungry shadow bites into {bodyPart}."
+      ],
+      "success": [
+        "Grayish energy seeps into {target}.",
+        "The spell touches {target}, and warmth drains away.",
+        "{target} shivers as the void power lands.",
+        "A wave of emptiness washes over {target}.",
+        "The spell hits, leaving a chill that is not quite cold."
+      ],
+      "failure": [
+        "The void energy dissipates before reaching {target}.",
+        "A dark tendril reaches for {target} and finds nothing.",
+        "{target} steps out of the creeping gray.",
+        "The shadow passes {target} by.",
+        "The void spell fades like smoke."
+      ],
+      "criticalFailure": [
+        "The darkness recoils toward {actor}, who shakes it off with a shudder.",
+        "The void energy unravels into wisps.",
+        "A cold gray mist spills from {actor's} hands and fades.",
+        "The spell drifts wide and withers a patch of moss.",
+        "Shadows gather, then disperse uselessly."
+      ]
+    }
+  }
+]

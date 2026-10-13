@@ -1,0 +1,78 @@
+[
+  {
+    "key": "save.fortitude.void",
+    "label": [
+      "Jets de sauvegarde",
+      "Vigueur",
+      "Vide"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "L'énergie du néant déferle sur {actor} et ne trouve aucune prise.",
+        "La force vitale de {actor} brûle trop fort pour que les ténèbres l'atteignent.",
+        "Le froid gris glisse sur {actor} comme de l'eau.",
+        "{actor} expire, et le pouvoir du néant se dissipe.",
+        "La vitalité de {actor} tient bon face à l'obscurité affamée."
+      ],
+      "success": [
+        "{actor} frissonne mais garde l'essentiel de sa chaleur.",
+        "Le vide mord, mais {actor} tient bon.",
+        "{actor} serre les dents tandis que la marée grise reflue.",
+        "Un froid traverse {actor}, moins profond qu'il aurait pu l'être.",
+        "Le corps de {actor} résiste au pire du néant."
+      ],
+      "failure": [
+        "L'énergie du néant s'infiltre chez {actor} et laisse un teint livide.",
+        "La chaleur quitte les membres de {actor}.",
+        "{actor} suffoque quand l'obscurité prélève son dû.",
+        "Le froid gris s'installe jusque dans les os de {actor}.",
+        "Les couleurs quittent le visage de {actor}."
+      ],
+      "criticalFailure": [
+        "L'énergie du néant s'engouffre, et {actor} ploie sous le poids.",
+        "Un vide glacé inonde {actor}.",
+        "Le souffle de {actor} se change en buée et la lumière semble baisser tout autour.",
+        "Les ténèbres boivent à longs traits la force de {actor}.",
+        "{actor} chancelle, comme si la vie refluait."
+      ]
+    }
+  },
+  {
+    "key": "save.fortitude.vitality",
+    "label": [
+      "Jets de sauvegarde",
+      "Vigueur",
+      "Vitalité"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "La lumière vitale balaie {actor} et s'efface sans laisser de trace.",
+        "{actor} endure la vague radieuse sans broncher.",
+        "La lumière ne trouve aucune prise sur {actor}.",
+        "{actor} laisse la vitalité passer comme un vent tiède.",
+        "L'énergie vitale se brise sur {actor} comme une vague sur un rocher."
+      ],
+      "success": [
+        "{actor} recule devant le rayonnement mais tient.",
+        "La lumière vitale pique, mais brièvement.",
+        "{actor} se détourne de l'éclat et en évite l'essentiel.",
+        "La chaleur crépite contre {actor}, en partie déviée.",
+        "{actor} endure l'éclat, mâchoires serrées."
+      ],
+      "failure": [
+        "La lumière vitale brûle {actor} de l'intérieur.",
+        "{actor} hurle quand la chaleur l'envahit.",
+        "Le rayonnement inonde {actor} et brûle.",
+        "{actor} se tord dans la lumière vivante.",
+        "Le flot de vie frappe {actor} de plein fouet."
+      ],
+      "criticalFailure": [
+        "La vitalité engloutit {actor} sans rien laisser dans l'ombre.",
+        "L'éclat ardent saisit {actor} de plein fouet.",
+        "La lumière vivante déchire {actor}.",
+        "{actor} hurle quand le rayonnement envahit chaque recoin.",
+        "L'éclat avale {actor}, et le cri résonne."
+      ]
+    }
+  }
+]

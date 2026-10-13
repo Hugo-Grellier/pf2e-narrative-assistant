@@ -10,6 +10,7 @@ const on = (name, fn) => handlers.set(name, [...(handlers.get(name) ?? []), fn])
 const fire = (name, ...args) => (handlers.get(name) ?? []).map((fn) => fn(...args));
 
 const settings = new Map();
+const onChange = new Map();
 const created = [];
 const gm = { id: "gm1", isGM: true, isActiveGM: true };
 
@@ -38,8 +39,15 @@ globalThis.game = {
     users: [gm, { id: "p1", isGM: false }],
     i18n: { lang: "fr", localize: (k) => k },
     settings: {
-        register: (_ns, key, data) => settings.set(key, data.default),
+        register: (_ns, key, data) => {
+            settings.set(key, data.default);
+            if (data.onChange) onChange.set(key, data.onChange);
+        },
         get: (_ns, key) => settings.get(key),
+        set: async (_ns, key, value) => {
+            settings.set(key, value);
+            onChange.get(key)?.(value);
+        },
     },
     modules: new Map([[ID, {}]]),
     packs: new Map(["en", "fr"].map((lang) => [`${ID}.narration-${lang}`, { getDocuments: async () => docsFor(lang) }])),
@@ -50,6 +58,7 @@ globalThis.game = {
 await import("../src/module.mjs");
 fire("init");
 fire("ready");
+settings.set("saveGroupDelay", 0); // grouping has its own test
 
 const pf2eMessage = (id, context, extra = {}) => ({
     id,
@@ -63,6 +72,16 @@ const pf2eMessage = (id, context, extra = {}) => ({
     ...extra,
 });
 const createAndWait = async (message) => Promise.all(fire("createChatMessage", message));
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+globalThis.HTMLElement = class {};
+/** Renders `card` and clicks the button carrying `dataset`. */
+async function click(card, dataset) {
+    const listeners = [];
+    const button = { dataset, addEventListener: (_e, fn) => listeners.push(fn) };
+    fire("renderChatMessageHTML", card, Object.assign(new HTMLElement(), { querySelectorAll: () => [button] }));
+    await listeners[0]({ preventDefault() {} });
+}
 
 test("a Strike creates one GM-whispered suggestion with a stored context", async () => {
     created.length = 0;
@@ -71,8 +90,11 @@ test("a Strike creates one GM-whispered suggestion with a stored context", async
     const [card] = created;
     assert.deepEqual(card.whisper, ["gm1"]);
     assert.match(card.content, /PF2E\.Check\.Result\.Degree\.Attack\.criticalSuccess · Épée longue/);
-    assert.match(card.flags[ID].tableKey, /^strike\.melee\.slashing\.criticalSuccess$/);
-    assert.ok(!/\{\w+\}/.test(card.flags[ID].text), card.flags[ID].text);
+    const [line] = card.flags[ID].lines;
+    assert.match(line.tableKey, /^strike\.melee\.slashing\.criticalSuccess$/);
+    assert.ok(!/\{[\w']+\}/.test(line.text), line.text);
+    assert.equal(line.sourceId, "s1");
+    assert.match(card.content, /data-pf2e-na="source" data-message-id="s1"/);
     assert.match(card.content, /data-pf2e-na="publish"/);
 });
 
@@ -107,16 +129,12 @@ test("reroll replaces only the narration text", async () => {
     created.length = 0;
     await createAndWait(pf2eMessage("s3", { type: "saving-throw", outcome: "failure", options: ["check:statistic:reflex", "item:trait:fire"] }));
     const [card] = created;
-    const before = card.flags[ID].text;
-    const listeners = [];
-    const button = { dataset: { pf2eNa: "reroll" }, addEventListener: (_e, fn) => listeners.push(fn) };
-    globalThis.HTMLElement = class {};
-    const html = Object.assign(new HTMLElement(), { querySelectorAll: () => [button] });
-    fire("renderChatMessageHTML", card, html);
-    await listeners[0]({ preventDefault() {} });
+    const before = card.flags[ID].lines[0].text;
+    await click(card, { pf2eNa: "reroll" });
     assert.equal(created.length, 1, "no new message");
-    assert.notEqual(card[`flags.${ID}`].text, before);
-    assert.match(card[`flags.${ID}`].tableKey, /^save\.reflex\.fire\./);
+    const [line] = card[`flags.${ID}.lines`];
+    assert.notEqual(line.text, before);
+    assert.match(line.tableKey, /^save\.reflex\.fire\./);
 });
 
 test("narration language follows the setting, independently of the UI", async () => {
@@ -148,4 +166,48 @@ test("cards carrying our flag but written by a player are ignored", async () => 
     const button = { dataset: { pf2eNa: "reroll" }, addEventListener: (_e, fn) => listeners.push(fn) };
     fire("renderChatMessageHTML", forged, Object.assign(new HTMLElement(), { querySelectorAll: () => [button] }));
     assert.equal(listeners.length, 0);
+});
+
+test("saves against the same casting share one card, one line per creature", async () => {
+    created.length = 0;
+    settings.set("saveGroupDelay", 0.05);
+    const save = (id, actor, outcome) =>
+        pf2eMessage(id, { type: "saving-throw", outcome, options: ["check:statistic:reflex", "item:trait:fire"] }, {
+            speaker: { alias: actor },
+            flags: { pf2e: { context: { type: "saving-throw", outcome, options: ["check:statistic:reflex", "item:trait:fire"], traits: [] }, origin: { uuid: "Actor.ezren.Item.fireball", type: "spell", castRank: 3 } } },
+        });
+    await createAndWait(save("f1", "Valeros", "success"));
+    await createAndWait(save("f2", "Kobold", "criticalFailure"));
+    await createAndWait(save("f3", "Ezren", "failure"));
+    assert.equal(created.length, 0, "waits for the group to settle");
+    await wait(100);
+    settings.set("saveGroupDelay", 0);
+    assert.equal(created.length, 1);
+    const [card] = created;
+    assert.deepEqual(card.flags[ID].lines.map((l) => l.sourceId), ["f1", "f2", "f3"]);
+    assert.match(card.content, /Kobold \(PF2E\.Check\.Result\.Degree\.Check\.criticalFailure\)/);
+});
+
+test("Never again hides a text for good and redraws that line", async () => {
+    created.length = 0;
+    await createAndWait(pf2eMessage("r1", { type: "flat-check", outcome: "success", options: ["check:statistic:dying-recovery"] }));
+    const [card] = created;
+    const banned = card.flags[ID].lines[0].rawText;
+    await click(card, { pf2eNa: "ban", line: "0" });
+    assert.deepEqual(settings.get("banned"), [banned]);
+    assert.notEqual(card[`flags.${ID}.lines`][0].rawText, banned);
+    const api = game.modules.get(ID).api;
+    for (let i = 0; i < 50; i++) {
+        assert.notEqual((await api.suggest({ eventType: "recovery", degreeOfSuccess: "success", vars: {} })).rawText, banned);
+    }
+    await api.unbanAll();
+    assert.deepEqual(settings.get("banned"), []);
+});
+
+test("chance settings skip a share of rolls", async () => {
+    created.length = 0;
+    settings.set("chance.success", 0);
+    await createAndWait(pf2eMessage("c1", { type: "attack-roll", identifier: "a.longsword.melee", outcome: "success" }));
+    settings.set("chance.success", 100);
+    assert.equal(created.length, 0);
 });

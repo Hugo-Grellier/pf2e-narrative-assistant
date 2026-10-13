@@ -4,42 +4,42 @@
   "outcomes": {
     "criticalSuccess": [
       "A deep breath, almost a start: life reasserts itself in {actor}.",
-      "The eyelids of {actor} flutter, and a stronger breath lifts the chest.",
+      "{actor's} eyelids flutter, and a stronger breath lifts the chest.",
       "Something deep within {actor} flatly refuses to give up.",
-      "The pulse of {actor} firms up all at once, steady and stubborn.",
+      "{actor's} pulse firms up all at once, steady and stubborn.",
       "{actor} coughs, spits, and clings to life with everything they have.",
-      "A spark of awareness crosses the eyes of {actor}, like a rekindled flame.",
-      "The breathing of {actor} finds an almost normal rhythm again.",
+      "A spark of awareness crosses {actor's} eyes, like a rekindled flame.",
+      "{actor's} breathing finds an almost normal rhythm again.",
       "{actor} weakly clenches a fist: not today."
     ],
     "success": [
-      "The breathing of {actor} rasps a little less.",
-      "The faint pulse of {actor} grows more regular.",
+      "{actor's} breathing rasps a little less.",
+      "{actor's} faint pulse grows more regular.",
       "{actor} groans softly: a welcome sign of life.",
-      "A longer breath than the others lifts the chest of {actor}.",
-      "The fingers of {actor} twitch for a moment; the will to live is there.",
+      "A longer breath than the others lifts {actor's} chest.",
+      "{actor's} fingers twitch for a moment; the will to live is there.",
       "{actor} hangs on, one heartbeat after another.",
-      "The face of {actor} regains the faintest color.",
+      "{actor's} face regains the faintest color.",
       "{actor} fights in silence, and gains a little ground."
     ],
     "failure": [
-      "The breathing of {actor} grows weaker, slower.",
-      "The pulse of {actor} falters, ever fainter.",
-      "The face of {actor} grows paler still.",
+      "{actor's} breathing grows weaker, slower.",
+      "{actor's} pulse falters, ever fainter.",
+      "{actor's} face grows paler still.",
       "{actor} slips a little further into the darkness.",
       "A faint rattle escapes {actor}, then silence.",
-      "The strength of {actor} ebbs away, drop by drop.",
-      "The chest of {actor} barely rises.",
-      "The cold creeps into the hands of {actor}."
+      "{actor's} strength ebbs away, drop by drop.",
+      "{actor's} chest barely rises.",
+      "The cold creeps into {actor's} hands."
     ],
     "criticalFailure": [
-      "The breathing of {actor} stops for a moment, then resumes, frighteningly weak.",
-      "The skin of {actor} turns a worrying gray.",
-      "The pulse of {actor} is no more than a murmur under the fingers.",
+      "{actor's} breathing stops for a moment, then resumes, frighteningly weak.",
+      "{actor's} skin turns a worrying gray.",
+      "{actor's} pulse is no more than a murmur under the fingers.",
       "{actor} sinks deeper, far from the voices calling out.",
       "A long shiver runs through {actor}, then nothing moves.",
-      "The lips of {actor} turn blue; time is running out.",
-      "The breath of {actor} grows so faint that one must strain to hear it.",
+      "{actor's} lips turn blue; time is running out.",
+      "{actor's} breath grows so faint that one must strain to hear it.",
       "{actor} drifts away, and the darkness closes in a little more."
     ]
   }

@@ -1,0 +1,28 @@
+name: PF2e watch
+
+# Weekly check that the latest PF2e release still writes the chat flags and roll options this module
+# reads. A failure means "read tools/check-pf2e.mjs output, then re-test in Foundry", not a broken build.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Find the latest PF2e release
+        id: pf2e
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # The repository also publishes sf2e-* and *-anachronism-* releases.
+        run: |
+          tag=$(gh release list -R foundryvtt/pf2e -L 30 --json tagName -q '[.[].tagName | select(test("^pf2e-[0-9]"))][0]')
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Checking $tag" >> "$GITHUB_STEP_SUMMARY"
+      - run: git clone --quiet --depth 1 --branch "${{ steps.pf2e.outputs.tag }}" https://github.com/foundryvtt/pf2e.git "$RUNNER_TEMP/pf2e"
+      - run: node tools/check-pf2e.mjs "$RUNNER_TEMP/pf2e" | tee -a "$GITHUB_STEP_SUMMARY"

@@ -3,3 +3,7 @@
 .pf2e-na-card .pf2e-na-actions { display: flex; gap: 0.25rem; }
 .pf2e-na-card .pf2e-na-actions button { flex: 1; line-height: 1.5; font-size: var(--font-size-12, 12px); }
 .pf2e-na-public .pf2e-na-text { font-size: var(--font-size-14, 14px); }
+.pf2e-na-card .pf2e-na-line-tools { display: inline-flex; gap: 0.125rem; margin-left: 0.25rem; vertical-align: middle; }
+.pf2e-na-card .pf2e-na-line-tools button { width: auto; height: auto; padding: 0 0.25rem; line-height: 1.2; font-size: var(--font-size-10, 10px); opacity: 0.6; }
+.pf2e-na-card .pf2e-na-line-tools button:hover { opacity: 1; }
+.chat-message.pf2e-na-highlight { outline: 2px solid var(--color-warm-2, #ee9b3a); outline-offset: -2px; }

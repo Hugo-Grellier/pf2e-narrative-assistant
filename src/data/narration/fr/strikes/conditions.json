@@ -1,0 +1,157 @@
+[
+  {
+    "key": "strike.condition.target-prone",
+    "label": [
+      "Frappes",
+      "États",
+      "Cible à terre"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{attacker} frappe vers le bas, sur {target} à terre, sans rien pour arrêter le coup.",
+        "Là où se trouve {target}, à terre, impossible d'esquiver.",
+        "{attacker} domine {target} de toute sa hauteur et le coup porte de tout son poids.",
+        "Au sol, {target} encaisse l'attaque de plein fouet.",
+        "{target} tente de rouler sur le côté et roule droit dans le coup."
+      ],
+      "success": [
+        "Le coup s'abat sur {target}, qui se débat encore au sol.",
+        "Depuis le sol, {target} lève un bras, trop tard.",
+        "{attacker} profite de la position inconfortable de {target}.",
+        "De là où se trouve {target}, impossible de monter une vraie garde, et l'attaque passe.",
+        "{target} se démène au sol, et l'attaque tombe au milieu de l'effort."
+      ],
+      "failure,criticalFailure": [
+        "Même au sol, {target} parvient à se tordre de côté.",
+        "{target} roule, et l'attaque frappe le sol à sa place.",
+        "À terre, {target} repousse encore l'attaque d'un coup de pied.",
+        "{attacker} vise bas, mais {target} se tortille hors d'atteinte.",
+        "Au sol mais toujours dans le combat, {target} dévie l'attaque."
+      ]
+    }
+  },
+  {
+    "key": "strike.condition.target-frightened",
+    "label": [
+      "Frappes",
+      "États",
+      "Cible effrayée"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "La peur de {target} ouvre une brèche, et {attacker} y enfonce l'attaque.",
+        "{target} tressaille avant même le coup, qui n'en porte que mieux.",
+        "La panique ralentit {target}, et l'attaque trouve sa cible sans peine.",
+        "Les yeux de {target} s'écarquillent ; l'attaque porte avant que la garde ne monte.",
+        "{attacker} enfonce la peur d'un coup sans pitié."
+      ],
+      "success": [
+        "{target} hésite, la garde tremblante, et l'attaque se glisse.",
+        "Une garde qui tremble n'est pas une garde.",
+        "{target} recule d'un demi-pas, trop lentement.",
+        "La peur met la parade de {target} en retard.",
+        "{target} voit venir le coup et ne parvient pourtant pas à réagir."
+      ],
+      "failure,criticalFailure": [
+        "Peur ou pas, {target} se tire d'affaire.",
+        "{target} recule dans la panique et, par chance, évite l'attaque.",
+        "Un sursaut de peur sauve {target} du coup.",
+        "La retraite désordonnée de {target} gâche la visée de {attacker}.",
+        "Les mains tremblantes, {target} pare tout de même."
+      ]
+    }
+  },
+  {
+    "key": "strike.condition.target-grabbed",
+    "label": [
+      "Frappes",
+      "États",
+      "Cible agrippée ou entravée"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Sans pouvoir bouger, {target} regarde l'attaque arriver.",
+        "{target} lutte contre la prise tandis que l'attaque porte de plein fouet.",
+        "Aucune marge de manœuvre : le coup frappe {target} de toute sa force.",
+        "{attacker} choisit son point d'impact, puisque {target} ne va nulle part.",
+        "{target} se tord dans la prise et n'offre qu'une meilleure ouverture."
+      ],
+      "success": [
+        "Dans l'étau, {target} ne peut pas se dérober.",
+        "L'attaque porte pendant que {target} lutte contre la prise.",
+        "{target} tente de se détourner, mais la prise tient bon.",
+        "Sans échappatoire, {target} encaisse le coup sur {bodyPart}.",
+        "Un coup net sur une créature qui ne peut pas reculer."
+      ],
+      "failure,criticalFailure": [
+        "Même dans l'étau, {target} parvient à se dégager d'un coup sec.",
+        "{target} se tord dans la prise et l'attaque passe en raclant.",
+        "{target} se sert de la prise elle-même comme couverture.",
+        "L'attaque manque d'un cheveu tandis que {target} s'arc-boute contre la prise.",
+        "Prise ou pas, {target} a encore assez de marge pour dévier le coup."
+      ]
+    }
+  },
+  {
+    "key": "strike.condition.frightened",
+    "label": [
+      "Frappes",
+      "États",
+      "Attaquant effrayé"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "La peur se change en rage, et {attacker} frappe plus fort que prévu.",
+        "Les mains tremblantes, {attacker} place pourtant un coup remarquable.",
+        "{attacker} ravale sa peur et l'attaque porte juste.",
+        "La terreur prête à {attacker} une force désespérée.",
+        "{attacker} attaque comme attaquent ceux qui ont peur : d'un bloc, et ça marche."
+      ],
+      "success": [
+        "La prise de {attacker} tremble, mais le coup porte.",
+        "L'attaque hésite, mais trouve tout de même {target}.",
+        "{attacker} force son corps à bouger malgré la peur.",
+        "Une attaque tremblante, mais qui porte.",
+        "{attacker} serre les dents par-delà la peur et touche."
+      ],
+      "failure,criticalFailure": [
+        "Les mains tremblantes de {attacker} trahissent l'attaque.",
+        "La peur retient {attacker} un battement de cœur de trop.",
+        "{attacker} tressaille en plein mouvement et l'attaque part large.",
+        "Le doute s'installe, et l'attaque manque.",
+        "{attacker} n'arrive pas tout à fait à s'engager dans le coup."
+      ]
+    }
+  },
+  {
+    "key": "strike.condition.sickened",
+    "label": [
+      "Frappes",
+      "États",
+      "Attaquant nauséeux"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Nausée ou pas, {attacker} met tout dans un coup excellent.",
+        "{attacker} surmonte le haut-le-cœur et place un coup parfait.",
+        "Le teint blême et en sueur, {attacker} trouve pourtant l'ouverture.",
+        "Le malaise reflue le temps d'un éclair de lucidité, et l'attaque porte en plein.",
+        "{attacker} change sa misère en colère, et {target} en fait les frais."
+      ],
+      "success": [
+        "L'estomac retourné, {attacker} fait tout de même porter l'attaque.",
+        "Une vague de nausée, une déglutition difficile, un coup qui porte.",
+        "{attacker} ravale le malaise assez longtemps pour toucher.",
+        "Pas bien solide sur ses appuis, mais {attacker} touche.",
+        "L'estomac de {attacker} se soulève, mais l'attaque fait mouche."
+      ],
+      "failure,criticalFailure": [
+        "La nausée monte au pire moment et l'attaque flanche.",
+        "{attacker} vacille, et le coup s'égare.",
+        "Trop mal en point pour bien viser, {attacker} manque.",
+        "Un haut-le-cœur gâche le rythme de {attacker}.",
+        "{attacker} a un hoquet en pleine attaque et le coup ne mène nulle part."
+      ]
+    }
+  }
+]

@@ -13,7 +13,7 @@
         "{actor} senses the danger coming and gets out of reach in a flash.",
         "Not one wasted move: {actor} slips exactly where it is safe.",
         "{actor} curls up tight and lets everything pass overhead.",
-        "The instinct of {actor} speaks before reason does, and that is just as well."
+        "{actor's} instinct speaks before reason does, and that is just as well."
       ],
       "success": [
         "{actor} throws themselves aside and avoids the worst.",
@@ -46,7 +46,7 @@
         "It all happens too fast: {actor} does not even begin to move.",
         "{actor} stumbles at the worst moment and lands right in the effect.",
         "{actor} backs straight into the path of the danger.",
-        "The reflexes of {actor} fail: every movement makes things worse.",
+        "{actor's} reflexes fail: every movement makes things worse.",
         "{actor} turns to look, which is the worst thing to do.",
         "The effect hits {actor} just as their guard is at its lowest.",
         "{actor} has no chance: the danger falls from every side."
@@ -129,7 +129,7 @@
         "A glacial bite seizes {actor} from head to toe.",
         "Frost coats {actor} in an instant.",
         "{actor} feels the cold seep under every layer of clothing.",
-        "The breath of {actor} freezes to mist as the cold floods everything.",
+        "{actor's} breath freezes to mist as the cold floods everything.",
         "Ice shards hit {actor} mid-stride.",
         "{actor} grits their teeth under an assault of biting cold."
       ],
@@ -174,9 +174,9 @@
         "The discharge runs through {actor} from end to end.",
         "{actor} tries to dodge, but the lightning is faster.",
         "An arc jumps to {actor} and jolts their whole body.",
-        "The muscles of {actor} lock for a moment under the discharge.",
+        "{actor's} muscles lock for a moment under the discharge.",
         "{actor} is caught in a web of crackling arcs.",
-        "The lightning finds the metal in the gear of {actor} and follows it.",
+        "The lightning finds the metal in {actor's} gear and follows it.",
         "A white bolt wraps around {actor}."
       ],
       "criticalFailure": [
@@ -232,7 +232,7 @@
         "Acid overwhelms {actor}, who cries out at the bite.",
         "A corrosive wave swallows {actor}.",
         "{actor} has no chance of avoiding the deluge of acid.",
-        "The acid finds every gap in the gear of {actor}.",
+        "The acid finds every gap in {actor's} gear.",
         "{actor} is caught at the exact center of the corrosive spray."
       ]
     }

@@ -1,0 +1,170 @@
+[
+  {
+    "key": "strike.vs.undead",
+    "label": [
+      "Strikes",
+      "Creature types",
+      "Undead"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The strike smashes through dry bone and old grave-cloth.",
+        "{attacker's} attack tears into {target}, scattering dust that smells of the tomb.",
+        "Something ancient cracks under the blow, and {target} lets out a hollow rasp.",
+        "The hit lands with a sound like a coffin lid splitting.",
+        "{target's} withered frame buckles around the impact.",
+        "Cold, lifeless flesh gives way, and {target} reels with an unnatural shriek."
+      ],
+      "success": [
+        "The blow lands on {target's} withered body with a dry crunch.",
+        "Grave dust puffs from the wound, but no blood.",
+        "{target} sways under the impact, as indifferent to pain as ever.",
+        "The attack bites into rotten flesh with a wet, cold sound.",
+        "Splinters of old bone fly from {target}.",
+        "A hit: {target} does not flinch, but something gives inside."
+      ],
+      "failure": [
+        "The attack passes through rags and finds nothing that matters.",
+        "{target} lurches aside with a jerky, puppet-like motion.",
+        "The blow glances off {target's} hard, leathery hide.",
+        "{target} takes the strike on an arm of bare bone, unbothered.",
+        "The attack misses, and {target's} empty eyes do not even follow it.",
+        "Graveyard reflexes: {target} twists out of the way at the last instant."
+      ],
+      "criticalFailure": [
+        "The stench of the grave makes {attacker} gag mid-strike.",
+        "{target's} hollow stare unsettles {attacker} just as the attack begins.",
+        "The attack goes wide as {target} moves in a way no living thing should.",
+        "{attacker} hesitates before something that ought to be in the ground, and the moment passes.",
+        "The attack snags in trailing rags and goes nowhere.",
+        "A chill crawls up {attacker's} spine and spoils the attack."
+      ]
+    }
+  },
+  {
+    "key": "strike.vs.construct",
+    "label": [
+      "Strikes",
+      "Creature types",
+      "Construct"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The strike finds a seam, and sparks spray from {target}.",
+        "A crunch of metal and stone: something inside {target} grinds wrongly.",
+        "{attacker's} attack hits a joint squarely, and {target} shudders all over.",
+        "The impact rings like a struck bell through {target's} frame.",
+        "Rivets pop, and {target} lurches with a groan of strained metal.",
+        "Chips of stone burst from {target} under the blow."
+      ],
+      "success": [
+        "The attack clangs off {target}, leaving a bright scar.",
+        "Stone cracks under the blow.",
+        "A hit: gears whir angrily inside {target}.",
+        "The strike dents {target's} plating with a hollow bong.",
+        "Dust and grit sift from {target} where the blow landed.",
+        "{target} absorbs the hit without a sound, but the mark is there."
+      ],
+      "failure": [
+        "The attack rings off solid plating.",
+        "{target's} stone hide shrugs the blow off.",
+        "Sparks, noise, and not a scratch on {target}.",
+        "{target} turns with mechanical precision and the attack misses.",
+        "The blow meets an armored limb and stops cold.",
+        "A dull clang, and the attack slides away."
+      ],
+      "criticalFailure": [
+        "The attack meets solid metal and the shock jolts up {attacker's} arms.",
+        "{attacker} strikes stone squarely and the recoil rattles every tooth.",
+        "{target} pivots with tireless exactness and the attack hits only air.",
+        "The blow skids across smooth plating and drags {attacker} off balance.",
+        "Hitting {target} feels like hitting a wall, and {attacker's} hands sting from it.",
+        "The clatter of the miss echoes, and {target} does not even turn."
+      ]
+    }
+  },
+  {
+    "key": "strike.vs.swarm",
+    "label": [
+      "Strikes",
+      "Creature types",
+      "Swarm"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The attack tears through the heart of the swarm, scattering a hundred tiny bodies.",
+        "{attacker} sweeps through {target} and the mass breaks apart for a moment.",
+        "A great hole opens in {target}, writhing at its edges.",
+        "The strike lands in the thickest part of the swarm, and the whole cloud recoils.",
+        "Dozens of creatures rain away from the blow like hail.",
+        "{target} shrieks with a thousand tiny voices as the attack rips through."
+      ],
+      "success": [
+        "The attack crushes a handful of creatures from the swarm.",
+        "{attacker} swats through {target}, and part of it scatters.",
+        "The swarm parts around the blow, a little thinner than before.",
+        "A satisfying crunch of tiny shells and bones.",
+        "The strike plows through {target}, leaving a gap that slowly closes.",
+        "Some of the swarm drops away; the rest boils angrily."
+      ],
+      "failure": [
+        "The attack passes through the swarm, which simply flows around it.",
+        "{target} splits apart before the strike and reforms behind it.",
+        "Trying to hit a swarm is like hitting smoke.",
+        "The blow scatters a few creatures, but none that matter.",
+        "{target} dodges like a living cloud, all at once.",
+        "The swarm swirls aside and the attack finds nothing solid."
+      ],
+      "criticalFailure": [
+        "{attacker} flails at the swarm and it crawls up the weapon in reply.",
+        "The swing passes through {target} and leaves {attacker} spinning, creatures clinging to every sleeve.",
+        "The attack disappears into the swarm without touching anything.",
+        "{target} engulfs the strike, and {attacker} recoils, swatting at everything.",
+        "Too many targets, and none of them where the attack lands.",
+        "The swarm's droning drowns out thought, and the attack falls apart."
+      ]
+    }
+  },
+  {
+    "key": "strike.vs.incorporeal",
+    "label": [
+      "Strikes",
+      "Creature types",
+      "Incorporeal"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The attack bites into {target's} ghostly substance, and the form tears like wet smoke.",
+        "{target} wails as the strike rips through the pale shape.",
+        "For an instant {target} flickers out entirely, then reforms, ragged and dimmer.",
+        "The blow lands on something that should not be solid, and it screams.",
+        "Cold spills from the wound in {target}, like breath on a winter morning.",
+        "{target's} form ripples all around the strike."
+      ],
+      "success": [
+        "The attack catches {target}, and the spectral form wavers.",
+        "Where the attack bites into {target}, frost blooms.",
+        "{target} flickers where the blow lands, thinning like mist.",
+        "The strike connects with a sound like a sigh.",
+        "{target's} outline blurs and slowly knits back together.",
+        "Something gives under the attack, though there is nothing to see."
+      ],
+      "failure": [
+        "The attack passes through {target} as though through fog.",
+        "{target} drifts aside, weightless and unhurried.",
+        "The strike meets only cold air where {target} was.",
+        "{target} fades for a heartbeat and the attack goes through empty space.",
+        "A chill, a shimmer, and nothing for the attack to hold on to.",
+        "{target} slides out of the way like smoke in a draft."
+      ],
+      "criticalFailure": [
+        "The attack sweeps straight through {target}, dragging {attacker} off balance after it.",
+        "{attacker} strikes at a shape that is no longer there.",
+        "An icy touch on the back of the neck makes {attacker} flinch mid-strike.",
+        "{target} laughs softly as the attack passes through nothing.",
+        "The attack goes through {target} and strikes the wall beyond.",
+        "Fear of the unnatural slows {attacker's} hand at the worst moment."
+      ]
+    }
+  }
+]

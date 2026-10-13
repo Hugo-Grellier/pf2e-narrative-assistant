@@ -4,48 +4,48 @@
     "label": ["Saving throws", "Will", "Generic"],
     "outcomes": {
       "criticalSuccess": [
-        "The mind of {actor} shuts like a fortress gate.",
+        "{actor's} mind shuts like a fortress gate.",
         "{actor} feels pressure against their consciousness and sweeps it away with a thought.",
-        "The will of {actor} does not bend for an instant.",
+        "{actor's} will does not bend for an instant.",
         "{actor} smiles, perfectly in command of their thoughts.",
-        "The effect shatters against the resolve of {actor}.",
+        "The effect shatters against {actor's} resolve.",
         "{actor} recognizes the intrusion and rejects it with contempt.",
-        "Not a moment of doubt crosses the eyes of {actor}.",
+        "Not a moment of doubt crosses {actor's} eyes.",
         "{actor} anchors in their convictions, unshakable.",
-        "The magic slides over the mind of {actor} without leaving the slightest trace.",
+        "The magic slides over {actor's} mind without leaving the slightest trace.",
         "{actor} stays lucid, gaze clear and steady."
       ],
       "success": [
         "{actor} wavers for a moment, then recovers.",
         "A shadow crosses the mind of {actor}, who chases it off.",
         "{actor} focuses on a familiar thought and holds on.",
-        "The will of {actor} bends, but does not break.",
+        "{actor's} will bends, but does not break.",
         "{actor} shakes their head to clear the haze.",
         "A doubt creeps in, and {actor} pushes it back.",
         "{actor} clenches both fists and regains control.",
-        "The eyes of {actor} cloud, then clear again.",
+        "{actor's} eyes cloud, then clear again.",
         "{actor} murmurs a few words to stay grounded.",
         "{actor} resists, at the cost of intense effort."
       ],
       "failure": [
-        "The mind of {actor} wavers under the pressure.",
+        "{actor's} mind wavers under the pressure.",
         "{actor} feels their will slipping away.",
-        "A veil clouds the mind of {actor}.",
+        "A veil clouds {actor's} mind.",
         "{actor} struggles, but the thoughts slip away.",
-        "The resolve of {actor} cracks.",
+        "{actor's} resolve cracks.",
         "{actor} blinks, lost for a moment.",
         "Something seeps into the mind of {actor}, who cannot drive it out.",
-        "The resistance of {actor} gives way under the assault."
+        "{actor's} resistance gives way under the assault."
       ],
       "criticalFailure": [
-        "The mind of {actor} flies open like a window in a storm.",
-        "All the will of {actor} collapses at once.",
+        "{actor's} mind flies open like a window in a storm.",
+        "All {actor's} will collapses at once.",
         "{actor} loses their footing under the effect.",
-        "The gaze of {actor} empties for a moment.",
+        "{actor's} gaze empties for a moment.",
         "{actor} puts up no resistance: the effect seizes their mind.",
-        "The mental defenses of {actor} shatter.",
+        "{actor's} mental defenses shatter.",
         "{actor} feels their own mind slip away completely.",
-        "An irresistible wave carries off the will of {actor}."
+        "An irresistible wave carries off {actor's} will."
       ]
     }
   },
@@ -55,39 +55,39 @@
     "outcomes": {
       "criticalSuccess": [
         "{actor} feels fear brush the back of the neck and stares it down.",
-        "The terror breaks against the courage of {actor}.",
+        "The terror breaks against {actor's} courage.",
         "{actor} looks dread in the face, and dread looks away first.",
         "Not a shiver: {actor} stays perfectly calm.",
         "{actor} laughs softly, and the fear melts away.",
-        "The heart of {actor} beats slowly, steadily, unperturbed.",
+        "{actor's} heart beats slowly, steadily, unperturbed.",
         "{actor} squares their shoulders; the terror finds no hold.",
-        "The dread looks for a crack in the courage of {actor}, and finds none."
+        "The dread looks for a crack in {actor's} courage, and finds none."
       ],
       "success": [
         "An icy shiver runs through {actor}, who masters it.",
         "{actor} feels their heart race, then calm returns.",
-        "Fear grips the throat of {actor} for a moment, then lets go.",
+        "Fear grips {actor's} throat for a moment, then lets go.",
         "{actor} takes a shaky breath and keeps composure.",
         "{actor} grits their teeth against the terror and holds firm.",
         "Dread brushes {actor}, who refuses to give in.",
-        "The hands of {actor} tremble, but the gaze stays firm.",
+        "{actor's} hands tremble, but the gaze stays firm.",
         "{actor} pushes back the panic with an effort of will."
       ],
       "failure": [
         "Fear creeps into {actor} and settles there.",
         "{actor} feels their heart pounding fit to burst.",
         "A shiver of dread runs through {actor}, who cannot shake it.",
-        "The eyes of {actor} instinctively look for a way out.",
-        "The throat of {actor} tightens in the grip of terror.",
+        "{actor's} eyes instinctively look for a way out.",
+        "{actor's} throat tightens in the grip of terror.",
         "{actor} goes white, hands trembling.",
-        "Fear gains ground in the mind of {actor}.",
-        "A cold sweat beads on the brow of {actor}."
+        "Fear gains ground in {actor's} mind.",
+        "A cold sweat beads on {actor's} brow."
       ],
       "criticalFailure": [
         "Terror washes over {actor} like a tidal wave.",
         "{actor} feels panic flood every corner of their being.",
-        "The heart of {actor} races out of control.",
-        "All the courage of {actor} evaporates at once.",
+        "{actor's} heart races out of control.",
+        "All {actor's} courage evaporates at once.",
         "{actor} sees nothing but the threat, immense and terrifying.",
         "A strangled cry of dread escapes {actor}.",
         "Fear strikes {actor} to the core.",
@@ -104,38 +104,38 @@
         "{actor} feels a presence brush their mind and slams the door on it.",
         "The mental intrusion runs into a wall of certainty.",
         "{actor} identifies the manipulation and takes it apart in an instant.",
-        "The thoughts of {actor} stay clear, untouchable.",
+        "{actor's} thoughts stay clear, untouchable.",
         "{actor} sends the influence back with a simple frown.",
-        "The mind of {actor} is a fortress, and its walls hold.",
+        "{actor's} mind is a fortress, and its walls hold.",
         "{actor} recognizes a thought that is not their own and chases it off effortlessly."
       ],
       "success": [
         "{actor} feels their thoughts blur, then clear.",
         "An insidious suggestion brushes {actor}, who pushes it away.",
         "{actor} shakes their head: something was trying to get in.",
-        "The pressure on the mind of {actor} eases after a hard inner struggle.",
+        "The pressure on {actor's} mind eases after a hard inner struggle.",
         "{actor} clings to a precise memory to keep a clear head.",
-        "The thoughts of {actor} waver, then find their course again.",
+        "{actor's} thoughts waver, then find their course again.",
         "{actor} pushes the influence back, not without difficulty.",
         "A fleeting headache, and {actor} takes back control."
       ],
       "failure": [
-        "A foreign thought takes root in the mind of {actor}.",
+        "A foreign thought takes root in {actor's} mind.",
         "{actor} feels their ideas slip out of control.",
-        "The influence seeps into the mind of {actor}.",
-        "The thoughts of {actor} tangle under the pressure.",
+        "The influence seeps into {actor's} mind.",
+        "{actor's} thoughts tangle under the pressure.",
         "{actor} struggles against an inner voice that is not their own.",
-        "The gaze of {actor} glazes over for a moment.",
+        "{actor's} gaze glazes over for a moment.",
         "{actor} feels their own will escaping them.",
         "Something slips in between {actor} and their own thoughts."
       ],
       "criticalFailure": [
-        "The mind of {actor} opens wide to the influence.",
+        "{actor's} mind opens wide to the influence.",
         "{actor} offers no resistance: the intrusion is total.",
-        "The thoughts of {actor} dissolve under the pressure.",
+        "{actor's} thoughts dissolve under the pressure.",
         "A foreign will sweeps aside that of {actor}.",
         "{actor} can no longer tell their own thoughts from the others.",
-        "The gaze of {actor} empties, the mind overwhelmed.",
+        "{actor's} gaze empties, the mind overwhelmed.",
         "The influence takes hold of {actor} without the slightest fight.",
         "{actor} sinks into a thick mental fog."
       ]

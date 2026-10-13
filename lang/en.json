@@ -27,13 +27,6 @@
         "Name": "Narrative source",
         "Hint": "Module tables, or world tables carrying the same key (import a table from the compendium to customise it)."
       },
-      "frequency": {
-        "all": "Every supported roll",
-        "successes": "Success/Critical Success only",
-        "criticals": "Critical results only",
-        "Name": "Narration frequency",
-        "Hint": "Limit suggestions to avoid chat spam."
-      },
       "event": {
         "strike": {
           "Name": "Events: Strikes",
@@ -52,25 +45,11 @@
           "Hint": ""
         },
         "other": {
-          "Name": "Events: other (spells, misc rolls)",
+          "Name": "Events: other rolls",
           "Hint": "Generic narration only."
-        }
-      },
-      "degree": {
-        "criticalSuccess": {
-          "Name": "Outcome: critical success",
-          "Hint": ""
         },
-        "success": {
-          "Name": "Outcome: success",
-          "Hint": ""
-        },
-        "failure": {
-          "Name": "Outcome: failure",
-          "Hint": ""
-        },
-        "criticalFailure": {
-          "Name": "Outcome: critical failure",
+        "spell": {
+          "Name": "Events: spell attacks",
           "Hint": ""
         }
       },
@@ -82,7 +61,32 @@
         "Name": "Narration language",
         "Hint": "Language of the descriptions, independent of the UI. Falls back to English when no corpus exists for that language.",
         "auto": "Interface language"
+      },
+      "chance": {
+        "criticalSuccess": {
+          "Name": "Chance: critical success",
+          "Hint": "Percentage of critical successes that get a suggestion (0 = never)."
+        },
+        "success": {
+          "Name": "Chance: success",
+          "Hint": "Percentage of successes that get a suggestion. Lower it to keep long fights readable."
+        },
+        "failure": {
+          "Name": "Chance: failure",
+          "Hint": "Percentage of failures that get a suggestion."
+        },
+        "criticalFailure": {
+          "Name": "Chance: critical failure",
+          "Hint": "Percentage of critical failures that get a suggestion."
+        }
+      },
+      "saveGroupDelay": {
+        "Name": "Group saves (seconds)",
+        "Hint": "Saves against the same spell or effect made within this many seconds of each other share one card, one line per creature. 0 = one card per save."
       }
-    }
+    },
+    "Source": "Show the roll",
+    "SourceMissing": "That roll is no longer in the chat log.",
+    "Ban": "Never suggest this text again"
   }
 }

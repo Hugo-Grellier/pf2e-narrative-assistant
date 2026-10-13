@@ -27,7 +27,7 @@
       "{attacker} pushes {target} out of position.",
       "{target} resists for a moment, then gives a step.",
       "A shoulder check, and {target} has no choice but to back off.",
-      "{attacker} pushes at the right moment, while the footing of {target} is unsteady.",
+      "{attacker} pushes at the right moment, while {target's} footing is unsteady.",
       "{target} loses position under the pressure from {attacker}.",
       "{attacker} advances, {target} retreats: the ground changes hands."
     ],
@@ -35,13 +35,13 @@
       "{target} takes the shove without budging an inch.",
       "{attacker} pushes with all their might against a living wall.",
       "{target} sets their feet and does not retreat.",
-      "The shove slides off the shoulder of {target}.",
+      "The shove slides off {target's} shoulder.",
       "{target} pivots and the push from {attacker} spills off to the side.",
       "{attacker} slams into {target}, but it is like pushing a boulder.",
       "{target} leans forward and absorbs the impact.",
       "{attacker} strains, in vain.",
       "{target} gives half a step, then immediately reclaims it.",
-      "The attempt from {attacker} only rumples the gear of {target}.",
+      "The attempt from {attacker} only rumples {target's} gear.",
       "{target} sets their weight against it and the shove dies on the spot.",
       "{attacker} pushes, {target} holds: nothing moves."
     ],
@@ -50,13 +50,13 @@
       "{attacker} pushes into empty air, loses balance and falls.",
       "The shove bounces off {target}, and it is {attacker} who ends up on the ground.",
       "{attacker} charges, {target} dodges: the fall is inevitable.",
-      "{attacker} slips at the moment of pushing and collapses at the feet of {target}.",
+      "{attacker} slips at the moment of pushing and collapses at {target's} feet.",
       "{target} rolls with the motion and lets {attacker} crash to the floor.",
       "{attacker} puts too much weight into the push and tips forward, prone.",
       "{target} plants their feet; {attacker} rebounds off them and falls heavily.",
       "A misstep mid-shove, and {attacker} ends up on the ground.",
       "{attacker} rushes in, tangles their legs and falls full length.",
-      "{target} slips away, and the momentum of {attacker} ends straight on the floor.",
+      "{target} slips away, and {attacker's} momentum ends straight on the floor.",
       "The shove turns into a clumsy dive: {attacker} bites the dust."
     ]
   }

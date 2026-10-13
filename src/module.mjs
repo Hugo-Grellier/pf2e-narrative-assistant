@@ -18,7 +18,8 @@ const EVENT_SETTINGS = {
     skill: ["skill-check"],
     save: ["saving-throw"],
     recovery: ["recovery"],
-    other: ["spell", "other"],
+    spell: ["spell"],
+    other: ["other"],
 };
 const DEGREE_KEYS = ["criticalSuccess", "success", "failure", "criticalFailure"];
 
@@ -32,6 +33,7 @@ function registerSettings() {
             config: true,
             ...data,
         });
+    const dropTables = () => (tableCache = null);
 
     register("enabled", { type: Boolean, default: true });
     register("output", { type: String, default: "whisper", choices: choices("output", ["whisper", "public", "notification"]) });
@@ -39,20 +41,19 @@ function registerSettings() {
         type: String,
         default: "auto",
         choices: { auto: "PF2E_NA.Settings.language.auto", ...Object.fromEntries(Object.entries(LANGUAGES).map(([k, l]) => [k, l.label])) },
-        onChange: () => (tableCache = null),
+        onChange: dropTables,
     });
-    register("source", {
-        type: String,
-        default: "module",
-        choices: choices("source", ["module", "world"]),
-        onChange: () => (tableCache = null),
-    });
-    register("frequency", { type: String, default: "all", choices: choices("frequency", ["all", "successes", "criticals"]) });
+    register("source", { type: String, default: "module", choices: choices("source", ["module", "world"]), onChange: dropTables });
     for (const key of Object.keys(EVENT_SETTINGS)) {
         register(`event.${key}`, { type: Boolean, default: key !== "other" });
     }
-    for (const key of DEGREE_KEYS) register(`degree.${key}`, { type: Boolean, default: true });
+    for (const key of DEGREE_KEYS) {
+        register(`chance.${key}`, { type: Number, default: 100, range: { min: 0, max: 100, step: 5 } });
+    }
+    register("saveGroupDelay", { type: Number, default: 2, range: { min: 0, max: 10, step: 0.5 } });
     register("disabledActions", { type: String, default: "" });
+    // Texts the GM chose never to see again ("Never again" button). Not shown in the settings form.
+    register("banned", { type: Array, default: [], config: false, onChange: dropTables });
 }
 
 function readSettings() {
@@ -64,9 +65,9 @@ function readSettings() {
     return {
         enabled: get("enabled"),
         output: get("output"),
-        frequency: get("frequency"),
         events,
-        degrees: Object.fromEntries(DEGREE_KEYS.map((d) => [d, get(`degree.${d}`)])),
+        chances: Object.fromEntries(DEGREE_KEYS.map((d) => [d, get(`chance.${d}`)])),
+        saveGroupDelay: get("saveGroupDelay"),
         disabledActions: get("disabledActions").split(",").map((s) => s.trim()).filter(Boolean),
     };
 }
@@ -79,14 +80,14 @@ let tableCache = null;
 
 const narrationLanguage = () => resolveLanguage(game.settings.get(ID, "language"), game.i18n.lang);
 
-/** RollTable document -> plain engine table, or null if it is not one of ours. */
-function toEngineTable(rollTable) {
+/** RollTable document -> plain engine table, or null if it is not one of ours. Banned texts are left out. */
+function toEngineTable(rollTable, banned) {
     const flag = rollTable.flags?.[ID];
     if (!flag?.key) return null;
     const entries = rollTable.results.contents
         // GM edits go through a rich-text editor, which wraps the text in a paragraph.
         .map((r) => ({ text: (r.description || r.name || "").trim().replace(/^<p>([\s\S]*)<\/p>$/, "$1"), weight: r.weight ?? 1 }))
-        .filter((e) => e.text);
+        .filter((e) => e.text && !banned.has(e.text));
     return { key: flag.key, slot: flag.slot ?? "narration", when: flag.when ?? {}, priority: flag.priority ?? 0, gmOnly: !!flag.gmOnly, entries };
 }
 
@@ -98,14 +99,15 @@ async function getTables() {
     if (tableCache) return tableCache;
     const lang = narrationLanguage();
     const pack = game.packs.get(`${ID}.narration-${lang}`);
+    const banned = new Set(game.settings.get(ID, "banned"));
     const byKey = new Map();
     for (const doc of (await pack?.getDocuments()) ?? []) {
-        const table = toEngineTable(doc);
+        const table = toEngineTable(doc, banned);
         if (table) byKey.set(table.key, table);
     }
     if (game.settings.get(ID, "source") === "world") {
         for (const doc of game.tables) {
-            const table = toEngineTable(doc);
+            const table = toEngineTable(doc, banned);
             const tableLang = doc.flags[ID]?.lang;
             if (table && (!tableLang || tableLang === lang)) byKey.set(table.key, table);
         }
@@ -126,8 +128,8 @@ const remember = (key, text) => {
 
 async function suggest(context, { exclude = [] } = {}) {
     const tables = await getTables();
-    const { fallbacks, fix } = LANGUAGES[narrationLanguage()];
-    const result = narrate(tables, context, { exclude, recent: recentTexts, fallbacks, fix });
+    const { fallbacks, fix, possessive } = LANGUAGES[narrationLanguage()];
+    const result = narrate(tables, context, { exclude, recent: recentTexts, fallbacks, fix, possessive });
     if (result) remember(result.tableKey, result.rawText);
     return result;
 }
@@ -143,29 +145,55 @@ function subjectLabel(context) {
         }
         case "saving-throw":
             return game.i18n.localize(CONFIG.PF2E.saves[context.save]);
+        case "spell":
+            return context.vars.weapon ?? loc("Event.spell");
         default:
             return loc(`Event.${context.eventType}`);
     }
 }
 
-function header(context) {
-    const group = context.eventType === "strike" ? "Attack" : "Check";
-    const degree = game.i18n.localize(`PF2E.Check.Result.Degree.${group}.${context.degreeOfSuccess}`);
-    return `${loc("Title")} — ${degree} · ${subjectLabel(context)}`;
+function degreeLabel(context) {
+    const group = ["strike", "spell"].includes(context.eventType) ? "Attack" : "Check";
+    return game.i18n.localize(`PF2E.Check.Result.Degree.${group}.${context.degreeOfSuccess}`);
 }
 
-function cardHTML(head, text, { buttons = true, publish = true } = {}) {
-    const publishButton = publish
-        ? `<button type="button" data-pf2e-na="publish"><i class="fa-solid fa-comment"></i> ${loc("Publish")}</button>`
-        : "";
+/** "Inspiration — Critical Hit · Longsword"; a group of saves: "Inspiration — Reflex · Fireball". */
+function header(contexts) {
+    const [context] = contexts;
+    if (contexts.length === 1) return `${loc("Title")} — ${degreeLabel(context)} · ${subjectLabel(context)}`;
+    return `${loc("Title")} — ${[subjectLabel(context), context.vars.weapon].filter(Boolean).join(" · ")}`;
+}
+
+const button = (action, icon, label, data = "") =>
+    `<button type="button" data-pf2e-na="${action}" ${data} title="${label}"><i class="fa-solid ${icon}"></i></button>`;
+
+/**
+ * A card holds one line per narrated roll: one for a single roll, several for a group of saves.
+ * `lines` items: { context, text, rawText, tableKey, sourceId }. GM cards get per-line buttons (jump to the
+ * PF2e message, never again) and card buttons (another suggestion, send to chat).
+ */
+function cardHTML(head, lines, { buttons = true } = {}) {
+    const grouped = lines.length > 1;
+    const body = lines
+        .map((line, index) => {
+            const label = grouped ? `<strong>${line.context.vars.actor ?? ""} (${degreeLabel(line.context)})</strong> ` : "";
+            const tools = buttons
+                ? `<span class="pf2e-na-line-tools">${button("source", "fa-arrow-turn-up", loc("Source"), `data-message-id="${line.sourceId}"`)}${button("ban", "fa-ban", loc("Ban"), `data-line="${index}"`)}</span>`
+                : "";
+            return `<p class="pf2e-na-text">${label}${line.text}${tools}</p>`;
+        })
+        .join("");
+    const publish = lines.some((l) => l.gmOnly)
+        ? ""
+        : `<button type="button" data-pf2e-na="publish"><i class="fa-solid fa-comment"></i> ${loc("Publish")}</button>`;
     const actions = buttons
         ? `<footer class="pf2e-na-actions">
             <button type="button" data-pf2e-na="reroll"><i class="fa-solid fa-dice"></i> ${loc("Reroll")}</button>
-            ${publishButton}
+            ${publish}
         </footer>`
         : "";
     // `head` is built from localized strings and already-escaped names.
-    return `<div class="pf2e-na-card"><header>🎭 ${head}</header><p class="pf2e-na-text">${text}</p>${actions}</div>`;
+    return `<div class="pf2e-na-card"><header>🎭 ${head}</header>${body}${actions}</div>`;
 }
 
 const escape = (value) => (value ? foundry.utils.escapeHTML(value) : value);
@@ -206,6 +234,17 @@ function afterDice(message) {
 
 const seenMessages = createRecentSet();
 
+/**
+ * Saves against the same item (PF2e's `flags.pf2e.origin`: the spell, the poison...) and the same save
+ * that arrive within `saveGroupDelay` seconds of each other share one card. Each new save restarts the wait.
+ */
+const pendingGroups = new Map();
+
+function groupKey(message, context) {
+    const origin = message.flags.pf2e?.origin?.uuid;
+    return context.eventType === "saving-throw" && origin ? `${origin}.${context.save}` : null;
+}
+
 async function onCreateChatMessage(message) {
     // A single client handles each message: the active GM. Hooks for messages loaded at startup never fire.
     if (!game.user.isActiveGM || seenMessages.has(message.id)) return;
@@ -221,28 +260,54 @@ async function onCreateChatMessage(message) {
     if (Hooks.call(`${ID}.context`, context, message) === false) return;
     if (!shouldNarrate(context, settings)) return;
 
-    const result = await suggest(context);
-    if (!result) return;
-    await output(context, result, settings, message);
+    const key = settings.saveGroupDelay > 0 ? groupKey(message, context) : null;
+    if (!key) return narrateRolls([{ context, message }], settings);
+
+    const group = pendingGroups.get(key) ?? { rolls: [] };
+    group.rolls.push({ context, message });
+    clearTimeout(group.timer);
+    group.timer = setTimeout(() => {
+        pendingGroups.delete(key);
+        narrateRolls(group.rolls, settings).catch((error) => console.error(`${ID} |`, error));
+    }, settings.saveGroupDelay * 1000);
+    pendingGroups.set(key, group);
 }
 
-async function output(context, result, settings, sourceMessage) {
-    const head = header(context);
+async function narrateRolls(rolls, settings) {
+    const lines = [];
+    for (const { context, message } of rolls) {
+        const result = await suggest(context);
+        if (result) lines.push(toLine(context, result, message.id));
+    }
+    if (lines.length) await output(lines, settings, rolls.map((r) => r.message));
+}
+
+// Stored so Reroll can resolve again; roll options are dropped, the engine never needs them.
+const toLine = (context, result, sourceId) => ({
+    context: { ...context, rollOptions: [] },
+    text: result.text,
+    rawText: result.rawText,
+    tableKey: result.tableKey,
+    gmOnly: result.gmOnly,
+    sourceId,
+});
+
+async function output(lines, settings, sourceMessages) {
+    const head = header(lines.map((l) => l.context));
     // Never go public with a narration about a secret roll, nor with GM-only prompts (Recall Knowledge).
-    const keepPrivate = sourceMessage.whisper.length > 0 || sourceMessage.blind || result.gmOnly;
+    const keepPrivate = sourceMessages.some((m) => m.whisper.length > 0 || m.blind) || lines.some((l) => l.gmOnly);
     const mode = settings.output === "public" && keepPrivate ? "whisper" : settings.output;
 
     if (mode === "notification") {
-        ui.notifications.info(`${head} : ${result.text}`);
+        for (const line of lines) ui.notifications.info(`${head} : ${line.text}`);
         return;
     }
-    if (mode === "public") await afterDice(sourceMessage);
+    if (mode === "public") await afterDice(sourceMessages.at(-1));
     await ChatMessage.create({
-        content: cardHTML(head, result.text, { buttons: mode === "whisper", publish: !result.gmOnly }),
+        content: cardHTML(head, lines, { buttons: mode === "whisper" }),
         speaker: { alias: loc("Title") },
         whisper: mode === "whisper" ? game.users.filter((u) => u.isGM).map((u) => u.id) : [],
-        // Stored so Reroll can resolve again; roll options are dropped, the engine never needs them.
-        flags: { [ID]: { context: { ...context, rollOptions: [] }, header: head, text: result.text, tableKey: result.tableKey } },
+        flags: { [ID]: { header: head, lines } },
     });
 }
 
@@ -254,37 +319,60 @@ async function output(context, result, settings, sourceMessage) {
  * Our cards are only ever created by the active GM. Anyone can put our flag on a message, so a card
  * written by a player is ignored: its flags would otherwise be re-rendered as HTML by the GM's client.
  */
-const isOurCard = (message) => !!message.flags[ID] && !!message.author?.isGM;
+const isOurCard = (message) => Array.isArray(message.flags[ID]?.lines) && !!message.author?.isGM;
 
-async function onButton(message, action) {
+/** Draws other narrations for the given lines (all by default); the PF2e rolls are untouched. */
+async function redraw(message, indexes) {
+    const { header: head, lines } = message.flags[ID];
+    const next = [];
+    for (const [index, line] of lines.entries()) {
+        const result = indexes && !indexes.includes(index) ? null : await suggest(line.context, { exclude: [line.text] });
+        next.push(result ? toLine(line.context, result, line.sourceId) : line);
+    }
+    await message.update({ content: cardHTML(head, next), [`flags.${ID}.lines`]: next });
+}
+
+/** Scroll the chat log to the PF2e message a line narrates. */
+function showSource(messageId) {
+    const element = ui.chat?.element?.querySelector(`.chat-message[data-message-id="${CSS.escape(messageId)}"]`);
+    if (!element) return ui.notifications.warn(loc("SourceMissing"));
+    element.scrollIntoView({ behavior: "smooth", block: "center" });
+    element.classList.add("pf2e-na-highlight");
+    setTimeout(() => element.classList.remove("pf2e-na-highlight"), 2000);
+}
+
+async function onButton(message, dataset) {
     if (!isOurCard(message)) return;
-    const data = message.flags[ID];
-    if (action === "reroll") {
-        // Draws another narration only: the PF2e roll is untouched.
-        const result = await suggest(data.context, { exclude: [data.text] });
-        if (!result) return;
-        await message.update({
-            content: cardHTML(data.header, result.text, { publish: !result.gmOnly }),
-            [`flags.${ID}`]: { text: result.text, tableKey: result.tableKey },
-        });
-    } else if (action === "publish") {
-        await ChatMessage.create({
-            content: `<div class="pf2e-na-card pf2e-na-public"><p class="pf2e-na-text">${data.text}</p></div>`,
-            speaker: ChatMessage.getSpeaker(),
-        });
+    const { lines } = message.flags[ID];
+    switch (dataset.pf2eNa) {
+        case "reroll":
+            return redraw(message);
+        case "ban": {
+            const index = Number(dataset.line);
+            const banned = game.settings.get(ID, "banned");
+            await game.settings.set(ID, "banned", [...new Set([...banned, lines[index].rawText])]);
+            return redraw(message, [index]);
+        }
+        case "source":
+            return showSource(dataset.messageId);
+        case "publish":
+            return ChatMessage.create({
+                content: `<div class="pf2e-na-card pf2e-na-public">${lines.map((l) => `<p class="pf2e-na-text">${l.text}</p>`).join("")}</div>`,
+                speaker: ChatMessage.getSpeaker(),
+            });
     }
 }
 
 function onRenderChatMessage(message, html) {
     if (!isOurCard(message) || !game.user.isGM || !(html instanceof HTMLElement)) return;
-    for (const button of html.querySelectorAll("button[data-pf2e-na]")) {
-        button.addEventListener("click", async (event) => {
+    for (const element of html.querySelectorAll("button[data-pf2e-na]")) {
+        element.addEventListener("click", async (event) => {
             event.preventDefault();
-            button.disabled = true;
+            element.disabled = true;
             try {
-                await onButton(message, button.dataset.pf2eNa);
+                await onButton(message, element.dataset);
             } finally {
-                button.disabled = false;
+                element.disabled = false;
             }
         });
     }
@@ -302,6 +390,8 @@ Hooks.once("init", () => {
         extractContext,
         /** Force a reload of tables (module + world) on next narration. */
         invalidateTables: () => (tableCache = null),
+        /** Bring back every text hidden with "Never again". */
+        unbanAll: () => game.settings.set(ID, "banned", []),
     };
 });
 

@@ -30,3 +30,15 @@ players, PF2e's own message untouched.
 | 22 | Second GM connected | Still exactly one card per roll |
 | 23 | Foundry UI in French, narration language = UI | French narration; set it to English: English narration |
 | 24 | Foundry UI in German | English narration (no German corpus) |
+| 25 | Fireball (or any area save spell) on 3 NPCs, GM rolls the saves with all three selected | One card, three lines "Name (degree): text" |
+| 26 | Same with *Group saves* = 0 | Three cards |
+| 27 | Click ↰ on a line | Chat scrolls to that save and highlights it |
+| 28 | Click 🚫 on a line | That line changes; the text never comes back; `api.unbanAll()` restores it |
+| 29 | *Chance: success* = 0, normal hit | No card; a critical hit still gets one |
+| 30 | Unarmed Strike (fist), shield bash, firearm, rapier | Unarmed / shield / firearm / agile-finesse narration |
+| 31 | Strike a skeleton, a golem, a rat swarm, a ghost | Undead / construct / swarm / incorporeal narration |
+| 32 | Trip the kobold, then Strike it while prone | "Target prone" narration |
+| 33 | Strike while frightened | "Attacker frightened" narration |
+| 34 | Spell attack (*Ignition*, *Ray of Frost*), with *Events: spell attacks* on | Fire / cold spell narration, header "Hit · <spell>" |
+| 35 | Undead save against *Heal*; living creature saves against *Harm* | Fortitude vitality / void narration |
+| 36 | Run `tools/check-pf2e.mjs` on a fresh PF2e checkout (or the *PF2e watch* workflow) | All assumptions hold |

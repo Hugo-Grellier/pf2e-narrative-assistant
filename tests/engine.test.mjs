@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { contractFrench } from "../src/languages.mjs";
-import { candidates, createRecentSet, interpolate, matches, narrate, pickEntry, shouldNarrate } from "../src/engine.mjs";
+import { candidates, createRecentSet, interpolate, matches, narrate, pickEntry, shouldNarrate, specificity } from "../src/engine.mjs";
 
 const t = (key, when, texts, extra = {}) => ({ key, slot: "narration", when, entries: texts.map((text) => ({ text, weight: 1 })), ...extra });
 
@@ -91,6 +91,8 @@ test("interpolation stops on self-referencing components", () => {
 test("narrate capitalises and avoids recent texts", () => {
     const list = [t("g", {}, ["{target} recule.", "autre"])];
     assert.equal(narrate(list, { vars: { target: "le kobold" } }, { random: () => 0 }).text, "Le kobold recule.");
+    const two = [t("g", {}, ["Un cri. {target} recule."])];
+    assert.equal(narrate(two, { vars: { target: "le kobold" } }, { random: () => 0 }).text, "Un cri. Le kobold recule.");
     const recent = new Map([["g", ["{target} recule."]]]);
     assert.equal(narrate(list, { vars: {} }, { recent, random: () => 0 }).text, "Autre");
 });
@@ -104,19 +106,36 @@ test("pickEntry respects weights and never empties the pool", () => {
 test("shouldNarrate filters", () => {
     const settings = {
         enabled: true,
-        frequency: "all",
         events: { strike: true, "skill-check": false },
-        degrees: { criticalSuccess: true, success: true, failure: true, criticalFailure: false },
+        chances: { criticalSuccess: 100, success: 30, failure: 100, criticalFailure: 0 },
         disabledActions: ["seek"],
     };
-    assert.ok(shouldNarrate(strike(), settings));
-    assert.ok(!shouldNarrate(strike({ degreeOfSuccess: "criticalFailure" }), settings));
-    assert.ok(!shouldNarrate({ eventType: "skill-check", degreeOfSuccess: "success" }, settings));
-    assert.ok(!shouldNarrate({ ...strike(), actionSlug: "seek" }, settings));
-    assert.ok(!shouldNarrate(strike({ degreeOfSuccess: null }), settings));
-    assert.ok(!shouldNarrate(strike(), { ...settings, frequency: "criticals" }));
-    assert.ok(!shouldNarrate(strike({ degreeOfSuccess: "failure" }), { ...settings, frequency: "successes" }));
-    assert.ok(!shouldNarrate(strike(), { ...settings, enabled: false }));
+    const roll = (random) => (ctx) => shouldNarrate(ctx, settings, () => random);
+    assert.ok(roll(0.99)(strike({ degreeOfSuccess: "criticalSuccess" })));
+    assert.ok(!roll(0)(strike({ degreeOfSuccess: "criticalFailure" })), "0% never narrates");
+    assert.ok(roll(0.29)(strike()), "30%: a low draw narrates");
+    assert.ok(!roll(0.3)(strike()), "30%: a high draw does not");
+    assert.ok(!roll(0)({ eventType: "skill-check", degreeOfSuccess: "success" }));
+    assert.ok(!roll(0)({ ...strike(), actionSlug: "seek" }));
+    assert.ok(!roll(0)(strike({ degreeOfSuccess: null })));
+    assert.ok(!shouldNarrate(strike(), { ...settings, enabled: false }, () => 0));
+});
+
+test("specificity: named actions, creature types and conditions outrank damage types", () => {
+    const s = (when, priority) => specificity({ when, priority });
+    const slashing = s({ eventType: "strike", range: "melee", damageTypes: ["slashing"], degreeOfSuccess: "success" });
+    assert.equal(slashing, 5);
+    assert.ok(s({ eventType: "strike", range: "melee", weaponGroup: "brawling", degreeOfSuccess: "success" }) > slashing);
+    assert.ok(s({ eventType: "strike", targetConditions: { anyOf: ["prone"] }, degreeOfSuccess: "success" }) > slashing);
+    assert.ok(s({ eventType: "skill-check", actionSlug: "trip", degreeOfSuccess: "success" }) > s({ eventType: "skill-check", degreeOfSuccess: "success" }));
+    assert.equal(s({ eventType: "strike" }, 2), 3);
+});
+
+test("possessive placeholders", () => {
+    const text = "{target's} guard gives way before {attacker's} blade.";
+    assert.equal(interpolate(text, { vars: { target: "the kobold", attacker: "Valeros" } }), "the kobold's guard gives way before Valeros' blade.");
+    assert.equal(interpolate("{target's} guard.", { vars: {} }, { fallbacks: { target: "their opponent" } }), "their opponent's guard.");
+    assert.equal(interpolate("{nope's} guard.", { vars: {} }), "guard.");
 });
 
 test("recent set ignores repeats and forgets old ids", () => {

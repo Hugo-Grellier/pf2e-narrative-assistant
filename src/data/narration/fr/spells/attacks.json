@@ -1,0 +1,396 @@
+[
+  {
+    "key": "spell.attack",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Générique"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Le sort jaillit des mains de {actor} et frappe {target} de plein fouet.",
+        "La magie s'écrase sur {target} dans un claquement qui fait trembler l'air.",
+        "Le sort de {actor} trouve sa cible avec une justesse troublante.",
+        "L'énergie éclate sur {target} et laisse l'air bourdonnant.",
+        "{actor} guide le sort comme une flèche, droit sur {bodyPart}.",
+        "Le sort porte si net que {target} chancelle sous le choc."
+      ],
+      "success": [
+        "Le sort frappe {target} et crépite à l'impact.",
+        "La magie de {actor} atteint {target} et mord.",
+        "Un éclair de lumière, et le sort porte.",
+        "Le sort cueille {target} en plein demi-tour.",
+        "{actor} libère le sort, qui trouve {target}.",
+        "La magie frappe et s'enfonce dans {target}."
+      ],
+      "failure": [
+        "Le sort file à côté de {target} et s'évanouit.",
+        "{target} se baisse, et la magie éclabousse le décor derrière.",
+        "Le sort vole droit, mais {target} n'est plus là.",
+        "La visée de {actor} vacille et le sort part large.",
+        "L'énergie crépite près de l'épaule de {target} et se dissipe.",
+        "Le sort manque d'une main."
+      ],
+      "criticalFailure": [
+        "Le sort crachote au bout des doigts de {actor} et s'éteint dans l'air.",
+        "{actor} perd le fil du sort, qui frappe dans le vide.",
+        "La magie part en tous sens et frappe la pierre loin de {target}.",
+        "Une syllabe mal prononcée envoie le sort en vrille.",
+        "Le sort s'embrase, oscille et disparaît bien à côté de {target}.",
+        "Le geste de {actor} part de travers et la magie s'éparpille en étincelles."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.arcane",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Arcanique"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Des runes s'allument dans l'air, et le trait arcanique frappe {target} avec une géométrie parfaite.",
+        "La formule de {actor} se résout exactement comme calculé, et {target} en prend toute la force.",
+        "Des glyphes tournoient autour de la main de {actor} et le sort tombe comme une équation résolue.",
+        "Une force arcanique brute, étroitement façonnée, frappe {target} de plein fouet.",
+        "Le schéma du sort tient parfaitement, du lancement à l'impact."
+      ],
+      "success": [
+        "Des sceaux arcaniques scintillent et le sort atteint {target}.",
+        "Un geste exact, un impact exact.",
+        "La magie étudiée de {actor} trouve sa cible.",
+        "Des lignes de lumière tracent la course du sort jusqu'à {target}.",
+        "La formule tient, et la magie porte."
+      ],
+      "failure,criticalFailure": [
+        "Le calcul était juste ; {target} a simplement bougé.",
+        "Les runes s'éparpillent en étincelles quand le sort manque.",
+        "La formule de {actor} glisse d'un signe, et la magie s'égare.",
+        "Le trait arcanique siffle à côté de {target}.",
+        "Une faille dans le schéma, et le sort se défait avant d'atteindre {target}."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.divine",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Divin"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Une lumière sacrée transperce l'air et frappe {target} de plein fouet.",
+        "La prière de {actor} est exaucée, et le coup venu d'en haut porte en plein.",
+        "La puissance divine frappe {target} comme un verdict.",
+        "Un chœur s'élève aux oreilles de {actor} quand le sort porte.",
+        "La foi guide le sort droit sur {target}."
+      ],
+      "success": [
+        "Le pouvoir sacré atteint {target} et brûle.",
+        "L'invocation de {actor} trouve {target}.",
+        "Un éclat de rayonnement divin, et le sort porte.",
+        "Le sort frappe avec le poids de la conviction.",
+        "Une puissance venue d'ailleurs effleure {target}."
+      ],
+      "failure,criticalFailure": [
+        "La puissance divine passe à côté de {target}, comme retenue.",
+        "La prière de {actor} faiblit et le sort s'égare.",
+        "Le rayonnement balaie l'air près de {target}, sans l'atteindre.",
+        "La réponse à la prière de {actor} arrive un instant trop tard.",
+        "Le sort vacille comme une bougie au vent et manque."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.occult",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Occulte"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Le sort se glisse par les coutures du réel et frappe {target} sous un angle impossible.",
+        "Des murmures s'élèvent tandis que le pouvoir occulte s'enfonce dans {target}.",
+        "Le sort de {actor} porte, avec l'impression que quelque chose d'immense vient de se retourner.",
+        "Des couleurs étranges éclosent là où le sort frappe {target}.",
+        "L'air ondule comme un miroir, et la magie frappe en plein."
+      ],
+      "success": [
+        "Un malaise dans l'air, puis le sort frappe {target}.",
+        "La magie occulte de {actor} trouve sa cible dans un bourdonnement sourd.",
+        "Le sort porte et laisse une image rémanente qui fait mal aux yeux.",
+        "Des ombres murmurantes portent le sort jusqu'à {target}.",
+        "L'impact tient moins de la force que de la révélation."
+      ],
+      "failure,criticalFailure": [
+        "Le sort glisse dans un autre angle de l'espace et manque.",
+        "Les murmures montent puis se taisent : le sort a manqué.",
+        "La concentration de {actor} se relâche, et l'étrange énergie se disperse.",
+        "Le pouvoir occulte s'enroule autour de {target} sans contact.",
+        "Une ondulation dans l'air, rien de plus."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.primal",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Primordial"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Le sort déferle comme un orage et s'abat sur {target}.",
+        "La puissance brute de la nature répond à {actor} et frappe {target} de plein fouet.",
+        "Le sort rugit comme une bête sauvage à l'impact.",
+        "Les feuilles tourbillonnent et la force primordiale percute {target}.",
+        "La magie de {actor} frappe avec le poids d'un arbre qui s'abat."
+      ],
+      "success": [
+        "Une énergie sauvage fouette {target}.",
+        "Une odeur de pluie emplit l'air quand le sort porte.",
+        "La magie primordiale de {actor} cueille {target}.",
+        "Une bourrasque de force vive frappe {target}.",
+        "Le sort mord comme un vent d'hiver."
+      ],
+      "failure,criticalFailure": [
+        "La magie sauvage dévie comme un oiseau effarouché.",
+        "Le sort s'écrase dans la terre à côté de {target}.",
+        "La nature ne répond pas tout à fait, et le sort tombe court.",
+        "{target} se glisse hors de la bourrasque de force primordiale.",
+        "Le sort s'éparpille comme des graines au vent."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.fire",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Feu"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Une lance de flammes frappe {target}, et la chaleur balaie tous les alentours.",
+        "Le feu éclot sur {target}, rugissant et éclatant.",
+        "La flamme frappe {bodyPart} avec le souffle d'une forge.",
+        "Le feu de {actor} frappe si fort que l'air ondule encore longtemps après.",
+        "Lumière et chaleur ardentes enveloppent {target} le temps d'un battement de cœur."
+      ],
+      "success": [
+        "La flamme éclabousse {target} et roussit tout.",
+        "Chaleur et lumière : le sort porte en grésillant.",
+        "{target} recule devant le brasier soudain.",
+        "Le feu lèche {target} et laisse une odeur de tissu roussi.",
+        "Une gerbe de flammes cueille {target}."
+      ],
+      "failure": [
+        "Le feu rugit à côté de {target} et s'étouffe.",
+        "La chaleur frôle la joue de {target}, rien de plus.",
+        "La flamme file large et roussit le sol.",
+        "{target} se dérobe au brasier.",
+        "Des étincelles pleuvent là où se tenait {target} un instant plus tôt."
+      ],
+      "criticalFailure": [
+        "La flamme jaillit trop tôt et ne réchauffe que les doigts de {actor}.",
+        "Le feu crachote en fumée à mi-chemin de {target}.",
+        "Une bouffée de braises, un nuage de fumée, et rien d'autre.",
+        "Le sort dévie et laisse une trace de brûlure loin de {target}.",
+        "{actor} recule devant la chaleur soudaine et le feu part de travers."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.cold",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Froid"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Une lance de givre frappe {target} et le frimas s'étend en toile craquante.",
+        "Le froid mord si profond que le souffle de {target} se change en buée.",
+        "La glace fleurit sur {bodyPart} dans un craquement sec.",
+        "Le givre de {actor} tombe avec le silence du cœur de l'hiver.",
+        "Le froid frappe {target} comme un plongeon dans un lac gelé."
+      ],
+      "success": [
+        "Le givre balaie {target} et laisse une croûte blanche.",
+        "Le froid frappe, et {target} frissonne.",
+        "Des cristaux de glace scintillent sur l'équipement de {target}.",
+        "Un froid mordant enveloppe {target}.",
+        "Le sort porte dans un claquement d'air glacé."
+      ],
+      "failure": [
+        "Le givre manque et poudre le sol de blanc.",
+        "Un courant d'air froid file à côté de {target}.",
+        "{target} esquive le rayon glacé.",
+        "Le froid se dissipe avant d'atteindre {target}.",
+        "Un tourbillon de flocons, et rien de plus."
+      ],
+      "criticalFailure": [
+        "Le sort de givre s'éteint en une petite bouffée de neige.",
+        "Les doigts de {actor} s'engourdissent et le froid s'égare.",
+        "La glace éclate en plein vol à mi-chemin de {target}.",
+        "Une gerbe de givre, envoyée nulle part.",
+        "Le froid revient en tourbillon et pique les joues de {actor}."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.electricity",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Électricité"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "L'éclair crépite jusqu'à {target}, et tous les cheveux de la pièce se dressent.",
+        "L'arc frappe dans un claquement assourdissant et une odeur d'orage.",
+        "{target} sursaute quand l'électricité danse sur {bodyPart}.",
+        "Un trait bleu-blanc frappe {target} de plein fouet et laisse des images rémanentes.",
+        "L'étincelle de {actor} trouve {target} et la foudre chante."
+      ],
+      "success": [
+        "Des étincelles sautent sur {target} dans un claquement sec.",
+        "L'éclair porte, et {target} tressaille.",
+        "L'électricité statique court sur l'équipement de {target}.",
+        "La foudre franchit l'espace et frappe.",
+        "Une secousse bourdonnante traverse {target}."
+      ],
+      "failure": [
+        "L'éclair file à côté de {target} et se perd dans le plancher.",
+        "Les étincelles s'éparpillent au large.",
+        "{target} plonge sous un arc crépitant.",
+        "La foudre bifurque loin de {target}.",
+        "Un coup de tonnerre, mais l'éclair manque."
+      ],
+      "criticalFailure": [
+        "L'étincelle saute du mauvais côté et crépite sur une ferrure voisine.",
+        "L'éclair s'éteint avec un petit pop pitoyable.",
+        "{actor} sent un picotement dans les doigts quand le sort se défait.",
+        "Le trait part en zigzag bien loin de {target}.",
+        "Un flash, une détonation, et une odeur d'ozone là où rien n'a été frappé."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.acid",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Acide"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "L'acide éclabousse {target} dans un sifflement furieux.",
+        "Le sort corrosif ronge l'équipement de {target} et la peau dessous.",
+        "Une boule verte éclate sur {bodyPart} en fumant.",
+        "L'acide frappe en plein, et la puanteur est insoutenable.",
+        "{target} recule quand l'acide grésille sur {bodyPart}."
+      ],
+      "success": [
+        "L'acide asperge {target} dans un sifflement aigu.",
+        "Le sort porte et une fumée monte de l'équipement de {target}.",
+        "Des gouttes corrosives piquent {target}.",
+        "L'acide de {actor} trouve {target} en pétillant.",
+        "Une éclaboussure verte, un sifflement, une grimace."
+      ],
+      "failure": [
+        "L'acide éclabousse le sol à côté de {target} en fumant.",
+        "{target} esquive la giclée corrosive.",
+        "Les gouttes d'acide retombent avant {target}.",
+        "La boule part large et siffle sur la pierre.",
+        "Une odeur aigre, mais {target} évite l'éclaboussure."
+      ],
+      "criticalFailure": [
+        "L'acide s'écrase en flaque aux pieds de {actor}.",
+        "Le sort tourne en l'air et dégouline sans effet.",
+        "Une gerbe d'acide siffle dans toutes les directions sauf vers {target}.",
+        "La boule éclate trop tôt et éclabousse le plancher.",
+        "{actor} recule devant les vapeurs piquantes, et le sort s'égare."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.force",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Force"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Un poing invisible de force s'écrase sur {target}.",
+        "L'air lui-même frappe {target} avec un bruit sourd.",
+        "Une force pure frappe {bodyPart}, invisible et indéniable.",
+        "Le sort de {actor} tombe comme un marteau de verre.",
+        "L'impact de force brute ébranle {target} sur place."
+      ],
+      "success": [
+        "La force frappe {target} avec un bruit mat.",
+        "Un miroitement dans l'air, puis l'impact.",
+        "{target} chancelle sous un choc invisible.",
+        "Le sort porte avec le bruit d'une porte qui claque.",
+        "Une force invisible gifle {target}."
+      ],
+      "failure": [
+        "Une ondulation dans l'air, et la force manque.",
+        "{target} esquive la distorsion à peine visible.",
+        "La force percute le mur derrière {target}.",
+        "Quelque chose d'invisible file en sifflant près de {target}.",
+        "Le miroitement du sort passe sans dommage."
+      ],
+      "criticalFailure": [
+        "La force se dissipe avec un petit pop.",
+        "Le sort de {actor} cogne le plancher bien avant {target}.",
+        "Le trait invisible vacille et s'efface.",
+        "Une bourrasque de rien, et le sort a disparu.",
+        "La force part sous le mauvais angle et fait trembler de la vaisselle au loin."
+      ]
+    }
+  },
+  {
+    "key": "spell.attack.void",
+    "label": [
+      "Sorts",
+      "Attaques de sort",
+      "Vide"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Les ténèbres fouettent {target} et vident son visage de toute couleur.",
+        "L'énergie du néant s'infiltre dans {target} comme l'eau froide dans le sable.",
+        "La vie semble vaciller chez {target} quand le sort porte.",
+        "Le sort de {actor} porte, et l'air devient immobile et gris.",
+        "Une ombre affamée mord {bodyPart}."
+      ],
+      "success": [
+        "Une énergie grisâtre s'insinue dans {target}.",
+        "Le sort effleure {target}, et la chaleur s'enfuit.",
+        "{target} frissonne quand le pouvoir du néant porte.",
+        "Une vague de vide submerge {target}.",
+        "Le sort frappe et laisse un frisson qui n'est pas tout à fait du froid."
+      ],
+      "failure": [
+        "L'énergie du néant se dissipe avant d'atteindre {target}.",
+        "Une vrille sombre cherche {target} et ne trouve rien.",
+        "{target} sort du gris rampant.",
+        "L'ombre passe à côté de {target}.",
+        "Le sort de néant s'efface comme une fumée."
+      ],
+      "criticalFailure": [
+        "Les ténèbres refluent vers {actor}, qui s'en débarrasse avec un frisson.",
+        "L'énergie du néant se défait en volutes.",
+        "Une brume grise et froide s'échappe des mains de {actor} et s'efface.",
+        "Le sort dérive et flétrit une plaque de mousse.",
+        "Les ombres s'amassent, puis se dispersent sans effet."
+      ]
+    }
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "key": "strike.unarmed",
+    "label": [
+      "Strikes",
+      "Weapons",
+      "Unarmed"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{attacker} drives a fist into {bodyPart} with the whole body turning behind it.",
+        "A hook from nowhere snaps {target's} head sideways.",
+        "{attacker} feints low, then lands an elbow that rattles {target} to the teeth.",
+        "Knuckles meet {bodyPart} with a sound everyone at the table can feel.",
+        "Two quick jabs open the way, and the third lands like a hammer.",
+        "{attacker} plants a knee in {target's} midsection and follows with a crushing straight."
+      ],
+      "success": [
+        "A short punch slips through and thumps into {bodyPart}.",
+        "{attacker} catches {target} with a jab that leaves the jaw stinging.",
+        "A low kick bites into {target's} thigh.",
+        "Fist against flesh: a dull, honest impact.",
+        "{attacker} ducks a reaching arm and answers with a solid body blow.",
+        "The palm strike lands flat and hard, driving the breath out of {target}."
+      ],
+      "failure": [
+        "{attacker's} punch whistles past {target's} ear.",
+        "{target} rolls with the blow and it lands on nothing.",
+        "The kick meets a raised forearm and goes no further.",
+        "{attacker} swings, but {target} leans back just out of reach.",
+        "Knuckles graze leather and nothing more.",
+        "The jab is read from a mile away and slapped aside."
+      ],
+      "criticalFailure": [
+        "{attacker} overcommits to a haymaker and spins halfway around.",
+        "The punch lands squarely on a buckle, and {attacker's} knuckles regret it.",
+        "A wild kick leaves {attacker} hopping to keep balance.",
+        "{attacker} throws everything into the blow, hits only air and stumbles after it.",
+        "{target} slips the punch so cleanly that {attacker} nearly topples into the empty space.",
+        "{attacker's} fist meets the edge of {target's} guard and the whole arm jars to the shoulder."
+      ]
+    }
+  },
+  {
+    "key": "strike.shield",
+    "label": [
+      "Strikes",
+      "Weapons",
+      "Shield"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{attacker} slams the shield's rim into {bodyPart} with a ringing crack.",
+        "The shield comes up like a door slamming, right into {target's} face.",
+        "{attacker} turns defense into attack: the shield boss crunches into {target}.",
+        "A full-body heave behind the shield rocks {target} from head to heel.",
+        "Metal booms against {target} and the echo hangs in the air.",
+        "{attacker} catches a blow on the shield and drives it straight back into {target's} chest."
+      ],
+      "success": [
+        "The edge of the shield clips {bodyPart}.",
+        "{attacker} bashes forward, wood and iron thudding into {target}.",
+        "The shield boss thumps into {target}, more weight than finesse.",
+        "A backhand sweep of the shield connects with a satisfying thud.",
+        "The iron rim finds {target's} ribs.",
+        "{attacker} swings the shield sideways and the impact carries."
+      ],
+      "failure": [
+        "The shield bash meets only empty air.",
+        "{target} sidesteps the heavy swing of the shield.",
+        "{attacker} punches with the shield, but {target} is already elsewhere.",
+        "The shield thuds against {target's} guard without effect.",
+        "Too slow: the shield's weight telegraphs the move.",
+        "{attacker} lunges with the shield and finds nothing behind it."
+      ],
+      "criticalFailure": [
+        "The shield's weight carries {attacker} past the target, off balance.",
+        "{attacker} swings the shield too wide and leaves the whole flank open.",
+        "The bash comes in at the wrong angle and jars {attacker's} own arm.",
+        "{target} catches the shield's edge and turns it aside with contempt.",
+        "{attacker} heaves the shield forward and nearly loses hold of its straps.",
+        "The shield scrapes the floor as {attacker} recovers from the clumsy swing."
+      ]
+    }
+  },
+  {
+    "key": "strike.firearm",
+    "label": [
+      "Strikes",
+      "Weapons",
+      "Firearm"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The shot cracks like thunder and the ball finds its mark.",
+        "Smoke clears to show that {attacker's} aim was perfect.",
+        "{attacker} fires point-blank; the flash lights {target's} startled face.",
+        "A single report, and the bullet punches into {bodyPart}.",
+        "The muzzle flares, and the impact spins {target} halfway around.",
+        "{attacker} breathes out, squeezes, and the shot lands exactly where intended."
+      ],
+      "success": [
+        "Powder flashes and the shot strikes {target} with a heavy slap.",
+        "The report echoes, and {target} staggers from the hit.",
+        "Through the smoke, {attacker} sees the ball strike home.",
+        "The shot clips {bodyPart} in a puff of torn cloth.",
+        "Bang: a hole appears in {target's} gear, with pain behind it.",
+        "A sharp crack, and {target} flinches as the bullet bites."
+      ],
+      "failure": [
+        "The shot goes wide and chips the stone behind {target}.",
+        "Smoke and noise, but the ball whines past {target}.",
+        "{target} moves as the hammer falls, and the shot misses.",
+        "The bullet kicks up dust at {target's} feet.",
+        "{attacker} fires a breath too early, and the shot sails high.",
+        "A deafening report, and nothing but a ricochet to show for it."
+      ],
+      "criticalFailure": [
+        "The powder fizzles, then coughs a cloud of smoke into {attacker's} face.",
+        "The recoil jerks the barrel skyward and the ball vanishes into the rafters.",
+        "A hang-fire: {attacker} flinches, and the shot goes off pointing nowhere useful.",
+        "Smoke stings {attacker's} eyes and the shot lands far from anything.",
+        "{attacker} squeezes mid-flinch; the bullet buries itself in the dirt.",
+        "The pan sputters, the shot comes late and hopelessly wide."
+      ]
+    }
+  },
+  {
+    "key": "strike.finesse",
+    "label": [
+      "Strikes",
+      "Weapons",
+      "Agile and finesse"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{attacker's} weapon darts in and out before {target} even sees it move.",
+        "A flick of the wrist, and the point finds the gap at {bodyPart}.",
+        "{attacker} dances inside {target's} guard and strikes twice in a heartbeat.",
+        "Quick as a snake, the light weapon bites in under {bodyPart}.",
+        "{attacker} threatens high, cuts low, and the trick lands perfectly.",
+        "Too fast to parry: the strike lands before the guard can move."
+      ],
+      "success": [
+        "A swift thrust slips past {target's} defense.",
+        "{attacker} flicks the weapon out and draws a stinging line across {bodyPart}.",
+        "Light footwork, a quick strike, and {target} winces.",
+        "The weapon flickers and nicks {target} under the guard.",
+        "{attacker} darts in, strikes, and is back out of reach.",
+        "A neat, economical cut finds its mark."
+      ],
+      "failure": [
+        "The quick jab is parried quicker.",
+        "{attacker's} weapon flickers, but {target} reads it.",
+        "Speed is not enough: {target} turns the strike aside.",
+        "The point darts in and meets only empty air.",
+        "{attacker} probes for an opening and finds none.",
+        "A flurry of false starts, and none of them land."
+      ],
+      "criticalFailure": [
+        "{attacker} tries to be too clever and tangles the weapon in {target's} guard.",
+        "The fancy flourish ends with {attacker} off balance.",
+        "Too much speed, not enough control: the strike goes nowhere near {target}.",
+        "{attacker's} footwork crosses itself and the lunge wobbles wide.",
+        "The light weapon skitters off {target's} guard and {attacker} loses the rhythm.",
+        "A flashy trick that fools only {attacker}."
+      ]
+    }
+  }
+]

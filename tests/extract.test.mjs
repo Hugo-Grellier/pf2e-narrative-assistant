@@ -93,3 +93,14 @@ test("ignores nested trait options and object-shaped action traits", () => {
     const ctx = extractContext(flags({ type: "saving-throw", outcome: "success", traits: [{ name: "mental" }], options: ["check:statistic:will", "item:trait:fear", "item:trait:x:y"] }));
     assert.deepEqual(ctx.traits.sort(), ["fear", "mental"]);
 });
+
+test("conditions of the roller and the target, without their values", () => {
+    const ctx = extractContext(flags({
+        type: "attack-roll",
+        identifier: "x.longsword.melee",
+        outcome: "success",
+        options: ["self:condition:frightened", "self:condition:frightened:2", "target:condition:prone", "target:condition:off-guard"],
+    }));
+    assert.deepEqual(ctx.actorConditions, ["frightened"]);
+    assert.deepEqual(ctx.targetConditions, ["prone", "off-guard"]);
+});
