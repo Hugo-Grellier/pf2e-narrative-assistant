@@ -253,7 +253,7 @@ function groupKey(message, context) {
 
 /* Combat memory, active GM only, lost on reload. */
 const MEMORY = 100;
-const lastHits = new Map(); // victim actor uuid -> { context, messageId } of the last roll that hurt it
+const lastHits = new Map(); // victim actor uuid -> { context, messageId, secret } of the last roll that hurt it
 const strikeHistory = new Map(); // "<combat>.<attacker>" -> degrees of that attacker's recent Strikes
 const keep = (map, key, value) => {
     map.delete(key);
@@ -263,14 +263,16 @@ const keep = (map, key, value) => {
 
 /** Records who last hurt whom (for finishing blows) and the attacker's Strike streak. */
 function trackCombat(context, message) {
+    // A whispered or blind roll stays secret in whatever is narrated from it later (finishing blow).
+    const hit = { context, messageId: message.id, secret: message.whisper.length > 0 || !!message.blind };
     const hurts = ["success", "criticalSuccess"].includes(context.degreeOfSuccess);
     if (["strike", "spell"].includes(context.eventType) && hurts) {
         const victim = message.target?.actor?.uuid;
-        if (victim) keep(lastHits, victim, { context, messageId: message.id });
+        if (victim) keep(lastHits, victim, hit);
     }
     // Basic saves deal damage on a success too, so any save counts.
     if (context.eventType === "saving-throw" && message.actor?.uuid) {
-        keep(lastHits, message.actor.uuid, { context, messageId: message.id });
+        keep(lastHits, message.actor.uuid, hit);
     }
     if (context.eventType === "strike") {
         const key = `${game.combat?.id ?? ""}.${message.actor?.uuid ?? context.vars.actor}`;
@@ -282,11 +284,16 @@ function trackCombat(context, message) {
     }
 }
 
-async function onCreateChatMessage(message) {
+function onCreateChatMessage(message) {
     // A single client handles each message: the active GM. Hooks for messages loaded at startup never fire.
-    if (!game.user.isActiveGM || seenMessages.has(message.id)) return;
-    seenMessages.add(message.id);
-    if (message.flags[ID]) return; // our own cards
+    if (!game.user.isActiveGM || message.flags[ID]) return; // our own cards
+    return handleRoll(message, message.id);
+}
+
+/** `message`: a PF2e chat message, or a message-like object (Toolbelt saves); `rollId`: dedupe key. */
+async function handleRoll(message, rollId) {
+    if (seenMessages.has(rollId)) return;
+    seenMessages.add(rollId);
 
     const settings = readSettings();
     if (!settings.enabled) return;
@@ -313,6 +320,57 @@ async function onCreateChatMessage(message) {
     pendingGroups.set(key, group);
 }
 
+/* -------------------------------------------- */
+/*  PF2e Toolbelt                               */
+/* -------------------------------------------- */
+
+/*
+ * Toolbelt's target helper rolls saves from a spell card without creating chat messages
+ * (`createMessage: false`) and stores them on the card. Its public hook `pf2e-toolbelt.rollSave` fires on
+ * the client that rolled, with the unsaved PF2e roll message: the active GM handles it directly, other
+ * clients forward it to the active GM with a Foundry query.
+ */
+const TOOLBELT_QUERY = `${ID}.toolbeltSave`;
+
+function onToolbeltRollSave({ rollMessage, message, target }) {
+    const context = rollMessage?.flags?.pf2e?.context;
+    if (!context || !message?.id || !target?.uuid) return;
+    const { type, outcome, options, identifier, traits, domains, origin, isReroll } = context;
+    const payload = {
+        context: { type, outcome, options, identifier, traits, domains, origin, isReroll },
+        origin: rollMessage.flags.pf2e.origin?.uuid ?? null,
+        token: target.uuid,
+        card: message.id,
+        secret: rollMessage.whisper.length > 0 || !!rollMessage.blind,
+    };
+    if (game.user.isActiveGM) return onToolbeltSave(payload);
+    game.users.activeGM?.query(TOOLBELT_QUERY, payload).catch((error) => console.warn(`${ID} |`, error));
+}
+
+/**
+ * Active GM side. The payload may come from a player: only the PF2e context is taken from it (validated
+ * by extractContext like any chat message); names come from documents the GM resolves itself.
+ */
+async function onToolbeltSave({ context, origin, token: tokenUuid, card: cardId, secret } = {}) {
+    if (!game.user.isActiveGM || context?.type !== "saving-throw" || typeof tokenUuid !== "string") return;
+    const token = fromUuidSync(tokenUuid);
+    const card = game.messages.get(cardId);
+    if (token?.documentName !== "Token" || !card) return;
+    const message = {
+        id: card.id, // ↰ jumps to the spell card, where Toolbelt shows the saves
+        flags: { pf2e: { context, origin: typeof origin === "string" ? { uuid: origin } : null } },
+        whisper: secret ? [game.user.id] : [],
+        blind: false,
+        rolls: [],
+        token,
+        actor: token.actor,
+        speaker: { alias: token.name },
+        item: card.item,
+        target: null,
+    };
+    await handleRoll(message, `toolbelt.${card.id}.${token.id}`);
+}
+
 /**
  * Finishing blow: a PC or NPC in a started combat drops to 0 HP. `changes` only holds what changed, so a
  * creature already at 0 is not narrated again. Damage applied by a player reaches the GM as an update too.
@@ -335,8 +393,8 @@ async function onUpdateActor(actor, changes) {
 
     const result = await suggest(context);
     if (!result) return;
-    // A hidden token stays a secret: never narrate its fall publicly.
-    await output([toLine(context, result, last?.messageId)], settings, { keepPrivate: !!token?.hidden });
+    // Never narrate publicly the fall of a hidden token, nor a blow whose roll was secret (it names the attacker).
+    await output([toLine(context, result, last?.messageId)], settings, { keepPrivate: !!token?.hidden || !!last?.secret });
 }
 
 async function narrateRolls(rolls, settings) {
@@ -452,6 +510,7 @@ function onRenderChatMessage(message, html) {
 
 Hooks.once("init", () => {
     registerSettings();
+    CONFIG.queries[TOOLBELT_QUERY] = (payload) => onToolbeltSave(payload);
     game.modules.get(ID).api = {
         /** Narrate an arbitrary context, e.g. from another module's own event. */
         suggest,
@@ -466,7 +525,10 @@ Hooks.once("init", () => {
 Hooks.once("ready", () => {
     if (game.system.id !== "pf2e") return;
     Hooks.on("createChatMessage", (message) => {
-        onCreateChatMessage(message).catch((error) => console.error(`${ID} |`, error));
+        Promise.resolve(onCreateChatMessage(message)).catch((error) => console.error(`${ID} |`, error));
+    });
+    Hooks.on("pf2e-toolbelt.rollSave", (data) => {
+        Promise.resolve(onToolbeltRollSave(data)).catch((error) => console.error(`${ID} |`, error));
     });
     Hooks.on("updateActor", (actor, changes) => {
         onUpdateActor(actor, changes).catch((error) => console.error(`${ID} |`, error));

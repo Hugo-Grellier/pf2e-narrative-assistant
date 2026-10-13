@@ -27,7 +27,7 @@ globalThis.foundry = {
         getProperty: (object, path) => path.split(".").reduce((o, k) => o?.[k], object),
     },
 };
-globalThis.CONFIG = { PF2E: { saves: { reflex: "PF2E.SavesReflex" } } };
+globalThis.CONFIG = { PF2E: { saves: { reflex: "PF2E.SavesReflex" } }, queries: {} };
 globalThis.fromUuidSync = () => null;
 globalThis.ui = { notifications: { info: () => {} } };
 globalThis.ChatMessage = {
@@ -77,6 +77,7 @@ const pf2eMessage = (id, context, extra = {}) => ({
     ...extra,
 });
 const createAndWait = async (message) => Promise.all(fire("createChatMessage", message));
+const fireAndWait = async (name, ...args) => Promise.all(fire(name, ...args));
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 globalThis.HTMLElement = class {};
@@ -267,4 +268,72 @@ test("finishing blow: once when a creature drops to 0 HP in combat, naming the l
     assert.equal(line.context.vars.attacker, "Kyra");
     assert.equal(line.sourceId, "k1");
     assert.match(created[0].content, /— PF2E_NA\.Event\.finish · the kobold</);
+});
+
+test("a finishing blow after a secret roll stays whispered even with public output", async () => {
+    settings.set("output", "public");
+    game.combat = { id: "c2", started: true };
+    const ogre = { uuid: "Actor.ogre", type: "npc", name: "Ogre", traits: new Set(), token: { name: "the ogre", hidden: false } };
+    await createAndWait(pf2eMessage("b1", { type: "attack-roll", identifier: "a.dagger.melee", outcome: "success" }, {
+        blind: true,
+        speaker: { alias: "Hidden assassin" },
+        target: { token: { name: "the ogre" }, actor: { ...ogre, hitPoints: { value: 2, max: 50 } } },
+    }));
+    created.length = 0;
+    await Promise.all(fire("updateActor", ogre, { system: { attributes: { hp: { value: 0 } } } }));
+    settings.set("output", "whisper");
+    game.combat = null;
+    assert.equal(created.length, 1);
+    assert.deepEqual(created[0].whisper, ["gm1"]);
+});
+
+test("forged outcomes never reach the card", async () => {
+    created.length = 0;
+    await createAndWait(pf2eMessage("x1", { type: "skill-check", outcome: "<img src=x onerror=alert(1)>", options: ["action:trip"] }));
+    assert.equal(created.length, 0);
+});
+
+test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients", async () => {
+    created.length = 0;
+    const kobold = { uuid: "Scene.s.Token.k", id: "k", documentName: "Token", name: "the kobold", actor: { uuid: "Actor.k" } };
+    const ezren = { uuid: "Scene.s.Token.e", id: "e", documentName: "Token", name: "Ezren", actor: { uuid: "Actor.e" } };
+    globalThis.fromUuidSync = (uuid) => ({ [kobold.uuid]: kobold, [ezren.uuid]: ezren })[uuid] ?? null;
+    game.messages = new Map([["card1", { id: "card1", item: { name: "Fireball" } }]]);
+    const rollSave = (target, outcome) => ({
+        message: { id: "card1" },
+        target,
+        rollMessage: {
+            whisper: [],
+            blind: false,
+            flags: { pf2e: { context: { type: "saving-throw", outcome, options: ["check:statistic:reflex", "item:trait:fire"], traits: [] }, origin: { uuid: "Item.fireball" } } },
+        },
+    });
+
+    await fireAndWait("pf2e-toolbelt.rollSave", rollSave(kobold, "failure"));
+    await fireAndWait("pf2e-toolbelt.rollSave", rollSave(kobold, "failure")); // same target twice: once
+    assert.equal(created.length, 1);
+    const [line] = created[0].flags[ID].lines;
+    assert.match(line.tableKey, /^save\.reflex\.fire\./);
+    assert.equal(line.sourceId, "card1");
+    assert.equal(line.context.vars.actor, "the kobold");
+
+    // A player's client forwards the save to the active GM.
+    created.length = 0;
+    const player = { id: "p1", isGM: false, isActiveGM: false };
+    const queries = [];
+    // Foundry runs the query handler on the GM's client; JSON round trip like the socket.
+    game.users.activeGM = { query: async (name, payload) => queries.push({ name, payload: JSON.parse(JSON.stringify(payload)) }) };
+    game.user = player;
+    await fireAndWait("pf2e-toolbelt.rollSave", rollSave(ezren, "success"));
+    game.user = gm;
+    assert.equal(created.length, 0, "the player's client narrates nothing itself");
+    await Promise.all(queries.map(({ name, payload }) => CONFIG.queries[name](payload)));
+    assert.equal(created.length, 1);
+    assert.equal(created[0].flags[ID].lines[0].context.vars.actor, "Ezren");
+
+    // A forged payload naming a token that does not exist is dropped.
+    created.length = 0;
+    await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"]({ context: { type: "saving-throw", outcome: "success", options: [] }, token: "Scene.s.Token.nope", card: "card1" });
+    assert.equal(created.length, 0);
+    globalThis.fromUuidSync = () => null;
 });

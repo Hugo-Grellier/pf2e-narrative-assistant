@@ -46,6 +46,13 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 | Recovery checks | four degrees |
 | Anything else | generic fallback per degree (other skill actions, and misc rolls if enabled) |
 
+## Compatibility
+
+- **PF2e Toolbelt**: saves rolled from its target helper (on the spell card, without chat messages) are
+  narrated like any other save, grouped per spell. A player's save is forwarded to the active GM.
+- **Dice So Nice**: public narration waits for the dice animation.
+- Translated compendiums (Babele, pf2-fr) and renamed tokens work: the module uses item and token names.
+
 ## Settings
 
 Enable, output (GM whisper / public chat / notification), narration language (UI language / English /

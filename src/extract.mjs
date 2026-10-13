@@ -11,6 +11,8 @@
  * Spells add their tradition as a trait ("item:trait:arcane") and their damage types ("item:damage:type:fire").
  */
 
+import { DEGREES } from "./engine.mjs";
+
 const SAVES = ["fortitude", "reflex", "will"];
 
 /** Values of every roll option starting with `prefix`, e.g. suffixes(o, "item:trait:") -> ["fire", ...] */
@@ -27,7 +29,9 @@ const simpleSuffixes = (options, prefix) => suffixes(options, prefix).filter((s)
  */
 export function extractContext(systemFlags, names = {}) {
     const flag = systemFlags?.context;
-    if (!flag?.type || !flag.outcome) return null; // damage rolls, spell cards, checks without a DC
+    // Damage rolls, spell cards and checks without a DC have no outcome. Anything else is not PF2e data
+    // (any user can put flags on a chat message) and must not reach the card header.
+    if (!flag?.type || !DEGREES.includes(flag.outcome)) return null;
     const options = flag.options ?? [];
 
     const actionTraits = (flag.traits ?? []).map((t) => (typeof t === "string" ? t : t?.name)).filter(Boolean);

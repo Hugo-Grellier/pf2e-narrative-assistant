@@ -49,6 +49,8 @@ players, PF2e's own message untouched.
 | 41 | Set an NPC to 0 HP by hand outside combat | No card |
 | 42 | Cast *Heal* on an ally (no save), then *Fear* (save) | A cast card for Heal only; Fear is narrated on its saves |
 | 43 | Reposition, Force Open, Climb, Swim, Lie, Request, Perform, Steal, Palm an Object, Disable a Device | Matching action text |
+| 44 | PF2e Toolbelt target helper: Fireball on 3 NPCs, GM clicks the save buttons on the card | One grouped card; ↰ jumps to the spell card |
+| 45 | Same, a player rolls their own PC's save from the card | The GM gets the narration; the player's client creates nothing |
 
 ## Capturing fixtures
 
