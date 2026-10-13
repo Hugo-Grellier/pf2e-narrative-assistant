@@ -7,6 +7,9 @@ on:
     - cron: "0 6 * * 1"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -19,10 +22,15 @@ jobs:
         id: pf2e
         env:
           GH_TOKEN: ${{ github.token }}
-        # The repository also publishes sf2e-* and *-anachronism-* releases.
+        # The repository also publishes sf2e-* and *-anachronism-* releases. The tag is third-party
+        # input: only a strict version tag is accepted, and it reaches later steps through env, never
+        # through ${{ }} interpolation in a script.
         run: |
-          tag=$(gh release list -R foundryvtt/pf2e -L 30 --json tagName -q '[.[].tagName | select(test("^pf2e-[0-9]"))][0]')
+          tag=$(gh release list -R foundryvtt/pf2e -L 30 --json tagName -q '[.[].tagName | select(test("^pf2e-[0-9]+\\.[0-9]+\\.[0-9]+$"))][0]')
+          [[ "$tag" =~ ^pf2e-[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "unexpected tag: $tag"; exit 1; }
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "Checking $tag" >> "$GITHUB_STEP_SUMMARY"
-      - run: git clone --quiet --depth 1 --branch "${{ steps.pf2e.outputs.tag }}" https://github.com/foundryvtt/pf2e.git "$RUNNER_TEMP/pf2e"
+      - env:
+          TAG: ${{ steps.pf2e.outputs.tag }}
+        run: git clone --quiet --depth 1 --branch "$TAG" https://github.com/foundryvtt/pf2e.git "$RUNNER_TEMP/pf2e"
       - run: node tools/check-pf2e.mjs "$RUNNER_TEMP/pf2e" | tee -a "$GITHUB_STEP_SUMMARY"
