@@ -1,5 +1,6 @@
 # Publishing a GitHub release (tag "v1.2.3" or "1.2.3") builds the compendiums and attaches
-# module.json + module.zip to it. Adapted from the League of Foundry Developers module template.
+# module.json + module.zip to it, then registers the version on foundryvtt.com when a token is set.
+# Adapted from the League of Foundry Developers module template.
 name: Release
 
 on:
@@ -52,3 +53,35 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release upload "$TAG" module.json module.zip --clobber
+
+      # Registers the version on the foundryvtt.com package listing (Package Release API). Skipped until the
+      # FOUNDRY_PACKAGE_TOKEN secret exists (token from the package's admin page), and for pre-releases.
+      - name: Publish to the Foundry package listing
+        if: ${{ !github.event.release.prerelease }}
+        env:
+          FOUNDRY_PACKAGE_TOKEN: ${{ secrets.FOUNDRY_PACKAGE_TOKEN }}
+        run: |
+          if [ -z "$FOUNDRY_PACKAGE_TOKEN" ]; then
+            echo "FOUNDRY_PACKAGE_TOKEN not set: not publishing to foundryvtt.com"
+            exit 0
+          fi
+          node -e '
+            const m = JSON.parse(require("fs").readFileSync("module.json", "utf8"));
+            const { TAG, REPO_URL } = process.env;
+            const { minimum, verified, maximum } = m.compatibility;
+            process.stdout.write(JSON.stringify({
+              id: m.id,
+              release: {
+                version: m.version,
+                // The manifest of this exact release, not "latest": the listing keeps one entry per version.
+                manifest: `${REPO_URL}/releases/download/${TAG}/module.json`,
+                notes: `${REPO_URL}/releases/tag/${TAG}`,
+                compatibility: { minimum, verified, maximum: maximum ?? "" },
+              },
+            }));
+          ' > release.json
+          cat release.json
+          curl --fail-with-body -sS -X POST https://foundryvtt.com/_api/packages/release_version/ \
+            -H "Content-Type: application/json" \
+            -H "Authorization: $FOUNDRY_PACKAGE_TOKEN" \
+            --data @release.json

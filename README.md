@@ -92,7 +92,9 @@ release: it fails when PF2e stops writing one of the chat flags or roll options 
 
 Releases: publish a GitHub release tagged `vX.Y.Z`. `.github/workflows/release.yml` tests, builds the
 compendiums, stamps `version`, `url`, `manifest` and `download` into `module.json`, and attaches
-`module.json` and `module.zip` to the release. Install URL for Foundry:
+`module.json` and `module.zip` to the release. Once the repository has a `FOUNDRY_PACKAGE_TOKEN` secret
+(the package's release token from foundryvtt.com), it also registers the version on the Foundry package
+listing; pre-releases are skipped. Install URL for Foundry:
 `https://github.com/<owner>/<repo>/releases/latest/download/module.json`.
 
 ## How a narration is chosen
