@@ -1,0 +1,54 @@
+# Publishing a GitHub release (tag "v1.2.3" or "1.2.3") builds the compendiums and attaches
+# module.json + module.zip to it. Adapted from the League of Foundry Developers module template.
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ github.event.release.tag_name }}
+      REPO_URL: https://github.com/${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      # Version and URLs come from the release, so module.json in the repository never needs editing.
+      # The manifest URL always points at the latest release so Foundry can detect updates.
+      - name: Stamp module.json
+        run: |
+          node -e '
+            const fs = require("fs");
+            const m = JSON.parse(fs.readFileSync("module.json", "utf8"));
+            const { TAG, REPO_URL } = process.env;
+            m.version = TAG.replace(/^v/, "");
+            m.url = REPO_URL;
+            m.manifest = `${REPO_URL}/releases/latest/download/module.json`;
+            m.download = `${REPO_URL}/releases/download/${TAG}/module.zip`;
+            fs.writeFileSync("module.json", JSON.stringify(m, null, 2) + "\n");
+          '
+
+      # Runtime files only: narration sources (src/data) and pack build intermediates stay out.
+      - name: Create module.zip
+        run: |
+          zip -r module.zip module.json README.md LICENSE src lang styles packs \
+            -x 'src/data/*' 'packs/_source/*'
+          unzip -l module.zip | tail -n 1
+
+      - name: Attach files to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$TAG" module.json module.zip --clobber

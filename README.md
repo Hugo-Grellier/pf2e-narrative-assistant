@@ -48,8 +48,13 @@ npm run build     # src/data → packs/narration-<lang> (LevelDB, via @foundryvt
 ```
 
 Symlink the repository into `Data/modules/pf2e-narrative-assistant` and run `npm run build` once.
-`packs/` is generated, never edited by hand; table and result IDs are derived from table keys, so
-rebuilds are reproducible.
+`packs/` is generated, never edited by hand nor committed; table and result IDs are derived from table
+keys, so rebuilds are reproducible.
+
+Releases: publish a GitHub release tagged `vX.Y.Z`. `.github/workflows/release.yml` tests, builds the
+compendiums, stamps `version`, `url`, `manifest` and `download` into `module.json`, and attaches
+`module.json` and `module.zip` to the release. Install URL for Foundry:
+`https://github.com/<owner>/<repo>/releases/latest/download/module.json`.
 
 ## How a narration is chosen
 
