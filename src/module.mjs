@@ -347,18 +347,50 @@ function onToolbeltRollSave({ rollMessage, message, target }) {
     game.users.activeGM?.query(TOOLBELT_QUERY, payload).catch((error) => console.warn(`${ID} |`, error));
 }
 
+/** Toolbelt's own record of a token's save on the spell card (Toolbelt writes it through the GM), if any. */
+function toolbeltRecord(card, tokenId) {
+    const variants = card.flags?.["pf2e-toolbelt"]?.targetHelper?.saveVariants ?? {};
+    return Object.values(variants).map((variant) => variant?.saves?.[tokenId]).find(Boolean) ?? null;
+}
+
+/** Resolves with Toolbelt's record once the card carries it (Toolbelt updates the card shortly after the roll). */
+function awaitToolbeltRecord(card, tokenId, timeout = 10_000) {
+    const record = toolbeltRecord(card, tokenId);
+    if (record) return Promise.resolve(record);
+    return new Promise((resolve) => {
+        const done = (value) => {
+            Hooks.off("updateChatMessage", hookId);
+            clearTimeout(timer);
+            resolve(value);
+        };
+        const hookId = Hooks.on("updateChatMessage", (message) => {
+            if (message.id !== card.id) return;
+            const found = toolbeltRecord(message, tokenId);
+            if (found) done(found);
+        });
+        const timer = setTimeout(() => done(null), timeout);
+    });
+}
+
 /**
- * Active GM side. A `remote` payload comes from another client, possibly a player, and is untrusted: it
- * must be about a visible, player-owned token (players only roll their own saves), and only its PF2e
- * context is used (validated by extractContext like any chat flag). Every name comes from documents the
- * GM resolves itself: the token, and the spell card's speaker as the origin.
+ * Active GM side. A `remote` payload comes from another client, possibly a player, and is untrusted. Foundry
+ * does not tell the GM who sent a query, so the payload is only accepted once Toolbelt itself has recorded
+ * that token's save on the card, and the degree and secrecy come from that record. The token must also be
+ * visible and player-owned. Every name comes from documents the GM resolves itself: the token, and the
+ * spell card's speaker as the origin.
  */
 async function onToolbeltSave({ context, origin, token: tokenUuid, card: cardId, secret } = {}, { remote = false } = {}) {
     if (!game.user.isActiveGM || context?.type !== "saving-throw" || typeof tokenUuid !== "string") return;
     const token = fromUuidSync(tokenUuid);
     const card = game.messages.get(cardId);
     if (token?.documentName !== "Token" || !card) return;
-    if (remote && (token.hidden || !token.actor?.hasPlayerOwner)) return;
+    if (remote) {
+        if (token.hidden || !token.actor?.hasPlayerOwner) return;
+        const record = await awaitToolbeltRecord(card, token.id);
+        if (!record) return;
+        context = { ...context, outcome: record.success, options: [...(context.options ?? []).filter((o) => !o.startsWith("check:statistic:")), `check:statistic:${record.statistic}`] };
+        secret = !!record.private;
+    }
     const caster = card.speaker ?? {};
     const message = {
         id: card.id, // ↰ jumps to the spell card, where Toolbelt shows the saves

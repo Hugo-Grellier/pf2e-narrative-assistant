@@ -331,15 +331,30 @@ test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients"
     await fireAndWait("pf2e-toolbelt.rollSave", rollSave(ezren, "success"));
     game.user = gm;
     assert.equal(created.length, 0, "the player's client narrates nothing itself");
-    await Promise.all(queries.map(({ name, payload }) => CONFIG.queries[name](payload)));
+    // The GM waits for Toolbelt's own record on the card; its degree wins over the forwarded one.
+    const card1 = game.messages.get("card1");
+    const pending = Promise.all(queries.map(({ name, payload }) => CONFIG.queries[name](payload)));
+    card1.flags = { "pf2e-toolbelt": { targetHelper: { saveVariants: { null: { saves: { e: { success: "criticalSuccess", statistic: "reflex", private: false } } } } } } };
+    await Promise.all(fire("updateChatMessage", card1));
+    await pending;
     assert.equal(created.length, 1);
-    assert.equal(created[0].flags[ID].lines[0].context.vars.actor, "Ezren");
+    const [forwarded] = created[0].flags[ID].lines;
+    assert.equal(forwarded.context.vars.actor, "Ezren");
+    assert.equal(forwarded.context.degreeOfSuccess, "criticalSuccess");
 
-    // Forged payloads from a client: unknown token, or an NPC the players do not own (a hidden lich).
+    // Forged payloads from a client: unknown token, an NPC the players do not own (a hidden lich), or a
+    // player-owned token Toolbelt never rolled for (the record never comes: dropped after the timeout).
     created.length = 0;
     const forged = (token) => ({ context: { type: "saving-throw", outcome: "success", options: ["check:statistic:will"] }, token, card: "card1" });
     await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"](forged("Scene.s.Token.nope"));
     await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"](forged(lich.uuid));
+    const valeros = { uuid: "Scene.s.Token.v", id: "v", documentName: "Token", name: "Valeros", actor: { uuid: "Actor.v", hasPlayerOwner: true } };
+    const lookup = globalThis.fromUuidSync;
+    globalThis.fromUuidSync = (uuid) => (uuid === valeros.uuid ? valeros : lookup(uuid));
+    const realSetTimeout = globalThis.setTimeout;
+    globalThis.setTimeout = (fn) => realSetTimeout(fn, 0); // skip the 10 s wait
+    await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"](forged(valeros.uuid));
+    globalThis.setTimeout = realSetTimeout;
     assert.equal(created.length, 0);
 
     // A save against a whispered spell card stays whispered even with public output.
