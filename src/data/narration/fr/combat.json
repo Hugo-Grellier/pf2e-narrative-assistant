@@ -1,0 +1,34 @@
+[
+  {
+    "key": "combat.start",
+    "label": ["Combat", "Début"],
+    "outcomes": {
+      "success": [
+        "Les armes sortent des fourreaux, et l'air se tend.",
+        "Un battement de silence, puis tout le monde bouge à la fois.",
+        "Quelqu'un crie un avertissement. Il est déjà trop tard pour les mots.",
+        "Les regards se croisent, les muscles se tendent : ça va se battre.",
+        "Les premiers pas raclent le sol tandis que les deux camps se rapprochent.",
+        "Les souffles s'accélèrent, les mains trouvent les poignées et les focaliseurs.",
+        "Plus question de reculer maintenant.",
+        "Le calme se brise comme du verre."
+      ]
+    }
+  },
+  {
+    "key": "combat.end",
+    "label": ["Combat", "Fin"],
+    "outcomes": {
+      "success": [
+        "Le vacarme retombe, il ne reste que des respirations lourdes.",
+        "Le silence s'installe, troublé seulement par un goutte-à-goutte qu'on préfère ne pas examiner.",
+        "Les mains tremblent encore quand les armes s'abaissent.",
+        "La poussière retombe. C'est fini, pour l'instant.",
+        "Quelqu'un lâche un long soupir tremblant.",
+        "L'adrénaline reflue, et chaque ecchymose se réveille.",
+        "Un moment, personne ne parle ; puis viennent les questions.",
+        "Les échos s'éteignent, et le monde paraît soudain très calme."
+      ]
+    }
+  }
+]

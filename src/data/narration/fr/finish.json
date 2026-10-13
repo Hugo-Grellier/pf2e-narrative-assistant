@@ -69,5 +69,73 @@
         "L'attaque de {attacker} fauche {target}, et le cœur du groupe manque un battement."
       ]
     }
+  },
+  {
+    "key": "finish.npc.undead",
+    "label": [
+      "Coups de grâce",
+      "Mort-vivant"
+    ],
+    "outcomes": {
+      "success": [
+        "La lueur contre nature dans les yeux de {target} vacille et s'éteint ; le corps ne bouge plus.",
+        "{target} s'effondre sur soi-même : ce qui l'animait a disparu.",
+        "Un cliquetis sec, et {target} s'écroule en un tas informe.",
+        "{attacker} brise ce qui tenait {target} debout, et tout s'affaisse.",
+        "La tombe reprend {target} dans un dernier soupir glacé.",
+        "{target} titube une dernière fois, puis s'immobilise pour de bon."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.construct",
+    "label": [
+      "Coups de grâce",
+      "Créature artificielle"
+    ],
+    "outcomes": {
+      "success": [
+        "Quelque chose cède à l'intérieur de {target} dans un craquement sec, et la machine s'arrête.",
+        "{target} tressaille, de la poussière s'échappant de ses jointures, puis se fige.",
+        "La magie qui liait {target} se défait ; la créature reste figée un instant, puis bascule.",
+        "Dans un long gémissement de matière éprouvée, {target} cesse de bouger.",
+        "{attacker} porte le dernier coup, et la lueur qui animait {target} s'éteint.",
+        "{target} fait un pas saccadé, puis un autre, puis plus rien."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.swarm",
+    "label": [
+      "Coups de grâce",
+      "Nuée"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} se disloque, les derniers survivants s'éparpillant en tous sens.",
+        "La masse grouillante de {target} s'éclaircit, hésite, et se disperse.",
+        "Ce qui reste de {target} file dans les fissures et disparaît.",
+        "{attacker} disperse {target} ; les grésillements s'éloignent.",
+        "{target} perd sa forme et se dissout en points qui fuient.",
+        "La nuée se défait, laissant un tapis de petits corps immobiles."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.incorporeal",
+    "label": [
+      "Coups de grâce",
+      "Intangible"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} pousse une plainte qui s'éteint et se dissipe comme une brume.",
+        "La silhouette de {target} ondule, s'amincit, et disparaît.",
+        "{attacker} déchire {target}, qui se défait en volutes glacées.",
+        "Un dernier vacillement, et {target} quitte ce monde.",
+        "L'air se réchauffe à mesure que {target} s'efface.",
+        "{target} se défait comme une fumée dans un courant d'air."
+      ]
+    }
   }
 ]

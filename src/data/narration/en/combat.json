@@ -1,0 +1,34 @@
+[
+  {
+    "key": "combat.start",
+    "label": ["Combat", "Start"],
+    "outcomes": {
+      "success": [
+        "Weapons slide free, and the air goes tight.",
+        "A heartbeat of silence, then everyone moves at once.",
+        "Someone shouts a warning. It is already too late for words.",
+        "Eyes lock, muscles tense: this is going to be a fight.",
+        "The first steps scrape the ground as both sides close in.",
+        "Breath quickens, hands find hilts and spell focuses.",
+        "There is no turning back now.",
+        "The calm breaks like glass."
+      ]
+    }
+  },
+  {
+    "key": "combat.end",
+    "label": ["Combat", "End"],
+    "outcomes": {
+      "success": [
+        "The noise fades, and only heavy breathing remains.",
+        "Silence settles over the field, save for the drip of something best not examined.",
+        "Hands still shaking, the survivors lower their weapons.",
+        "The dust settles. It is over, for now.",
+        "Someone lets out a long, trembling breath.",
+        "The adrenaline ebbs, and every bruise starts to ache.",
+        "For a moment no one speaks; then the questions begin.",
+        "The echoes die away, and the world feels very quiet."
+      ]
+    }
+  }
+]

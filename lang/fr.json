@@ -9,7 +9,11 @@
       "spell": "Sort",
       "other": "Jet",
       "cast": "Sort",
-      "finish": "Coup de grâce"
+      "finish": "Coup de grâce",
+      "persistent": "Dégâts persistants",
+      "revive": "De retour",
+      "combat-start": "Le combat commence",
+      "combat-end": "Fin du combat"
     },
     "Settings": {
       "enabled": {
@@ -18,10 +22,11 @@
       },
       "output": {
         "whisper": "Murmure au MJ",
+        "panel": "Panneau au-dessus du chat (MJ)",
         "public": "Chat public",
         "notification": "Notification (MJ)",
         "Name": "Sortie",
-        "Hint": "Où afficher les suggestions. Une suggestion sur un jet secret reste toujours murmurée au MJ."
+        "Hint": "Où afficher les suggestions. Le panneau se place en haut de l'onglet de chat, sur l'écran du MJ : rien n'est écrit dans le chat, et il se vide au rechargement. Une suggestion sur un jet secret n'est jamais publique."
       },
       "source": {
         "module": "Tables du module",
@@ -61,6 +66,18 @@
         "finish": {
           "Name": "Événements : coups de grâce",
           "Hint": "Quand une créature tombe à 0 PV pendant un combat."
+        },
+        "persistent": {
+          "Name": "Événements : tests contre les dégâts persistants",
+          "Hint": "Le test nu pour mettre fin aux dégâts persistants (feu, saignement, acide…)."
+        },
+        "revive": {
+          "Name": "Événements : retour à plus de 0 PV",
+          "Hint": "Quand un personnage joueur perd l'état Mourant en ayant plus de 0 PV."
+        },
+        "combat": {
+          "Name": "Événements : début et fin de combat",
+          "Hint": "Une ligne d'ambiance au lancement d'un combat et à sa fin."
         }
       },
       "disabledActions": {
@@ -97,6 +114,8 @@
     },
     "Source": "Voir le jet",
     "SourceMissing": "Ce jet n'est plus dans le chat.",
-    "Ban": "Ne plus jamais proposer ce texte"
+    "Ban": "Ne plus jamais proposer ce texte",
+    "Ask": "Suggérer une narration pour ce jet",
+    "Close": "Fermer"
   }
 }

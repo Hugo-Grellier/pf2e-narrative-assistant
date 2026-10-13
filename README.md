@@ -11,7 +11,7 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 
 - Read-only: it never changes rolls, damage, conditions or degrees of success.
 - No LLM, no network: narration comes from RollTables shipped in the module compendiums, one per
-  language (285 tables and ~2300 entries each, written separately in English and French rather than
+  language (302 tables and ~2400 entries each, written separately in English and French rather than
   translated).
 - *Another suggestion* draws another text, never another PF2e roll. *Send to chat* posts the text
   alone, publicly. Each line also has a ↰ button that scrolls the chat to the PF2e roll it narrates,
@@ -23,6 +23,11 @@ The blade slips under the guard of the kobold and opens a long gash across the s
   last hit (a PC gets a "collapse" text, never a death).
 - Strikes notice the scene: a target below half or a quarter of its HP, three hits or misses in a row,
   a critical right after a fumble.
+- Every PF2e roll the module understands gets a 🎭 icon in its chat header, for the GM: click it to get a
+  narration for that roll, even if the chance setting skipped it or its event family is off.
+- A PC who loses Dying while above 0 HP (healed, whether the GM or a healing automation module removes
+  the condition) gets a "back on their feet" card; starting and ending a combat each get a scene-setting
+  line.
 
 ## Supported events
 
@@ -33,7 +38,9 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 | Strikes, by target | undead, constructs, swarms, incorporeal creatures |
 | Strikes, by condition | target prone, frightened, grabbed/restrained; attacker frightened or sickened |
 | Strikes, by situation | target bloodied (≤ 50% HP) or near collapse (≤ 25%); 3 hits / 3 misses in a row; crit after a fumble |
-| Finishing blows | NPC (melee, ranged, magic), player character |
+| Finishing blows | NPC (melee, ranged, magic; undead, construct, swarm, incorporeal), player character |
+| Back from 0 HP | a PC losing Dying while above 0 HP |
+| Combat | start, end |
 | Spell attacks | by tradition (arcane, divine, occult, primal) and damage (fire, cold, electricity, acid, force, void) |
 | Spell casts without attack or save | by tradition, healing |
 | Athletics | Trip, Grapple, Shove, Disarm, Escape, Reposition, Force Open, Climb, Swim |
@@ -44,6 +51,7 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 | Recall Knowledge | GM prompts on how to deliver the information, never invented facts |
 | Saving throws | Reflex (fire, cold, electricity, acid), Fortitude (poison, disease, physical, void, vitality), Will (fear, mental) |
 | Recovery checks | four degrees |
+| Persistent damage flat checks | fire, bleed, acid, poison, other (ends / goes on) |
 | Anything else | generic fallback per degree (other skill actions, and misc rolls if enabled) |
 
 ## Compatibility
@@ -55,12 +63,17 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 
 ## Settings
 
-Enable, output (GM whisper / public chat / notification), narration language (UI language / English /
+Enable, output (GM whisper / panel above the chat / public chat / notification), narration language (UI language / English /
 French; English when the UI language has no corpus), narrative source (module / world tables), event
 families, a chance per degree of success (e.g. 100% of criticals but 30% of plain successes, to keep
 long fights readable), the save grouping delay (0 turns it off), and a list of disabled action slugs
-(`seek, hide, recall-knowledge`…). Narration about a secret roll or a Recall Knowledge prompt always
-stays whispered.
+(`seek, hide, recall-knowledge`…). Narration about a secret roll or a Recall Knowledge prompt is never
+public.
+
+The *panel* output keeps the chat clean: the last three cards sit at the top of the chat sidebar on the
+GM's screen, with the same buttons (another suggestion, send to chat, ↰, 🚫) and a close button. Nothing
+is written to the chat until *Send to chat*. The panel lives on the client that narrates (the active GM)
+and is emptied by a reload.
 
 ## Development
 
@@ -124,7 +137,10 @@ GMs can also customise in Foundry: import a table from the compendium into the w
 - Texts about a guard, armour or gear are only used against creatures that have them, not animals.
 - Damage, condition changes, Dying/Wounded changes, initiative are not narrated; the extension points
   are described in the architecture doc.
-- Streaks and "who hit whom last" live in the active GM's memory: a reload or a GM change resets them.
+- Streaks and "who hit whom last" are read back from the chat log, so they survive a reload (except saves
+  rolled through PF2e Toolbelt, which have no chat message).
+- "Back on their feet" needs the Dying condition: PF2e does not add or remove it by itself, the GM or a
+  module does. A module that removes Dying before raising the HP gets no card.
 - Written against the PF2e 8.6.1 source and the Foundry 14 type declarations it ships; not yet run in
   a live Foundry session. See
   [docs/MANUAL-TESTS.md](docs/MANUAL-TESTS.md) for the in-game checklist.

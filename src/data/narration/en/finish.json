@@ -69,5 +69,73 @@
         "{attacker's} attack fells {target}, and the whole party's hearts skip a beat."
       ]
     }
+  },
+  {
+    "key": "finish.npc.undead",
+    "label": [
+      "Finishing blows",
+      "Undead"
+    ],
+    "outcomes": {
+      "success": [
+        "The unnatural light in the eyes of {target} gutters out, and the body falls still.",
+        "{target} crumbles in on itself, whatever animated it gone at last.",
+        "A dry rattle, and {target} collapses into an untidy heap.",
+        "{attacker} breaks whatever held {target} together, and it sags lifeless.",
+        "The grave reclaims {target} with a last cold sigh.",
+        "{target} lurches once more, then stops for good."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.construct",
+    "label": [
+      "Finishing blows",
+      "Construct"
+    ],
+    "outcomes": {
+      "success": [
+        "Something inside {target} gives with a sharp crack, and it grinds to a halt.",
+        "{target} shudders, sparks or dust spilling from its seams, and goes inert.",
+        "The magic binding {target} unravels, and the construct stands frozen, then topples.",
+        "With a long groan of strained material, {target} stops moving.",
+        "{attacker} lands the last blow, and the light driving {target} goes out.",
+        "{target} takes one jerky step, then another, then nothing."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.swarm",
+    "label": [
+      "Finishing blows",
+      "Swarm"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} breaks apart, the last survivors scattering in every direction.",
+        "The buzzing mass of {target} thins, falters, and disperses.",
+        "What is left of {target} scurries into the cracks and is gone.",
+        "{attacker} scatters {target}; the chittering fades away.",
+        "{target} loses its shape and dissolves into fleeing specks.",
+        "The swarm falls apart, leaving a carpet of still bodies."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.incorporeal",
+    "label": [
+      "Finishing blows",
+      "Incorporeal"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} lets out a fading wail and dissolves like mist.",
+        "The outline of {target} wavers, thins, and is gone.",
+        "{attacker} tears through {target}, which unravels into cold wisps.",
+        "A last flicker, and {target} vanishes from this world.",
+        "The air grows warmer as {target} fades away.",
+        "{target} comes apart like smoke in a draft."
+      ]
+    }
   }
 ]

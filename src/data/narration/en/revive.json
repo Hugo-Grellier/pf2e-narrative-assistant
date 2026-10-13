@@ -1,0 +1,16 @@
+{
+  "key": "revive",
+  "label": ["Recovery", "Back from 0 HP"],
+  "outcomes": {
+    "success": [
+      "{actor} draws a ragged breath, and their eyes snap open.",
+      "A cough, a groan, and {actor} is back in the fight.",
+      "Life floods back into {actor}, sudden and sharp.",
+      "{actor} blinks, dazed, as the world comes back into focus.",
+      "The fingers of {actor} close around their weapon again.",
+      "{actor} gasps like a swimmer breaking the surface.",
+      "Color returns to the face of {actor}; not today, after all.",
+      "{actor} stirs, mutters something rude, and opens their eyes."
+    ]
+  }
+}

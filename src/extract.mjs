@@ -88,6 +88,10 @@ export function extractContext(systemFlags, names = {}) {
     if (flag.type === "flat-check" && isRecovery) {
         return { ...context, eventType: "recovery" };
     }
+    // ConditionPF2e#rollRecovery: the flat check to end persistent damage, with the condition's damage type.
+    if (flag.type === "flat-check" && statistic === "pd-recovery") {
+        return { ...context, eventType: "persistent" };
+    }
 
     if (flag.type === "skill-check" || flag.type === "perception-check") {
         return { ...context, eventType: "other", skill: statistic };
@@ -156,5 +160,23 @@ export function finishContext(victim, lastHit, names = {}) {
         rollOptions: [],
         isReroll: false,
         vars: { actor: attacker, attacker, target: names.target, weapon: lastHit?.vars?.weapon },
+    };
+}
+
+/** An event that is not a roll: a PC back on their feet ("revive"), a combat starting or ending ("combat"). */
+export function eventContext(eventType, fields = {}, vars = {}) {
+    return {
+        eventType,
+        degreeOfSuccess: "success", // not a roll; tables are written for "success"
+        rolled: false,
+        traits: [],
+        damageTypes: [],
+        targetTraits: [],
+        actorConditions: [],
+        targetConditions: [],
+        rollOptions: [],
+        isReroll: false,
+        ...fields,
+        vars,
     };
 }

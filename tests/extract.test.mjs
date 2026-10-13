@@ -137,3 +137,9 @@ test("finishing blow context names who dealt it", () => {
     assert.deepEqual([bySave.cause, bySave.vars.attacker], ["magic", "the dragon"]);
     assert.equal(finishContext("npc", undefined, {}).cause, undefined);
 });
+
+test("persistent damage flat check carries the damage type", () => {
+    const context = extractContext({ context: { type: "flat-check", outcome: "failure", options: ["check:statistic:pd-recovery", "item:damage:type:fire", "item:slug:persistent-damage"] } });
+    assert.equal(context.eventType, "persistent");
+    assert.deepEqual(context.damageTypes, ["fire"]);
+});

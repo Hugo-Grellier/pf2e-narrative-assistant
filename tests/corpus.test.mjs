@@ -10,8 +10,9 @@ const NAME = String.raw`\{(actor|attacker|target|origin|bodyPart)('s)?\}`;
 
 // Per-language checks. `mechanical` applies to strikes, spells, saves, recovery and generic text: they must
 // stay cinematic. Skill actions may state their own rules outcome (Trip success: the target falls), and
-// condition tables may name the condition PF2e already applied (a prone target is on the ground).
-const mayStateMechanics = (key) => key.startsWith("skill.") || key.startsWith("strike.condition.");
+// condition tables may name the condition PF2e already applied (a prone target is on the ground), and
+// persistent damage checks may say the bleeding or burning stops or goes on, which PF2e decided.
+const mayStateMechanics = (key) => key.startsWith("skill.") || key.startsWith("strike.condition.") || key.startsWith("persistent.");
 const STYLE = {
     fr: {
         article: new RegExp(String.raw`(?<![\p{L}'])(le|la|les|un|une|du|au|d'|l')\s?${NAME}`, "iu"),
@@ -202,6 +203,14 @@ for (const lang of corpusLanguages()) {
         at(["success"], { eventType: "finish", victim: "npc", cause: "strike", range: "ranged" }, "finish.npc.ranged");
         at(["success"], { eventType: "finish", victim: "npc", cause: "magic" }, "finish.npc.magic");
         at(["success"], { eventType: "finish", victim: "character", cause: "magic" }, "finish.character");
+        for (const type of ["undead", "construct", "swarm", "incorporeal"]) {
+            at(["success"], { eventType: "finish", victim: "npc", cause: "strike", range: "ranged", targetTraits: [type] }, `finish.npc.${type}`);
+        }
+        at(["success"], { eventType: "finish", victim: "npc", targetTraits: ["undead", "incorporeal"] }, "finish.npc.incorporeal");
+        at(["success"], { eventType: "revive" }, "revive");
+        for (const phase of ["start", "end"]) at(["success"], { eventType: "combat", phase }, `combat.${phase}`);
+        expect({ eventType: "persistent" }, "persistent.");
+        for (const damage of ["fire", "bleed", "acid", "poison"]) expect({ eventType: "persistent", damageTypes: [damage] }, `persistent.${damage}`);
     });
 
     test(`[${lang}] main strike tables have real variety`, () => {

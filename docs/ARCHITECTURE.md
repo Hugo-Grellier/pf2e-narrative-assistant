@@ -11,7 +11,7 @@ PF2e chat message (createChatMessage, active GM only)
   → candidates()              src/engine.mjs    tables whose `when` matches, most specific first
   → pickEntry()                                 weighted, avoids the last 5 texts of that table
   → interpolate() + contract()                  {placeholders}, component tables, French elision
-  → output                    src/module.mjs    GM whisper card / public card / notification, one line per roll
+  → output                    src/module.mjs    GM whisper card / panel / public card / notification, one line per roll
 ```
 
 `engine.mjs`, `extract.mjs` and `languages.mjs` have no Foundry dependency and are unit-tested. `module.mjs` is the
@@ -29,9 +29,12 @@ No rendered HTML is parsed.
 | Skill action | roll option `action:<slug>` (implicit for every PF2e action, e.g. `action:trip`) |
 | Saving throw | `type: "saving-throw"` + `check:statistic:<fortitude\|reflex\|will>` |
 | Recovery | `type: "flat-check"` + `check:statistic:dying-recovery` (from `CreaturePF2e#rollRecovery`) |
+| Persistent damage | `type: "flat-check"` + `check:statistic:pd-recovery` (from `ConditionPF2e#rollRecovery`), damage type from `item:damage:type:*` → `persistent` |
 | Spell attack | `type: "attack-roll"` without a strike identifier → `spell` |
 | Spell cast | no `context`; `origin.type: "spell"`, `origin.rollOptions` has `origin:action:slug:cast-a-spell` and no `origin:item:defense:*` → `cast` |
 | Finishing blow | `updateActor` hook, `system.attributes.hp.value` changed to 0, combat started → `finish` |
+| Back from 0 HP | `deleteItem` of a PC's `dying` condition while its HP is above 0 → `revive` |
+| Combat | `combatStart` hook (fires only on the GM client that started it) → `combat`, `phase: "start"`; `deleteCombat` of a started combat → `phase: "end"` |
 
 Context fields come from roll options: `item:damage:type:*` → `damageTypes`, `item:trait:*` + action
 traits → `traits`, `target:trait:*` → `targetTraits`, `item:group:*`, `item:category:*`,
@@ -51,22 +54,34 @@ outcome of their attack, checked on PF2e 8.6 data), and our
 own cards carry a module flag. PF2e Hero Point rerolls create a new message with a new outcome and are
 narrated again, which is intended.
 
-Events that are not rolls (`cast`, `finish`) carry `rolled: false` and `degreeOfSuccess: "success"` so
+Events that are not rolls (`cast`, `finish`, `revive`, `combat`) carry `rolled: false` and `degreeOfSuccess: "success"` so
 the tables keep one shape; the chance settings do not apply to them.
 
-Combat memory (active GM only, lost on reload): `targetHealth` comes from the target actor's
-`hitPoints` when the roll is made (`fresh`, `bloodied` ≤ 50%, `critical` ≤ 25%). Strike outcomes are
-kept per attacker and combat; `streakOf()` turns them into `streak: "hits" | "misses" | "comeback"`
-(a Hero Point reroll replaces the last outcome). The last successful Strike or spell attack against a
-creature, or its last save, is kept per victim so the finishing blow can name the attacker, the range
-and whether magic did it; `updateActor` only receives changed fields, so a creature already at 0 HP is
-never narrated twice.
+Combat memory is the chat log, so it survives reloads and GM changes. `targetHealth` comes from the
+target actor's `hitPoints` when the roll is made (`fresh`, `bloodied` ≤ 50%, `critical` ≤ 25%). The
+streak reads the roller's Strikes among the last 200 messages since the combat was created;
+`streakOf()` turns them into `streak: "hits" | "misses" | "comeback"` (a Hero Point reroll replaces the
+last outcome). The finishing blow names whoever last hurt the creature (a successful Strike or spell
+attack against it, or its last save): the active GM remembers it, and falls back to the same search in
+the chat log after a reload. Toolbelt saves have no message, so only memory knows them. `updateActor`
+only receives changed fields, so a creature already at 0 HP is never narrated twice. `revive` needs no
+memory: PF2e 8.6 does not manage Dying itself, but the GM or a healing automation module removes it once
+the HP is back above 0; Dying removed at 0 HP (stabilised) is not narrated.
+
+The 🎭 icon (`renderChatMessageHTML`, GMs only) appears on every PF2e message `extractContext` or
+`extractCastContext` accepts. A click builds the same context and narrates it, skipping the chance and
+event settings, without waiting for Dice So Nice.
 
 Save grouping: a save whose message carries `flags.pf2e.origin.uuid` (the spell, poison or effect item)
 waits `saveGroupDelay` seconds; every save with the same origin and the same save type restarts the wait.
 They are then narrated together on one card, one line per creature. A card stores
 `flags["pf2e-narrative-assistant"] = { header, lines: [{ context, text, rawText, tableKey, gmOnly, sourceId }] }`,
 so *Another suggestion* redraws every line, 🚫 redraws one, and ↰ scrolls to `sourceId`.
+
+The *panel* output creates no message: cards (`{ header, lines }`) go to an in-memory list of three,
+drawn as a `<section class="pf2e-na-panel">` prepended to `ui.chat.element` and redrawn on `renderChatLog`.
+Buttons act on a card handle `{ header, lines, save(lines), close() }`, the same code for a chat card
+(`save` updates the message) and a panel entry (`save` replaces the entry and redraws).
 
 PF2e Toolbelt's target helper rolls saves with `createMessage: false`, so no chat message exists. Its
 public hook `pf2e-toolbelt.rollSave` fires on the client that rolled, with the unsaved PF2e roll message.

@@ -51,6 +51,14 @@ players, PF2e's own message untouched.
 | 43 | Reposition, Force Open, Climb, Swim, Lie, Request, Perform, Steal, Palm an Object, Disable a Device | Matching action text |
 | 44 | PF2e Toolbelt target helper: Fireball on 3 NPCs, GM clicks the save buttons on the card | One grouped card; ↰ jumps to the spell card |
 | 45 | Same, a player rolls their own PC's save from the card | The GM gets the narration; the player's client creates nothing |
+| 46 | *Chance: success* = 0, hit, then click 🎭 in the PF2e message header | A card for that hit; damage messages have no 🎭; players see no 🎭 |
+| 47 | Miss twice, reload the world, miss again | Third card uses a "misses in a row" text |
+| 48 | Hit an NPC, reload, bring it to 0 HP | Finishing blow still names the attacker |
+| 49 | Persistent fire, bleed: click the recovery roll on the condition | Fire / bleed text, "stops" on a success, "goes on" on a failure |
+| 50 | PC at 0 HP with Dying 1: heal them, then remove Dying (or let a healing automation module do it) | "Back on their feet" card when Dying goes; none when Dying is removed at 0 HP |
+| 51 | Start a combat, then end it | One "Combat begins" card, one "Combat ends" card |
+| 52 | Bring a skeleton, a golem, a rat swarm, a ghost to 0 HP in combat | Undead / construct / swarm / incorporeal finishing texts |
+| 53 | Output = panel, roll four Strikes | No chat card; the panel above the chat shows the last three, newest first; reroll, 🚫, ↰, send to chat and ✕ work; collapsing/reopening the sidebar keeps it |
 
 ## Capturing fixtures
 

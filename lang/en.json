@@ -9,7 +9,11 @@
       "spell": "Spell",
       "other": "Roll",
       "cast": "Spell",
-      "finish": "Finishing blow"
+      "finish": "Finishing blow",
+      "persistent": "Persistent damage",
+      "revive": "Back on their feet",
+      "combat-start": "Combat begins",
+      "combat-end": "Combat ends"
     },
     "Settings": {
       "enabled": {
@@ -18,10 +22,11 @@
       },
       "output": {
         "whisper": "GM whisper",
+        "panel": "Panel above the chat (GM)",
         "public": "Public chat",
         "notification": "UI notification (GM)",
         "Name": "Output",
-        "Hint": "Where suggestions go. A suggestion about a secret roll is always whispered to the GM."
+        "Hint": "Where suggestions go. The panel sits at the top of the chat sidebar on the GM's screen, writes nothing to the chat, and is cleared on reload. A suggestion about a secret roll is never public."
       },
       "source": {
         "module": "Module tables",
@@ -61,6 +66,18 @@
         "finish": {
           "Name": "Events: finishing blows",
           "Hint": "When a creature drops to 0 HP during combat."
+        },
+        "persistent": {
+          "Name": "Events: persistent damage checks",
+          "Hint": "The flat check to end persistent damage (fire, bleed, acid…)."
+        },
+        "revive": {
+          "Name": "Events: back from 0 HP",
+          "Hint": "When a player character loses the Dying condition while above 0 HP."
+        },
+        "combat": {
+          "Name": "Events: combat start and end",
+          "Hint": "One scene-setting line when a combat starts and when it is ended."
         }
       },
       "disabledActions": {
@@ -97,6 +114,8 @@
     },
     "Source": "Show the roll",
     "SourceMissing": "That roll is no longer in the chat log.",
-    "Ban": "Never suggest this text again"
+    "Ban": "Never suggest this text again",
+    "Ask": "Suggest a narration for this roll",
+    "Close": "Close"
   }
 }

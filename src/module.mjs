@@ -3,7 +3,7 @@
  * Read-only towards PF2e: it never updates PF2e messages, actors or rolls.
  */
 import { createRecentSet, narrate, shouldNarrate, streakOf } from "./engine.mjs";
-import { extractCastContext, extractContext, finishContext, healthState } from "./extract.mjs";
+import { eventContext, extractCastContext, extractContext, finishContext, healthState } from "./extract.mjs";
 import { LANGUAGES, resolveLanguage } from "./languages.mjs";
 
 const ID = "pf2e-narrative-assistant";
@@ -18,9 +18,12 @@ const EVENT_SETTINGS = {
     skill: ["skill-check"],
     save: ["saving-throw"],
     recovery: ["recovery"],
+    persistent: ["persistent"],
     spell: ["spell"],
     cast: ["cast"],
     finish: ["finish"],
+    revive: ["revive"],
+    combat: ["combat"],
     other: ["other"],
 };
 const DEGREE_KEYS = ["criticalSuccess", "success", "failure", "criticalFailure"];
@@ -38,7 +41,7 @@ function registerSettings() {
     const dropTables = () => (tableCache = null);
 
     register("enabled", { type: Boolean, default: true });
-    register("output", { type: String, default: "whisper", choices: choices("output", ["whisper", "public", "notification"]) });
+    register("output", { type: String, default: "whisper", choices: choices("output", ["whisper", "panel", "public", "notification"]) });
     register("language", {
         type: String,
         default: "auto",
@@ -156,6 +159,10 @@ function subjectLabel(context) {
             return context.vars.weapon ?? loc(`Event.${context.eventType}`);
         case "finish":
             return [loc("Event.finish"), context.vars.target].filter(Boolean).join(" · ");
+        case "revive":
+            return [loc("Event.revive"), context.vars.actor].filter(Boolean).join(" · ");
+        case "combat":
+            return loc(`Event.combat-${context.phase}`);
         default:
             return loc(`Event.${context.eventType}`);
     }
@@ -182,7 +189,7 @@ const button = (action, icon, label, data = "") =>
  * `lines` items: { context, text, rawText, tableKey, sourceId }. GM cards get per-line buttons (jump to the
  * PF2e message, never again) and card buttons (another suggestion, send to chat).
  */
-function cardHTML(head, lines, { buttons = true } = {}) {
+function cardHTML(head, lines, { buttons = true, close = false } = {}) {
     const grouped = lines.length > 1;
     const body = lines
         .map((line, index) => {
@@ -203,7 +210,8 @@ function cardHTML(head, lines, { buttons = true } = {}) {
         </footer>`
         : "";
     // `head` is built from localized strings and already-escaped names.
-    return `<div class="pf2e-na-card"><header>🎭 ${head}</header>${body}${actions}</div>`;
+    const closer = close ? button("close", "fa-xmark", loc("Close")) : "";
+    return `<div class="pf2e-na-card"><header>🎭 ${head}${closer}</header>${body}${actions}</div>`;
 }
 
 const escape = (value) => (value ? foundry.utils.escapeHTML(value) : value);
@@ -272,43 +280,89 @@ function groupKey(message, context) {
     return context.eventType === "saving-throw" && origin ? `${origin}.${context.save}` : null;
 }
 
-/* Combat memory, active GM only, lost on reload. */
+/*
+ * Combat memory. The chat log is the memory: it survives reloads and GM changes. Saves rolled through PF2e
+ * Toolbelt have no message of their own, so last hits are also kept in memory (active GM, lost on reload).
+ */
 const MEMORY = 100;
+const SCAN = 200; // chat messages looked at, newest first
 const lastHits = new Map(); // victim actor uuid -> { context, messageId, secret } of the last roll that hurt it
-const strikeHistory = new Map(); // "<combat>.<attacker>" -> degrees of that attacker's recent Strikes
 const keep = (map, key, value) => {
     map.delete(key);
     map.set(key, value);
     if (map.size > MEMORY) map.delete(map.keys().next().value);
 };
+const isSecret = (message) => message.whisper.length > 0 || !!message.blind;
 
-/** Records who last hurt whom (for finishing blows) and the attacker's Strike streak. */
-function trackCombat(context, message) {
-    // A whispered or blind roll stays secret in whatever is narrated from it later (finishing blow).
-    const hit = { context, messageId: message.id, secret: message.whisper.length > 0 || !!message.blind };
-    const hurts = ["success", "criticalSuccess"].includes(context.degreeOfSuccess);
-    if (["strike", "spell"].includes(context.eventType) && hurts) {
-        const victim = message.target?.actor?.uuid;
-        if (victim) keep(lastHits, victim, hit);
+/** PF2e rolls of the current combat (or the recent log outside combat), newest first. */
+function* recentRolls() {
+    const messages = game.messages?.contents ?? [];
+    const since = game.combat?._stats?.createdTime ?? 0;
+    for (let i = messages.length - 1; i >= Math.max(0, messages.length - SCAN); i--) {
+        const message = messages[i];
+        if ((message.timestamp ?? Infinity) < since) return;
+        const context = !message.flags[ID] && extractContext(message.flags.pf2e);
+        if (context) yield { message, context };
     }
+}
+
+/** The victim of a roll that may have hurt it: the target of a hit, the creature making a save. */
+function victimOf(context, message) {
     // Basic saves deal damage on a success too, so any save counts.
-    if (context.eventType === "saving-throw" && message.actor?.uuid) {
-        keep(lastHits, message.actor.uuid, hit);
+    if (context.eventType === "saving-throw") return message.actor?.uuid;
+    const hurts = ["success", "criticalSuccess"].includes(context.degreeOfSuccess);
+    return ["strike", "spell"].includes(context.eventType) && hurts ? message.target?.actor?.uuid : undefined;
+}
+
+/** Last roll that hurt `victim`: from memory, else from the chat log (after a reload). */
+function lastHitOn(victim) {
+    const remembered = lastHits.get(victim);
+    if (remembered) return remembered;
+    for (const { message, context } of recentRolls()) {
+        if (victimOf(context, message) !== victim) continue;
+        const names = namesFor(message);
+        return { context: extractContext(message.flags.pf2e, names), messageId: message.id, secret: isSecret(message) };
     }
-    if (context.eventType === "strike") {
-        const key = `${game.combat?.id ?? ""}.${message.actor?.uuid ?? context.vars.actor}`;
-        const degrees = strikeHistory.get(key) ?? [];
-        // A Hero Point reroll replaces the previous result rather than adding one.
-        const next = [...(context.isReroll ? degrees.slice(0, -1) : degrees), context.degreeOfSuccess].slice(-10);
-        keep(strikeHistory, key, next);
-        context.streak = streakOf(next);
-    }
+    return null;
+}
+
+/** Strike streak of the roller of `message`, from their Strikes in the chat log (`message` included). */
+function streakFor(message) {
+    const attacker = message.actor?.uuid;
+    if (!attacker) return undefined;
+    const rolls = [...recentRolls()].filter((r) => r.context.eventType === "strike" && r.message.actor?.uuid === attacker).reverse();
+    // A Hero Point reroll replaces the previous result rather than adding one.
+    const degrees = rolls.reduce((list, r) => [...(r.context.isReroll ? list.slice(0, -1) : list), r.context.degreeOfSuccess], []);
+    return streakOf(degrees.slice(-10));
+}
+
+/** Records who last hurt whom, for finishing blows. */
+function trackCombat(context, message) {
+    const victim = victimOf(context, message);
+    // A whispered or blind roll stays secret in whatever is narrated from it later (finishing blow).
+    if (victim) keep(lastHits, victim, { context, messageId: message.id, secret: isSecret(message) });
 }
 
 function onCreateChatMessage(message) {
     // A single client handles each message: the active GM. Hooks for messages loaded at startup never fire.
     if (!game.user.isActiveGM || message.flags[ID]) return; // our own cards
     return handleRoll(message, message.id);
+}
+
+function rollContext(message) {
+    const names = namesFor(message);
+    const context = extractContext(message.flags.pf2e, names) ?? extractCastContext(message.flags.pf2e, names);
+    if (!context) return null;
+    context.targetHealth = healthState(message.target?.actor?.hitPoints);
+    if (context.eventType === "strike") context.streak = streakFor(message);
+    return context;
+}
+
+/** The 🎭 button on a PF2e roll: narrate it now, whatever the chance and event settings said. */
+async function narrateOnDemand(message) {
+    const context = rollContext(message);
+    if (!context || Hooks.call(`${ID}.context`, context, message) === false) return;
+    await narrateRolls([{ context, message }], readSettings(), { dice: false });
 }
 
 /** `message`: a PF2e chat message, or a message-like object (Toolbelt saves); `rollId`: dedupe key. */
@@ -319,10 +373,8 @@ async function handleRoll(message, rollId) {
     const settings = readSettings();
     if (!settings.enabled) return;
 
-    const names = namesFor(message);
-    const context = extractContext(message.flags.pf2e, names) ?? extractCastContext(message.flags.pf2e, names);
+    const context = rollContext(message);
     if (!context) return;
-    context.targetHealth = healthState(message.target?.actor?.hitPoints);
     trackCombat(context, message);
     // Other modules may enrich the context or cancel narration by returning false.
     if (Hooks.call(`${ID}.context`, context, message) === false) return;
@@ -445,7 +497,7 @@ async function onUpdateActor(actor, changes) {
 
     const settings = readSettings();
     const token = actor.token ?? actor.getActiveTokens(false, true)[0];
-    const last = lastHits.get(actor.uuid);
+    const last = lastHitOn(actor.uuid);
     lastHits.delete(actor.uuid);
     const context = finishContext(actor.type, last?.context, {
         target: escape(token ? tokenName(token) : actor.name),
@@ -460,15 +512,42 @@ async function onUpdateActor(actor, changes) {
     await output([toLine(context, result, last?.messageId)], settings, { keepPrivate: !!token?.hidden || !!last?.secret });
 }
 
-async function narrateRolls(rolls, settings) {
+/**
+ * A PC loses Dying while above 0 HP: healed back on their feet. PF2e does not manage Dying itself; the GM
+ * or a module (healing automation) removes it, usually after raising the HP. Dying removed at 0 HP (a
+ * stabilised PC still unconscious) is not narrated.
+ */
+async function onDeleteItem(item) {
+    const actor = item.actor;
+    if (!game.user.isActiveGM || item.type !== "condition" || item.slug !== "dying") return;
+    if (actor?.type !== "character" || !(actor.hitPoints?.value > 0)) return;
+    const settings = readSettings();
+    const token = actor.token ?? actor.getActiveTokens(false, true)[0];
+    const context = eventContext("revive", {}, { actor: escape(token ? tokenName(token) : actor.name) });
+    if (Hooks.call(`${ID}.context`, context, null) === false || !shouldNarrate(context, settings)) return;
+    const result = await suggest(context);
+    if (result) await output([toLine(context, result)], settings, { keepPrivate: !!token?.hidden });
+}
+
+/** Combat start (on the GM client that started it) and end (active GM): one scene-setting line. */
+async function onCombat(combat, phase) {
+    const settings = readSettings();
+    const context = eventContext("combat", { phase });
+    if (Hooks.call(`${ID}.context`, context, combat) === false || !shouldNarrate(context, settings)) return;
+    const result = await suggest(context);
+    if (result) await output([toLine(context, result)], settings);
+}
+
+/** `dice`: wait for the last roll's Dice So Nice animation before going public (not for old rolls). */
+async function narrateRolls(rolls, settings, { dice = true } = {}) {
     const lines = [];
     for (const { context, message } of rolls) {
         const result = await suggest(context);
         if (result) lines.push(toLine(context, result, message.id));
     }
     const messages = rolls.map((r) => r.message);
-    const keepPrivate = messages.some((m) => m.whisper.length > 0 || m.blind);
-    if (lines.length) await output(lines, settings, { keepPrivate, waitFor: messages.at(-1) });
+    const keepPrivate = messages.some(isSecret);
+    if (lines.length) await output(lines, settings, { keepPrivate, waitFor: dice ? messages.at(-1) : null });
 }
 
 // Stored so Reroll can resolve again; roll options are dropped, the engine never needs them.
@@ -491,6 +570,7 @@ async function output(lines, settings, { keepPrivate = false, waitFor } = {}) {
         for (const line of lines) ui.notifications.info(`${head} : ${line.text}`);
         return;
     }
+    if (mode === "panel") return showInPanel({ header: head, lines });
     if (mode === "public") await afterDice(waitFor);
     await ChatMessage.create({
         content: cardHTML(head, lines, { buttons: mode === "whisper" }),
@@ -510,15 +590,64 @@ async function output(lines, settings, { keepPrivate = false, waitFor } = {}) {
  */
 const isOurCard = (message) => Array.isArray(message.flags[ID]?.lines) && !!message.author?.isGM;
 
+/*
+ * A card the buttons act on: { header, lines, save(lines), close() }. Either a whispered chat message, or
+ * an entry of the panel above the chat log.
+ */
+const messageCard = (message) => ({
+    ...message.flags[ID],
+    save: (lines) => message.update({ content: cardHTML(message.flags[ID].header, lines), [`flags.${ID}.lines`]: lines }),
+});
+
 /** Draws other narrations for the given lines (all by default); the PF2e rolls are untouched. */
-async function redraw(message, indexes) {
-    const { header: head, lines } = message.flags[ID];
+async function redraw(card, indexes) {
     const next = [];
-    for (const [index, line] of lines.entries()) {
+    for (const [index, line] of card.lines.entries()) {
         const result = indexes && !indexes.includes(index) ? null : await suggest(line.context, { exclude: [line.text] });
         next.push(result ? toLine(line.context, result, line.sourceId) : line);
     }
-    await message.update({ content: cardHTML(head, next), [`flags.${ID}.lines`]: next });
+    await card.save(next);
+}
+
+/* -------------------------------------------- */
+/*  Panel output                                */
+/* -------------------------------------------- */
+
+/*
+ * "Panel" output: the last few cards sit above the chat log, newest first, on this GM's client only. Nothing
+ * is written to the chat until "Send to chat"; the panel is gone after a reload.
+ */
+const PANEL_SIZE = 3;
+let panelCards = []; // [{ id, header, lines }]
+let panelIds = 0;
+
+function showInPanel(card) {
+    panelCards = [{ id: ++panelIds, ...card }, ...panelCards].slice(0, PANEL_SIZE);
+    renderPanel();
+}
+
+function panelCard(id) {
+    const card = panelCards.find((c) => c.id === id);
+    const replace = (next) => {
+        panelCards = panelCards.flatMap((c) => (c.id !== id ? [c] : next ? [next] : []));
+        renderPanel();
+    };
+    return card && { ...card, save: (lines) => replace({ ...card, lines }), close: () => replace(null) };
+}
+
+/** (Re)draws the panel at the top of the chat sidebar; the chat log re-renders often, so it is rebuilt. */
+function renderPanel(root = ui.chat?.element) {
+    if (!root) return;
+    root.querySelector(".pf2e-na-panel")?.remove();
+    if (!panelCards.length) return;
+    const panel = document.createElement("section");
+    panel.className = "pf2e-na-panel";
+    panel.innerHTML = panelCards.map((c) => `<div data-pf2e-na-card="${c.id}">${cardHTML(c.header, c.lines, { close: true })}</div>`).join("");
+    for (const entry of panel.querySelectorAll("[data-pf2e-na-card]")) {
+        const id = Number(entry.dataset.pf2eNaCard);
+        bindButtons(entry, () => panelCard(id));
+    }
+    root.prepend(panel);
 }
 
 /** Scroll the chat log to the PF2e message a line narrates. */
@@ -530,17 +659,19 @@ function showSource(messageId) {
     setTimeout(() => element.classList.remove("pf2e-na-highlight"), 2000);
 }
 
-async function onButton(message, dataset) {
-    if (!isOurCard(message)) return;
-    const { lines } = message.flags[ID];
+async function onButton(card, dataset) {
+    if (!card) return;
+    const { lines } = card;
     switch (dataset.pf2eNa) {
+        case "close":
+            return card.close?.();
         case "reroll":
-            return redraw(message);
+            return redraw(card);
         case "ban": {
             const index = Number(dataset.line);
             const banned = game.settings.get(ID, "banned");
             await game.settings.set(ID, "banned", [...new Set([...banned, lines[index].rawText])]);
-            return redraw(message, [index]);
+            return redraw(card, [index]);
         }
         case "source":
             return showSource(dataset.messageId);
@@ -552,19 +683,43 @@ async function onButton(message, dataset) {
     }
 }
 
-function onRenderChatMessage(message, html) {
-    if (!isOurCard(message) || !game.user.isGM || !(html instanceof HTMLElement)) return;
+/** Adds the 🎭 button to a PF2e roll the module can narrate, for GMs. */
+function addAskButton(message, html) {
+    if (message.flags[ID] || !game.settings.get(ID, "enabled")) return;
+    if (!extractContext(message.flags.pf2e) && !extractCastContext(message.flags.pf2e)) return;
+    const anchor = html.querySelector(".message-header .message-metadata") ?? html.querySelector(".message-header");
+    if (!anchor) return;
+    const ask = document.createElement("a");
+    ask.className = "pf2e-na-ask";
+    ask.dataset.tooltip = loc("Ask");
+    ask.setAttribute("aria-label", loc("Ask"));
+    ask.innerHTML = '<i class="fa-solid fa-masks-theater"></i>';
+    ask.addEventListener("click", (event) => {
+        event.preventDefault();
+        narrateOnDemand(message).catch((error) => console.error(`${ID} |`, error));
+    });
+    anchor.prepend(ask);
+}
+
+/** `getCard` is called on click, so a button always acts on the card's current lines. */
+function bindButtons(html, getCard) {
     for (const element of html.querySelectorAll("button[data-pf2e-na]")) {
         element.addEventListener("click", async (event) => {
             event.preventDefault();
             element.disabled = true;
             try {
-                await onButton(message, element.dataset);
+                await onButton(getCard(), element.dataset);
             } finally {
                 element.disabled = false;
             }
         });
     }
+}
+
+function onRenderChatMessage(message, html) {
+    if (!game.user.isGM || !(html instanceof HTMLElement)) return;
+    if (!isOurCard(message)) return addAskButton(message, html);
+    bindButtons(html, () => messageCard(message));
 }
 
 /* -------------------------------------------- */
@@ -593,10 +748,13 @@ Hooks.once("ready", () => {
     Hooks.on("pf2e-toolbelt.rollSave", (data) => {
         Promise.resolve(onToolbeltRollSave(data)).catch((error) => console.error(`${ID} |`, error));
     });
-    Hooks.on("updateActor", (actor, changes) => {
-        onUpdateActor(actor, changes).catch((error) => console.error(`${ID} |`, error));
-    });
+    Hooks.on("updateActor", (actor, changes) => onUpdateActor(actor, changes).catch((error) => console.error(`${ID} |`, error)));
+    Hooks.on("deleteItem", (item) => onDeleteItem(item).catch((error) => console.error(`${ID} |`, error)));
     Hooks.on("renderChatMessageHTML", onRenderChatMessage);
+    Hooks.on("renderChatLog", (_app, html) => html instanceof HTMLElement && html === ui.chat?.element && renderPanel(html));
+    // combatStart only fires on the client that started the combat, which is always a GM.
+    Hooks.on("combatStart", (combat) => game.user.isGM && onCombat(combat, "start").catch((error) => console.error(`${ID} |`, error)));
+    Hooks.on("deleteCombat", (combat) => game.user.isActiveGM && combat.started && onCombat(combat, "end").catch((error) => console.error(`${ID} |`, error)));
     for (const hook of ["createRollTable", "updateRollTable", "deleteRollTable", "createTableResult", "updateTableResult", "deleteTableResult"]) {
         Hooks.on(hook, () => (tableCache = null));
     }

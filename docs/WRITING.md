@@ -97,9 +97,12 @@ capitalised.
   the target falls; Grapple success: the target is held). Never add more.
 - Condition tables (`strike.condition.*`) may describe the condition PF2e already applied (a prone
   target is on the ground), nothing more.
+- Persistent damage tables (`persistent.*`) may say the bleeding or burning stops (success) or goes on
+  (failure): PF2e decided it.
 - Target-type tables (`strike.vs.*`) also fire for ranged attacks: talk about "the attack" or "the
   blow", not a blade.
 - Recall Knowledge entries are prompts to the GM, not facts about creatures.
-- Casts and finishing blows are not rolls: their tables only have a `success` outcome.
+- Casts, finishing blows, `revive` and `combat.*` are not rolls: their tables only have a `success`
+  outcome. `combat.*` texts have no name to use: they set the scene.
 - Finishing blows on NPCs stay ambiguous (falls still, collapses, does not get up): the GM decides
   whether the creature is dead, unconscious or fleeing. PCs at 0 HP are dying, never dead.

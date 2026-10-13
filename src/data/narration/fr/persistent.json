@@ -1,0 +1,102 @@
+[
+  {
+    "key": "persistent",
+    "label": ["Dégâts persistants", "Tous"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} serre les dents jusqu'au bout, et le mal finit par lâcher prise.",
+        "Ce qui s'accrochait à {actor} s'efface enfin.",
+        "Une longue expiration, et {actor} se débarrasse de cette douleur tenace.",
+        "Le tourment s'apaise, puis cesse : {actor} peut de nouveau penser au combat.",
+        "{actor} étouffe ce qu'il reste du mal, et c'est terminé."
+      ],
+      "failure,criticalFailure": [
+        "Le mal s'accroche, et {actor} grimace sous la nouvelle morsure.",
+        "{actor} tente de s'en défaire, mais la douleur revient encore.",
+        "Aucun répit : la souffrance s'enfonce plus profond.",
+        "{actor} siffle entre ses dents serrées, ça continue.",
+        "Ce n'est pas fini, et {actor} en sent chaque seconde."
+      ]
+    }
+  },
+  {
+    "key": "persistent.fire",
+    "label": ["Dégâts persistants", "Feu"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} étouffe les dernières flammes à grandes claques désespérées.",
+        "Une dernière roulade, un nuage de fumée, et le feu sur {actor} s'éteint.",
+        "Le feu vacille et meurt, ne laissant autour de {actor} qu'une odeur de roussi.",
+        "{actor} étouffe les flammes en toussant dans la fumée âcre.",
+        "Les dernières langues de feu crachotent et s'éteignent contre {actor}."
+      ],
+      "failure,criticalFailure": [
+        "Les flammes s'accrochent à {actor} et crépitent de plus belle.",
+        "{actor} frappe le feu du plat de la main, mais il ne fait que s'étendre.",
+        "Fumée et chaleur montent de {actor} : le feu refuse de mourir.",
+        "Les flammes lèchent encore {actor}, voraces et vives.",
+        "{actor} se tord pour échapper à la chaleur, toujours en feu."
+      ]
+    }
+  },
+  {
+    "key": "persistent.bleed",
+    "label": ["Dégâts persistants", "Saignement"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} appuie fort sur la plaie, et le saignement s'arrête.",
+        "Le sang ne coule plus qu'en filet, puis plus du tout.",
+        "{actor} plaque une main sur la blessure jusqu'à ce qu'elle se referme enfin.",
+        "Le sang coagule enfin, et la respiration de {actor} se fait plus calme.",
+        "Une prise ferme et un juron marmonné : {actor} stoppe l'hémorragie."
+      ],
+      "failure,criticalFailure": [
+        "Le sang continue de perler entre les doigts de {actor}.",
+        "La plaie refuse de se fermer ; les gouttes rouges tombent toujours autour de {actor}.",
+        "{actor} comprime la blessure, mais le sang passe au travers.",
+        "Le saignement continue, un filet chaud et régulier.",
+        "Le visage de {actor} pâlit encore tandis que le sang coule toujours."
+      ]
+    }
+  },
+  {
+    "key": "persistent.acid",
+    "label": ["Dégâts persistants", "Acide"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} racle les derniers restes d'acide, et le grésillement cesse.",
+        "L'acide s'épuise enfin, ne laissant qu'une odeur aigre autour de {actor}.",
+        "Le grésillement s'éteint ; {actor} essuie les dernières gouttes corrosives.",
+        "{actor} frotte les résidus brûlants en grimaçant, et c'en est fini.",
+        "L'acide siffle une dernière fois, puis se tait."
+      ],
+      "failure,criticalFailure": [
+        "L'acide continue de ronger, en sifflant contre {actor}.",
+        "Des vapeurs corrosives montent de {actor} : la brûlure continue.",
+        "{actor} tente de l'essuyer et ne fait qu'étaler la morsure.",
+        "L'acide bouillonne et mord plus profond.",
+        "Une fumée âcre s'élève de {actor} : l'acide est toujours à l'œuvre."
+      ]
+    }
+  },
+  {
+    "key": "persistent.poison",
+    "label": ["Dégâts persistants", "Poison"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "Le poison relâche son emprise, et le teint de {actor} reprend des couleurs.",
+        "{actor} transpire le venin, qui finit par perdre sa force.",
+        "La brûlure dans les veines de {actor} s'estompe.",
+        "{actor} crache, frissonne, et sent le poison lâcher prise.",
+        "La nausée passe : le corps de {actor} a gagné."
+      ],
+      "failure,criticalFailure": [
+        "Le venin continue de brûler dans les veines de {actor}.",
+        "{actor} se plie en deux sous une nouvelle morsure du poison.",
+        "Une sueur froide couvre {actor} : le poison est toujours là.",
+        "{actor} a un haut-le-cœur, la toxine poursuit son œuvre.",
+        "Le poison répand son feu lent dans le corps de {actor}."
+      ]
+    }
+  }
+]

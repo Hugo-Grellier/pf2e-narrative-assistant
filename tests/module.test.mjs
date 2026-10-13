@@ -60,6 +60,14 @@ globalThis.game = {
     pf2e: { actions: new Map([["trip", { name: "PF2E.Actions.Trip.Title" }]]) },
 };
 
+// Foundry's chat log: a collection with `contents`, oldest first.
+class Messages extends Map {
+    get contents() {
+        return [...this.values()];
+    }
+}
+game.messages = new Messages();
+
 await import("../src/module.mjs");
 fire("init");
 fire("ready");
@@ -76,7 +84,10 @@ const pf2eMessage = (id, context, extra = {}) => ({
     item: { name: "Épée longue" },
     ...extra,
 });
-const createAndWait = async (message) => Promise.all(fire("createChatMessage", message));
+const createAndWait = async (message) => {
+    game.messages.set(message.id, message);
+    return Promise.all(fire("createChatMessage", message));
+};
 const fireAndWait = async (name, ...args) => Promise.all(fire(name, ...args));
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -299,9 +310,9 @@ test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients"
     const ezren = { uuid: "Scene.s.Token.e", id: "e", documentName: "Token", name: "Ezren", actor: { uuid: "Actor.e", hasPlayerOwner: true } };
     const lich = { uuid: "Scene.s.Token.l", id: "l", documentName: "Token", name: "The Lich", hidden: true, actor: { uuid: "Actor.l", hasPlayerOwner: false } };
     globalThis.fromUuidSync = (uuid) => ({ [kobold.uuid]: kobold, [ezren.uuid]: ezren, [lich.uuid]: lich })[uuid] ?? null;
-    game.messages = new Map([
-        ["card1", { id: "card1", item: { name: "Fireball" }, whisper: [], blind: false, speaker: {} }],
-        ["secret", { id: "secret", item: { name: "Fireball" }, whisper: ["gm1"], blind: false, speaker: {} }],
+    game.messages = new Messages([
+        ["card1", { id: "card1", flags: {}, item: { name: "Fireball" }, whisper: [], blind: false, speaker: {} }],
+        ["secret", { id: "secret", flags: {}, item: { name: "Fireball" }, whisper: ["gm1"], blind: false, speaker: {} }],
     ]);
     const rollSave = (target, outcome) => ({
         message: { id: "card1" },
@@ -390,4 +401,106 @@ test("monsters never renamed get a generic name; renamed tokens and PCs keep the
     settings.set("language", "auto");
     game.modules.get(ID).api.invalidateTables();
     assert.equal(created[2].flags[ID].lines[0].context.vars.target, "the giant rat");
+});
+
+test("finishing blow after a reload: the last hit comes from the chat log", async () => {
+    created.length = 0;
+    game.combat = { id: "c3", started: true };
+    const troll = { uuid: "Actor.troll", type: "npc", name: "Troll", traits: new Set(["giant"]), token: { name: "the troll", hidden: false } };
+    // In the log, but never seen by this client's hooks (it was created before the reload).
+    game.messages.set("old1", pf2eMessage("old1", { type: "attack-roll", identifier: "a.longsword.melee", outcome: "criticalSuccess" }, {
+        speaker: { alias: "Amiri" },
+        target: { token: { name: "the troll" }, actor: { uuid: troll.uuid } },
+    }));
+    await Promise.all(fire("updateActor", troll, { system: { attributes: { hp: { value: 0 } } } }));
+    game.combat = null;
+    const [line] = created[0].flags[ID].lines;
+    assert.equal(line.context.vars.attacker, "Amiri");
+    assert.equal(line.sourceId, "old1");
+});
+
+test("the 🎭 button narrates a PF2e roll on demand, whatever the chance", async () => {
+    created.length = 0;
+    settings.set("chance.success", 0);
+    const message = pf2eMessage("ask1", { type: "attack-roll", identifier: "a.longsword.melee", outcome: "success" });
+    await createAndWait(message);
+    assert.equal(created.length, 0);
+
+    let ask;
+    globalThis.document = { createElement: () => (ask = { dataset: {}, setAttribute() {}, addEventListener: (_e, fn) => (ask.click = fn) }) };
+    const anchor = { prepend: (element) => assert.equal(element, ask) };
+    fire("renderChatMessageHTML", message, Object.assign(new HTMLElement(), { querySelector: () => anchor, querySelectorAll: () => [] }));
+    await ask.click({ preventDefault() {} });
+    await wait(10);
+    settings.set("chance.success", 100);
+    assert.equal(created.length, 1);
+    assert.equal(created[0].flags[ID].lines[0].sourceId, "ask1");
+
+    // No button on rolls that cannot be narrated (damage).
+    ask = null;
+    fire("renderChatMessageHTML", pf2eMessage("ask2", { type: "damage-roll", outcome: "success" }), Object.assign(new HTMLElement(), { querySelector: () => anchor }));
+    assert.equal(ask, null);
+});
+
+test("a PC losing Dying above 0 HP gets a back-on-their-feet card", async () => {
+    created.length = 0;
+    const seoni = { uuid: "Actor.seoni", type: "character", name: "Seoni", token: { name: "Seoni", hidden: false }, hitPoints: { value: 0, max: 30 } };
+    const remove = (slug, actor = seoni) => Promise.all(fire("deleteItem", { type: "condition", slug, actor }));
+    await remove("dying"); // stabilised at 0 HP: still down
+    seoni.hitPoints.value = 6;
+    await remove("frightened");
+    await remove("dying");
+    await remove("dying", { ...seoni, type: "npc" });
+    assert.equal(created.length, 1);
+    assert.match(created[0].flags[ID].lines[0].tableKey, /^revive\./);
+    assert.match(created[0].content, /PF2E_NA\.Event\.revive · Seoni/);
+});
+
+test("combat start and end get one scene-setting card each", async () => {
+    created.length = 0;
+    await Promise.all(fire("combatStart", { started: true }));
+    await Promise.all(fire("deleteCombat", { started: true }));
+    await Promise.all(fire("deleteCombat", { started: false })); // never started: nothing
+    assert.deepEqual(created.map((c) => c.flags[ID].lines[0].tableKey), ["combat.start.success", "combat.end.success"]);
+});
+
+test("panel output: cards sit above the chat log, with working buttons, and nothing goes to the chat", async () => {
+    created.length = 0;
+    settings.set("output", "panel");
+    // Minimal DOM: elements whose buttons are parsed back from their innerHTML.
+    const element = () => {
+        const el = { dataset: {}, children: [], listeners: [] };
+        el.querySelectorAll = (selector) => {
+            if (selector === "[data-pf2e-na-card]") {
+                return (el.entries ??= [...el.innerHTML.matchAll(/<div data-pf2e-na-card="(\d+)">([\s\S]*?<\/div>)<\/div>/g)].map(([, id, html]) => Object.assign(element(), { innerHTML: html, dataset: { pf2eNaCard: id } })));
+            }
+            return [...el.innerHTML.matchAll(/data-pf2e-na="(\w+)"(?: data-line="(\d+)")?/g)].map(([, action, line]) => {
+                const button = { dataset: { pf2eNa: action, line }, addEventListener: (_e, fn) => (button.click = fn) };
+                el.children.push(button);
+                return button;
+            });
+        };
+        return el;
+    };
+    globalThis.document = { createElement: element };
+    let panel = null;
+    globalThis.ui.chat = { element: { querySelector: () => panel && { remove: () => (panel = null) }, prepend: (el) => (panel = el) } };
+    const strike = (id) => pf2eMessage(id, { type: "attack-roll", identifier: "a.longsword.melee", outcome: "success" });
+
+    for (const id of ["p1", "p2", "p3", "p4"]) await createAndWait(strike(id));
+    assert.equal(created.length, 0);
+    assert.equal(panel.innerHTML.match(/data-pf2e-na-card=/g).length, 3, "the last three cards");
+    assert.match(panel.innerHTML, /data-message-id="p4"[\s\S]*data-message-id="p2"/);
+
+    // Buttons bound by the module when it drew the panel.
+    const [newest] = panel.entries;
+    const before = panel.innerHTML;
+    await newest.children.find((b) => b.dataset.pf2eNa === "reroll").click({ preventDefault() {} });
+    assert.notEqual(panel.innerHTML, before);
+    await newest.children.find((b) => b.dataset.pf2eNa === "publish").click({ preventDefault() {} });
+    assert.equal(created.length, 1, "Send to chat posts the text");
+    const [again] = panel.entries;
+    await again.children.find((b) => b.dataset.pf2eNa === "close").click({ preventDefault() {} });
+    assert.equal(panel.innerHTML.match(/data-pf2e-na-card=/g).length, 2);
+    settings.set("output", "whisper");
 });

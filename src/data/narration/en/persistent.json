@@ -1,0 +1,102 @@
+[
+  {
+    "key": "persistent",
+    "label": ["Persistent damage", "Any"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} grits their teeth through the last of it, and the lingering harm finally lets go.",
+        "Whatever clung to {actor} fades away at last.",
+        "{actor} shakes off the lingering pain with a long breath.",
+        "The torment eases, then stops; {actor} can think about the fight again.",
+        "{actor} smothers what remains of the harm, and it is over."
+      ],
+      "failure,criticalFailure": [
+        "The harm clings on, and {actor} winces as it bites again.",
+        "{actor} tries to shake it off, but the pain keeps coming.",
+        "No relief yet: the lingering harm digs in deeper.",
+        "{actor} hisses through clenched teeth as it goes on.",
+        "It is not over, and {actor} feels every second of it."
+      ]
+    }
+  },
+  {
+    "key": "persistent.fire",
+    "label": ["Persistent damage", "Fire"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} beats out the last flames with quick, desperate slaps.",
+        "A final roll, a burst of smoke, and the flames on {actor} are out.",
+        "The fire gutters and dies, leaving {actor} smoking and singed.",
+        "{actor} smothers the flames, coughing in the acrid smoke.",
+        "The last tongues of fire sputter out against {actor}."
+      ],
+      "failure,criticalFailure": [
+        "The flames cling to {actor}, crackling higher.",
+        "{actor} slaps at the fire, but it only spreads.",
+        "Smoke and heat roll off {actor}: the fire refuses to die.",
+        "The flames lick at {actor} again, hungry and bright.",
+        "{actor} twists away from the heat, still burning."
+      ]
+    }
+  },
+  {
+    "key": "persistent.bleed",
+    "label": ["Persistent damage", "Bleed"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} presses hard on the wound, and the bleeding stops.",
+        "The flow of blood slows to a trickle, then stops.",
+        "{actor} clamps a hand over the wound until it finally closes.",
+        "The blood clots at last; {actor} breathes easier.",
+        "A tight grip and a muttered curse: {actor} stops the bleeding."
+      ],
+      "failure,criticalFailure": [
+        "Blood keeps welling between the fingers of {actor}.",
+        "The wound will not close; red drops keep falling around {actor}.",
+        "{actor} presses on the wound, but the blood seeps through.",
+        "The bleeding goes on, a warm and steady trickle.",
+        "{actor} pales a little more as the blood keeps running."
+      ]
+    }
+  },
+  {
+    "key": "persistent.acid",
+    "label": ["Persistent damage", "Acid"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "{actor} scrapes off the last of the acid, and the hissing stops.",
+        "The acid finally spends itself, leaving only a sour smell around {actor}.",
+        "The sizzling fades; {actor} wipes away the last caustic drops.",
+        "{actor} scrubs the burning residue away, wincing but clean.",
+        "The acid gives one last hiss and goes inert."
+      ],
+      "failure,criticalFailure": [
+        "The acid keeps eating in, hissing against {actor}.",
+        "Caustic fumes rise from {actor} as the burning goes on.",
+        "{actor} tries to wipe it away and only spreads the sting.",
+        "The acid bubbles and bites deeper.",
+        "A sharp, sour smoke curls up from {actor}: the acid is still at work."
+      ]
+    }
+  },
+  {
+    "key": "persistent.poison",
+    "label": ["Persistent damage", "Poison"],
+    "outcomes": {
+      "criticalSuccess,success": [
+        "The poison loses its grip, and the color comes back to {actor}.",
+        "{actor} sweats it out; the venom finally runs its course.",
+        "The burning in the veins of {actor} fades away.",
+        "{actor} spits, shudders, and feels the poison let go.",
+        "The nausea passes: the body of {actor} has won."
+      ],
+      "failure,criticalFailure": [
+        "The venom keeps burning through the veins of {actor}.",
+        "{actor} doubles over as the poison bites again.",
+        "A cold sweat breaks over {actor}: the poison is still there.",
+        "{actor} gags as the toxin keeps working.",
+        "The poison spreads its slow fire through {actor}."
+      ]
+    }
+  }
+]

@@ -19,6 +19,8 @@ const CHECKS = [
     ["src/module/system/statistic/statistic.ts", /`check:statistic:\$\{this\.parent\.slug\}`/, "check:statistic:<slug> roll option"],
     ["src/module/system/statistic/statistic.ts", /getSelfRollOptions\("target"\)/, "target:* roll options"],
     ["src/module/actor/creature/document.ts", /slug: "dying-recovery"/, "recovery check statistic"],
+    ["src/module/item/condition/document.ts", /slug: "pd-recovery"/, "persistent damage flat check statistic"],
+    ["src/module/item/condition/document.ts", /`\$\{prefix\}:damage:type:\$\{damageType\}`/, "persistent damage type roll option"],
     ["src/module/item/abstract-effect/document.ts", /`self:\$\{this\.type\}:\$\{this\.rollOptionSlug\}`/, "self:condition:<slug> roll options"],
     ["src/module/item/spell/document.ts", /`\$\{prefix\}:trait:\$\{spellcasting\.tradition\}`/, "spell tradition trait"],
     ["src/module/system/action-macros/athletics/trip.ts", /action:trip/, "action:<slug> roll options"],
