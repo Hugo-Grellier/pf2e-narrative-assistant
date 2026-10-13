@@ -296,9 +296,13 @@ test("forged outcomes never reach the card", async () => {
 test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients", async () => {
     created.length = 0;
     const kobold = { uuid: "Scene.s.Token.k", id: "k", documentName: "Token", name: "the kobold", actor: { uuid: "Actor.k" } };
-    const ezren = { uuid: "Scene.s.Token.e", id: "e", documentName: "Token", name: "Ezren", actor: { uuid: "Actor.e" } };
-    globalThis.fromUuidSync = (uuid) => ({ [kobold.uuid]: kobold, [ezren.uuid]: ezren })[uuid] ?? null;
-    game.messages = new Map([["card1", { id: "card1", item: { name: "Fireball" } }]]);
+    const ezren = { uuid: "Scene.s.Token.e", id: "e", documentName: "Token", name: "Ezren", actor: { uuid: "Actor.e", hasPlayerOwner: true } };
+    const lich = { uuid: "Scene.s.Token.l", id: "l", documentName: "Token", name: "The Lich", hidden: true, actor: { uuid: "Actor.l", hasPlayerOwner: false } };
+    globalThis.fromUuidSync = (uuid) => ({ [kobold.uuid]: kobold, [ezren.uuid]: ezren, [lich.uuid]: lich })[uuid] ?? null;
+    game.messages = new Map([
+        ["card1", { id: "card1", item: { name: "Fireball" }, whisper: [], blind: false, speaker: {} }],
+        ["secret", { id: "secret", item: { name: "Fireball" }, whisper: ["gm1"], blind: false, speaker: {} }],
+    ]);
     const rollSave = (target, outcome) => ({
         message: { id: "card1" },
         target,
@@ -331,9 +335,18 @@ test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients"
     assert.equal(created.length, 1);
     assert.equal(created[0].flags[ID].lines[0].context.vars.actor, "Ezren");
 
-    // A forged payload naming a token that does not exist is dropped.
+    // Forged payloads from a client: unknown token, or an NPC the players do not own (a hidden lich).
     created.length = 0;
-    await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"]({ context: { type: "saving-throw", outcome: "success", options: [] }, token: "Scene.s.Token.nope", card: "card1" });
+    const forged = (token) => ({ context: { type: "saving-throw", outcome: "success", options: ["check:statistic:will"] }, token, card: "card1" });
+    await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"](forged("Scene.s.Token.nope"));
+    await CONFIG.queries["pf2e-narrative-assistant.toolbeltSave"](forged(lich.uuid));
     assert.equal(created.length, 0);
+
+    // A save against a whispered spell card stays whispered even with public output.
+    settings.set("output", "public");
+    await fireAndWait("pf2e-toolbelt.rollSave", { ...rollSave(kobold, "success"), message: { id: "secret" } });
+    settings.set("output", "whisper");
+    assert.equal(created.length, 1);
+    assert.deepEqual(created[0].whisper, ["gm1"]);
     globalThis.fromUuidSync = () => null;
 });

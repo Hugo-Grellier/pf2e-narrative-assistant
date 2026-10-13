@@ -70,9 +70,11 @@ so *Another suggestion* redraws every line, 🚫 redraws one, and ↰ scrolls to
 PF2e Toolbelt's target helper rolls saves with `createMessage: false`, so no chat message exists. Its
 public hook `pf2e-toolbelt.rollSave` fires on the client that rolled, with the unsaved PF2e roll message.
 The active GM narrates it directly; any other client sends the PF2e context, the target token UUID and the
-spell card id to the active GM through the Foundry query `pf2e-narrative-assistant.toolbeltSave`. The GM
-resolves names from its own documents, treats the context like any chat flag (outcome must be a known
-degree), and dedupes per card and token. ↰ then jumps to the spell card. Toolbelt rerolls are not narrated.
+spell card id to the active GM through the Foundry query `pf2e-narrative-assistant.toolbeltSave`. A query
+is untrusted: it is only honoured for a visible, player-owned token. The GM resolves every name from its
+own documents (the token, the spell card's speaker as origin), treats the context like any chat flag
+(outcome must be a known degree), keeps the narration whispered when the roll or the spell card is
+secret, and dedupes per card and token. ↰ then jumps to the spell card. Toolbelt rerolls are not narrated.
 
 ## Tables and resolution
 

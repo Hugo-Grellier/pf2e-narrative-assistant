@@ -335,9 +335,9 @@ const TOOLBELT_QUERY = `${ID}.toolbeltSave`;
 function onToolbeltRollSave({ rollMessage, message, target }) {
     const context = rollMessage?.flags?.pf2e?.context;
     if (!context || !message?.id || !target?.uuid) return;
-    const { type, outcome, options, identifier, traits, domains, origin, isReroll } = context;
+    const { type, outcome, options, identifier, traits, domains, isReroll } = context;
     const payload = {
-        context: { type, outcome, options, identifier, traits, domains, origin, isReroll },
+        context: { type, outcome, options, identifier, traits, domains, isReroll },
         origin: rollMessage.flags.pf2e.origin?.uuid ?? null,
         token: target.uuid,
         card: message.id,
@@ -348,18 +348,28 @@ function onToolbeltRollSave({ rollMessage, message, target }) {
 }
 
 /**
- * Active GM side. The payload may come from a player: only the PF2e context is taken from it (validated
- * by extractContext like any chat message); names come from documents the GM resolves itself.
+ * Active GM side. A `remote` payload comes from another client, possibly a player, and is untrusted: it
+ * must be about a visible, player-owned token (players only roll their own saves), and only its PF2e
+ * context is used (validated by extractContext like any chat flag). Every name comes from documents the
+ * GM resolves itself: the token, and the spell card's speaker as the origin.
  */
-async function onToolbeltSave({ context, origin, token: tokenUuid, card: cardId, secret } = {}) {
+async function onToolbeltSave({ context, origin, token: tokenUuid, card: cardId, secret } = {}, { remote = false } = {}) {
     if (!game.user.isActiveGM || context?.type !== "saving-throw" || typeof tokenUuid !== "string") return;
     const token = fromUuidSync(tokenUuid);
     const card = game.messages.get(cardId);
     if (token?.documentName !== "Token" || !card) return;
+    if (remote && (token.hidden || !token.actor?.hasPlayerOwner)) return;
+    const caster = card.speaker ?? {};
     const message = {
         id: card.id, // ↰ jumps to the spell card, where Toolbelt shows the saves
-        flags: { pf2e: { context, origin: typeof origin === "string" ? { uuid: origin } : null } },
-        whisper: secret ? [game.user.id] : [],
+        flags: {
+            pf2e: {
+                context: { ...context, origin: { actor: caster.actor ? `Actor.${caster.actor}` : null, token: card.token?.uuid ?? null } },
+                origin: typeof origin === "string" ? { uuid: origin } : null,
+            },
+        },
+        // A save rolled from a secret spell card is as secret as the card.
+        whisper: secret || card.whisper?.length || card.blind ? [game.user.id] : [],
         blind: false,
         rolls: [],
         token,
@@ -510,7 +520,7 @@ function onRenderChatMessage(message, html) {
 
 Hooks.once("init", () => {
     registerSettings();
-    CONFIG.queries[TOOLBELT_QUERY] = (payload) => onToolbeltSave(payload);
+    CONFIG.queries[TOOLBELT_QUERY] = (payload) => onToolbeltSave(payload, { remote: true });
     game.modules.get(ID).api = {
         /** Narrate an arbitrary context, e.g. from another module's own event. */
         suggest,
