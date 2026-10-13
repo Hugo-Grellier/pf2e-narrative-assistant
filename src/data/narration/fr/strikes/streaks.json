@@ -7,17 +7,7 @@
       "Ratés à la suite"
     ],
     "outcomes": {
-      "failure,criticalFailure": [
-        "Troisième raté d'affilée : la frustration de {attacker} commence à se voir.",
-        {
-          "text": "Encore rien. {attacker} serre les dents et reprend sa garde.",
-          "needs": "armed"
-        },
-        "Les tentatives de {attacker} semblent presque lasser {target}.",
-        "Encore un raté, et l'assurance de {attacker} s'effrite un peu plus.",
-        "Trois attaques, trois ratés : la chance a clairement changé de camp.",
-        "{attacker} manque encore et lâche un juron qui résonne."
-      ]
+      "failure,criticalFailure": []
     }
   },
   {
@@ -28,17 +18,7 @@
       "Coups au but à la suite"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "Troisième coup au but d'affilée : {attacker} a trouvé le rythme.",
-        "Plus rien n'arrête {attacker}, chaque coup suit le précédent.",
-        "Encore ! {target} ne suit plus la cadence de {attacker}.",
-        "Coup après coup : {attacker} lit chaque ouverture.",
-        "L'élan appartient à {attacker}, et tout le monde le sent.",
-        {
-          "text": "{attacker} frappe encore, et la garde de {target} est en lambeaux.",
-          "needs": "armed"
-        }
-      ]
+      "success,criticalSuccess": []
     }
   },
   {
@@ -49,14 +29,7 @@
       "Revanche"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Après ce désastre, {attacker} répond par un coup parfait.",
-        "De l'humiliation au triomphe en un seul souffle.",
-        "{attacker} oublie la maladresse de tout à l'heure et place le coup du jour.",
-        "Rédemption : le coup porte exactement là où le précédent avait échoué.",
-        "{attacker} change la gêne en fureur, et ça se voit.",
-        "Personne ne se souviendra de la bourde après un coup pareil."
-      ]
+      "criticalSuccess": []
     }
   }
 ]

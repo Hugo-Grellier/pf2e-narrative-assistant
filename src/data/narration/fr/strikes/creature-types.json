@@ -7,38 +7,10 @@
       "Mort-vivant"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "L'attaque fracasse os secs et vieux linceul.",
-        "L'attaque de {attacker} déchire {target} dans un nuage de poussière qui sent la tombe.",
-        "Quelque chose d'ancien craque sous le coup, et {target} pousse un râle creux.",
-        "Le coup porte avec le bruit d'un couvercle de cercueil qui se fend.",
-        "La carcasse desséchée de {target} se plie autour de l'impact.",
-        "La chair froide et sans vie cède, et {target} recule avec un cri contre nature."
-      ],
-      "success": [
-        "Le coup tombe sur le corps desséché de {target} dans un craquement sec.",
-        "La poussière de tombe s'échappe de la plaie, mais pas une goutte de sang.",
-        "{target} vacille sous l'impact, sans montrer la moindre douleur.",
-        "L'attaque mord une chair pourrie avec un son froid et mouillé.",
-        "Des éclats de vieil os volent de {target}.",
-        "Ça porte : {target} ne bronche pas, mais quelque chose cède à l'intérieur."
-      ],
-      "failure": [
-        "L'attaque traverse des haillons et ne trouve rien d'important.",
-        "{target} s'écarte d'un mouvement saccadé de pantin.",
-        "Le coup glisse sur la peau dure et parcheminée de {target}.",
-        "{target} prend le coup sur un bras d'os nu, sans s'en soucier.",
-        "L'attaque manque, et les orbites vides de {target} ne la suivent même pas.",
-        "Réflexes d'outre-tombe : {target} se dérobe au dernier instant."
-      ],
-      "criticalFailure": [
-        "L'odeur de la tombe soulève le cœur de {attacker} en plein élan.",
-        "Le regard creux de {target} déstabilise {attacker} au moment de frapper.",
-        "L'attaque part large quand {target} bouge comme aucun vivant ne le ferait.",
-        "{attacker} hésite devant une chose qui devrait reposer sous terre, et l'instant passe.",
-        "L'attaque s'empêtre dans des lambeaux qui traînent et ne mène nulle part.",
-        "Un frisson remonte l'échine de {attacker} et gâche l'attaque."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -49,38 +21,10 @@
       "Créature artificielle"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "L'attaque trouve une jointure, et des étincelles jaillissent de {target}.",
-        "Un crissement de métal et de pierre : quelque chose grince de travers à l'intérieur de {target}.",
-        "L'attaque de {attacker} frappe une articulation de plein fouet, et {target} frémit de partout.",
-        "L'impact résonne comme une cloche dans la carcasse de {target}.",
-        "Des rivets sautent, et {target} tangue dans un gémissement de métal tordu.",
-        "Des éclats de pierre jaillissent de {target} sous le coup."
-      ],
-      "success": [
-        "L'attaque sonne contre {target} et laisse une cicatrice brillante.",
-        "La pierre se fissure sous le coup.",
-        "Ça porte : des engrenages vrombissent avec colère dans {target}.",
-        "Le coup bosselle le blindage de {target} dans un bong creux.",
-        "Poussière et gravier s'écoulent de {target} là où le coup a porté.",
-        "{target} encaisse sans un bruit, mais la marque est là."
-      ],
-      "failure": [
-        "L'attaque rebondit sur un blindage plein.",
-        "La peau de pierre de {target} ignore le coup.",
-        "Des étincelles, du bruit, et pas une égratignure sur {target}.",
-        "{target} pivote avec une exactitude mécanique et l'attaque manque.",
-        "Le coup bute sur un membre blindé et s'arrête net.",
-        "Un clang sourd, et l'attaque glisse."
-      ],
-      "criticalFailure": [
-        "L'attaque heurte du métal massif et le choc remonte dans les bras de {attacker}.",
-        "{attacker} frappe la pierre de plein fouet et le contrecoup fait vibrer chaque dent.",
-        "{target} pivote sans effort ni fatigue et l'attaque ne frappe que l'air.",
-        "Le coup patine sur un blindage lisse et entraîne {attacker} en déséquilibre.",
-        "Frapper {target}, c'est frapper un mur, et les mains de {attacker} le sentent.",
-        "Le fracas du raté résonne, et {target} ne se retourne même pas."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -91,38 +35,10 @@
       "Nuée"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "L'attaque déchire le cœur de la nuée et disperse une centaine de petits corps.",
-        "{attacker} fauche à travers {target}, et la masse se disloque un instant.",
-        "Une grande trouée s'ouvre dans {target}, grouillante sur ses bords.",
-        "L'attaque frappe au plus épais de la nuée, et tout le nuage recule.",
-        "Des dizaines de créatures retombent du coup comme de la grêle.",
-        "{target} hurle de mille petites voix quand l'attaque passe au travers."
-      ],
-      "success": [
-        "L'attaque écrase une poignée de créatures de la nuée.",
-        "{attacker} balaie {target}, et une partie se disperse.",
-        "La nuée s'ouvre autour du coup, un peu plus clairsemée qu'avant.",
-        "Un craquement satisfaisant de minuscules carapaces et d'os.",
-        "Le coup laboure {target} et laisse une brèche qui se referme lentement.",
-        "Une partie de la nuée se détache ; le reste bouillonne de rage."
-      ],
-      "failure": [
-        "L'attaque traverse la nuée, qui s'écoule simplement autour.",
-        "{target} se divise devant le coup et se reforme derrière.",
-        "Frapper une nuée, c'est frapper de la fumée.",
-        "Le coup disperse quelques créatures, rien qui compte.",
-        "{target} esquive comme un nuage vivant, d'un seul mouvement.",
-        "La nuée tourbillonne de côté et l'attaque ne trouve rien de solide."
-      ],
-      "criticalFailure": [
-        "{attacker} gesticule contre la nuée, qui remonte le long de l'arme en réponse.",
-        "Le coup traverse {target} et laisse {attacker} tournoyer, des bestioles accrochées aux manches.",
-        "L'attaque disparaît dans la nuée sans rien toucher.",
-        "{target} engloutit l'attaque, et {attacker} recule en battant des bras.",
-        "Trop de cibles, et aucune là où l'attaque arrive.",
-        "Le bourdonnement de la nuée noie toute pensée, et l'attaque se délite."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -133,38 +49,10 @@
       "Intangible"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "L'attaque mord la substance spectrale de {target}, qui se déchire comme une fumée mouillée.",
-        "{target} gémit quand l'attaque lacère sa forme pâle.",
-        "Un instant, {target} s'éteint tout à fait, puis se reforme, en lambeaux et plus terne.",
-        "Le coup frappe une chose qui ne devrait pas être solide, et la chose hurle.",
-        "Du froid s'échappe de la plaie de {target}, comme un souffle un matin d'hiver.",
-        "La silhouette de {target} ondule tout autour de l'attaque."
-      ],
-      "success": [
-        "L'attaque accroche {target}, et la forme spectrale vacille.",
-        "Là où l'attaque mord {target}, le givre fleurit.",
-        "{target} vacille là où le coup porte, s'amincissant comme la brume.",
-        "L'attaque porte avec un bruit de soupir.",
-        "Les contours de {target} se brouillent puis se ressoudent lentement.",
-        "Quelque chose cède sous l'attaque, sans rien de visible."
-      ],
-      "failure": [
-        "L'attaque traverse {target} comme du brouillard.",
-        "{target} dérive de côté, sans poids ni hâte.",
-        "L'attaque ne rencontre que l'air froid là où se trouvait {target}.",
-        "{target} s'estompe un battement de cœur et l'attaque traverse le vide.",
-        "Un frisson, un miroitement, et rien à quoi se raccrocher.",
-        "{target} s'écarte comme une fumée dans un courant d'air."
-      ],
-      "criticalFailure": [
-        "L'attaque traverse {target} de part en part et entraîne {attacker} en déséquilibre.",
-        "{attacker} frappe une forme qui n'est déjà plus là.",
-        "Un contact glacé sur la nuque fait sursauter {attacker} en pleine attaque.",
-        "{target} rit doucement quand l'attaque ne traverse que le vide.",
-        "L'attaque traverse {target} et frappe le mur derrière.",
-        "La peur de l'anormal ralentit la main de {attacker} au pire moment."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

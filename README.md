@@ -11,8 +11,9 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 
 - Read-only: it never changes rolls, damage, conditions or degrees of success.
 - No LLM, no network: narration comes from RollTables shipped in the module compendiums, one per
-  language (302 tables and ~2400 entries each, written separately in English and French rather than
-  translated).
+  language, written by hand and separately in English and French rather than translated. The corpus is
+  being written: `npm run coverage` lists the situations that have no text yet, and a roll with no
+  matching text gets no card.
 - *Another suggestion* draws another text, never another PF2e roll. *Send to chat* posts the text
   alone, publicly. Each line also has a ↰ button that scrolls the chat to the PF2e roll it narrates,
   and a 🚫 button that hides that text for good in this world and draws another

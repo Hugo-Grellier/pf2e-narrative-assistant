@@ -6,33 +6,7 @@
     "Faire diversion"
   ],
   "outcomes": {
-    "success,criticalSuccess": [
-      "{actor} pointe du doigt un danger imaginaire ; tous les regards suivent le geste.",
-      "Un cri soudain, un bruit au loin : l'attention se détourne, et {actor} se fond dans le décor.",
-      "{actor} renverse une chope avec fracas, et pendant que tout le monde regarde, s'éclipse.",
-      "« Là-bas ! » lance {actor} avec une conviction parfaite. Le temps que les têtes se retournent, la place est vide.",
-      "{actor} lance un caillou derrière ses adversaires ; le bruit fait tourner toutes les têtes.",
-      "Un geste théâtral détourne l'attention, et {actor} disparaît des regards.",
-      "{actor} feint une douleur soudaine ; le temps que les autres comprennent, il est trop tard.",
-      "La ruse fonctionne à merveille : plus personne ne regarde vers {actor}.",
-      "{actor} attire l'œil d'un éclat de métal, puis se dérobe dans l'ombre.",
-      "{actor} lance une réplique si absurde que tout le monde s'interrompt, perplexe.",
-      "Un instant de confusion parfaitement orchestré par {actor}.",
-      "{actor} profite de la seconde d'inattention créée à dessein."
-    ],
-    "failure,criticalFailure": [
-      "{actor} pointe un danger au loin, mais personne ne tourne la tête.",
-      "La diversion de {actor} ne trompe personne.",
-      "Le bruit attire bien quelques regards, qui reviennent aussitôt vers {actor}.",
-      "{actor} tente un coup de théâtre ; les spectateurs restent de marbre.",
-      "« Attention ! » crie {actor}. On l'observe, sceptique.",
-      "La ruse de {actor} est trop grossière : on la voit venir.",
-      "{actor} cherche à détourner l'attention, mais tous les yeux restent rivés sur ses gestes.",
-      "Un silence gêné accueille la tentative de diversion de {actor}.",
-      "Les adversaires échangent un regard entendu : ils ont compris le manège.",
-      "{actor} fait un bruit, et ne réussit qu'à attirer encore plus l'attention.",
-      "La diversion tombe à plat ; chacun sait désormais que {actor} prépare quelque chose.",
-      "{actor} crée la confusion… mais pas assez pour échapper aux regards."
-    ]
+    "success,criticalSuccess": [],
+    "failure,criticalFailure": []
   }
 }

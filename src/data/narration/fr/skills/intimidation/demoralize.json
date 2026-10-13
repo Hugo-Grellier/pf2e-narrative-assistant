@@ -6,47 +6,8 @@
     "Démoraliser"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "Le regard de {actor} se plante dans celui de {target}, qui blêmit et recule malgré soi.",
-      "{actor} gronde quelques mots à peine audibles ; la peur se lit aussitôt sur le visage de {target}.",
-      "{actor} frappe son arme contre son bouclier et rugit. {target} tremble visiblement.",
-      "Une menace froide, posée, terrible : {target} perd toute contenance.",
-      "{actor} avance d'un pas, et c'est tout le courage de {target} qui recule d'un coup.",
-      "Le cri de guerre de {actor} glace le sang de {target}.",
-      "{actor} sourit, lentement. Ce sourire-là, {target} ne l'oubliera pas de sitôt.",
-      "{target} déglutit avec peine : ce que promet le regard de {actor} n'a rien de rassurant.",
-      "{actor} énumère calmement ce qui attend {target}. La voix de {target}, ensuite, tremble.",
-      "Un seul mot de {actor}, prononcé au bon moment, suffit à faire vaciller {target}.",
-      "{actor} se redresse de toute sa hauteur ; {target} se sent soudain minuscule.",
-      "La menace de {actor} frappe plus fort qu'une lame : l'assurance de {target} vole en éclats."
-    ],
-    "success": [
-      "{actor} lance une menace qui fait hésiter {target}.",
-      "Le regard noir de {actor} trouble visiblement {target}.",
-      "{target} serre les dents, mais une ombre de peur traverse son regard.",
-      "{actor} gronde, et {target} recule d'un demi-pas.",
-      "Les mots de {actor} touchent juste : {target} perd un peu de son assurance.",
-      "{actor} fait tournoyer son arme d'un air entendu ; {target} n'apprécie pas.",
-      "{target} jette un coup d'œil inquiet vers {actor}.",
-      "Un rictus menaçant de {actor}, et {target} semble regretter d'être là.",
-      "{actor} promet mille souffrances d'une voix sourde ; {target} frissonne.",
-      "{target} tente de faire bonne figure, sans grand succès.",
-      "{actor} s'avance de toute sa stature ; la nervosité de {target} est palpable.",
-      "Le cri de {actor} fait tressaillir {target}."
-    ],
-    "failure,criticalFailure": [
-      "{target} soutient le regard de {actor} sans ciller.",
-      "La menace de {actor} glisse sur {target} comme l'eau sur la pierre.",
-      "{target} hausse les épaules : il en faut plus pour l'impressionner.",
-      "{actor} gronde, {target} ricane.",
-      "Les mots de {actor} sonnent creux aux oreilles de {target}.",
-      "{target} ne bronche pas devant la démonstration de {actor}.",
-      "{actor} prend un air menaçant ; {target} reste de marbre.",
-      "Un éclat de rire de {target} répond à la menace.",
-      "{target} plisse les yeux, sans le moindre trouble.",
-      "La tentative d'intimidation de {actor} tombe à plat.",
-      "{target} répond à la menace par un regard méprisant.",
-      "{actor} hausse le ton ; {target} ne prend même pas la peine de répondre."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure,criticalFailure": []
   }
 }

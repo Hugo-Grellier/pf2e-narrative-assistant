@@ -5,45 +5,9 @@
     "Any roll"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "Everything aligns: {actor} succeeds with remarkable ease.",
-      "{actor} exceeds every expectation, starting with their own.",
-      "A moment of grace: every move from {actor} lands just right.",
-      "{actor's} success is dazzling.",
-      "{actor} makes the difficult look simple.",
-      "Luck and talent join forces in favor of {actor}.",
-      "{actor} succeeds with a flair that commands respect.",
-      "It is the kind of moment {actor} will remember."
-    ],
-    "success": [
-      "{actor} gets it done.",
-      "{actor's} efforts pay off.",
-      "{actor} succeeds, without fanfare but without fault.",
-      "The maneuver from {actor} works.",
-      "{actor} gets what was needed.",
-      "The move is right, the result follows.",
-      "{actor} comes out of it well.",
-      "Things turn in favor of {actor}."
-    ],
-    "failure": [
-      "The effort from {actor} is not enough this time.",
-      "{actor} falls short.",
-      "Things do not go the way {actor} hoped.",
-      "A setback, and the attempt from {actor} fizzles out.",
-      "{actor} has to face it: it did not work.",
-      "The result is not there for {actor}.",
-      "{actor} fails, with no great harm done.",
-      "The attempt from {actor} comes to nothing."
-    ],
-    "criticalFailure": [
-      "Nothing goes as planned for {actor}.",
-      "{actor} fails in the worst possible way.",
-      "The attempt from {actor} turns into a disaster.",
-      "Everything that could go wrong goes wrong for {actor}.",
-      "{actor} makes a mistake that people will talk about for a long time.",
-      "A bitter failure for {actor}.",
-      "{actor} trips over their own attempt.",
-      "Fate seems to have it in for {actor}."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

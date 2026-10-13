@@ -7,14 +7,7 @@
       "Misses in a row"
     ],
     "outcomes": {
-      "failure,criticalFailure": [
-        "Third miss in a row: {attacker's} frustration starts to show.",
-        "Again nothing. {attacker} grits teeth and resets the stance.",
-        "{target} begins to look almost bored with {attacker's} attempts.",
-        "Another miss, and {attacker's} confidence frays a little more.",
-        "Three swings, three misses: luck has clearly changed sides.",
-        "{attacker} misses again and lets out a curse that echoes."
-      ]
+      "failure,criticalFailure": []
     }
   },
   {
@@ -25,17 +18,7 @@
       "Hits in a row"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "Third hit in a row: {attacker} has found the rhythm.",
-        "{attacker} is unstoppable now, each blow following the last.",
-        "Again! {target} can no longer keep up with {attacker's} pace.",
-        "Hit after hit: {attacker} reads every opening.",
-        "The momentum belongs to {attacker}, and everyone can feel it.",
-        {
-          "text": "{attacker} strikes once more, and {target's} guard is in tatters.",
-          "needs": "armed"
-        }
-      ]
+      "success,criticalSuccess": []
     }
   },
   {
@@ -46,14 +29,7 @@
       "Comeback"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "After that disaster, {attacker} answers with a perfect blow.",
-        "From humiliation to triumph in a single breath.",
-        "{attacker} shakes off the earlier fumble and lands the strike of the day.",
-        "Redemption: the blow lands exactly where the last one failed.",
-        "{attacker} turns embarrassment into fury, and it shows.",
-        "Nobody will remember the fumble after that hit."
-      ]
+      "criticalSuccess": []
     }
   }
 ]

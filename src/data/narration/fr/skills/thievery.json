@@ -7,20 +7,8 @@
       "Voler"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "Les doigts de {actor} repartent avec le butin, et personne ne remarque rien.",
-        "Un frôlement, une torsion, et l'objet change de mains sans être vu.",
-        "{actor} subtilise l'objet proprement, sans un remous.",
-        "Disparu, et personne n'en sait rien.",
-        "{actor} l'empoche avec l'aisance d'une longue pratique."
-      ],
-      "failure,criticalFailure": [
-        "Le porteur sent la traction et se retourne d'un coup.",
-        "Le regard d'un témoin se fixe sur la main de {actor}.",
-        "Les doigts de {actor} hésitent, et le vol est remarqué.",
-        "Un cri s'élève : quelqu'un a vu ça.",
-        "Une main se referme sur le poignet de {actor} en plein geste."
-      ]
+      "success,criticalSuccess": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -31,20 +19,8 @@
       "Escamoter un objet"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "L'objet disparaît dans la manche de {actor}.",
-        "{actor} l'escamote d'un seul geste fluide.",
-        "Tour de passe-passe : c'était là, ça n'y est plus.",
-        "{actor} le glisse hors de vue pendant que tout le monde regarde ailleurs.",
-        "Pas un regard ne surprend la main de {actor}."
-      ],
-      "failure,criticalFailure": [
-        "Un regard s'attarde un instant de trop sur la main de {actor}.",
-        "L'objet accroche la lumière au moment où {actor} l'escamote.",
-        "{actor} est d'un temps trop lent, et ça se remarque.",
-        "Un sourcil se lève : quelqu'un a vu ça.",
-        "La main de {actor} se referme, mais pas à l'abri des regards."
-      ]
+      "success,criticalSuccess": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -55,30 +31,10 @@
       "Désamorcer un dispositif"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Un dernier déclic, et le mécanisme se tait, sans trace de manipulation.",
-        "{actor} travaille avec un calme chirurgical et laisse tout comme intact.",
-        "L'appareil cède entièrement aux mains patientes de {actor}.",
-        "{actor} le neutralise si proprement qu'on pourrait le réarmer plus tard."
-      ],
-      "success": [
-        "{actor} libère un ressort, et l'appareil se tait.",
-        "Un progrès : une pièce de plus du mécanisme neutralisée.",
-        "Sondage prudent, une torsion, et l'appareil est un peu plus sûr.",
-        "{actor} cale la détente et souffle."
-      ],
-      "failure": [
-        "{actor} sonde, mais le mécanisme résiste.",
-        "Rien ne cède ; l'appareil reste armé.",
-        "Les outils de {actor} glissent sans effet.",
-        "Une impasse frustrante face au mécanisme."
-      ],
-      "criticalFailure": [
-        "Un déclic sec sous les doigts de {actor} : l'appareil se déclenche.",
-        "{actor} touche la mauvaise pièce, et le mécanisme se détend.",
-        "Trop de pression : l'appareil part.",
-        "{actor} comprend son erreur un battement de cœur trop tard."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

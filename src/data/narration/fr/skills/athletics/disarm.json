@@ -6,61 +6,9 @@
     "Désarmer"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} frappe le poignet de {target} d'un coup sec : l'objet lui échappe et tombe à ses pieds.",
-      "Une torsion habile, et l'arme de {target} quitte sa main pour heurter le sol avec fracas.",
-      "{attacker} enroule son geste autour de la prise de {target} et l'objet s'envole avant de retomber tout près.",
-      "Les doigts de {target} s'ouvrent malgré eux ; l'objet tombe dans un tintement.",
-      "{attacker} cueille l'arme par la garde et l'arrache de la main de {target}, qui la regarde tomber.",
-      "Un battement précis, et l'objet glisse des mains de {target} pour rebondir à terre.",
-      "{attacker} tord le bras de {target} juste assez : l'objet lui échappe.",
-      "{target} sent sa prise se dérober d'un coup ; l'objet chute à ses pieds.",
-      "D'un revers éclair, {attacker} fait sauter l'objet de la main de {target}.",
-      "{attacker} accroche l'arme et tire d'un mouvement fluide ; elle tombe lourdement aux pieds de {target}.",
-      "Le poignet de {target} plie, et l'objet tombe sans que rien ne puisse le retenir.",
-      "{attacker} frappe à la base des doigts : {target} lâche prise dans un juron."
-    ],
-    "success": [
-      "{attacker} frappe la main de {target} ; la prise se relâche dangereusement.",
-      "L'objet vacille dans la main de {target}, retenu de justesse par le bout des doigts.",
-      "{attacker} tord le poignet de {target}, qui serre les dents pour ne pas lâcher.",
-      "La prise de {target} se fait hésitante après le coup de {attacker}.",
-      "{target} rattrape son arme d'extrême justesse, la poigne désormais mal assurée.",
-      "Un battement sec ébranle la prise de {target} sans tout à fait la briser.",
-      "{attacker} accroche l'objet et tire ; {target} le garde, mais à grand-peine.",
-      "Les doigts de {target} glissent sur la poignée avant de se raffermir, tant bien que mal.",
-      "{attacker} cogne la garde ; l'objet tourne dans la main de {target}.",
-      "{target} grimace : sa prise a souffert du coup de {attacker}.",
-      "L'arme de {target} oscille, prête à tomber au prochain coup.",
-      "{attacker} fait vibrer l'objet dans la main de {target}, qui le tient désormais bien moins fermement."
-    ],
-    "failure": [
-      "{target} raffermit sa prise et l'objet ne bouge pas.",
-      "{attacker} frappe la garde, mais {target} tient bon.",
-      "{target} retire sa main à temps.",
-      "L'objet reste solidement entre les doigts de {target}.",
-      "{attacker} accroche l'arme, qui se dégage aussitôt.",
-      "{target} tourne le poignet et rend la tentative inutile.",
-      "La poigne de {target} ne faiblit pas.",
-      "{attacker} vise la main, {target} l'esquive d'un mouvement souple.",
-      "{target} serre son arme comme si sa vie en dépendait.",
-      "La tentative glisse sur la garde sans rien ébranler.",
-      "{attacker} tire sur l'objet, {target} tire plus fort.",
-      "{target} recule la main hors de portée."
-    ],
-    "criticalFailure": [
-      "{attacker} se jette sur l'arme de {target} et se retrouve en déséquilibre, la garde grande ouverte.",
-      "La tentative échoue si mal que {attacker} expose tout son flanc.",
-      "{target} esquive la main tendue, et {attacker} se retrouve en position vulnérable.",
-      "{attacker} tire sur l'objet, ne rencontre aucune résistance et part en arrière, en déséquilibre.",
-      "{attacker} vise trop loin et laisse une ouverture béante dans sa défense.",
-      "{target} retourne la tentative contre {attacker}, qui vacille et se découvre.",
-      "{attacker} se tord pour atteindre l'arme et perd toute sa garde.",
-      "La main de {attacker} glisse, son corps suit : sa défense est en lambeaux.",
-      "{attacker} s'expose dangereusement pour un geste qui ne mène à rien.",
-      "{target} écarte la main de {attacker} et profite de son déséquilibre.",
-      "{attacker} insiste trop longtemps et reste à découvert.",
-      "Un geste précipité qui laisse {attacker} vacillant, à la merci de {target}."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

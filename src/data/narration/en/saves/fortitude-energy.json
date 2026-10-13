@@ -7,34 +7,10 @@
       "Void"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "The void energy washes over {actor} and finds nothing to take hold of.",
-        "{actor's} life force burns too bright for the darkness to touch.",
-        "The gray chill slides off {actor} like water.",
-        "{actor} breathes out, and the void power simply dissipates.",
-        "Vitality holds firm in {actor} against the hungry dark."
-      ],
-      "success": [
-        "{actor} shudders but keeps most of the warmth inside.",
-        "The emptiness bites, but {actor} holds on.",
-        "{actor} grits teeth as the gray tide recedes.",
-        "A chill passes through {actor}, not as deep as it could have been.",
-        "{actor's} body resists the worst of the void."
-      ],
-      "failure": [
-        "The void energy sinks into {actor}, leaving a deathly pallor.",
-        "Warmth drains from {actor's} limbs.",
-        "{actor} gasps as the darkness takes its toll.",
-        "The gray chill settles into {actor's} bones.",
-        "Color fades from {actor's} face."
-      ],
-      "criticalFailure": [
-        "The void energy rushes in, and {actor} sags under it.",
-        "Cold emptiness floods through {actor}.",
-        "{actor's} breath fogs, and the light seems to dim all around.",
-        "The darkness drinks deeply from {actor}.",
-        "{actor} reels as if life itself were ebbing away."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -45,34 +21,10 @@
       "Vitality"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "The vital light washes over {actor} and fades without a mark.",
-        "{actor} endures the radiant surge, unmoved.",
-        "The light finds no foothold in {actor}.",
-        "{actor} lets the vitality wash past like a warm wind.",
-        "Life energy breaks against {actor} like a wave on rock."
-      ],
-      "success": [
-        "{actor} recoils from the radiance but holds.",
-        "The vital light stings, but only briefly.",
-        "{actor} turns from the glow, weathering most of it.",
-        "Warmth crackles against {actor}, partly turned aside.",
-        "{actor} endures the brightness through clenched jaws."
-      ],
-      "failure": [
-        "The vital light sears into {actor}.",
-        "{actor} shrieks as warmth floods in.",
-        "Radiance pours into {actor} and burns.",
-        "{actor} writhes in the living light.",
-        "The surge of life hits {actor} hard."
-      ],
-      "criticalFailure": [
-        "The vitality engulfs {actor} completely.",
-        "The blazing glow catches {actor} full on.",
-        "Living light tears through {actor}.",
-        "{actor} howls as the radiance floods every corner.",
-        "The glow swallows {actor}, and the scream echoes."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

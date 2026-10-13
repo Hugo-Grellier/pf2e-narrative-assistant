@@ -5,45 +5,9 @@
     "Recovery check"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "A deep breath, almost a start: life reasserts itself in {actor}.",
-      "{actor's} eyelids flutter, and a stronger breath lifts the chest.",
-      "Something deep within {actor} flatly refuses to give up.",
-      "{actor's} pulse firms up all at once, steady and stubborn.",
-      "{actor} coughs, spits, and clings to life with everything they have.",
-      "A spark of awareness crosses {actor's} eyes, like a rekindled flame.",
-      "{actor's} breathing finds an almost normal rhythm again.",
-      "{actor} weakly clenches a fist: not today."
-    ],
-    "success": [
-      "{actor's} breathing rasps a little less.",
-      "{actor's} faint pulse grows more regular.",
-      "{actor} groans softly: a welcome sign of life.",
-      "A longer breath than the others lifts {actor's} chest.",
-      "{actor's} fingers twitch for a moment; the will to live is there.",
-      "{actor} hangs on, one heartbeat after another.",
-      "{actor's} face regains the faintest color.",
-      "{actor} fights in silence, and gains a little ground."
-    ],
-    "failure": [
-      "{actor's} breathing grows weaker, slower.",
-      "{actor's} pulse falters, ever fainter.",
-      "{actor's} face grows paler still.",
-      "{actor} slips a little further into the darkness.",
-      "A faint rattle escapes {actor}, then silence.",
-      "{actor's} strength ebbs away, drop by drop.",
-      "{actor's} chest barely rises.",
-      "The cold creeps into {actor's} hands."
-    ],
-    "criticalFailure": [
-      "{actor's} breathing stops for a moment, then resumes, frighteningly weak.",
-      "{actor's} skin turns a worrying gray.",
-      "{actor's} pulse is no more than a murmur under the fingers.",
-      "{actor} sinks deeper, far from the voices calling out.",
-      "A long shiver runs through {actor}, then nothing moves.",
-      "{actor's} lips turn blue; time is running out.",
-      "{actor's} breath grows so faint that one must strain to hear it.",
-      "{actor} drifts away, and the darkness closes in a little more."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

@@ -6,62 +6,9 @@
     "Pousser"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} charge de l'épaule et envoie {target} valdinguer plusieurs pas en arrière.",
-      "Une poussée des deux mains, tout le corps derrière : {target} recule en catastrophe sur une bonne distance.",
-      "{attacker} cueille {target} en plein élan et l'expédie loin en arrière.",
-      "{target} recule en titubant sous une force qui ne lui laisse aucune prise.",
-      "{attacker} plante ses appuis et pousse comme on enfonce une porte : {target} s'envole presque.",
-      "Le choc est tel que {target} parcourt plusieurs pas à reculons avant de pouvoir s'arrêter.",
-      "{attacker} se ramasse puis se détend d'un coup ; {target} perd sa position et recule loin.",
-      "Un coup d'épaule massif fait reculer {target} sur toute la largeur d'une pièce, ou presque.",
-      "{target} tente de résister, mais ses pieds glissent sur des pas entiers.",
-      "{attacker} pousse avec une telle conviction que {target} n'a d'autre choix que de reculer, loin.",
-      "D'une poussée irrésistible, {attacker} dégage tout l'espace devant soi.",
-      "La poussée emporte {target} en arrière comme une vague."
-    ],
-    "success": [
-      "{attacker} pousse {target}, qui recule d'un pas forcé.",
-      "Un coup d'épaule bien placé fait reculer {target}.",
-      "{attacker} plaque ses mains sur {target} et pousse d'un coup sec.",
-      "{target} cède du terrain sous la poussée.",
-      "{attacker} s'arc-boute et gagne un pas sur {target}.",
-      "D'une poussée sèche, {attacker} fait reculer {target}.",
-      "{target} glisse en arrière, ses pieds raclant le sol.",
-      "{attacker} repousse {target} hors de sa position.",
-      "{target} résiste un instant, puis recule d'un pas.",
-      "Un choc de l'épaule, et {target} n'a d'autre choix que de reculer.",
-      "{attacker} pousse au bon moment, quand les appuis de {target} sont mal assurés.",
-      "{target} perd sa position sous la pression de {attacker}.",
-      "{attacker} avance, {target} recule : le terrain change de main."
-    ],
-    "failure": [
-      "{target} encaisse la poussée sans bouger d'un pouce.",
-      "{attacker} pousse de toutes ses forces contre un mur vivant.",
-      "{target} se cale sur ses appuis et ne recule pas.",
-      "La poussée glisse sur l'épaule de {target}.",
-      "{target} pivote et la poussée de {attacker} se perd sur le côté.",
-      "{attacker} heurte {target}, mais c'est comme pousser un rocher.",
-      "{target} se penche en avant et absorbe le choc.",
-      "{attacker} s'arc-boute, en vain.",
-      "{target} recule d'un demi-pas, puis reprend aussitôt sa place.",
-      "La tentative de {attacker} ne fait que froisser l'équipement de {target}.",
-      "{target} oppose son poids et la poussée meurt sur place.",
-      "{attacker} pousse, {target} tient : rien ne bouge."
-    ],
-    "criticalFailure": [
-      "{target} s'efface au dernier moment, et {attacker} part en avant pour s'étaler.",
-      "{attacker} pousse dans le vide, perd l'équilibre et tombe.",
-      "La poussée rebondit sur {target}, et c'est {attacker} qui finit au sol.",
-      "{attacker} charge, {target} esquive : la chute est inévitable.",
-      "{attacker} glisse au moment de pousser et s'effondre aux pieds de {target}.",
-      "{target} accompagne le mouvement et laisse {attacker} s'écraser au sol.",
-      "{attacker} met trop de poids dans la poussée et bascule en avant, à terre.",
-      "{target} plante ses appuis ; {attacker} rebondit dessus et chute lourdement.",
-      "Un faux pas en pleine poussée, et {attacker} se retrouve au sol.",
-      "{attacker} se précipite, s'emmêle les jambes et tombe de tout son long.",
-      "{target} se dérobe, et l'élan de {attacker} finit droit au sol.",
-      "La poussée se transforme en plongeon maladroit : {attacker} mord la poussière."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

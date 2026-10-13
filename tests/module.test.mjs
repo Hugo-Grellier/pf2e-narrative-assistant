@@ -2,7 +2,7 @@
 // Not a substitute for a real Foundry session (see docs/MANUAL-TESTS.md), but it exercises the glue code.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { loadSourceTables } from "../tools/source.mjs";
+import { fakeTables } from "./fake-corpus.mjs";
 
 const ID = "pf2e-narrative-assistant";
 const handlers = new Map();
@@ -14,8 +14,9 @@ const onChange = new Map();
 const created = [];
 const gm = { id: "gm1", isGM: true, isActiveGM: true };
 
-// Packs hold RollTables shaped like the build output: flags + results with a description.
-const docsFor = (lang) => loadSourceTables(lang).map((t) => ({
+// Packs hold RollTables shaped like the build output: flags + results with a description. The text is a
+// stand-in built from the rules (tests/fake-corpus.mjs); the shipped corpus has its own tests.
+const docsFor = (lang) => fakeTables(lang).map((t) => ({
     flags: { [ID]: { key: t.key, slot: t.slot, when: t.when, priority: t.priority, gmOnly: t.gmOnly, lang } },
     results: { contents: t.entries.map((e) => ({ description: e.text, name: "", weight: e.weight, flags: e.when ? { [ID]: { when: e.when } } : {} })) },
 }));
@@ -157,8 +158,8 @@ test("reroll replaces only the narration text", async () => {
 test("narration language follows the setting, independently of the UI", async () => {
     const api = game.modules.get(ID).api;
     const context = { eventType: "recovery", degreeOfSuccess: "success", vars: { actor: "Seoni" } };
-    const fr = new Set(loadSourceTables("fr").flatMap((t) => t.entries.map((e) => e.text)));
-    const en = new Set(loadSourceTables("en").flatMap((t) => t.entries.map((e) => e.text)));
+    const fr = new Set(fakeTables("fr").flatMap((t) => t.entries.map((e) => e.text)));
+    const en = new Set(fakeTables("en").flatMap((t) => t.entries.map((e) => e.text)));
     const raw = async () => (await api.suggest(context)).rawText;
 
     assert.ok(fr.has(await raw()), "auto + French UI -> French");

@@ -3,6 +3,14 @@
 `npm test` lints every entry (see `tests/corpus.test.mjs`); `npm run build` turns the sources into one
 RollTable compendium per language.
 
+Narration text is written by a person. AI tools may proofread or reformat it, never write it.
+
+Every rule already has a file in each language with its outcome groups and empty lists: writing means
+filling those lists. `npm run coverage` (or `npm run coverage -- fr`) lists what is still empty. Until
+every outcome has text, the tests that need one for every situation (fallbacks, resolution of every
+event) are reported as TODO rather than failures; the style lints always apply. Start with
+`generic.json`: once its four degrees have text, every roll gets a narration.
+
 ## Where things live
 
 ```text
@@ -43,7 +51,7 @@ A text file (one definition or an array), same `key` in every language:
   generic text that mentions the target's guard, parry, armour, gear, clothes, hair or crossed blades
   needs it: a giant rat has none of these. The tests enforce it, and check that every Strike against an
   animal still finds a text.
-- Missing outcomes are fine: resolution falls back to a less specific table.
+- Empty outcomes are fine: resolution falls back to a less specific table.
 - Languages are written independently, not translated line by line; entry counts may differ.
 
 Component tables (fragments inserted into sentences) have a `slot` in their rule and `entries` instead

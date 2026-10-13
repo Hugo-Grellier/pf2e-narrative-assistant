@@ -6,61 +6,9 @@
     "Feinter"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{actor} amorce une attaque haute, puis tout son corps ment : {target} pare dans le vide, la garde grande ouverte.",
-      "Un regard appuyé vers la gauche, un pas vers la droite ; {target} mord à l'hameçon.",
-      "{actor} laisse croire à une faiblesse ; {target} s'y jette et sa garde s'effondre.",
-      "La feinte est si convaincante que {target} se défend contre une attaque qui n'existe pas.",
-      "{actor} simule une glissade ; {target} se précipite et se découvre complètement.",
-      "{target} réagit exactement comme {actor} l'espérait, et sa défense part en morceaux.",
-      "{actor} change trois fois d'intention en un seul geste : {target} ne sait plus où donner de la tête.",
-      "Un mouvement d'épaule, un faux élan : {target} pare à l'opposé de la vraie menace.",
-      "{actor} attire l'attention de {target} ailleurs, puis revient avec un sourire carnassier.",
-      "{target} tombe dans le piège de {actor} sans même s'en rendre compte.",
-      "La garde de {target} s'ouvre comme une porte mal fermée.",
-      "{actor} murmure un « attention, derrière toi » si convaincant que {target} y croit."
-    ],
-    "success": [
-      "{actor} esquisse une attaque qui fait lever la garde de {target}, laissant une ouverture fugace.",
-      "{target} réagit à la feinte une fraction de seconde de trop.",
-      "Un faux mouvement de {actor}, et la garde de {target} vacille.",
-      "{actor} attire le regard de {target} d'un côté pour mieux préparer l'autre.",
-      "{target} pare un coup imaginaire et se découvre légèrement.",
-      "{actor} change d'angle au dernier moment ; {target} hésite.",
-      "{target} mord à la feinte, juste assez.",
-      "Un éclat de lame trompeur fait dévier l'attention de {target}.",
-      "{actor} simule une hésitation, et {target} avance là où il ne fallait pas.",
-      "La défense de {target} se décale d'un cheveu, mais c'est suffisant.",
-      "{actor} feinte un repli ; {target} se laisse surprendre une seconde.",
-      "{target} suit le mouvement de {actor}, dupe un bref instant."
-    ],
-    "failure": [
-      "{target} ne quitte pas des yeux le vrai danger.",
-      "La feinte de {actor} est trop appuyée pour tromper qui que ce soit.",
-      "{target} sourit devant la manœuvre, sans bouger sa garde.",
-      "{actor} amorce une attaque ; {target} attend patiemment la vraie.",
-      "Le faux mouvement de {actor} ne fait pas ciller {target}.",
-      "{target} a déjà vu ce tour-là.",
-      "{actor} tente de détourner l'attention de {target}, en vain.",
-      "{target} garde sa défense parfaitement en place.",
-      "La ruse de {actor} est éventée avant même d'avoir commencé.",
-      "{target} ignore superbement la feinte.",
-      "{actor} ment avec son corps, mais {target} lit la vérité.",
-      "{target} garde toute sa concentration sur l'essentiel."
-    ],
-    "criticalFailure": [
-      "{actor} se prend à son propre jeu et s'expose dangereusement face à {target}.",
-      "{target} voit clair dans la feinte et en profite pour viser l'ouverture laissée par {actor}.",
-      "La feinte de {actor} est si transparente que {target} s'en sert contre son auteur.",
-      "{actor} exagère le mouvement et se retrouve mal placé, à la merci de {target}.",
-      "{target} attend la fin de la feinte et contre-attaque en pensée : la garde de {actor} est grande ouverte.",
-      "{actor} se piège tout seul : sa garde est en désordre face à {target}.",
-      "{target} sourit : c'est {actor} qui vient de se découvrir.",
-      "{actor} feinte trop longtemps et oublie de protéger son flanc.",
-      "La manœuvre de {actor} se retourne contre son auteur ; {target} n'en espérait pas tant.",
-      "{actor} tente un tour trop subtil et s'emmêle dans ses propres gestes.",
-      "{target} laisse {actor} s'enferrer dans sa feinte, puis l'observe, l'air carnassier.",
-      "Un faux pas dans la ruse, et {actor} se retrouve exposé."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

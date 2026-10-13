@@ -6,37 +6,7 @@
     "Tumble Through"
   ],
   "outcomes": {
-    "success,criticalSuccess": [
-      "{actor} dives between {target's} legs and comes up on the other side in a fluid roll.",
-      "A feint left, a spin right: {actor} slips through {target's} space.",
-      "{actor} plants a hand on {target's} shoulder and vaults over in a somersault.",
-      "{actor} slides under {target's} raised arm with feline grace.",
-      "{target} tries to bar the way, but {actor} is already behind, perfectly balanced.",
-      "{actor} links shuffles and half-turns to cross {target's} space without a scratch.",
-      "A low roll, an immaculate recovery: {actor} is through.",
-      "{actor} dances around {target's} guard and carries on.",
-      "{target} turns too late: {actor} has just passed straight through.",
-      "{actor} bends, pivots and threads the gap, supple as a vine.",
-      "With unsettling balance, {actor} slips through where there was no room at all.",
-      "{actor} leaps, spins, lands: {target} saw only a blur go by.",
-      "{actor} slides sideways and crosses {target's} space in a cheeky bit of acrobatics.",
-      "{target} swings at empty air while {actor} carries on behind them."
-    ],
-    "failure,criticalFailure": [
-      "{target} closes the gap and {actor} has to stop short.",
-      "{actor} attempts a roll, but {target} shifts and blocks the way.",
-      "The spin from {actor} ends against the body of {target}, who gives nothing.",
-      "{target} reads the move and blocks the path with a single step.",
-      "{actor} looks for an opening that closes immediately.",
-      "{actor} launches forward, and {target} is exactly where they should not be.",
-      "The leap from {actor} comes up short: {target} cuts off the route.",
-      "{target} spreads their arms and {actor} bounces back.",
-      "{actor} feints, {target} does not bite: the way stays closed.",
-      "The roll from {actor} ends facing {target's} raised guard.",
-      "{actor} has to give up at the last moment: {target} fills all the space.",
-      "{target} tracks the move from {actor} and the gap slams shut.",
-      "{actor} slips, recovers, but the way is barred.",
-      "{actor} tries to squeeze past; {target} stands squarely in the way."
-    ]
+    "success,criticalSuccess": [],
+    "failure,criticalFailure": []
   }
 }

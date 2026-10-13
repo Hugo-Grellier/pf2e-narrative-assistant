@@ -6,41 +6,8 @@
     "Seek"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{actor} sweeps the area with a keen eye; no detail escapes notice.",
-      "A slight movement, a breath, an out-of-place shadow: {actor} sees it all.",
-      "{actor} goes still, listens, watches, and the whole scene reveals itself.",
-      "Nothing withstands {actor's} careful scrutiny.",
-      "{actor} notices the disturbed dust, the door left ajar, the one shadow too many.",
-      "{actor's} senses are wide awake: the slightest anomaly jumps out.",
-      "{actor} pieces the scene together at a glance.",
-      "Whatever was hiding is hidden no longer from {actor's} eyes.",
-      "{actor's} gaze stops exactly where it should.",
-      "{actor} perceives what others would never have noticed."
-    ],
-    "success": [
-      "{actor} searches the area and something finally catches their attention.",
-      "A faint sound draws {actor's} attention in the right direction.",
-      "{actor} notices a detail that does not fit with the rest.",
-      "Scanning the area, {actor} spots a clue.",
-      "{actor} narrows their eyes: there is definitely something there.",
-      "{actor's} attention settles on a suspicious shadow.",
-      "{actor} listens closely and senses a presence.",
-      "A glint, a rustle: {actor} is not fooled.",
-      "{actor} examines the area methodically and comes away with something.",
-      "{actor's} gaze returns to a detail, then stays there."
-    ],
-    "failure,criticalFailure": [
-      "{actor} scans the area without noticing anything in particular.",
-      "Everything seems normal to {actor}. Perhaps too normal.",
-      "{actor} watches closely, but nothing catches the eye.",
-      "Silence and stillness reveal nothing to {actor}.",
-      "{actor} listens; only the usual sounds come through.",
-      "Nothing moves, nothing stands out, at least not for {actor}.",
-      "{actor} sweeps the shadows with a gaze and finds nothing at all.",
-      "The search by {actor} turns up nothing concrete.",
-      "{actor} shrugs: there is, it seems, nothing to see.",
-      "The place keeps its secrets from {actor}."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure,criticalFailure": []
   }
 }
