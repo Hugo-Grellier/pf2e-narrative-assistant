@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { contractFrench } from "../src/languages.mjs";
-import { candidates, createRecentSet, interpolate, matches, narrate, pickEntry, shouldNarrate, specificity } from "../src/engine.mjs";
+import { candidates, createRecentSet, interpolate, matches, narrate, pickEntry, shouldNarrate, specificity, streakOf } from "../src/engine.mjs";
 
 const t = (key, when, texts, extra = {}) => ({ key, slot: "narration", when, entries: texts.map((text) => ({ text, weight: 1 })), ...extra });
 
@@ -156,4 +156,21 @@ test("resolveLanguage: auto follows the UI, unknown falls back to English", asyn
     assert.equal(resolveLanguage("auto", "fr"), "fr");
     assert.equal(resolveLanguage("auto", "de"), "en");
     assert.equal(resolveLanguage("fr", "en"), "fr");
+});
+
+test("streaks: every third hit or miss in a row, and a crit right after a fumble", () => {
+    const [cs, s, f, cf] = ["criticalSuccess", "success", "failure", "criticalFailure"];
+    assert.equal(streakOf([]), undefined);
+    assert.equal(streakOf([f, cf]), undefined);
+    assert.equal(streakOf([s, f, cf, f]), "misses");
+    assert.equal(streakOf([f, cf, f, f]), undefined, "4th miss is not narrated as a streak");
+    assert.equal(streakOf([f, f, f, f, f, f]), "misses");
+    assert.equal(streakOf([cs, s, s]), "hits");
+    assert.equal(streakOf([cf, cs]), "comeback");
+});
+
+test("events that are not rolls ignore the chance settings", () => {
+    const settings = { enabled: true, events: { cast: true }, chances: { success: 0 }, disabledActions: [] };
+    assert.ok(shouldNarrate({ eventType: "cast", degreeOfSuccess: "success", rolled: false }, settings, () => 0.99));
+    assert.ok(!shouldNarrate({ eventType: "cast", degreeOfSuccess: "success", rolled: false }, { ...settings, events: {} }));
 });

@@ -93,3 +93,6 @@ capitalised.
 - Target-type tables (`strike.vs.*`) also fire for ranged attacks: talk about "the attack" or "the
   blow", not a blade.
 - Recall Knowledge entries are prompts to the GM, not facts about creatures.
+- Casts and finishing blows are not rolls: their tables only have a `success` outcome.
+- Finishing blows on NPCs stay ambiguous (falls still, collapses, does not get up): the GM decides
+  whether the creature is dead, unconscious or fleeing. PCs at 0 HP are dying, never dead.

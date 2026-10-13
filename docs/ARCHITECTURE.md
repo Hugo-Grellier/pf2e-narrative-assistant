@@ -3,6 +3,8 @@
 ```text
 PF2e chat message (createChatMessage, active GM only)
   → extractContext()          src/extract.mjs   PF2e flags → plain NarrativeContext
+    or extractCastContext()                     spell cast without attack or save
+  → combat memory             src/module.mjs    target health, Strike streak, last hit per victim
   → Hook "pf2e-narrative-assistant.context"     other modules may enrich or cancel
   → shouldNarrate()           src/engine.mjs    settings filters, chance per degree
   → save grouping             src/module.mjs    saves against one item wait for each other
@@ -28,6 +30,8 @@ No rendered HTML is parsed.
 | Saving throw | `type: "saving-throw"` + `check:statistic:<fortitude\|reflex\|will>` |
 | Recovery | `type: "flat-check"` + `check:statistic:dying-recovery` (from `CreaturePF2e#rollRecovery`) |
 | Spell attack | `type: "attack-roll"` without a strike identifier → `spell` |
+| Spell cast | no `context`; `origin.type: "spell"`, `origin.rollOptions` has `origin:action:slug:cast-a-spell` and no `origin:item:defense:*` → `cast` |
+| Finishing blow | `updateActor` hook, `system.attributes.hp.value` changed to 0, combat started → `finish` |
 
 Context fields come from roll options: `item:damage:type:*` → `damageTypes`, `item:trait:*` + action
 traits → `traits`, `target:trait:*` → `targetTraits`, `item:group:*`, `item:category:*`,
@@ -45,6 +49,17 @@ Duplicates: `createChatMessage` fires only for new documents (never for history 
 only the active GM processes it, message ids are remembered, damage rolls have no outcome, and our
 own cards carry a module flag. PF2e Hero Point rerolls create a new message with a new outcome and are
 narrated again, which is intended.
+
+Events that are not rolls (`cast`, `finish`) carry `rolled: false` and `degreeOfSuccess: "success"` so
+the tables keep one shape; the chance settings do not apply to them.
+
+Combat memory (active GM only, lost on reload): `targetHealth` comes from the target actor's
+`hitPoints` when the roll is made (`fresh`, `bloodied` ≤ 50%, `critical` ≤ 25%). Strike outcomes are
+kept per attacker and combat; `streakOf()` turns them into `streak: "hits" | "misses" | "comeback"`
+(a Hero Point reroll replaces the last outcome). The last successful Strike or spell attack against a
+creature, or its last save, is kept per victim so the finishing blow can name the attacker, the range
+and whether magic did it; `updateActor` only receives changed fields, so a creature already at 0 HP is
+never narrated twice.
 
 Save grouping: a save whose message carries `flags.pf2e.origin.uuid` (the spell, poison or effect item)
 waits `saveGroupDelay` seconds; every save with the same origin and the same save type restarts the wait.
@@ -72,7 +87,7 @@ The tables are the rules: there is no separate rule list. Matching (`matches`):
 
 Specificity = sum of the `when` key weights (`KEY_WEIGHTS` in `engine.mjs`) + `priority`. Broad keys
 (event, range, save, degree) weigh 1, damage types and traits 2, weapon group and creature type 3, a
-named action or a condition 4. The fallback chain is therefore implicit:
+named action, a condition or a streak 4; target health 3. The fallback chain is therefore implicit:
 
 ```text
 strike.vs.undead.criticalSuccess        (eventType 1, targetTraits 3, degree 1, priority 3 = 8)

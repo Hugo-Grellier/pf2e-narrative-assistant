@@ -155,6 +155,30 @@ for (const lang of corpusLanguages()) {
         }
         expect({ eventType: "saving-throw", save: "fortitude", traits: ["void", "divine"] }, "save.fortitude.void");
         expect({ eventType: "saving-throw", save: "fortitude", traits: ["vitality"] }, "save.fortitude.vitality");
+
+        for (const slug of ["reposition", "force-open", "climb", "swim", "lie", "request", "perform", "steal", "palm-an-object", "disable-a-device", "disable-device"]) {
+            expect({ eventType: "skill-check", actionSlug: slug }, "skill.");
+        }
+        const at = (degrees, context, prefix) => {
+            for (const degreeOfSuccess of degrees) {
+                const result = narrate(tables, { vars: {}, ...context, degreeOfSuccess });
+                assert.ok(result?.tableKey.startsWith(prefix), `${JSON.stringify(context)} ${degreeOfSuccess} -> ${result?.tableKey}`);
+            }
+        };
+        const hits = ["success", "criticalSuccess"];
+        at(["failure", "criticalFailure"], { ...melee, streak: "misses" }, "strike.streak.misses");
+        at(hits, { ...melee, streak: "hits", targetHealth: "critical" }, "strike.streak.hits");
+        at(["criticalSuccess"], { ...melee, streak: "comeback" }, "strike.streak.comeback");
+        at(hits, { ...melee, targetHealth: "bloodied", targetTraits: ["undead"] }, "strike.health.bloodied");
+        at(hits, { ...melee, targetHealth: "critical" }, "strike.health.critical");
+        at(["failure"], { ...melee, targetHealth: "critical" }, "strike.melee.slashing");
+        at(["success"], { eventType: "cast", traits: ["concentrate"] }, "cast.success");
+        for (const tradition of ["arcane", "divine", "occult", "primal"]) at(["success"], { eventType: "cast", traits: [tradition] }, `cast.${tradition}`);
+        at(["success"], { eventType: "cast", traits: ["divine", "healing"] }, "cast.healing");
+        at(["success"], { eventType: "finish", victim: "npc", cause: "strike", range: "melee" }, "finish.npc.success");
+        at(["success"], { eventType: "finish", victim: "npc", cause: "strike", range: "ranged" }, "finish.npc.ranged");
+        at(["success"], { eventType: "finish", victim: "npc", cause: "magic" }, "finish.npc.magic");
+        at(["success"], { eventType: "finish", victim: "character", cause: "magic" }, "finish.character");
     });
 
     test(`[${lang}] main strike tables have real variety`, () => {

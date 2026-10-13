@@ -7,7 +7,9 @@
       "strike": "Frappe",
       "recovery": "Test de récupération",
       "spell": "Sort",
-      "other": "Jet"
+      "other": "Jet",
+      "cast": "Sort",
+      "finish": "Coup de grâce"
     },
     "Settings": {
       "enabled": {
@@ -51,6 +53,14 @@
         "spell": {
           "Name": "Événements : attaques de sort",
           "Hint": ""
+        },
+        "cast": {
+          "Name": "Événements : sorts lancés sans jet",
+          "Hint": "Guérison sur un allié, Rapidité… Les sorts avec attaque ou sauvegarde sont narrés sur ce jet."
+        },
+        "finish": {
+          "Name": "Événements : coups de grâce",
+          "Hint": "Quand une créature tombe à 0 PV pendant un combat."
         }
       },
       "disabledActions": {

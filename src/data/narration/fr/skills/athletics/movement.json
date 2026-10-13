@@ -1,0 +1,138 @@
+[
+  {
+    "key": "skill.athletics.reposition",
+    "label": [
+      "Compétences",
+      "Athlétisme",
+      "Repositionner"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} guide {target} exactement où il faut, comme un pion sur l'échiquier.",
+        "{actor} fait reculer {target} pas après pas, en pleine maîtrise.",
+        "Prise, pivot, poussée : {target} finit là où {actor} l'a décidé.",
+        "D'une torsion des épaules, {actor} déplace {target} sur une bonne distance."
+      ],
+      "success": [
+        "{actor} décale {target} d'un pas, d'un coup d'épaule.",
+        "Une prise ferme sur le bras de {target}, et {target} recule d'un pas.",
+        "{actor} repousse {target} d'un seul pas.",
+        "D'une traction sèche, {actor} tire {target} hors de position."
+      ],
+      "failure": [
+        "{target} plante les deux pieds et ne bouge pas.",
+        "{actor} pousse, mais {target} tient sa position.",
+        "{target} se dégage de la tentative sans effort.",
+        "La prise de {actor} glisse avant de déplacer quoi que ce soit."
+      ],
+      "criticalFailure": [
+        "{target} retourne la situation et décale {actor} à la place.",
+        "{actor} en fait trop, et {target} profite de l'élan pour déplacer {actor}.",
+        "La tentative se retourne : c'est {actor} qui change de place.",
+        "{target} pivote, et soudain {actor} est hors de position."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.force-open",
+    "label": [
+      "Compétences",
+      "Athlétisme",
+      "Ouvrir de force"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "Ça s'ouvre proprement, gonds et serrure intacts.",
+        "{actor} trouve le point faible et ouvre sans une égratignure.",
+        "Une poussée précise, un déclic, et ça s'ouvre comme si ça n'attendait que ça.",
+        "{actor} force l'ouverture avec soin, sans rien abîmer."
+      ],
+      "success": [
+        "Le bois éclate quand {actor} force le passage.",
+        "Dans un craquement, la serrure cède, et l'ouvrage reste brisé.",
+        "{actor} pousse de tout son poids, et ça s'ouvre en vrac, malmené.",
+        "Le loquet s'arrache dans un gémissement de métal."
+      ],
+      "failure": [
+        "{actor} force, mais ça tient bon.",
+        "Rien ne cède, pas même un grincement.",
+        "L'épaule de {actor} rencontre une résistance massive.",
+        "Ça tremble, mais ça reste fermé."
+      ],
+      "criticalFailure": [
+        "L'effort de {actor} ne fait que coincer davantage.",
+        "Quelque chose se bloque à l'intérieur avec un bruit sinistre.",
+        "{actor} tord le loquet dans le mauvais sens ; c'est pire qu'avant.",
+        "Le cadre bouge et se verrouille encore plus fort."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.climb",
+    "label": [
+      "Compétences",
+      "Athlétisme",
+      "Escalader"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} escalade la paroi à toute allure, trouvant chaque prise.",
+        "Main après main, {actor} grimpe comme si c'était naturel.",
+        "{actor} gravit le mur avec une vitesse surprenante.",
+        "Chaque prise est exactement là où {actor} tend la main."
+      ],
+      "success": [
+        "{actor} grimpe avec régularité, testant chaque prise.",
+        "Lentement mais sûrement, {actor} progresse sur la pente.",
+        "{actor} se hisse, trouve un appui et continue.",
+        "Une ascension prudente, et {actor} gagne du terrain."
+      ],
+      "failure": [
+        "{actor} cherche une prise et n'en trouve aucune.",
+        "La surface est trop glissante ; {actor} reste sur place.",
+        "{actor} s'agrippe sans pouvoir monter plus haut.",
+        "Aucun progrès : chaque prise s'effrite ou glisse."
+      ],
+      "criticalFailure": [
+        "Une prise se détache et {actor} tombe.",
+        "Le pied de {actor} glisse, et la gravité l'emporte.",
+        "{actor} lâche prise et chute avec un cri.",
+        "L'ascension se termine en chute et en nuage de poussière."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.swim",
+    "label": [
+      "Compétences",
+      "Athlétisme",
+      "Nager"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} fend l'eau à grandes brasses puissantes.",
+        "Le courant semble porter {actor}.",
+        "{actor} glisse vers l'avant sans presque faire de vague.",
+        "De longues brasses efficaces emportent {actor} rapidement."
+      ],
+      "success": [
+        "{actor} nage avec régularité et détermination.",
+        "Brasse après brasse, {actor} avance.",
+        "{actor} se fraie un chemin dans l'eau.",
+        "L'eau résiste, mais {actor} progresse."
+      ],
+      "failure": [
+        "{actor} se débat sans avancer.",
+        "Le courant maintient {actor} sur place.",
+        "Des efforts, des éclaboussures, et aucun progrès.",
+        "{actor} fait du surplace."
+      ],
+      "criticalFailure": [
+        "{actor} avale une gorgée d'eau et perd du terrain.",
+        "Une vague passe sur {actor}, qui remonte en crachotant.",
+        "{actor} coule un instant et brûle un souffle précieux.",
+        "Panique et éclaboussures : {actor} n'avance pas et cherche son air."
+      ]
+    }
+  }
+]

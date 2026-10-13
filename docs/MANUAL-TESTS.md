@@ -42,3 +42,34 @@ players, PF2e's own message untouched.
 | 34 | Spell attack (*Ignition*, *Ray of Frost*), with *Events: spell attacks* on | Fire / cold spell narration, header "Hit · <spell>" |
 | 35 | Undead save against *Heal*; living creature saves against *Harm* | Fortitude vitality / void narration |
 | 36 | Run `tools/check-pf2e.mjs` on a fresh PF2e checkout (or the *PF2e watch* workflow) | All assumptions hold |
+| 37 | Strike the same target and miss three times in a row | Third card uses a "misses in a row" text |
+| 38 | Hit a target below half HP, then below a quarter | "Bloodied", then "near collapse" texts |
+| 39 | In a started combat, bring an NPC to 0 HP with an arrow, a spell, a melee hit | One "finishing blow" card each, naming the attacker, ↰ jumps to the hit |
+| 40 | Bring a PC to 0 HP | "Player character" finishing card (collapse, never death) |
+| 41 | Set an NPC to 0 HP by hand outside combat | No card |
+| 42 | Cast *Heal* on an ally (no save), then *Fear* (save) | A cast card for Heal only; Fear is narrated on its saves |
+| 43 | Reposition, Force Open, Climb, Swim, Lie, Request, Perform, Steal, Palm an Object, Disable a Device | Matching action text |
+
+## Capturing fixtures
+
+Real PF2e data turns the assumptions above into regression tests. After playing a few scenarios, run in
+the browser console (F12) as GM:
+
+```js
+copy(JSON.stringify(game.messages.contents.slice(-20)
+    .filter((m) => m.flags.pf2e?.context || m.flags.pf2e?.casting)
+    .map((m) => {
+        const { type, outcome, options, identifier, altUsage, isReroll, traits, domains, origin, target } = m.flags.pf2e.context ?? {};
+        return {
+            note: m.flavor?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 80),
+            flags: { pf2e: {
+                context: m.flags.pf2e.context && { type, outcome, options, identifier, altUsage, isReroll, traits, domains, origin, target },
+                origin: m.flags.pf2e.origin, casting: m.flags.pf2e.casting,
+            } },
+        };
+    }), null, 2));
+```
+
+Paste the result into `tests/fixtures/pf2e-flags.json` and add an `expect` to each entry, e.g.
+`"expect": { "eventType": "strike", "range": "melee", "damageTypes": ["slashing"] }`, or
+`"expect": null` for a roll that must not be narrated (damage, initiative). `npm test` replays them.

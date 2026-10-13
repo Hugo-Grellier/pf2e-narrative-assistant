@@ -1,0 +1,73 @@
+[
+  {
+    "key": "finish.npc",
+    "label": [
+      "Coups de grâce",
+      "Créature"
+    ],
+    "outcomes": {
+      "success": [
+        "Le dernier coup de {attacker} porte, et {target} vacille, puis ne bouge plus.",
+        "{target} pousse un dernier râle et s'effondre.",
+        "Avec ce coup, {target} perd toute envie de se battre, pour de bon.",
+        "{target} titube d'un pas, puis de deux, et s'écroule.",
+        "{attacker} conclut : {target} se plie autour du coup et ne se relève pas.",
+        "L'arme glisse des doigts sans force de {target} tandis que la créature s'effondre.",
+        "Le silence tombe quand {target} bascule.",
+        "{target} s'affaisse, à bout."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.ranged",
+    "label": [
+      "Coups de grâce",
+      "Créature, à distance"
+    ],
+    "outcomes": {
+      "success": [
+        "Le tir de {attacker} fait mouche une dernière fois, et {target} bascule.",
+        "De loin, le dernier tir abat {target}.",
+        "{target} fait encore un pas vers {attacker}, puis s'écroule sous le tir.",
+        "Le dernier projectile porte et {target} s'effondre sans un bruit.",
+        "{attacker} abaisse son arme tandis que {target} s'immobilise au loin.",
+        "Un tir net, et {target} tombe."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.magic",
+    "label": [
+      "Coups de grâce",
+      "Créature, magie"
+    ],
+    "outcomes": {
+      "success": [
+        "La magie submerge {target}, et quand elle se dissipe, {target} ne tient plus debout.",
+        "{target} s'effondre tandis que la puissance du sort fait son œuvre.",
+        "Le dernier sursaut de magie vide {target} de ses forces.",
+        "Le sort de {attacker} est la dernière chose que {target} affronte.",
+        "Un éclair, un cri, et {target} s'écroule.",
+        "{target} chancelle sous la magie et ne s'en remet pas."
+      ]
+    }
+  },
+  {
+    "key": "finish.character",
+    "label": [
+      "Coups de grâce",
+      "Personnage joueur"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} s'effondre, le monde s'assombrissant sur les bords.",
+        "Les jambes de {target} se dérobent, et le combat continue sans {target}.",
+        "Un dernier coup fait tomber {target} ; les voix des alliés semblent soudain très lointaines.",
+        "{target} tombe, le souffle court, et tout dépend de la suite.",
+        "{target} s'affaisse dans un halètement, hors du combat pour l'instant.",
+        "Le coup porte et {target} s'écroule, respirant encore, à peine.",
+        "L'attaque de {attacker} fauche {target}, et le cœur du groupe manque un battement."
+      ]
+    }
+  }
+]

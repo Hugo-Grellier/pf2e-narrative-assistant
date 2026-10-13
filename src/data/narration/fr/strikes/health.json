@@ -1,0 +1,38 @@
+[
+  {
+    "key": "strike.health.bloodied",
+    "label": [
+      "Frappes",
+      "Santé de la cible",
+      "Mal en point"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "Déjà mal en point, {target} vacille sous le nouveau coup.",
+        "Le coup tombe sur des plaies fraîches, et {target} grimace.",
+        "Les gestes de {target} ralentissent ; ce coup fait plus mal que le précédent.",
+        "Sang et sueur se mêlent sur {target} quand l'attaque porte.",
+        "{target} souffre visiblement, et l'attaque n'arrange rien.",
+        "Le coup rouvre les blessures de {target}."
+      ]
+    }
+  },
+  {
+    "key": "strike.health.critical",
+    "label": [
+      "Frappes",
+      "Santé de la cible",
+      "Au bord de l'effondrement"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "{target} tient à peine debout ; le coup lui coupe le souffle.",
+        "Le souffle court, {target} encaisse encore un coup.",
+        "{target} est au bord du gouffre ; un autre comme ça pourrait être le dernier.",
+        "Le coup porte, et les genoux de {target} manquent de céder.",
+        "{target} ne lève presque plus sa garde, et le coup passe.",
+        "Chaque coup compte désormais : {target} est à bout de forces."
+      ]
+    }
+  }
+]

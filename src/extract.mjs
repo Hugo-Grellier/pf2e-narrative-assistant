@@ -89,3 +89,67 @@ export function extractContext(systemFlags, names = {}) {
     }
     return null; // initiative, counteract, other flat checks
 }
+
+/** Health band from PF2e hit points: "critical" at a quarter or less, "bloodied" at half or less, else "fresh". */
+export function healthState(hp) {
+    if (!hp?.max) return undefined;
+    const ratio = hp.value / hp.max;
+    if (ratio <= 0.25) return "critical";
+    return ratio <= 0.5 ? "bloodied" : "fresh";
+}
+
+const CAST_A_SPELL = "origin:action:slug:cast-a-spell";
+
+/**
+ * A spell actually cast (not just posted to chat) that has no attack roll and no save, e.g. Heal on an
+ * ally or Haste. Spells with a defense are narrated on their attack or save roll instead.
+ * PF2e writes `flags.pf2e.origin.rollOptions` ("origin:item:trait:healing", "origin:item:defense:reflex"...)
+ * and `flags.pf2e.casting.tradition` on the cast message.
+ */
+export function extractCastContext(systemFlags, names = {}) {
+    const origin = systemFlags?.origin;
+    const options = origin?.rollOptions ?? [];
+    if (origin?.type !== "spell" || !options.includes(CAST_A_SPELL)) return null;
+    if (options.some((o) => o.startsWith("origin:item:defense:"))) return null;
+    const traits = simpleSuffixes(options, "origin:item:trait:");
+    const tradition = systemFlags.casting?.tradition;
+    return {
+        eventType: "cast",
+        degreeOfSuccess: "success", // a cast has no degree; tables are written for "success"
+        rolled: false,
+        traits: [...new Set(tradition ? [...traits, tradition] : traits)],
+        damageTypes: [],
+        targetTraits: [],
+        actorConditions: [],
+        targetConditions: [],
+        rollOptions: options,
+        isReroll: false,
+        vars: { actor: names.actor, attacker: names.actor, target: names.target, weapon: names.item },
+    };
+}
+
+/**
+ * A creature just dropped to 0 HP. `victim` is "character" (a PC, now dying) or "npc"; `lastHit` is the
+ * context of the last roll that hurt it (a hit, a spell attack or a failed save), if the module saw one.
+ */
+export function finishContext(victim, lastHit, names = {}) {
+    const byMagic = lastHit && ["spell", "saving-throw"].includes(lastHit.eventType);
+    // The one who dealt the blow: the attacker of a hit, the creature behind a save.
+    const attacker = lastHit?.eventType === "saving-throw" ? lastHit.vars?.origin : lastHit?.vars?.attacker;
+    return {
+        eventType: "finish",
+        degreeOfSuccess: "success", // not a roll; tables are written for "success"
+        rolled: false,
+        victim,
+        cause: byMagic ? "magic" : lastHit ? "strike" : undefined,
+        range: lastHit?.eventType === "strike" ? lastHit.range : undefined,
+        damageTypes: lastHit?.damageTypes ?? [],
+        traits: [],
+        targetTraits: names.targetTraits ?? [],
+        actorConditions: [],
+        targetConditions: [],
+        rollOptions: [],
+        isReroll: false,
+        vars: { actor: attacker, attacker, target: names.target, weapon: lastHit?.vars?.weapon },
+    };
+}

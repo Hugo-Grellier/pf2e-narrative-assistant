@@ -11,7 +11,7 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 
 - Read-only: it never changes rolls, damage, conditions or degrees of success.
 - No LLM, no network: narration comes from RollTables shipped in the module compendiums, one per
-  language (236 tables and ~2100 entries each, written separately in English and French rather than
+  language (285 tables and ~2300 entries each, written separately in English and French rather than
   translated).
 - *Another suggestion* draws another text, never another PF2e roll. *Send to chat* posts the text
   alone, publicly. Each line also has a ↰ button that scrolls the chat to the PF2e roll it narrates,
@@ -19,6 +19,10 @@ The blade slips under the guard of the kobold and opens a long gash across the s
   (`game.modules.get("pf2e-narrative-assistant").api.unbanAll()` brings them all back).
 - Saves against the same spell or effect that arrive within a couple of seconds share one card, one
   line per creature, instead of one card per creature.
+- In a started combat, a creature dropping to 0 HP gets a finishing-blow card naming whoever dealt the
+  last hit (a PC gets a "collapse" text, never a death).
+- Strikes notice the scene: a target below half or a quarter of its HP, three hits or misses in a row,
+  a critical right after a fumble.
 
 ## Supported events
 
@@ -28,10 +32,14 @@ The blade slips under the guard of the kobold and opens a long gash across the s
 | Strikes, ranged | generic, piercing (bows, crossbows), thrown weapons, firearms |
 | Strikes, by target | undead, constructs, swarms, incorporeal creatures |
 | Strikes, by condition | target prone, frightened, grabbed/restrained; attacker frightened or sickened |
+| Strikes, by situation | target bloodied (≤ 50% HP) or near collapse (≤ 25%); 3 hits / 3 misses in a row; crit after a fumble |
+| Finishing blows | NPC (melee, ranged, magic), player character |
 | Spell attacks | by tradition (arcane, divine, occult, primal) and damage (fire, cold, electricity, acid, force, void) |
-| Athletics | Trip, Grapple, Shove, Disarm, Escape |
+| Spell casts without attack or save | by tradition, healing |
+| Athletics | Trip, Grapple, Shove, Disarm, Escape, Reposition, Force Open, Climb, Swim |
 | Acrobatics | Tumble Through (success / failure, as in the Remaster rules) |
-| Deception, Intimidation, Stealth, Perception | Feint, Create a Diversion, Demoralize, Hide, Sneak, Seek |
+| Deception, Diplomacy, Intimidation, Performance | Feint, Create a Diversion, Lie, Request, Demoralize, Perform |
+| Stealth, Perception, Thievery | Hide, Sneak, Seek, Steal, Palm an Object, Disable a Device |
 | Medicine | Treat Wounds, Administer First Aid |
 | Recall Knowledge | GM prompts on how to deliver the information, never invented facts |
 | Saving throws | Reflex (fire, cold, electricity, acid), Fortitude (poison, disease, physical, void, vitality), Will (fear, mental) |
@@ -105,8 +113,9 @@ GMs can also customise in Foundry: import a table from the compendium into the w
   French text avoids gendered pronouns and agreements; French elision and contraction are automatic
   (« d'Ezren », a token named « le kobold » gives « du kobold »). Naming generic NPC tokens with their
   article ("the kobold") reads best in both languages.
-- Spell casts without a roll, damage, condition changes, Dying/Wounded changes, initiative are not
-  narrated yet; the extension points are described in the architecture doc.
+- Damage, condition changes, Dying/Wounded changes, initiative are not narrated; the extension points
+  are described in the architecture doc.
+- Streaks and "who hit whom last" live in the active GM's memory: a reload or a GM change resets them.
 - Written against the PF2e 8.6.1 source and the Foundry 14 type declarations it ships; not yet run in
   a live Foundry session. See
   [docs/MANUAL-TESTS.md](docs/MANUAL-TESTS.md) for the in-game checklist.

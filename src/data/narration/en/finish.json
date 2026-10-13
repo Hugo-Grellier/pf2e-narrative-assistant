@@ -1,0 +1,73 @@
+[
+  {
+    "key": "finish.npc",
+    "label": [
+      "Finishing blows",
+      "Creature"
+    ],
+    "outcomes": {
+      "success": [
+        "{attacker's} last blow lands, and {target} sways, then falls still.",
+        "{target} lets out a final gasp and crumples.",
+        "With that strike, the fight goes out of {target} for good.",
+        "{target} staggers a step, then two, and collapses.",
+        "{attacker} ends it: {target} folds over the blow and does not get up.",
+        "{target's} weapon slips from limp fingers as the creature collapses.",
+        "Silence falls as {target} topples.",
+        "{target} sinks down, spent."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.ranged",
+    "label": [
+      "Finishing blows",
+      "Creature, ranged"
+    ],
+    "outcomes": {
+      "success": [
+        "{attacker's} shot finds its mark one last time, and {target} topples.",
+        "From afar, the final shot brings {target} down.",
+        "{target} takes one more step toward {attacker}, then crumples under the shot.",
+        "The last projectile hits home and {target} collapses without a sound.",
+        "{attacker} lowers the weapon as {target} falls still in the distance.",
+        "One clean shot, and {target} goes down."
+      ]
+    }
+  },
+  {
+    "key": "finish.npc.magic",
+    "label": [
+      "Finishing blows",
+      "Creature, magic"
+    ],
+    "outcomes": {
+      "success": [
+        "The magic washes over {target}, and when it fades, {target} is no longer standing.",
+        "{target} crumples as the spell's power runs its course.",
+        "The final surge of magic leaves {target} spent and fallen.",
+        "{attacker's} spell is the last thing {target} faces.",
+        "A flash, a cry, and {target} collapses.",
+        "{target} reels under the magic and does not recover."
+      ]
+    }
+  },
+  {
+    "key": "finish.character",
+    "label": [
+      "Finishing blows",
+      "Player character"
+    ],
+    "outcomes": {
+      "success": [
+        "{target} collapses, the world going dark at the edges.",
+        "{target's} legs give way, and the fight goes on without them.",
+        "A final hit drops {target}; the voices of allies sound suddenly very far away.",
+        "{target} falls, breathing shallow, and everything hangs on what happens next.",
+        "{target} sinks down, gasping, out of the fight for now.",
+        "The blow lands and {target} crumples, still breathing, barely.",
+        "{attacker's} attack fells {target}, and the whole party's hearts skip a beat."
+      ]
+    }
+  }
+]

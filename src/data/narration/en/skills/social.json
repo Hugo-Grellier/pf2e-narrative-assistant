@@ -1,0 +1,94 @@
+[
+  {
+    "key": "skill.deception.lie",
+    "label": [
+      "Skills",
+      "Deception",
+      "Lie"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "{actor} lies without a flicker, and {target} nods along.",
+        "The story holds together perfectly, and {target} believes it.",
+        "A warm smile, a confident tone: {target} buys every word.",
+        "{target} hesitates, then accepts {actor's} version.",
+        "{actor} weaves the lie so well it almost sounds true."
+      ],
+      "failure,criticalFailure": [
+        "{target's} eyes narrow: something in the story does not add up.",
+        "A detail slips, and {target} catches it.",
+        "{target} listens politely, but clearly does not believe a word.",
+        "{actor's} voice wavers at the wrong moment.",
+        "{target} lets the silence stretch, unconvinced."
+      ]
+    }
+  },
+  {
+    "key": "skill.diplomacy.request",
+    "label": [
+      "Skills",
+      "Diplomacy",
+      "Request"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{target} agrees at once, without conditions.",
+        "{actor} asks, and {target} seems glad to help.",
+        "The request lands perfectly; {target} even offers more.",
+        "{target} nods warmly: consider it done."
+      ],
+      "success": [
+        "{target} agrees, though with a condition or two.",
+        "After some thought, {target} accepts, on terms.",
+        "{target} says yes, but wants something in return.",
+        "A reluctant nod from {target}."
+      ],
+      "failure": [
+        "{target} shakes their head, though perhaps something smaller could work.",
+        "{target} refuses, politely but firmly.",
+        "The request is too much for {target}.",
+        "{target} declines and suggests another way."
+      ],
+      "criticalFailure": [
+        "{target} refuses, clearly offended by the request.",
+        "The request sours the mood: {target} looks at {actor} differently now.",
+        "{target's} expression hardens; asking was a mistake.",
+        "{target} bristles and turns cold."
+      ]
+    }
+  },
+  {
+    "key": "skill.performance.perform",
+    "label": [
+      "Skills",
+      "Performance",
+      "Perform"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "The audience falls silent, then erupts; people will talk about this.",
+        "{actor} holds every eye in the room.",
+        "A masterful performance: even skeptics are won over.",
+        "{actor} finishes to rapt silence, then applause."
+      ],
+      "success": [
+        "{actor} performs well, and the audience appreciates it.",
+        "Solid, polished, and warmly received.",
+        "Heads nod along as {actor} performs.",
+        "{actor} earns a round of genuine applause."
+      ],
+      "failure": [
+        "The performance falls flat; attention drifts away.",
+        "{actor} loses the thread, and the audience notices.",
+        "Polite silence greets the end.",
+        "A few yawns, a few whispers: it does not land."
+      ],
+      "criticalFailure": [
+        "{actor} fumbles badly, and someone laughs, not kindly.",
+        "A false note, a forgotten line, and the room winces.",
+        "The performance is remembered for all the wrong reasons.",
+        "{actor} stops halfway, red-faced."
+      ]
+    }
+  }
+]

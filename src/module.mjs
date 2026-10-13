@@ -2,8 +2,8 @@
  * Foundry glue: settings, chat hook, table loading, output and chat buttons.
  * Read-only towards PF2e: it never updates PF2e messages, actors or rolls.
  */
-import { createRecentSet, narrate, shouldNarrate } from "./engine.mjs";
-import { extractContext } from "./extract.mjs";
+import { createRecentSet, narrate, shouldNarrate, streakOf } from "./engine.mjs";
+import { extractCastContext, extractContext, finishContext, healthState } from "./extract.mjs";
 import { LANGUAGES, resolveLanguage } from "./languages.mjs";
 
 const ID = "pf2e-narrative-assistant";
@@ -19,6 +19,8 @@ const EVENT_SETTINGS = {
     save: ["saving-throw"],
     recovery: ["recovery"],
     spell: ["spell"],
+    cast: ["cast"],
+    finish: ["finish"],
     other: ["other"],
 };
 const DEGREE_KEYS = ["criticalSuccess", "success", "failure", "criticalFailure"];
@@ -146,7 +148,10 @@ function subjectLabel(context) {
         case "saving-throw":
             return game.i18n.localize(CONFIG.PF2E.saves[context.save]);
         case "spell":
-            return context.vars.weapon ?? loc("Event.spell");
+        case "cast":
+            return context.vars.weapon ?? loc(`Event.${context.eventType}`);
+        case "finish":
+            return [loc("Event.finish"), context.vars.target].filter(Boolean).join(" · ");
         default:
             return loc(`Event.${context.eventType}`);
     }
@@ -160,6 +165,7 @@ function degreeLabel(context) {
 /** "Inspiration — Critical Hit · Longsword"; a group of saves: "Inspiration — Reflex · Fireball". */
 function header(contexts) {
     const [context] = contexts;
+    if (context.rolled === false) return `${loc("Title")} — ${subjectLabel(context)}`;
     if (contexts.length === 1) return `${loc("Title")} — ${degreeLabel(context)} · ${subjectLabel(context)}`;
     return `${loc("Title")} — ${[subjectLabel(context), context.vars.weapon].filter(Boolean).join(" · ")}`;
 }
@@ -176,9 +182,9 @@ function cardHTML(head, lines, { buttons = true } = {}) {
     const grouped = lines.length > 1;
     const body = lines
         .map((line, index) => {
-            const label = grouped ? `<strong>${line.context.vars.actor ?? ""} (${degreeLabel(line.context)})</strong> ` : "";
+            const label = grouped && line.context.rolled !== false ? `<strong>${line.context.vars.actor ?? ""} (${degreeLabel(line.context)})</strong> ` : "";
             const tools = buttons
-                ? `<span class="pf2e-na-line-tools">${button("source", "fa-arrow-turn-up", loc("Source"), `data-message-id="${line.sourceId}"`)}${button("ban", "fa-ban", loc("Ban"), `data-line="${index}"`)}</span>`
+                ? `<span class="pf2e-na-line-tools">${line.sourceId ? button("source", "fa-arrow-turn-up", loc("Source"), `data-message-id="${line.sourceId}"`) : ""}${button("ban", "fa-ban", loc("Ban"), `data-line="${index}"`)}</span>`
                 : "";
             return `<p class="pf2e-na-text">${label}${line.text}${tools}</p>`;
         })
@@ -218,7 +224,7 @@ function namesFor(message) {
 
 /** Wait for Dice So Nice to finish animating so a public narration doesn't spoil the result. */
 function afterDice(message) {
-    if (!game.modules.get("dice-so-nice")?.active || !message.rolls.length) return Promise.resolve();
+    if (!game.modules.get("dice-so-nice")?.active || !message?.rolls.length) return Promise.resolve();
     return new Promise((resolve) => {
         const hookId = Hooks.on("diceSoNiceRollComplete", (id) => {
             if (id !== message.id) return;
@@ -245,6 +251,37 @@ function groupKey(message, context) {
     return context.eventType === "saving-throw" && origin ? `${origin}.${context.save}` : null;
 }
 
+/* Combat memory, active GM only, lost on reload. */
+const MEMORY = 100;
+const lastHits = new Map(); // victim actor uuid -> { context, messageId } of the last roll that hurt it
+const strikeHistory = new Map(); // "<combat>.<attacker>" -> degrees of that attacker's recent Strikes
+const keep = (map, key, value) => {
+    map.delete(key);
+    map.set(key, value);
+    if (map.size > MEMORY) map.delete(map.keys().next().value);
+};
+
+/** Records who last hurt whom (for finishing blows) and the attacker's Strike streak. */
+function trackCombat(context, message) {
+    const hurts = ["success", "criticalSuccess"].includes(context.degreeOfSuccess);
+    if (["strike", "spell"].includes(context.eventType) && hurts) {
+        const victim = message.target?.actor?.uuid;
+        if (victim) keep(lastHits, victim, { context, messageId: message.id });
+    }
+    // Basic saves deal damage on a success too, so any save counts.
+    if (context.eventType === "saving-throw" && message.actor?.uuid) {
+        keep(lastHits, message.actor.uuid, { context, messageId: message.id });
+    }
+    if (context.eventType === "strike") {
+        const key = `${game.combat?.id ?? ""}.${message.actor?.uuid ?? context.vars.actor}`;
+        const degrees = strikeHistory.get(key) ?? [];
+        // A Hero Point reroll replaces the previous result rather than adding one.
+        const next = [...(context.isReroll ? degrees.slice(0, -1) : degrees), context.degreeOfSuccess].slice(-10);
+        keep(strikeHistory, key, next);
+        context.streak = streakOf(next);
+    }
+}
+
 async function onCreateChatMessage(message) {
     // A single client handles each message: the active GM. Hooks for messages loaded at startup never fire.
     if (!game.user.isActiveGM || seenMessages.has(message.id)) return;
@@ -254,8 +291,11 @@ async function onCreateChatMessage(message) {
     const settings = readSettings();
     if (!settings.enabled) return;
 
-    const context = extractContext(message.flags.pf2e, namesFor(message));
+    const names = namesFor(message);
+    const context = extractContext(message.flags.pf2e, names) ?? extractCastContext(message.flags.pf2e, names);
     if (!context) return;
+    context.targetHealth = healthState(message.target?.actor?.hitPoints);
+    trackCombat(context, message);
     // Other modules may enrich the context or cancel narration by returning false.
     if (Hooks.call(`${ID}.context`, context, message) === false) return;
     if (!shouldNarrate(context, settings)) return;
@@ -273,13 +313,41 @@ async function onCreateChatMessage(message) {
     pendingGroups.set(key, group);
 }
 
+/**
+ * Finishing blow: a PC or NPC in a started combat drops to 0 HP. `changes` only holds what changed, so a
+ * creature already at 0 is not narrated again. Damage applied by a player reaches the GM as an update too.
+ */
+async function onUpdateActor(actor, changes) {
+    if (!game.user.isActiveGM || !game.combat?.started) return;
+    const hp = foundry.utils.getProperty(changes, "system.attributes.hp.value");
+    if (hp === undefined || hp > 0 || !["character", "npc"].includes(actor.type)) return;
+
+    const settings = readSettings();
+    const token = actor.token ?? actor.getActiveTokens(false, true)[0];
+    const last = lastHits.get(actor.uuid);
+    lastHits.delete(actor.uuid);
+    const context = finishContext(actor.type, last?.context, {
+        target: escape(token?.name ?? actor.name),
+        targetTraits: [...(actor.traits ?? [])],
+    });
+    if (Hooks.call(`${ID}.context`, context, null) === false) return;
+    if (!shouldNarrate(context, settings)) return;
+
+    const result = await suggest(context);
+    if (!result) return;
+    // A hidden token stays a secret: never narrate its fall publicly.
+    await output([toLine(context, result, last?.messageId)], settings, { keepPrivate: !!token?.hidden });
+}
+
 async function narrateRolls(rolls, settings) {
     const lines = [];
     for (const { context, message } of rolls) {
         const result = await suggest(context);
         if (result) lines.push(toLine(context, result, message.id));
     }
-    if (lines.length) await output(lines, settings, rolls.map((r) => r.message));
+    const messages = rolls.map((r) => r.message);
+    const keepPrivate = messages.some((m) => m.whisper.length > 0 || m.blind);
+    if (lines.length) await output(lines, settings, { keepPrivate, waitFor: messages.at(-1) });
 }
 
 // Stored so Reroll can resolve again; roll options are dropped, the engine never needs them.
@@ -289,20 +357,20 @@ const toLine = (context, result, sourceId) => ({
     rawText: result.rawText,
     tableKey: result.tableKey,
     gmOnly: result.gmOnly,
-    sourceId,
+    sourceId: sourceId ?? null,
 });
 
-async function output(lines, settings, sourceMessages) {
+/** `keepPrivate`: the source is secret (whispered/blind roll, hidden token); `waitFor`: message whose dice to wait for. */
+async function output(lines, settings, { keepPrivate = false, waitFor } = {}) {
     const head = header(lines.map((l) => l.context));
     // Never go public with a narration about a secret roll, nor with GM-only prompts (Recall Knowledge).
-    const keepPrivate = sourceMessages.some((m) => m.whisper.length > 0 || m.blind) || lines.some((l) => l.gmOnly);
-    const mode = settings.output === "public" && keepPrivate ? "whisper" : settings.output;
+    const mode = settings.output === "public" && (keepPrivate || lines.some((l) => l.gmOnly)) ? "whisper" : settings.output;
 
     if (mode === "notification") {
         for (const line of lines) ui.notifications.info(`${head} : ${line.text}`);
         return;
     }
-    if (mode === "public") await afterDice(sourceMessages.at(-1));
+    if (mode === "public") await afterDice(waitFor);
     await ChatMessage.create({
         content: cardHTML(head, lines, { buttons: mode === "whisper" }),
         speaker: { alias: loc("Title") },
@@ -399,6 +467,9 @@ Hooks.once("ready", () => {
     if (game.system.id !== "pf2e") return;
     Hooks.on("createChatMessage", (message) => {
         onCreateChatMessage(message).catch((error) => console.error(`${ID} |`, error));
+    });
+    Hooks.on("updateActor", (actor, changes) => {
+        onUpdateActor(actor, changes).catch((error) => console.error(`${ID} |`, error));
     });
     Hooks.on("renderChatMessageHTML", onRenderChatMessage);
     for (const hook of ["createRollTable", "updateRollTable", "deleteRollTable", "createTableResult", "updateTableResult", "deleteTableResult"]) {

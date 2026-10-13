@@ -21,7 +21,12 @@ const docsFor = (lang) => loadSourceTables(lang).map((t) => ({
 }));
 
 globalThis.Hooks = { on, once: on, off: () => {}, call: (name, ...args) => !fire(name, ...args).includes(false) };
-globalThis.foundry = { utils: { escapeHTML: (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;") } };
+globalThis.foundry = {
+    utils: {
+        escapeHTML: (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"),
+        getProperty: (object, path) => path.split(".").reduce((o, k) => o?.[k], object),
+    },
+};
 globalThis.CONFIG = { PF2E: { saves: { reflex: "PF2E.SavesReflex" } } };
 globalThis.fromUuidSync = () => null;
 globalThis.ui = { notifications: { info: () => {} } };
@@ -210,4 +215,56 @@ test("chance settings skip a share of rolls", async () => {
     await createAndWait(pf2eMessage("c1", { type: "attack-roll", identifier: "a.longsword.melee", outcome: "success" }));
     settings.set("chance.success", 100);
     assert.equal(created.length, 0);
+});
+
+test("a spell cast without attack or save gets a card; a save spell does not", async () => {
+    created.length = 0;
+    const cast = (id, options) => ({
+        ...pf2eMessage(id, {}),
+        flags: { pf2e: { origin: { type: "spell", uuid: "Item.heal", rollOptions: ["origin:action:slug:cast-a-spell", ...options] }, casting: { tradition: "divine" } } },
+        item: { name: "Guérison" },
+    });
+    await createAndWait(cast("c2", ["origin:item:trait:healing"]));
+    await createAndWait(cast("c3", ["origin:item:defense:reflex"]));
+    assert.equal(created.length, 1);
+    assert.match(created[0].flags[ID].lines[0].tableKey, /^cast\.healing\./);
+    assert.match(created[0].content, /— Guérison</);
+});
+
+test("streaks and target health reach the narration context", async () => {
+    created.length = 0;
+    const miss = (id) => pf2eMessage(id, { type: "attack-roll", identifier: "a.longsword.melee", outcome: "failure" }, { actor: { uuid: "Actor.valeros" } });
+    for (const id of ["m1", "m2", "m3"]) await createAndWait(miss(id));
+    assert.deepEqual(created.map((c) => c.flags[ID].lines[0].context.streak), [undefined, undefined, "misses"]);
+    assert.match(created[2].flags[ID].lines[0].tableKey, /^strike\.streak\.misses\./);
+
+    created.length = 0;
+    await createAndWait(pf2eMessage("hp1", { type: "attack-roll", identifier: "a.longsword.melee", outcome: "success" }, {
+        target: { token: { name: "Kobold" }, actor: { uuid: "Actor.kobold", hitPoints: { value: 3, max: 20 } } },
+    }));
+    assert.equal(created[0].flags[ID].lines[0].context.targetHealth, "critical");
+});
+
+test("finishing blow: once when a creature drops to 0 HP in combat, naming the last attacker", async () => {
+    created.length = 0;
+    game.combat = { id: "c1", started: true };
+    const kobold = { uuid: "Actor.kobold2", type: "npc", name: "Kobold", traits: new Set(["humanoid"]), token: { name: "the kobold", hidden: false } };
+    await createAndWait(pf2eMessage("k1", { type: "attack-roll", identifier: "a.longbow.ranged", outcome: "success" }, {
+        speaker: { alias: "Kyra" },
+        target: { token: { name: "the kobold" }, actor: { ...kobold, hitPoints: { value: 4, max: 20 } } },
+    }));
+    created.length = 0;
+    const update = (actor, changes) => Promise.all(fire("updateActor", actor, changes));
+    await update(kobold, { system: { attributes: { hp: { value: 0 } } } });
+    await update(kobold, { name: "Dead kobold" }); // HP unchanged: not narrated again
+    await update(kobold, { system: { attributes: { hp: { value: 5 } } } });
+    game.combat = { id: "c1", started: false };
+    await update(kobold, { system: { attributes: { hp: { value: 0 } } } }); // out of combat
+    game.combat = null;
+    assert.equal(created.length, 1);
+    const [line] = created[0].flags[ID].lines;
+    assert.match(line.tableKey, /^finish\.npc\.ranged\./);
+    assert.equal(line.context.vars.attacker, "Kyra");
+    assert.equal(line.sourceId, "k1");
+    assert.match(created[0].content, /— PF2E_NA\.Event\.finish · the kobold</);
 });

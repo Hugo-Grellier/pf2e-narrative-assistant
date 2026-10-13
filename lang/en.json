@@ -7,7 +7,9 @@
       "strike": "Strike",
       "recovery": "Recovery check",
       "spell": "Spell",
-      "other": "Roll"
+      "other": "Roll",
+      "cast": "Spell",
+      "finish": "Finishing blow"
     },
     "Settings": {
       "enabled": {
@@ -51,6 +53,14 @@
         "spell": {
           "Name": "Events: spell attacks",
           "Hint": ""
+        },
+        "cast": {
+          "Name": "Events: spell casts without a roll",
+          "Hint": "Heal on an ally, Haste… Spells with an attack or a save are narrated on that roll."
+        },
+        "finish": {
+          "Name": "Events: finishing blows",
+          "Hint": "When a creature drops to 0 HP during combat."
         }
       },
       "disabledActions": {

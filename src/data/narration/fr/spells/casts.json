@@ -1,0 +1,106 @@
+[
+  {
+    "key": "cast",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Générique"
+    ],
+    "outcomes": {
+      "success": [
+        "{actor} façonne le sort d'un geste sûr, et la magie prend.",
+        "Un mot, un geste, et le sort de {actor} s'épanouit.",
+        "L'air change autour de {actor} quand le sort se referme.",
+        "La magie de {actor} se pose sur la scène, calme et certaine.",
+        "Sur une dernière syllabe, {actor} libère le sort.",
+        "Le sort répond à {actor} exactement comme prévu."
+      ]
+    }
+  },
+  {
+    "key": "cast.arcane",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Arcanique"
+    ],
+    "outcomes": {
+      "success": [
+        "Des runes s'allument autour des doigts de {actor} quand la formule se complète.",
+        "{actor} trace une géométrie précise dans l'air, et le sort se verrouille.",
+        "Des sceaux arcaniques flamboient puis s'éteignent quand le sort de {actor} prend effet.",
+        "Comme une serrure qui cède, le sort se résout sous les mains de {actor}.",
+        "{actor} récite la dernière ligne de la formule sans trébucher une seule fois."
+      ]
+    }
+  },
+  {
+    "key": "cast.divine",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Divin"
+    ],
+    "outcomes": {
+      "success": [
+        "{actor} murmure une prière, et une lumière chaude y répond.",
+        "Une présence semble se pencher tout près quand {actor} termine l'invocation.",
+        "Le symbole sacré de {actor} scintille tandis que la puissance divine s'écoule.",
+        "La foi prend forme : le sort se pose avec le poids d'une bénédiction.",
+        "{actor} lève une main suppliante, et la réponse vient."
+      ]
+    }
+  },
+  {
+    "key": "cast.occult",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Occulte"
+    ],
+    "outcomes": {
+      "success": [
+        "Les ombres se penchent vers {actor} quand le sort occulte prend.",
+        "{actor} prononce des mots qui semblent résonner depuis ailleurs.",
+        "La réalité a un hoquet autour de {actor}, et le sort est lancé.",
+        "Un faible murmure suit le geste de {actor}, puis le silence.",
+        "Les yeux de {actor} luisent étrangement quand le sort se referme."
+      ]
+    }
+  },
+  {
+    "key": "cast.primal",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Primordial"
+    ],
+    "outcomes": {
+      "success": [
+        "Le vent tourne quand {actor} invoque le sort.",
+        "{actor} puise dans le monde vivant, qui répond par une bouffée d'odeur verte.",
+        "Un cri d'animal lointain semble faire écho à l'incantation de {actor}.",
+        "Les feuilles frémissent puis retombent quand la magie primordiale de {actor} prend effet.",
+        "{actor} inspire profondément, et le sort coule comme de la sève."
+      ]
+    }
+  },
+  {
+    "key": "cast.healing",
+    "label": [
+      "Sorts",
+      "Incantations",
+      "Guérison"
+    ],
+    "outcomes": {
+      "success": [
+        "Une lumière chaude coule des mains de {actor}, et les visages fatigués se détendent.",
+        "La magie de guérison de {actor} efface la douleur dans une douce lueur.",
+        "Un doux rayonnement se répand depuis {actor}, et les souffles s'apaisent.",
+        "{actor} impose les mains, et la douleur reflue comme une marée.",
+        "Le sort de soin se pose comme un rayon de soleil après la pluie.",
+        "Les plaies se referment un peu sous le contact lumineux de {actor}."
+      ]
+    }
+  }
+]

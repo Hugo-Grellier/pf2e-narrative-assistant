@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { extractContext } from "../src/extract.mjs";
+import { extractCastContext, extractContext, finishContext, healthState } from "../src/extract.mjs";
 
 // Shapes mirror `flags.pf2e.context` as written by PF2e 8.6 Check.roll.
 const flags = (context) => ({ context: { options: [], traits: [], domains: [], ...context } });
@@ -103,4 +103,37 @@ test("conditions of the roller and the target, without their values", () => {
     }));
     assert.deepEqual(ctx.actorConditions, ["frightened"]);
     assert.deepEqual(ctx.targetConditions, ["prone", "off-guard"]);
+});
+
+test("health bands", () => {
+    assert.equal(healthState({ value: 30, max: 30 }), "fresh");
+    assert.equal(healthState({ value: 15, max: 30 }), "bloodied");
+    assert.equal(healthState({ value: 7, max: 30 }), "critical");
+    assert.equal(healthState(null), undefined);
+    assert.equal(healthState({ value: 0, max: 0 }), undefined);
+});
+
+test("spell casts: only real casts without an attack or a save", () => {
+    const cast = (options, tradition = "divine") => ({
+        origin: { type: "spell", uuid: "x", rollOptions: ["origin:action:slug:cast-a-spell", ...options] },
+        casting: { id: "e", tradition },
+    });
+    const heal = extractCastContext(cast(["origin:item:trait:healing", "origin:item:trait:vitality"]), { actor: "Kyra", item: "Heal" });
+    assert.equal(heal.eventType, "cast");
+    assert.equal(heal.rolled, false);
+    assert.deepEqual(heal.traits.sort(), ["divine", "healing", "vitality"]);
+    assert.equal(heal.vars.weapon, "Heal");
+    assert.equal(extractCastContext(cast(["origin:item:defense:reflex"])), null, "save spells narrate on the save");
+    assert.equal(extractCastContext(cast(["origin:item:defense:ac"])), null, "attack spells narrate on the attack");
+    assert.equal(extractCastContext({ origin: { type: "spell", rollOptions: [] } }), null, "posted to chat, not cast");
+    assert.equal(extractCastContext({ origin: { type: "weapon", rollOptions: ["origin:action:slug:cast-a-spell"] } }), null);
+});
+
+test("finishing blow context names who dealt it", () => {
+    const strike = { eventType: "strike", range: "ranged", damageTypes: ["piercing"], vars: { attacker: "Kyra", weapon: "Shortbow" } };
+    const byArrow = finishContext("npc", strike, { target: "the goblin" });
+    assert.deepEqual([byArrow.victim, byArrow.cause, byArrow.range, byArrow.vars.attacker], ["npc", "strike", "ranged", "Kyra"]);
+    const bySave = finishContext("character", { eventType: "saving-throw", vars: { actor: "Valeros", origin: "the dragon" } }, { target: "Valeros" });
+    assert.deepEqual([bySave.cause, bySave.vars.attacker], ["magic", "the dragon"]);
+    assert.equal(finishContext("npc", undefined, {}).cause, undefined);
 });

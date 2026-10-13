@@ -1,0 +1,138 @@
+[
+  {
+    "key": "skill.athletics.reposition",
+    "label": [
+      "Skills",
+      "Athletics",
+      "Reposition"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} steers {target} exactly where wanted, like a piece on a board.",
+        "{actor} walks {target} backward step after step, completely in control.",
+        "Grip, pivot, drive: {target} ends up right where {actor} decided.",
+        "A hard twist of the shoulders, and {actor} moves {target} a good distance."
+      ],
+      "success": [
+        "{actor} shoulders {target} a step to the side.",
+        "A firm grip on {target's} arm, and {target} is guided a pace aside.",
+        "{actor} drives {target} back a single step.",
+        "With a sharp tug, {actor} pulls {target} out of position."
+      ],
+      "failure": [
+        "{target} plants both feet and does not budge.",
+        "{actor} pushes, but {target} holds the ground.",
+        "{target} shrugs off the attempt to move them.",
+        "{actor's} grip slides off before it can move anything."
+      ],
+      "criticalFailure": [
+        "{target} turns the tables and steers {actor} a step aside instead.",
+        "{actor} overreaches, and {target} uses the momentum to move {actor} around.",
+        "The attempt backfires: {actor} is the one who ends up displaced.",
+        "{target} pivots, and suddenly {actor} is out of position."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.force-open",
+    "label": [
+      "Skills",
+      "Athletics",
+      "Force Open"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "It swings open cleanly, hinges and lock intact.",
+        "{actor} finds the weak point and opens it without a scratch.",
+        "A precise heave, a click, and it opens as if it had been waiting.",
+        "{actor} pops it open neatly, leaving nothing damaged."
+      ],
+      "success": [
+        "Wood splinters as {actor} forces it open.",
+        "With a crack, the lock gives way, and the thing is left broken.",
+        "{actor} heaves, and it bursts open, battered.",
+        "The latch tears free with a groan of metal."
+      ],
+      "failure": [
+        "{actor} strains, but it holds firm.",
+        "Nothing gives, not even a creak.",
+        "{actor's} shoulder meets solid resistance.",
+        "It shudders, but stays shut."
+      ],
+      "criticalFailure": [
+        "{actor's} effort only wedges it tighter.",
+        "Something inside jams with a sickening clunk.",
+        "{actor} bends the latch the wrong way; it is stuck worse than before.",
+        "The frame shifts and locks itself shut even harder."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.climb",
+    "label": [
+      "Skills",
+      "Athletics",
+      "Climb"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} scales the surface swiftly, finding every handhold.",
+        "Hand over hand, {actor} climbs as if born to it.",
+        "{actor} moves up the wall with startling speed.",
+        "Every hold is right where {actor} reaches for it."
+      ],
+      "success": [
+        "{actor} climbs steadily, testing each hold.",
+        "Slow but sure, {actor} makes progress up the incline.",
+        "{actor} hauls up, finds purchase, and keeps going.",
+        "A careful climb, and {actor} gains ground."
+      ],
+      "failure": [
+        "{actor} searches for a hold and finds none.",
+        "The surface is too slick; {actor} stays put.",
+        "{actor} clings in place, unable to go higher.",
+        "No progress: every handhold crumbles or slips."
+      ],
+      "criticalFailure": [
+        "A hold breaks away and {actor} falls.",
+        "{actor's} foot slips, and gravity wins.",
+        "{actor} loses grip and drops with a yelp.",
+        "The climb ends in a fall and a cloud of dust."
+      ]
+    }
+  },
+  {
+    "key": "skill.athletics.swim",
+    "label": [
+      "Skills",
+      "Athletics",
+      "Swim"
+    ],
+    "outcomes": {
+      "criticalSuccess": [
+        "{actor} cuts through the water with powerful strokes.",
+        "The current seems to help {actor} along.",
+        "{actor} glides forward, barely making a ripple.",
+        "Long, efficient strokes carry {actor} quickly."
+      ],
+      "success": [
+        "{actor} swims on, steady and determined.",
+        "Stroke after stroke, {actor} makes headway.",
+        "{actor} pushes through the water.",
+        "The water fights back, but {actor} advances."
+      ],
+      "failure": [
+        "{actor} thrashes but makes no headway.",
+        "The current holds {actor} in place.",
+        "Effort, splashing, and no progress.",
+        "{actor} treads water, going nowhere."
+      ],
+      "criticalFailure": [
+        "{actor} swallows a mouthful of water and loses ground.",
+        "A wave breaks over {actor}, who comes up sputtering.",
+        "{actor} sinks briefly, burning precious breath.",
+        "Panic and splashing: {actor} gets nowhere and gasps for air."
+      ]
+    }
+  }
+]

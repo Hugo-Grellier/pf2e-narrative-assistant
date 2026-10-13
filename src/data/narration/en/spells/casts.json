@@ -1,0 +1,106 @@
+[
+  {
+    "key": "cast",
+    "label": [
+      "Spells",
+      "Casts",
+      "Generic"
+    ],
+    "outcomes": {
+      "success": [
+        "{actor} shapes the spell with a sure gesture, and the magic takes hold.",
+        "A word, a gesture, and {actor's} spell blooms into being.",
+        "The air shifts around {actor} as the spell completes.",
+        "{actor's} magic settles over the scene, quiet and certain.",
+        "With a final syllable, {actor} lets the spell go.",
+        "The spell answers {actor} exactly as intended."
+      ]
+    }
+  },
+  {
+    "key": "cast.arcane",
+    "label": [
+      "Spells",
+      "Casts",
+      "Arcane"
+    ],
+    "outcomes": {
+      "success": [
+        "Runes ignite around {actor's} fingers as the formula completes.",
+        "{actor} traces a precise geometry in the air, and the spell locks into place.",
+        "Arcane sigils flare and fade as {actor's} spell takes effect.",
+        "Like a lock clicking open, the spell resolves under {actor's} hands.",
+        "{actor} recites the last line of the formula without a single stumble."
+      ]
+    }
+  },
+  {
+    "key": "cast.divine",
+    "label": [
+      "Spells",
+      "Casts",
+      "Divine"
+    ],
+    "outcomes": {
+      "success": [
+        "{actor} murmurs a prayer, and a warm light answers.",
+        "A presence seems to lean close as {actor} completes the invocation.",
+        "{actor's} holy symbol glints as the divine power flows.",
+        "Faith takes shape: the spell settles with the weight of a blessing.",
+        "{actor} lifts a hand in supplication, and the answer comes."
+      ]
+    }
+  },
+  {
+    "key": "cast.occult",
+    "label": [
+      "Spells",
+      "Casts",
+      "Occult"
+    ],
+    "outcomes": {
+      "success": [
+        "Shadows lean toward {actor} as the occult spell takes hold.",
+        "{actor} speaks words that seem to echo from somewhere else.",
+        "Reality hiccups for a moment around {actor}, and the spell is cast.",
+        "A faint whisper follows {actor's} gesture, then silence.",
+        "{actor's} eyes glimmer strangely as the spell completes."
+      ]
+    }
+  },
+  {
+    "key": "cast.primal",
+    "label": [
+      "Spells",
+      "Casts",
+      "Primal"
+    ],
+    "outcomes": {
+      "success": [
+        "The wind turns as {actor} calls on the spell.",
+        "{actor} draws on the living world, and it answers with a rush of green scent.",
+        "A distant animal cry seems to echo {actor's} incantation.",
+        "Leaves stir and settle as {actor's} primal magic takes effect.",
+        "{actor} breathes in deep, and the spell flows like sap."
+      ]
+    }
+  },
+  {
+    "key": "cast.healing",
+    "label": [
+      "Spells",
+      "Casts",
+      "Healing"
+    ],
+    "outcomes": {
+      "success": [
+        "Warm light flows from {actor's} hands, and tired faces ease.",
+        "{actor's} healing magic eases the pain away with a soft glow.",
+        "A gentle radiance spreads from {actor}, and breathing steadies.",
+        "{actor} lays on a hand, and the hurt retreats like a tide.",
+        "The healing spell settles like sunlight after rain.",
+        "Wounds close a little under {actor's} glowing touch."
+      ]
+    }
+  }
+]

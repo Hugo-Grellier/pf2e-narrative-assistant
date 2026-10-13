@@ -42,7 +42,9 @@ export const KEY_WEIGHTS = {
     thrown: 2,
     weaponGroup: 3,
     targetTraits: 3,
+    targetHealth: 3,
     actionSlug: 4,
+    streak: 4,
     targetConditions: 4,
     actorConditions: 4,
 };
@@ -121,13 +123,31 @@ export function narrate(tables, context, { exclude = [], recent = new Map(), fal
 
 /**
  * Narration filters from settings. `settings` mirrors the module settings (see module.mjs);
- * `settings.chances[degree]` is the percentage of rolls of that degree that get a narration.
+ * `settings.chances[degree]` is the percentage of rolls of that degree that get a narration. Events that
+ * are not rolls (`rolled: false`: spell casts, finishing blows) only follow their event setting.
  */
 export function shouldNarrate(context, settings, random = Math.random) {
     if (!settings.enabled || !context?.degreeOfSuccess) return false;
     if (!settings.events[context.eventType]) return false;
     if (context.actionSlug && settings.disabledActions.includes(context.actionSlug)) return false;
+    if (context.rolled === false) return true;
     return random() * 100 < (settings.chances[context.degreeOfSuccess] ?? 100);
+}
+
+const isHit = (degree) => degree === "success" || degree === "criticalSuccess";
+
+/**
+ * Strike streak from one attacker's recent outcomes, oldest first: "comeback" for a critical success right
+ * after a critical failure, "hits" / "misses" on every third hit / miss in a row (3rd, 6th...), else undefined.
+ */
+export function streakOf(degrees) {
+    const last = degrees.at(-1);
+    if (!last) return undefined;
+    if (last === "criticalSuccess" && degrees.at(-2) === "criticalFailure") return "comeback";
+    let run = 0;
+    for (let i = degrees.length - 1; i >= 0 && isHit(degrees[i]) === isHit(last); i--) run++;
+    if (run < 3 || run % 3 !== 0) return undefined;
+    return isHit(last) ? "hits" : "misses";
 }
 
 /** Remembers the last `size` ids; `has(id)` then `add(id)` lets a caller ignore repeats. */

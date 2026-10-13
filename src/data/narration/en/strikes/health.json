@@ -1,0 +1,38 @@
+[
+  {
+    "key": "strike.health.bloodied",
+    "label": [
+      "Strikes",
+      "Target health",
+      "Bloodied"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "{target}, already worn down, staggers under the new blow.",
+        "The hit lands on fresh wounds, and {target} winces hard.",
+        "{target's} movements are slowing; this blow hurts more than the last.",
+        "Blood and sweat mix on {target} as the attack lands.",
+        "{target} is clearly hurting now, and the strike makes it worse.",
+        "The blow reopens {target's} earlier injuries."
+      ]
+    }
+  },
+  {
+    "key": "strike.health.critical",
+    "label": [
+      "Strikes",
+      "Target health",
+      "Near collapse"
+    ],
+    "outcomes": {
+      "success,criticalSuccess": [
+        "{target} can barely stand, and the blow nearly folds them in half.",
+        "Swaying, breathing hard, {target} takes yet another hit.",
+        "{target} is on the edge; one more like that could be the end.",
+        "The hit lands, and {target's} knees almost give way.",
+        "{target} barely raises a guard anymore, and the blow gets through.",
+        "Every hit counts now: {target} is running out of strength."
+      ]
+    }
+  }
+]
