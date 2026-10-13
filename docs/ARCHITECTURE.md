@@ -46,7 +46,8 @@ attacks: `altUsage: "thrown"` or `item:thrown` on a ranged strike → `thrown: t
 narrated: the module never guesses a result.
 
 Duplicates: `createChatMessage` fires only for new documents (never for history loaded at startup),
-only the active GM processes it, message ids are remembered, damage rolls have no outcome, and our
+only the active GM processes it, message ids are remembered, damage rolls are skipped (they carry the
+outcome of their attack, checked on PF2e 8.6 data), and our
 own cards carry a module flag. PF2e Hero Point rerolls create a new message with a new outcome and are
 narrated again, which is intended.
 
@@ -112,12 +113,21 @@ generic.criticalSuccess                 (1)
 Use `priority` only to order two tables that may both match and weigh the same (an agile weapon is
 also unarmed; a prone target may also be undead).
 
-Tables with no entries are skipped, so an emptied world table falls back too. Texts hidden with 🚫 (the
+Tables with no usable entry are skipped, so an emptied world table falls back too. An entry may carry its
+own `when` (stored on the TableResult flag, written from `needs` in the sources): it is only drawn where
+that matches, e.g. texts about the target's guard only against armed creatures. Texts hidden with 🚫 (the
 `banned` world setting) are removed when tables load, so a table whose texts are all hidden falls back
 the same way.
 
 `slot` other than `narration` defines a component: `{bodyPart}` picks the most specific matching
 table of slot `bodyPart` (humanoid / beast / generic by `targetTraits`).
+
+## Names
+
+Token names, HTML-escaped. An NPC token from a compendium whose name is still its actor's ("Giant Rat",
+"Giant Rat 2") is a stat block, not a name: the language's `npcName` adds an article, "the giant rat",
+« le rat géant » (always « le »/« l' » since the gender is unknown; « du »/« au » follow from contraction). Renamed tokens, PCs and
+NPCs created in the world keep their names.
 
 ## Languages
 

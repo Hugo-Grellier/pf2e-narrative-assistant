@@ -1,6 +1,9 @@
 {
   "key": "generic",
-  "label": ["Generic", "Any roll"],
+  "label": [
+    "Generic",
+    "Any roll"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "Everything aligns: {actor} succeeds with remarkable ease.",

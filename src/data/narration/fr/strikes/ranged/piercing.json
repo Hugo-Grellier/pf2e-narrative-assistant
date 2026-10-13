@@ -22,7 +22,10 @@
       "{attacker} tire en mouvement, presque sans viser, et pourtant la flèche se fiche exactement où il faut.",
       "Le carreau traverse la défense de {target} avec un bruit sec et mat.",
       "La flèche file en légère cloche puis plonge droit sur {bodyPart}.",
-      "{attacker} relâche la corde dans un souffle ; le trait trouve le défaut de la garde de {target}.",
+      {
+        "text": "{attacker} relâche la corde dans un souffle ; le trait trouve le défaut de la garde de {target}.",
+        "needs": "armed"
+      },
       "Un sifflement aigu, puis un impact profond : le trait est planté sur {bodyPart}.",
       "Le carreau frappe avec une telle force que tout le corps de {target} en tressaille.",
       "{attacker} décoche à l'instant où {target} lève le bras, exposant {bodyPart}.",
@@ -42,12 +45,18 @@
       "La pointe érafle {target} sur {bodyPart} avant de se perdre.",
       "Un trait vif, bien placé, qui arrache un grognement à {target}.",
       "{attacker} ajuste d'un cheveu et la flèche trouve son chemin.",
-      "Le trait se plante dans l'équipement de {target} et atteint la chair dessous.",
+      {
+        "text": "Le trait se plante dans l'équipement de {target} et atteint la chair dessous.",
+        "needs": "armed"
+      },
       "La corde claque deux fois dans le silence : la seconde flèche touche.",
       "Le carreau frappe {target} au moment où sa défense se relâche.",
       "{attacker} décoche sans attendre et le trait atteint {target} en plein élan.",
       "La flèche siffle et s'enfonce sur {bodyPart}.",
-      "Le trait file bas et touche {target} juste sous sa garde.",
+      {
+        "text": "Le trait file bas et touche {target} juste sous sa garde.",
+        "needs": "armed"
+      },
       "{attacker} vise {bodyPart} et la flèche obéit."
     ],
     "failure": [
@@ -64,7 +73,10 @@
       "La pointe accroche le tissu de {target} sans rien trouver dessous.",
       "{attacker} tire trop vite ; le trait passe à côté.",
       "La flèche file entre les jambes de {target}.",
-      "Le carreau rebondit sur la garde de {target} dans un tintement.",
+      {
+        "text": "Le carreau rebondit sur la garde de {target} dans un tintement.",
+        "needs": "armed"
+      },
       "{target} plonge à couvert au moment où la flèche arrive."
     ],
     "criticalFailure": [

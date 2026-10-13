@@ -37,7 +37,10 @@
         "A wild kick leaves {attacker} hopping to keep balance.",
         "{attacker} throws everything into the blow, hits only air and stumbles after it.",
         "{target} slips the punch so cleanly that {attacker} nearly topples into the empty space.",
-        "{attacker's} fist meets the edge of {target's} guard and the whole arm jars to the shoulder."
+        {
+          "text": "{attacker's} fist meets the edge of {target's} guard and the whole arm jars to the shoulder.",
+          "needs": "armed"
+        }
       ]
     }
   },
@@ -104,7 +107,10 @@
         "The report echoes, and {target} staggers from the hit.",
         "Through the smoke, {attacker} sees the ball strike home.",
         "The shot clips {bodyPart} in a puff of torn cloth.",
-        "Bang: a hole appears in {target's} gear, with pain behind it.",
+        {
+          "text": "Bang: a hole appears in {target's} gear, with pain behind it.",
+          "needs": "armed"
+        },
         "A sharp crack, and {target} flinches as the bullet bites."
       ],
       "failure": [
@@ -136,21 +142,33 @@
       "criticalSuccess": [
         "{attacker's} weapon darts in and out before {target} even sees it move.",
         "A flick of the wrist, and the point finds the gap at {bodyPart}.",
-        "{attacker} dances inside {target's} guard and strikes twice in a heartbeat.",
+        {
+          "text": "{attacker} dances inside {target's} guard and strikes twice in a heartbeat.",
+          "needs": "armed"
+        },
         "Quick as a snake, the light weapon bites in under {bodyPart}.",
         "{attacker} threatens high, cuts low, and the trick lands perfectly.",
-        "Too fast to parry: the strike lands before the guard can move."
+        {
+          "text": "Too fast to parry: the strike lands before the guard can move.",
+          "needs": "armed"
+        }
       ],
       "success": [
         "A swift thrust slips past {target's} defense.",
         "{attacker} flicks the weapon out and draws a stinging line across {bodyPart}.",
         "Light footwork, a quick strike, and {target} winces.",
-        "The weapon flickers and nicks {target} under the guard.",
+        {
+          "text": "The weapon flickers and nicks {target} under the guard.",
+          "needs": "armed"
+        },
         "{attacker} darts in, strikes, and is back out of reach.",
         "A neat, economical cut finds its mark."
       ],
       "failure": [
-        "The quick jab is parried quicker.",
+        {
+          "text": "The quick jab is parried quicker.",
+          "needs": "armed"
+        },
         "{attacker's} weapon flickers, but {target} reads it.",
         "Speed is not enough: {target} turns the strike aside.",
         "The point darts in and meets only empty air.",
@@ -158,11 +176,17 @@
         "A flurry of false starts, and none of them land."
       ],
       "criticalFailure": [
-        "{attacker} tries to be too clever and tangles the weapon in {target's} guard.",
+        {
+          "text": "{attacker} tries to be too clever and tangles the weapon in {target's} guard.",
+          "needs": "armed"
+        },
         "The fancy flourish ends with {attacker} off balance.",
         "Too much speed, not enough control: the strike goes nowhere near {target}.",
         "{attacker's} footwork crosses itself and the lunge wobbles wide.",
-        "The light weapon skitters off {target's} guard and {attacker} loses the rhythm.",
+        {
+          "text": "The light weapon skitters off {target's} guard and {attacker} loses the rhythm.",
+          "needs": "armed"
+        },
         "A flashy trick that fools only {attacker}."
       ]
     }

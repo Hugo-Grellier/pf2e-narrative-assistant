@@ -221,7 +221,10 @@
       "success": [
         "Le givre balaie {target} et laisse une croûte blanche.",
         "Le froid frappe, et {target} frissonne.",
-        "Des cristaux de glace scintillent sur l'équipement de {target}.",
+        {
+          "text": "Des cristaux de glace scintillent sur l'équipement de {target}.",
+          "needs": "armed"
+        },
         "Un froid mordant enveloppe {target}.",
         "Le sort porte dans un claquement d'air glacé."
       ],
@@ -250,7 +253,10 @@
     ],
     "outcomes": {
       "criticalSuccess": [
-        "L'éclair crépite jusqu'à {target}, et tous les cheveux de la pièce se dressent.",
+        {
+          "text": "L'éclair crépite jusqu'à {target}, et tous les cheveux de la pièce se dressent.",
+          "needs": "armed"
+        },
         "L'arc frappe dans un claquement assourdissant et une odeur d'orage.",
         "{target} sursaute quand l'électricité danse sur {bodyPart}.",
         "Un trait bleu-blanc frappe {target} de plein fouet et laisse des images rémanentes.",
@@ -259,7 +265,10 @@
       "success": [
         "Des étincelles sautent sur {target} dans un claquement sec.",
         "L'éclair porte, et {target} tressaille.",
-        "L'électricité statique court sur l'équipement de {target}.",
+        {
+          "text": "L'électricité statique court sur l'équipement de {target}.",
+          "needs": "armed"
+        },
         "La foudre franchit l'espace et frappe.",
         "Une secousse bourdonnante traverse {target}."
       ],
@@ -289,14 +298,20 @@
     "outcomes": {
       "criticalSuccess": [
         "L'acide éclabousse {target} dans un sifflement furieux.",
-        "Le sort corrosif ronge l'équipement de {target} et la peau dessous.",
+        {
+          "text": "Le sort corrosif ronge l'équipement de {target} et la peau dessous.",
+          "needs": "armed"
+        },
         "Une boule verte éclate sur {bodyPart} en fumant.",
         "L'acide frappe en plein, et la puanteur est insoutenable.",
         "{target} recule quand l'acide grésille sur {bodyPart}."
       ],
       "success": [
         "L'acide asperge {target} dans un sifflement aigu.",
-        "Le sort porte et une fumée monte de l'équipement de {target}.",
+        {
+          "text": "Le sort porte et une fumée monte de l'équipement de {target}.",
+          "needs": "armed"
+        },
         "Des gouttes corrosives piquent {target}.",
         "L'acide de {actor} trouve {target} en pétillant.",
         "Une éclaboussure verte, un sifflement, une grimace."

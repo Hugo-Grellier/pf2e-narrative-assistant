@@ -1,6 +1,9 @@
 {
   "key": "skill.recall-knowledge",
-  "label": ["Skills", "Recall Knowledge"],
+  "label": [
+    "Skills",
+    "Recall Knowledge"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "GM prompt: deliver the information as plain fact, then add a precise detail only {actor} would notice.",

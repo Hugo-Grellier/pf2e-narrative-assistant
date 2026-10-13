@@ -1,6 +1,10 @@
 {
   "key": "skill.deception.create-a-diversion",
-  "label": ["Skills", "Deception", "Create a Diversion"],
+  "label": [
+    "Skills",
+    "Deception",
+    "Create a Diversion"
+  ],
   "outcomes": {
     "success,criticalSuccess": [
       "{actor} points at an imaginary danger; every gaze follows the gesture.",

@@ -1,6 +1,10 @@
 {
   "key": "skill.intimidation.demoralize",
-  "label": ["Skills", "Intimidation", "Demoralize"],
+  "label": [
+    "Skills",
+    "Intimidation",
+    "Demoralize"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{actor's} gaze locks onto {target}, who goes pale and backs away despite themselves.",

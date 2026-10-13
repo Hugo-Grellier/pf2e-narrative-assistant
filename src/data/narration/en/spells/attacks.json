@@ -221,7 +221,10 @@
       "success": [
         "Frost sweeps across {target}, leaving a white crust.",
         "The cold strikes, and {target} shudders.",
-        "Ice crystals spark on {target's} gear.",
+        {
+          "text": "Ice crystals spark on {target's} gear.",
+          "needs": "armed"
+        },
         "A bitter chill wraps around {target}.",
         "The spell lands with a crack of freezing air."
       ],
@@ -250,7 +253,10 @@
     ],
     "outcomes": {
       "criticalSuccess": [
-        "Lightning crackles into {target}, and every hair in the room stands on end.",
+        {
+          "text": "Lightning crackles into {target}, and every hair in the room stands on end.",
+          "needs": "armed"
+        },
         "The arc strikes with a deafening snap and the smell of storms.",
         "{target} jerks as electricity dances across {bodyPart}.",
         "A blue-white bolt hits {target} squarely, leaving afterimages.",
@@ -259,7 +265,10 @@
       "success": [
         "Sparks leap to {target} with a sharp crack.",
         "The bolt hits, and {target} twitches.",
-        "Static crawls over {target's} gear.",
+        {
+          "text": "Static crawls over {target's} gear.",
+          "needs": "armed"
+        },
         "Lightning snaps across the gap and lands.",
         "A buzzing jolt runs through {target}."
       ],
@@ -289,14 +298,20 @@
     "outcomes": {
       "criticalSuccess": [
         "Acid splashes over {target} and hisses angrily.",
-        "The corrosive spell eats into {target's} gear and the skin beneath.",
+        {
+          "text": "The corrosive spell eats into {target's} gear and the skin beneath.",
+          "needs": "armed"
+        },
         "A green glob bursts on {bodyPart}, smoking.",
         "The acid hits squarely and the stench is overwhelming.",
         "{target} recoils as the acid sizzles across {bodyPart}."
       ],
       "success": [
         "Acid spatters {target} with a sharp hiss.",
-        "The spell lands and smoke curls up from {target's} gear.",
+        {
+          "text": "The spell lands and smoke curls up from {target's} gear.",
+          "needs": "armed"
+        },
         "Corrosive droplets sting {target}.",
         "{actor's} acid finds {target}, fizzing.",
         "A splash of green, a hiss, a wince."

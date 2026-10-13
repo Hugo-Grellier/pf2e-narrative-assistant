@@ -2,7 +2,8 @@
  * Narrative engine: pure functions, no Foundry or PF2e dependency.
  *
  * A "table" is a plain object built from a RollTable (or straight from the source JSON in tests):
- *   { key, slot, when, priority, label, entries: [{ text, weight }] }
+ *   { key, slot, when, priority, label, entries: [{ text, weight, when? }] }
+ * An entry's own `when` restricts it further (a text about the target's guard needs a target with one).
  *
  * `slot` is "narration" for the sentence itself, or a component name such as "bodyPart"
  * that templates reference as `{bodyPart}`.
@@ -54,10 +55,13 @@ export function specificity(table) {
     return Object.keys(table.when ?? {}).reduce((sum, key) => sum + (KEY_WEIGHTS[key] ?? 1), 0) + (table.priority ?? 0);
 }
 
-/** Matching tables of a slot, most specific first. Empty tables are skipped so fallback continues. */
+/** Entries of a table usable in this context. */
+export const usableEntries = (table, context) => (table.entries ?? []).filter((e) => !e.when || matches(e.when, context));
+
+/** Matching tables of a slot, most specific first. Tables with no usable entry are skipped so fallback continues. */
 export function candidates(tables, slot, context) {
     return tables
-        .filter((t) => (t.slot ?? "narration") === slot && t.entries?.length && matches(t.when, context))
+        .filter((t) => (t.slot ?? "narration") === slot && matches(t.when, context) && usableEntries(t, context).length)
         .sort((a, b) => specificity(b) - specificity(a) || a.key.localeCompare(b.key));
 }
 
@@ -98,7 +102,7 @@ export function interpolate(text, context, { tables = [], fallbacks = {}, fix = 
         if (value) return value;
         if (depth < MAX_DEPTH) {
             const table = candidates(tables, name, context)[0];
-            if (table) return interpolate(pickEntry(table.entries, { random }).text, context, options);
+            if (table) return interpolate(pickEntry(usableEntries(table, context), { random }).text, context, options);
         }
         return fallbacks[name] ?? "";
     }
@@ -116,7 +120,7 @@ const capitalize = (s) => s.replace(/(^|[.!?…] )(\p{Ll})/gu, (_m, before, lett
 export function narrate(tables, context, { exclude = [], recent = new Map(), fallbacks = {}, fix, possessive, random } = {}) {
     const table = candidates(tables, "narration", context)[0];
     if (!table) return null;
-    const entry = pickEntry(table.entries, { exclude: [...exclude, ...(recent.get(table.key) ?? [])], random });
+    const entry = pickEntry(usableEntries(table, context), { exclude: [...exclude, ...(recent.get(table.key) ?? [])], random });
     const text = capitalize(interpolate(entry.text, context, { tables, fallbacks, fix, possessive, random }));
     return { text, tableKey: table.key, rawText: entry.text, gmOnly: !!table.gmOnly };
 }

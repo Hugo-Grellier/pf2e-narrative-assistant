@@ -23,7 +23,10 @@
       "{attacker} tire à l'instinct ; le projectile trouve le seul point faible exposé.",
       "Un sifflement, un impact, un cri étouffé. Le tir est imparable.",
       "Le projectile se faufile entre deux silhouettes, puis s'écrase exactement sur {bodyPart}.",
-      "{attacker} suit {target} du regard, puis tire au moment exact où sa garde s'ouvre.",
+      {
+        "text": "{attacker} suit {target} du regard, puis tire au moment exact où sa garde s'ouvre.",
+        "needs": "armed"
+      },
       "Le tir file à travers la poussière et touche {target} au cœur de sa défense.",
       "{attacker} tire deux fois du regard avant de tirer une seule fois pour de bon : le coup est magistral.",
       "Le projectile percute {target} avec une netteté qui arrache un murmure aux témoins."
@@ -42,7 +45,10 @@
       "Le tir trouve {target} au milieu de son mouvement.",
       "{target} sent l'impact avant d'entendre le tir.",
       "{attacker} tire sans hésiter et le coup porte sur {bodyPart}.",
-      "Le projectile file bas et touche {target} juste au-dessus de sa garde.",
+      {
+        "text": "Le projectile file bas et touche {target} juste au-dessus de sa garde.",
+        "needs": "armed"
+      },
       "Un tir propre, qui atteint son but.",
       "{target} esquisse un geste pour se protéger, trop tard.",
       "Le projectile percute {target} avec un bruit mat.",

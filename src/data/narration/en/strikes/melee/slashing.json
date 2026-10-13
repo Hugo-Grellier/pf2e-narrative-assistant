@@ -1,13 +1,23 @@
 {
   "key": "strike.melee.slashing",
-  "label": ["Strikes", "Melee", "Slashing"],
+  "label": [
+    "Strikes",
+    "Melee",
+    "Slashing"
+  ],
   "outcomes": {
     "criticalSuccess": [
-      "The blade slips under {target's} guard and opens a long gash across {bodyPart}.",
+      {
+        "text": "The blade slips under {target's} guard and opens a long gash across {bodyPart}.",
+        "needs": "armed"
+      },
       "The edge traces a perfect arc and bites deep across {bodyPart}.",
       "{attacker} cuts a wide backhand through the air; the steel catches {target} full on.",
       "A hiss, a flash of steel, and a broad slash opens across {bodyPart}.",
-      "The blade runs down {target's} guard and sinks in where it no longer protects.",
+      {
+        "text": "The blade runs down {target's} guard and sinks in where it no longer protects.",
+        "needs": "armed"
+      },
       "{attacker} chains two cuts; the second leaves a red line across {bodyPart}.",
       "The edge parts {target's} defense like parchment.",
       "Steel shears cleanly through leather and cloth until it finds flesh.",
@@ -15,19 +25,31 @@
       "The cut comes in on a diagonal, impossible to read, and leaves a gaping wound.",
       "A lightning slash: {target} feels the cold of the steel before seeing the motion.",
       "The blade catches the light for a moment, then {target's} flesh.",
-      "{attacker} cuts under {target's} raised arm, exactly where the guard opens.",
+      {
+        "text": "{attacker} cuts under {target's} raised arm, exactly where the guard opens.",
+        "needs": "armed"
+      },
       "The edge comes down from high to low and carves deep across {bodyPart}.",
       "A dry, almost elegant backhand leaves a scarlet trail in the air.",
       "{attacker} lets the blade flow in one continuous motion that sweeps every defense aside.",
-      "The weapon curls around {target's} parry and cuts through without resistance.",
-      "The edge tears through {target's} gear and marks the flesh beneath.",
+      {
+        "text": "The weapon curls around {target's} parry and cuts through without resistance.",
+        "needs": "armed"
+      },
+      {
+        "text": "The edge tears through {target's} gear and marks the flesh beneath.",
+        "needs": "armed"
+      },
       "{attacker} strikes in a spin; the blade comes away with a scrap of leather and a spray of red.",
       "A clean, deep cut, drawn in a single stroke. {target} reels."
     ],
     "success": [
       "The edge bites {target} across {bodyPart}.",
       "{attacker's} blade draws a cut across {bodyPart}.",
-      "{attacker} slashes across the guard; the steel finds its mark.",
+      {
+        "text": "{attacker} slashes across the guard; the steel finds its mark.",
+        "needs": "armed"
+      },
       "A quick cut leaves a slash across {bodyPart}.",
       "The blade glances along {target's} defense and nicks on the way past.",
       "{target} pulls back too late: the steel grazes {bodyPart}.",
@@ -37,30 +59,60 @@
       "The steel bites, not deeply, but enough for {target} to feel it.",
       "The blade comes down at an angle and marks {target} across {bodyPart}.",
       "A flash of metal, then a thin red line across {bodyPart}.",
-      "{attacker} cuts under the parry and hits {target} at the edge of the guard.",
+      {
+        "text": "{attacker} cuts under the parry and hits {target} at the edge of the guard.",
+        "needs": "armed"
+      },
       "The edge scrapes across {bodyPart} with a rasp of leather.",
-      "{target} parries too high; the blade slips underneath and cuts.",
+      {
+        "text": "{target} parries too high; the blade slips underneath and cuts.",
+        "needs": "armed"
+      },
       "A sharp, quick, efficient slash.",
-      "The blade nicks {target} across {bodyPart} before snapping back to guard.",
+      {
+        "text": "The blade nicks {target} across {bodyPart} before snapping back to guard.",
+        "needs": "armed"
+      },
       "{attacker} swings wide and the tip of the blade finds flesh.",
       "The steel opens a clean cut across {bodyPart}.",
       "A crossing slash surprises {target}, who sees it only at the last moment."
     ],
     "failure": [
       "The blade hisses a finger's width from {target} without biting.",
-      "{target} parries the slash with a bright ring of steel.",
-      "The edge only scrapes {target's} gear.",
+      {
+        "text": "{target} parries the slash with a bright ring of steel.",
+        "needs": "armed"
+      },
+      {
+        "text": "The edge only scrapes {target's} gear.",
+        "needs": "armed"
+      },
       "{attacker} cuts empty air; {target} has already slipped out of the arc.",
       "The blade slides along {target's} defense without finding a gap.",
-      "Steel meets steel in a shower of sparks.",
+      {
+        "text": "Steel meets steel in a shower of sparks.",
+        "needs": "armed"
+      },
       "{target} bends backward and the slash passes overhead.",
       "The cut is too wide: {target} only needs one step back.",
-      "The blade snags on {target's} guard and turns away harmlessly.",
-      "{attacker} hunts for an opening, but the steel meets only a parry.",
+      {
+        "text": "The blade snags on {target's} guard and turns away harmlessly.",
+        "needs": "armed"
+      },
+      {
+        "text": "{attacker} hunts for an opening, but the steel meets only a parry.",
+        "needs": "armed"
+      },
       "A powerful backhand, but {target} saw it coming.",
-      "The blade trims a lock of hair, nothing more.",
+      {
+        "text": "The blade trims a lock of hair, nothing more.",
+        "needs": "armed"
+      },
       "{target} intercepts the blade and beats it aside.",
-      "The edge scores the leather of {target's} gear and goes no further.",
+      {
+        "text": "The edge scores the leather of {target's} gear and goes no further.",
+        "needs": "armed"
+      },
       "{attacker} slashes on a diagonal; {target} rolls a shoulder and evades.",
       "The two weapons cross, rebound, and neither blow lands.",
       "The slash halts against {target's} defense.",

@@ -118,8 +118,10 @@ GMs can also customise in Foundry: import a table from the compendium into the w
   delay, still get one card each.
 - Names come from tokens and their gender is unknown: English text uses names or singular "their",
   French text avoids gendered pronouns and agreements; French elision and contraction are automatic
-  (« d'Ezren », a token named « le kobold » gives « du kobold »). Naming generic NPC tokens with their
-  article ("the kobold") reads best in both languages.
+  (« d'Ezren », a token named « le kobold » gives « du kobold »). A monster token still named after its
+  stat block ("Giant Rat 2") becomes "the giant rat" and « le rat géant » (always « le », even for a
+  feminine name); rename the token (« la harpie », "Squeaker") to choose the wording.
+- Texts about a guard, armour or gear are only used against creatures that have them, not animals.
 - Damage, condition changes, Dying/Wounded changes, initiative are not narrated; the extension points
   are described in the architecture doc.
 - Streaks and "who hit whom last" live in the active GM's memory: a reload or a GM change resets them.

@@ -30,7 +30,10 @@
         "Le souffle court, {target} encaisse encore un coup.",
         "{target} est au bord du gouffre ; un autre comme ça pourrait être le dernier.",
         "Le coup porte, et les genoux de {target} manquent de céder.",
-        "{target} ne lève presque plus sa garde, et le coup passe.",
+        {
+          "text": "{target} ne lève presque plus sa garde, et le coup passe.",
+          "needs": "armed"
+        },
         "Chaque coup compte désormais : {target} est à bout de forces."
       ]
     }

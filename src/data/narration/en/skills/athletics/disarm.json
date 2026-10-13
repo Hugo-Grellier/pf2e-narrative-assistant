@@ -1,6 +1,10 @@
 {
   "key": "skill.athletics.disarm",
-  "label": ["Skills", "Athletics", "Disarm"],
+  "label": [
+    "Skills",
+    "Athletics",
+    "Disarm"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} raps {target's} wrist sharply: the item slips free and falls at their feet.",

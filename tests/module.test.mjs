@@ -17,7 +17,7 @@ const gm = { id: "gm1", isGM: true, isActiveGM: true };
 // Packs hold RollTables shaped like the build output: flags + results with a description.
 const docsFor = (lang) => loadSourceTables(lang).map((t) => ({
     flags: { [ID]: { key: t.key, slot: t.slot, when: t.when, priority: t.priority, gmOnly: t.gmOnly, lang } },
-    results: { contents: t.entries.map((e) => ({ description: e.text, name: "", weight: e.weight })) },
+    results: { contents: t.entries.map((e) => ({ description: e.text, name: "", weight: e.weight, flags: e.when ? { [ID]: { when: e.when } } : {} })) },
 }));
 
 globalThis.Hooks = { on, once: on, off: () => {}, call: (name, ...args) => !fire(name, ...args).includes(false) };
@@ -364,4 +364,30 @@ test("PF2e Toolbelt saves: handled by the active GM, forwarded by other clients"
     assert.equal(created.length, 1);
     assert.deepEqual(created[0].whisper, ["gm1"]);
     globalThis.fromUuidSync = () => null;
+});
+
+test("monsters never renamed get a generic name; renamed tokens and PCs keep theirs", async () => {
+    created.length = 0;
+    const rat = (name) => ({ name, actor: { type: "npc", name: "Giant Rat", _stats: { compendiumSource: "Compendium.pf2e.pathfinder-monster-core.Actor.x" } } });
+    const strike = (id, target) =>
+        pf2eMessage(id, { type: "attack-roll", identifier: "a.scimitar.melee", outcome: "success", options: ["item:damage:type:slashing", "target:trait:animal"] }, {
+            speaker: { alias: "Kyra" },
+            token: { name: "Kyra", actor: { type: "character", name: "Kyra" } },
+            target: { token: target, actor: target.actor },
+        });
+    await createAndWait(strike("n1", rat("Giant Rat 2")));
+    await createAndWait(strike("n2", rat("Couinette")));
+    const vars = created.map((c) => c.flags[ID].lines[0].context.vars);
+    assert.equal(vars[0].target, "le giant rat", "French: always « le », the gender is unknown");
+    assert.equal(vars[1].target, "Couinette");
+    assert.equal(vars[0].actor, "Kyra");
+    assert.ok(!/Giant Rat/.test(created[0].flags[ID].lines[0].text));
+    assert.ok(!/\b(de|à) le\b/.test(created[0].flags[ID].lines[0].text), "contracted: du / au");
+
+    settings.set("language", "en");
+    game.modules.get(ID).api.invalidateTables();
+    await createAndWait(strike("n3", rat("Giant Rat")));
+    settings.set("language", "auto");
+    game.modules.get(ID).api.invalidateTables();
+    assert.equal(created[2].flags[ID].lines[0].context.vars.target, "the giant rat");
 });

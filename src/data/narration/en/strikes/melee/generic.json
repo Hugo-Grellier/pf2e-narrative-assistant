@@ -1,13 +1,26 @@
 {
   "key": "strike.melee",
-  "label": ["Strikes", "Melee", "Generic"],
+  "label": [
+    "Strikes",
+    "Melee",
+    "Generic"
+  ],
   "outcomes": {
     "criticalSuccess": [
-      "{attacker} reads the move a heartbeat before {target} makes it and strikes exactly where the guard opens.",
+      {
+        "text": "{attacker} reads the move a heartbeat before {target} makes it and strikes exactly where the guard opens.",
+        "needs": "armed"
+      },
       "The blow comes out of nowhere and catches {target} square on {bodyPart}.",
-      "{attacker} feints high, strikes low, and {target} never has a chance to parry.",
+      {
+        "text": "{attacker} feints high, strikes low, and {target} never has a chance to parry.",
+        "needs": "armed"
+      },
       "A dull, heavy impact rings out, and {target} staggers under its weight.",
-      "{attacker} steps inside {target's} guard and hits at point-blank range.",
+      {
+        "text": "{attacker} steps inside {target's} guard and hits at point-blank range.",
+        "needs": "armed"
+      },
       "The attack lands on {bodyPart} with enough force to drive the breath from {target}.",
       "The strike from {attacker} finds the perfect opening. {target} freezes for an instant.",
       "Every ounce of {attacker's} weight rides behind the blow, and it lands in full.",
@@ -18,7 +31,10 @@
       "{attacker} pivots, accelerates, and the attack lands with startling clarity.",
       "The impact is so clean that onlookers wince in sympathy.",
       "{attacker} gives no respite: the strike passes through {target's} defense as if it were not there.",
-      "A tiny gap in the guard, and {attacker} pours straight through it.",
+      {
+        "text": "A tiny gap in the guard, and {attacker} pours straight through it.",
+        "needs": "armed"
+      },
       "The blow meets {target} mid-lunge, and the shock rattles all the way to the bone.",
       "{attacker} strikes at the exact moment {target} draws breath.",
       "The attack arrives from an impossible angle and hits {target} full on.",
@@ -26,12 +42,18 @@
     ],
     "success": [
       "{attacker} finds a gap and the blow lands on {bodyPart}.",
-      "The strike from {attacker} slips past the guard and connects squarely.",
+      {
+        "text": "The strike from {attacker} slips past the guard and connects squarely.",
+        "needs": "armed"
+      },
       "{target} tries to slip aside, too slowly: the attack lands.",
       "A quick exchange, and it is {attacker} who scores the hit.",
       "The attack catches {target} on {bodyPart}, drawing a grimace.",
       "{attacker} steps in and strikes; {target} takes the hit.",
-      "The parry from {target} comes one beat too late.",
+      {
+        "text": "The parry from {target} comes one beat too late.",
+        "needs": "armed"
+      },
       "The blow reaches {target}, who grits their teeth against it.",
       "{attacker} seizes a moment of hesitation and connects.",
       "A clean hit: {target} feels it.",
@@ -44,7 +66,10 @@
       "The attack from {attacker} catches {target} while resetting their stance.",
       "{target} absorbs the shock and loses the rhythm of the fight for a moment.",
       "The blow from {attacker} lands on {bodyPart} with a flat thud.",
-      "{attacker} forces a way through and hits just as {target's} guard wavers."
+      {
+        "text": "{attacker} forces a way through and hits just as {target's} guard wavers.",
+        "needs": "armed"
+      }
     ],
     "failure": [
       "{target} knocks the attack aside with a sharp flick.",
@@ -55,25 +80,40 @@
       "The blow glances off {target's} defense to no effect.",
       "{target} ducks, and the attack whistles overhead.",
       "A feint too easy to read: {target} does not buy it for a second.",
-      "The attack misses by a hair's breadth.",
+      {
+        "text": "The attack misses by a hair's breadth.",
+        "needs": "armed"
+      },
       "{target} turns, and the attack grazes past without biting.",
       "{attacker} looks for an opening that does not exist.",
-      "The blow stops short against {target's} guard.",
+      {
+        "text": "The blow stops short against {target's} guard.",
+        "needs": "armed"
+      },
       "{target} sidesteps, unbothered.",
       "The attack comes too early; {target} has all the time in the world to avoid it.",
       "A rapid exchange in which no blow lands.",
       "{attacker} presses the attack, but {target} holds firm.",
-      "The strike stops against {target's} guard with a sharp crack.",
+      {
+        "text": "The strike stops against {target's} guard with a sharp crack.",
+        "needs": "armed"
+      },
       "{target} rolls with the motion and robs it of any force.",
       "The swing from {attacker} goes wide; {target} slips away with ease.",
-      "{target} takes the blow on their guard and gives no ground."
+      {
+        "text": "{target} takes the blow on their guard and gives no ground.",
+        "needs": "armed"
+      }
     ],
     "criticalFailure": [
       "{attacker} lunges and hits only air, carried along by sheer momentum.",
       "The attack goes completely astray; {target} does not even need to move.",
       "{attacker} plants a foot badly, and the strike fizzles out in empty space.",
       "{target} sidesteps with open disdain, leaving {attacker} to stumble through the gap.",
-      "The swing is so poorly begun that {attacker} struggles to recover their guard.",
+      {
+        "text": "The swing is so poorly begun that {attacker} struggles to recover their guard.",
+        "needs": "armed"
+      },
       "{attacker} misjudges the distance: the attack falls well short.",
       "A misstep, a clumsy motion, and the attack falls flat.",
       "{target} sees the blow coming from a mile away and avoids it effortlessly.",
@@ -87,7 +127,10 @@
       "{attacker} is caught off rhythm by a move from {target} and strikes at the wrong moment.",
       "An embarrassing miss: the attack does not come close to {target}.",
       "{attacker} swings too hard, too soon, and loses control of the motion.",
-      "The strike misses so widely that {target} does not even raise a guard.",
+      {
+        "text": "The strike misses so widely that {target} does not even raise a guard.",
+        "needs": "armed"
+      },
       "{attacker} starts the attack on the wrong foot and pays for it with a moment of confusion."
     ]
   }

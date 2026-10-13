@@ -1,6 +1,10 @@
 {
   "key": "skill.athletics.shove",
-  "label": ["Skills", "Athletics", "Shove"],
+  "label": [
+    "Skills",
+    "Athletics",
+    "Shove"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} drives in with a shoulder and sends {target} flying several steps back.",

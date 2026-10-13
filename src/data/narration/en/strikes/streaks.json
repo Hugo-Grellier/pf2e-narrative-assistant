@@ -31,7 +31,10 @@
         "Again! {target} can no longer keep up with {attacker's} pace.",
         "Hit after hit: {attacker} reads every opening.",
         "The momentum belongs to {attacker}, and everyone can feel it.",
-        "{attacker} strikes once more, and {target's} guard is in tatters."
+        {
+          "text": "{attacker} strikes once more, and {target's} guard is in tatters.",
+          "needs": "armed"
+        }
       ]
     }
   },

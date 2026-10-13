@@ -1,6 +1,10 @@
 {
   "key": "strike.ranged",
-  "label": ["Strikes", "Ranged", "Generic"],
+  "label": [
+    "Strikes",
+    "Ranged",
+    "Generic"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} shoots on an exhale; the projectile flies true and slams into {target}.",
@@ -19,7 +23,10 @@
       "{attacker} shoots on instinct; the projectile finds the only exposed weak point.",
       "A whistle, an impact, a muffled cry. The shot is unanswerable.",
       "The projectile slips between two silhouettes, then smashes squarely into {bodyPart}.",
-      "{attacker} tracks {target} carefully, then shoots at the exact moment the guard opens.",
+      {
+        "text": "{attacker} tracks {target} carefully, then shoots at the exact moment the guard opens.",
+        "needs": "armed"
+      },
       "The shot streaks through the dust and hits {target} at the heart of their defense.",
       "{attacker} lines it up twice in their mind before shooting once for real: a masterful shot.",
       "The projectile strikes {target} with a clarity that draws murmurs from the onlookers."
@@ -38,7 +45,10 @@
       "The shot finds {target} in the middle of a movement.",
       "{target} feels the impact before hearing the shot.",
       "{attacker} shoots without hesitation and the hit lands on {bodyPart}.",
-      "The projectile flies low and catches {target} just above the guard.",
+      {
+        "text": "The projectile flies low and catches {target} just above the guard.",
+        "needs": "armed"
+      },
       "A clean shot that reaches its goal.",
       "{target} starts to raise a defense, too late.",
       "The projectile hits {target} with a dull thump.",
@@ -60,7 +70,10 @@
       "{attacker} shoots through the melee, but the shot cannot find a way.",
       "The shot flies into the space {target} just left.",
       "{target} throws themselves aside, letting the projectile pass.",
-      "The projectile hits protective gear and veers off.",
+      {
+        "text": "The projectile hits protective gear and veers off.",
+        "needs": "armed"
+      },
       "A decent shot, against a target that is no less decent."
     ],
     "criticalFailure": [

@@ -7,11 +7,20 @@
   ],
   "outcomes": {
     "criticalSuccess": [
-      "{attacker} lit le mouvement une fraction de seconde avant {target} et frappe exactement là où la garde s'ouvre.",
+      {
+        "text": "{attacker} lit le mouvement une fraction de seconde avant {target} et frappe exactement là où la garde s'ouvre.",
+        "needs": "armed"
+      },
       "Le coup part sans prévenir et atteint {target} de plein fouet sur {bodyPart}.",
-      "{attacker} feinte d'un côté, frappe de l'autre : {target} n'a aucune chance de parer.",
+      {
+        "text": "{attacker} feinte d'un côté, frappe de l'autre : {target} n'a aucune chance de parer.",
+        "needs": "armed"
+      },
       "Un impact sourd résonne, et {target} vacille sous la force du coup.",
-      "{attacker} entre dans la garde de {target} et frappe à bout portant, sans retenue.",
+      {
+        "text": "{attacker} entre dans la garde de {target} et frappe à bout portant, sans retenue.",
+        "needs": "armed"
+      },
       "L'attaque s'abat sur {bodyPart} avec une force qui coupe le souffle à {target}.",
       "Le coup de {attacker} trouve l'ouverture parfaite. {target} en reste un instant sans réaction.",
       "Tout le poids de {attacker} accompagne le coup, qui heurte {target} de plein fouet.",
@@ -30,12 +39,18 @@
     ],
     "success": [
       "{attacker} trouve une faille et le coup porte sur {bodyPart}.",
-      "Le coup de {attacker} passe la garde de {target} et touche franchement.",
+      {
+        "text": "Le coup de {attacker} passe la garde de {target} et touche franchement.",
+        "needs": "armed"
+      },
       "{target} tente d'esquiver, trop lentement : l'attaque fait mouche.",
       "Un échange rapide, et c'est {attacker} qui place le coup.",
       "L'attaque heurte {target} sur {bodyPart}, lui arrachant une grimace.",
       "{attacker} avance d'un pas et frappe ; {target} encaisse.",
-      "La parade de {target} arrive un battement trop tard.",
+      {
+        "text": "La parade de {target} arrive un battement trop tard.",
+        "needs": "armed"
+      },
       "Le coup atteint {target}, qui serre les dents sous l'impact.",
       "{attacker} profite d'une hésitation pour toucher {target}.",
       "Un impact net : {target} accuse le coup.",
@@ -45,10 +60,16 @@
       "{target} bloque une première attaque, pas la seconde.",
       "{attacker} vise {bodyPart} et ne manque pas sa cible.",
       "Un souffle, un mouvement, et le coup porte.",
-      "L'attaque de {attacker} cueille {target} en pleine remise en garde.",
+      {
+        "text": "L'attaque de {attacker} cueille {target} en pleine remise en garde.",
+        "needs": "armed"
+      },
       "{target} encaisse le choc et perd un instant le fil du combat.",
       "Le coup de {attacker} s'abat sur {bodyPart} avec un bruit mat.",
-      "{attacker} force le passage et touche {target} au moment où sa garde faiblit."
+      {
+        "text": "{attacker} force le passage et touche {target} au moment où sa garde faiblit.",
+        "needs": "armed"
+      }
     ],
     "failure": [
       "{target} écarte l'attaque d'un geste sec.",
@@ -62,7 +83,10 @@
       "L'attaque manque sa cible d'un cheveu.",
       "{target} pivote et l'attaque de {attacker} ne fait que l'effleurer sans mordre.",
       "{attacker} cherche une ouverture qui n'existe pas.",
-      "Le coup est stoppé net par la garde de {target}.",
+      {
+        "text": "Le coup est stoppé net par la garde de {target}.",
+        "needs": "armed"
+      },
       "{target} esquive d'un pas de côté, imperturbable.",
       "L'attaque part trop tôt ; {target} a tout le temps de s'en garder.",
       "Un échange rapide, sans qu'aucun coup ne porte.",
@@ -70,14 +94,20 @@
       "Le coup s'arrête sur la défense de {target} dans un bruit sec.",
       "{target} accompagne le mouvement et le rend inoffensif.",
       "L'attaque de {attacker} est trop large ; {target} se dérobe sans peine.",
-      "{target} encaisse sur sa garde et ne cède pas un pouce."
+      {
+        "text": "{target} encaisse sur sa garde et ne cède pas un pouce.",
+        "needs": "armed"
+      }
     ],
     "criticalFailure": [
       "{attacker} se jette en avant et ne frappe que l'air, dans l'élan de son propre mouvement.",
       "L'attaque part complètement à côté ; {target} n'a même pas besoin de bouger.",
       "{attacker} assure mal son appui et le coup se perd dans le vide.",
       "{target} esquive avec un dédain évident, laissant {attacker} trébucher dans le vide.",
-      "Le coup est si mal engagé que {attacker} doit lutter pour retrouver sa garde.",
+      {
+        "text": "Le coup est si mal engagé que {attacker} doit lutter pour retrouver sa garde.",
+        "needs": "armed"
+      },
       "{attacker} surestime la distance : l'attaque s'arrête bien trop court.",
       "Un faux pas, un geste maladroit, et l'attaque tombe à plat.",
       "{target} voit le coup venir de loin et l'évite sans effort.",
@@ -91,7 +121,10 @@
       "{attacker} se laisse surprendre par un mouvement de {target} et frappe à contretemps.",
       "Un raté embarrassant : l'attaque n'approche même pas {target}.",
       "{attacker} frappe trop fort, trop tôt, et le geste lui échappe.",
-      "Le coup manque si largement que {target} n'a même pas à lever sa garde.",
+      {
+        "text": "Le coup manque si largement que {target} n'a même pas à lever sa garde.",
+        "needs": "armed"
+      },
       "{attacker} engage l'attaque sur un mauvais pied et le paie d'un instant de flottement."
     ]
   }

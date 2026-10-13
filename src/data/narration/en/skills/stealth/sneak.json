@@ -1,6 +1,10 @@
 {
   "key": "skill.stealth.sneak",
-  "label": ["Skills", "Stealth", "Sneak"],
+  "label": [
+    "Skills",
+    "Stealth",
+    "Sneak"
+  ],
   "outcomes": {
     "success,criticalSuccess": [
       "{actor} advances step by step, weight on the toes, without a sound.",

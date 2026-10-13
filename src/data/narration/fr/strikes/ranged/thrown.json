@@ -8,7 +8,10 @@
   "outcomes": {
     "criticalSuccess": [
       "{attacker} lance d'un geste du poignet ; l'arme tournoie et frappe {target} de plein fouet sur {bodyPart}.",
-      "L'arme fend l'air en tourbillonnant et percute {target} exactement là où sa garde s'ouvre.",
+      {
+        "text": "L'arme fend l'air en tourbillonnant et percute {target} exactement là où sa garde s'ouvre.",
+        "needs": "armed"
+      },
       "{attacker} arme son bras, attend un battement, puis lâche : le jet est parfait.",
       "L'arme lancée file à plat, sans un tremblement, et frappe {target} au cœur de sa défense.",
       "Un sifflement tournoyant, puis un impact net sur {bodyPart}.",
@@ -49,7 +52,10 @@
       "Le jet tombe un peu court, aux pieds de {target}.",
       "L'arme tournoie au-dessus de la tête de {target}.",
       "{attacker} lance au moment où {target} change d'appui.",
-      "Le projectile ricoche sur la garde de {target}.",
+      {
+        "text": "Le projectile ricoche sur la garde de {target}.",
+        "needs": "armed"
+      },
       "{target} voit venir le jet et le laisse passer.",
       "Le lancer est bien parti, mais {target} n'est plus là.",
       "L'arme frôle {target} et poursuit sa course."

@@ -1,6 +1,9 @@
 {
   "key": "recovery",
-  "label": ["Recovery", "Recovery check"],
+  "label": [
+    "Recovery",
+    "Recovery check"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "A deep breath, almost a start: life reasserts itself in {actor}.",

@@ -174,3 +174,26 @@ test("events that are not rolls ignore the chance settings", () => {
     assert.ok(shouldNarrate({ eventType: "cast", degreeOfSuccess: "success", rolled: false }, settings, () => 0.99));
     assert.ok(!shouldNarrate({ eventType: "cast", degreeOfSuccess: "success", rolled: false }, { ...settings, events: {} }));
 });
+
+test("entries with their own condition are skipped where it fails, and an emptied table falls back", () => {
+    const guard = { targetTraits: { anyOf: ["humanoid"] } };
+    const list = [
+        t("generic.success", { degreeOfSuccess: "success" }, ["generic"]),
+        { key: "strike.success", slot: "narration", when: { eventType: "strike", degreeOfSuccess: "success" }, entries: [{ text: "parry", weight: 1, when: guard }] },
+    ];
+    const ctx = (targetTraits) => ({ eventType: "strike", degreeOfSuccess: "success", targetTraits, vars: {} });
+    assert.equal(first(ctx(["humanoid"]), list), "Parry");
+    assert.equal(first(ctx(["animal"]), list), "Generic");
+});
+
+test("French generic monster names take « le » or « l' » and contract", async () => {
+    const { LANGUAGES } = await import("../src/languages.mjs");
+    const { npcName, fix } = LANGUAGES.fr;
+    assert.equal(npcName("Rat géant"), "le rat géant");
+    assert.equal(npcName("Ogre"), "l'ogre");
+    assert.equal(npcName("Harpie"), "l'harpie"); // ponytail: aspirated h not handled, same as contractFrench
+    assert.equal(interpolate("La garde de {target} cède.", { vars: { target: npcName("Gobelin") } }, { fix }), "La garde du gobelin cède.");
+    assert.equal(interpolate("Le coup échappe à {target}.", { vars: { target: npcName("Gobelin") } }, { fix }), "Le coup échappe au gobelin.");
+    assert.equal(interpolate("Le coup échappe à {target}.", { vars: { target: "les gobelins" } }, { fix }), "Le coup échappe aux gobelins.");
+    assert.equal(interpolate("Il pense à Ezren.", { vars: {} }, { fix }), "Il pense à Ezren.");
+});

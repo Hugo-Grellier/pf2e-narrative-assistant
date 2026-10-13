@@ -18,7 +18,10 @@
         "Le coup s'abat sur {target}, qui se débat encore au sol.",
         "Depuis le sol, {target} lève un bras, trop tard.",
         "{attacker} profite de la position inconfortable de {target}.",
-        "De là où se trouve {target}, impossible de monter une vraie garde, et l'attaque passe.",
+        {
+          "text": "De là où se trouve {target}, impossible de monter une vraie garde, et l'attaque passe.",
+          "needs": "armed"
+        },
         "{target} se démène au sol, et l'attaque tombe au milieu de l'effort."
       ],
       "failure,criticalFailure": [
@@ -42,14 +45,26 @@
         "La peur de {target} ouvre une brèche, et {attacker} y enfonce l'attaque.",
         "{target} tressaille avant même le coup, qui n'en porte que mieux.",
         "La panique ralentit {target}, et l'attaque trouve sa cible sans peine.",
-        "Les yeux de {target} s'écarquillent ; l'attaque porte avant que la garde ne monte.",
+        {
+          "text": "Les yeux de {target} s'écarquillent ; l'attaque porte avant que la garde ne monte.",
+          "needs": "armed"
+        },
         "{attacker} enfonce la peur d'un coup sans pitié."
       ],
       "success": [
-        "{target} hésite, la garde tremblante, et l'attaque se glisse.",
-        "Une garde qui tremble n'est pas une garde.",
+        {
+          "text": "{target} hésite, la garde tremblante, et l'attaque se glisse.",
+          "needs": "armed"
+        },
+        {
+          "text": "Une garde qui tremble n'est pas une garde.",
+          "needs": "armed"
+        },
         "{target} recule d'un demi-pas, trop lentement.",
-        "La peur met la parade de {target} en retard.",
+        {
+          "text": "La peur met la parade de {target} en retard.",
+          "needs": "armed"
+        },
         "{target} voit venir le coup et ne parvient pourtant pas à réagir."
       ],
       "failure,criticalFailure": [
@@ -57,7 +72,10 @@
         "{target} recule dans la panique et, par chance, évite l'attaque.",
         "Un sursaut de peur sauve {target} du coup.",
         "La retraite désordonnée de {target} gâche la visée de {attacker}.",
-        "Les mains tremblantes, {target} pare tout de même."
+        {
+          "text": "Les mains tremblantes, {target} pare tout de même.",
+          "needs": "armed"
+        }
       ]
     }
   },

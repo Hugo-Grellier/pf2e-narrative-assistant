@@ -1,7 +1,11 @@
 [
   {
     "key": "skill.medicine.treat-wounds",
-    "label": ["Skills", "Medicine", "Treat Wounds"],
+    "label": [
+      "Skills",
+      "Medicine",
+      "Treat Wounds"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} cleans, stitches and binds with exemplary assurance.",
@@ -51,7 +55,11 @@
   },
   {
     "key": "skill.medicine.administer-first-aid",
-    "label": ["Skills", "Medicine", "Administer First Aid"],
+    "label": [
+      "Skills",
+      "Medicine",
+      "Administer First Aid"
+    ],
     "outcomes": {
       "success,criticalSuccess": [
         "{actor} presses firmly on the wound and the flow eases.",

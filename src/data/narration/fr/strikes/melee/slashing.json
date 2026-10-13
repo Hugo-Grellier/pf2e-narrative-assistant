@@ -7,11 +7,17 @@
   ],
   "outcomes": {
     "criticalSuccess": [
-      "La lame passe sous la garde de {target} et ouvre une longue entaille sur {bodyPart}.",
+      {
+        "text": "La lame passe sous la garde de {target} et ouvre une longue entaille sur {bodyPart}.",
+        "needs": "armed"
+      },
       "Le tranchant décrit un arc parfait et mord profondément sur {bodyPart}.",
       "{attacker} fend l'air d'un revers ample ; l'acier trouve {target} de plein fouet.",
       "Un sifflement, un éclat d'acier, et une large estafilade s'ouvre sur {bodyPart}.",
-      "La lame glisse le long de la garde de {target} et s'enfonce là où elle ne protège plus.",
+      {
+        "text": "La lame glisse le long de la garde de {target} et s'enfonce là où elle ne protège plus.",
+        "needs": "armed"
+      },
       "{attacker} enchaîne deux taillades ; la seconde laisse une trace sanglante sur {bodyPart}.",
       "Le fil de l'arme mord dans la défense de {target} comme dans du parchemin.",
       "L'acier tranche net à travers cuir et tissu jusqu'à trouver la chair.",
@@ -19,19 +25,31 @@
       "Le coup de taille arrive en diagonale, impossible à lire, et ouvre une plaie béante.",
       "Une taillade fulgurante : {target} sent le froid de l'acier avant même de voir le geste.",
       "La lame accroche la lumière une seconde, puis la chair de {target}.",
-      "{attacker} coupe sous le bras levé de {target}, à l'endroit exact où la garde s'ouvre.",
+      {
+        "text": "{attacker} coupe sous le bras levé de {target}, à l'endroit exact où la garde s'ouvre.",
+        "needs": "armed"
+      },
       "Le tranchant s'abat de haut en bas et entaille profondément sur {bodyPart}.",
       "Un revers sec, presque élégant, laisse une traînée écarlate dans l'air.",
       "{attacker} laisse filer la lame dans un mouvement continu qui balaie toute défense.",
-      "L'arme s'enroule autour de la parade de {target} et taille sans rencontrer de résistance.",
-      "Le fil d'acier déchire l'équipement de {target} et marque la chair en dessous.",
+      {
+        "text": "L'arme s'enroule autour de la parade de {target} et taille sans rencontrer de résistance.",
+        "needs": "armed"
+      },
+      {
+        "text": "Le fil d'acier déchire l'équipement de {target} et marque la chair en dessous.",
+        "needs": "armed"
+      },
       "{attacker} frappe en tournoyant ; la lame emporte avec elle un éclat de cuir et de sang.",
       "Une entaille nette, profonde, tracée d'un seul geste. {target} vacille."
     ],
     "success": [
       "Le tranchant mord {target} sur {bodyPart}.",
       "La lame de {attacker} trace une entaille sur {bodyPart}.",
-      "{attacker} taille en travers de la garde ; l'acier trouve sa cible.",
+      {
+        "text": "{attacker} taille en travers de la garde ; l'acier trouve sa cible.",
+        "needs": "armed"
+      },
       "Un coup de taille rapide laisse une estafilade sur {bodyPart}.",
       "La lame glisse sur la défense de {target} et entaille au passage.",
       "{target} recule trop tard : l'acier lui entame {bodyPart}.",
@@ -41,30 +59,60 @@
       "L'acier mord, pas profondément, mais assez pour que {target} le sente passer.",
       "La lame descend en oblique et marque {target} sur {bodyPart}.",
       "Un éclair métallique, puis une fine ligne rouge sur {bodyPart}.",
-      "{attacker} coupe sous la parade et touche {target} au défaut de la garde.",
+      {
+        "text": "{attacker} se glisse sous la garde et ouvre une entaille au défaut de l'armure de {target}.",
+        "needs": "armed"
+      },
       "Le tranchant érafle {target} sur {bodyPart} dans un crissement de cuir.",
-      "{target} pare trop haut ; la lame passe dessous et taille.",
+      {
+        "text": "{target} pare trop haut ; la lame passe dessous et taille.",
+        "needs": "armed"
+      },
       "Une taillade sèche, rapide, efficace.",
-      "La lame entaille {target} sur {bodyPart} avant de revenir en garde.",
+      {
+        "text": "La lame entaille {target} sur {bodyPart} avant de revenir en garde.",
+        "needs": "armed"
+      },
       "{attacker} balaie largement et l'extrémité de la lame trouve la chair.",
       "Le fil de l'acier ouvre une estafilade nette sur {bodyPart}.",
       "Un coup de taille croisé surprend {target}, qui ne le voit qu'au dernier moment."
     ],
     "failure": [
       "La lame siffle à quelques doigts de {target}, sans mordre.",
-      "{target} pare la taillade dans un tintement clair.",
-      "Le tranchant ne fait qu'effleurer l'équipement de {target}.",
+      {
+        "text": "{target} pare la taillade dans un tintement clair.",
+        "needs": "armed"
+      },
+      {
+        "text": "Le tranchant ne fait qu'effleurer l'équipement de {target}.",
+        "needs": "armed"
+      },
       "{attacker} balaie l'air ; {target} n'est déjà plus sur la trajectoire.",
       "La lame glisse sur la défense de {target} sans trouver d'ouverture.",
-      "L'acier rencontre l'acier dans une gerbe d'étincelles.",
+      {
+        "text": "L'acier rencontre l'acier dans une gerbe d'étincelles.",
+        "needs": "armed"
+      },
       "{target} se plie en arrière et la taillade passe au-dessus.",
       "Le coup de taille est trop large : {target} n'a qu'à reculer d'un pas.",
-      "La lame accroche la garde de {target} et dévie, inoffensive.",
-      "{attacker} cherche une faille, mais l'acier ne rencontre que la parade de {target}.",
+      {
+        "text": "La lame accroche la garde de {target} et dévie, inoffensive.",
+        "needs": "armed"
+      },
+      {
+        "text": "{attacker} cherche une faille, mais l'acier ne rencontre que la parade de {target}.",
+        "needs": "armed"
+      },
       "Un revers puissant, mais {target} l'a vu venir.",
-      "La lame tranche une mèche de cheveux, rien de plus.",
+      {
+        "text": "La lame tranche une mèche de cheveux, rien de plus.",
+        "needs": "armed"
+      },
       "{target} intercepte la lame et la repousse d'un geste sec.",
-      "Le tranchant raye le cuir de l'équipement de {target} sans mordre au-delà.",
+      {
+        "text": "Le tranchant raye le cuir de l'équipement de {target} sans mordre au-delà.",
+        "needs": "armed"
+      },
       "{attacker} taille en diagonale ; {target} roule de l'épaule et esquive.",
       "Les deux armes se croisent, se repoussent, et aucun coup ne porte.",
       "La taillade s'arrête net contre la défense de {target}.",

@@ -1,6 +1,9 @@
 {
   "key": "skill",
-  "label": ["Skills", "Any action"],
+  "label": [
+    "Skills",
+    "Any action"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{actor} acts with a mastery that commands admiration.",

@@ -1,7 +1,11 @@
 [
   {
     "key": "save.fortitude",
-    "label": ["Saving throws", "Fortitude", "Generic"],
+    "label": [
+      "Saving throws",
+      "Fortitude",
+      "Generic"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} takes it without flinching, solid as a rock.",
@@ -51,7 +55,11 @@
   },
   {
     "key": "save.fortitude.poison",
-    "label": ["Saving throws", "Fortitude", "Poison"],
+    "label": [
+      "Saving throws",
+      "Fortitude",
+      "Poison"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} feels the venom burn in their veins for a moment, then fade.",
@@ -97,7 +105,11 @@
   },
   {
     "key": "save.fortitude.disease",
-    "label": ["Saving throws", "Fortitude", "Disease"],
+    "label": [
+      "Saving throws",
+      "Fortitude",
+      "Disease"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "The sickness brushes {actor} and moves on.",
@@ -143,7 +155,11 @@
   },
   {
     "key": "save.fortitude.physical",
-    "label": ["Saving throws", "Fortitude", "Physical shock"],
+    "label": [
+      "Saving throws",
+      "Fortitude",
+      "Physical shock"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "The shockwave hits {actor}, who does not give an inch.",

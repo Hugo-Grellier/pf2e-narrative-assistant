@@ -1,22 +1,41 @@
 {
   "key": "strike.melee.piercing",
-  "label": ["Strikes", "Melee", "Piercing"],
+  "label": [
+    "Strikes",
+    "Melee",
+    "Piercing"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "The point darts straight between two defenses and sinks deep into {bodyPart}.",
-      "{attacker} lunges in a single motion; the thrust goes through {target's} guard as if it were not there.",
+      {
+        "text": "{attacker} lunges in a single motion; the thrust goes through {target's} guard as if it were not there.",
+        "needs": "armed"
+      },
       "A flash of steel, and the point finds the exact weak spot in {target's} protection.",
       "{attacker} waits for the opening, then drives in: the weapon sinks far into {bodyPart}.",
-      "The thrust leaves with no visible wind-up and hits {target} in the heart of the guard.",
-      "The point slips between two pieces of gear and bites deep.",
+      {
+        "text": "The thrust leaves with no visible wind-up and hits {target} in the heart of the guard.",
+        "needs": "armed"
+      },
+      {
+        "text": "The point slips between two pieces of gear and bites deep.",
+        "needs": "armed"
+      },
       "{attacker} uncoils like a spring and pierces {target} in {bodyPart}.",
       "The thrust comes in on a perfect line; {target} feels it before seeing it.",
-      "{attacker} beats the parry aside and plants the point in the opening.",
+      {
+        "text": "{attacker} beats the parry aside and plants the point in the opening.",
+        "needs": "armed"
+      },
       "The point goes in and comes straight back out, leaving {target} gasping.",
       "A high feint, a low thrust: the point pierces {target} in {bodyPart}.",
       "{attacker} aims for a tiny gap between two defenses, and hits it.",
       "The weapon darts out like a stinger and sinks in where the protection is thinnest.",
-      "{attacker} punches through {target's} guard with a full-extension thrust, whole body behind it.",
+      {
+        "text": "{attacker} punches through {target's} guard with a full-extension thrust, whole body behind it.",
+        "needs": "armed"
+      },
       "The point strikes, slides, then finds its way to flesh.",
       "A sharp, direct, merciless blow. The point bites deep into {bodyPart}.",
       "{attacker} uses {target's} momentum to meet the charge on the point.",
@@ -30,7 +49,10 @@
       "The point pierces {target's} defense and bites flesh.",
       "A quick thrust catches {target} in {bodyPart}.",
       "{target} deflects the weapon too late: the point finds its way.",
-      "The thrust from {attacker} slides along the guard and stabs on the way past.",
+      {
+        "text": "The thrust from {attacker} slides along the guard and stabs on the way past.",
+        "needs": "armed"
+      },
       "The point sinks briefly into {bodyPart} before withdrawing.",
       "{attacker} strikes on the line; {target} has no time to push the weapon aside.",
       "A sharp thrust catches {target}, who winces.",
@@ -38,51 +60,87 @@
       "{attacker} aims for {bodyPart} and the point does not stray.",
       "The weapon shoots forward and pierces {target} in {bodyPart}.",
       "A straight thrust, no detours, that reaches its goal.",
-      "{target} steps back, but the point catches up at the edge of the guard.",
+      {
+        "text": "{target} steps back, but the point catches up at the edge of the guard.",
+        "needs": "armed"
+      },
       "The thrust pierces, shallow but painful.",
       "The point catches {target} in {bodyPart} and leaves a clear mark.",
       "{attacker} feints, then stabs where {target} was not expecting it.",
-      "The weapon darts in before {target's} parry can close.",
+      {
+        "text": "The weapon darts in before {target's} parry can close.",
+        "needs": "armed"
+      },
       "A crisp thrust, timed to the second.",
-      "The point brushes {target's} parry then sinks into {bodyPart}."
+      {
+        "text": "The point brushes {target's} parry then sinks into {bodyPart}.",
+        "needs": "armed"
+      }
     ],
     "failure": [
-      "The point skids off {target's} guard.",
+      {
+        "text": "The point skids off {target's} guard.",
+        "needs": "armed"
+      },
       "{target} sweeps the thrust aside with a flick of the weapon.",
       "The thrust passes a breath away from {target}.",
       "{attacker} lunges too early; {target} is already out of reach.",
-      "The point strikes protective gear and slides off without biting.",
+      {
+        "text": "The point strikes protective gear and slides off without biting.",
+        "needs": "armed"
+      },
       "{target} turns, and the thrust finds only empty space.",
       "The point stops short against {target's} defense.",
       "{attacker} aims true, but {target} saw the blow coming.",
-      "A precise thrust, parried with equal precision.",
-      "The point grazes {target's} gear without getting through.",
+      {
+        "text": "A precise thrust, parried with equal precision.",
+        "needs": "armed"
+      },
+      {
+        "text": "The point grazes {target's} gear without getting through.",
+        "needs": "armed"
+      },
       "{target} steps back and the weapon falls short.",
       "The weapons cross; the point from {attacker} is thrown to the side.",
       "The thrust aims for {bodyPart} and strikes air.",
       "{target} chases the point away with a sharp beat.",
       "The point catches cloth, with nothing beneath it.",
-      "{attacker} searches for an opening; {target's} guard stays shut.",
+      {
+        "text": "{attacker} searches for an opening; {target's} guard stays shut.",
+        "needs": "armed"
+      },
       "The straight thrust from {attacker} narrowly misses.",
       "{target} draws back just enough to let the point pass.",
-      "The thrust rebounds off protective gear with a sharp click.",
+      {
+        "text": "The thrust rebounds off protective gear with a sharp click.",
+        "needs": "armed"
+      },
       "{attacker} tries a quick lunge, immediately neutralized."
     ],
     "criticalFailure": [
       "{attacker} overextends the lunge and ends up off balance, point in empty air.",
       "The thrust is misaligned: the weapon skids and veers far from {target}.",
       "{attacker} dives at an imaginary opening and stabs nothing.",
-      "The point snags for a moment in a fold of {target's} gear, useless.",
+      {
+        "text": "The point snags for a moment in a fold of {target's} gear, useless.",
+        "needs": "armed"
+      },
       "{target} lets the thrust go by with a simple sidestep, and {attacker} keeps going regardless.",
       "A lunge that is far too long leaves {attacker} stretched out and vulnerable.",
       "{attacker} takes so much care aiming that the moment to strike slips by.",
-      "The point hits protective gear at an angle and the weapon jars painfully in {attacker's} hand.",
+      {
+        "text": "The point hits protective gear at an angle and the weapon jars painfully in {attacker's} hand.",
+        "needs": "armed"
+      },
       "{attacker} rushes and the thrust goes completely astray.",
       "The straight thrust is so slow that {target} has time to be amused by it.",
       "{attacker} trips over their own momentum and the thrust is lost in empty air.",
       "The point passes under {target's} arm, nowhere near anything, and {attacker} has to recover.",
       "{attacker} strikes off-tempo and leaves an opening at the worst moment.",
-      "A badly prepared lunge: {attacker} immediately falls back to find their guard.",
+      {
+        "text": "A badly prepared lunge: {attacker} immediately falls back to find their guard.",
+        "needs": "armed"
+      },
       "The thrust goes too low and stabs the air at knee height.",
       "{attacker} aims too high, and the weapon passes over {target's} shoulder.",
       "The point trembles at the end of a poorly extended arm and never comes near.",

@@ -1,6 +1,10 @@
 {
   "key": "skill.acrobatics.tumble-through",
-  "label": ["Skills", "Acrobatics", "Tumble Through"],
+  "label": [
+    "Skills",
+    "Acrobatics",
+    "Tumble Through"
+  ],
   "outcomes": {
     "success,criticalSuccess": [
       "{actor} dives between {target's} legs and comes up on the other side in a fluid roll.",

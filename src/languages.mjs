@@ -13,20 +13,26 @@ export function contractFrench(text) {
         .replace(/\b([Dd]e|[Qq]ue|[Ll]orsque|[Pp]uisque|[Jj]usque) (?=[aeiouyàâäéèêëîïôöûüAEIOUYÀÂÄÉÈÊËÎÏÔÖÛÜ])/g, (_m, w) => `${w.slice(0, -1)}'`)
         .replace(/\b([Dd])e le /g, "$1u ")
         .replace(/\b([Dd])e les /g, "$1es ")
-        .replace(/\bà le /g, "au ")
-        .replace(/\bà les /g, "aux ");
+        // No \b before « à »: without the u flag it is not a word character.
+        .replace(/(?<!\p{L})([àÀ]) le /gu, (_m, a) => (a === "À" ? "Au " : "au "))
+        .replace(/(?<!\p{L})([àÀ]) les /gu, (_m, a) => (a === "À" ? "Aux " : "aux "));
 }
 
 export const LANGUAGES = {
     en: {
         label: "English",
         fallbacks: { actor: "the character", attacker: "the attacker", target: "their opponent", weapon: "their weapon", origin: "the effect" },
+        // A monster token still named after its stat block ("Giant Rat") reads as "the giant rat".
+        npcName: (name) => `the ${name.toLowerCase()}`,
         degrees: { criticalSuccess: "Critical Success", success: "Success", failure: "Failure", criticalFailure: "Critical Failure" },
         fix: (text) => text,
     },
     fr: {
         label: "Français",
         fallbacks: { actor: "le personnage", attacker: "l'assaillant", target: "son adversaire", weapon: "son arme", origin: "l'effet" },
+        // The gender is unknown, so always « le » (« le rat géant », « l'ogre »); contractFrench then gives
+        // « du rat géant », « au rat géant ».
+        npcName: (name) => (/^[aeiouyhàâäéèêëîïôöûü]/i.test(name) ? `l'${name.toLowerCase()}` : `le ${name.toLowerCase()}`),
         degrees: { criticalSuccess: "Réussite critique", success: "Réussite", failure: "Échec", criticalFailure: "Échec critique" },
         fix: contractFrench,
     },

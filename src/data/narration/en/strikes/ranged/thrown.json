@@ -1,10 +1,17 @@
 {
   "key": "strike.ranged.thrown",
-  "label": ["Strikes", "Ranged", "Thrown weapon"],
+  "label": [
+    "Strikes",
+    "Ranged",
+    "Thrown weapon"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} throws with a snap of the wrist; the weapon spins and slams into {bodyPart}.",
-      "The weapon cuts the air end over end and hits {target} exactly where the guard opens.",
+      {
+        "text": "The weapon cuts the air end over end and hits {target} exactly where the guard opens.",
+        "needs": "armed"
+      },
       "{attacker} cocks an arm, waits a beat, then lets go: the throw is perfect.",
       "The thrown weapon flies flat, without a wobble, and hits {target} in the heart of their defense.",
       "A spinning whistle, then a clean impact on {bodyPart}.",
@@ -45,7 +52,10 @@
       "The throw lands a little short, at {target's} feet.",
       "The weapon spins over {target's} head.",
       "{attacker} throws just as {target} shifts their weight.",
-      "The projectile ricochets off {target's} guard.",
+      {
+        "text": "The projectile ricochets off {target's} guard.",
+        "needs": "armed"
+      },
       "{target} sees the throw coming and lets it pass.",
       "The throw left well, but {target} is no longer there.",
       "The weapon brushes past {target} and carries on."

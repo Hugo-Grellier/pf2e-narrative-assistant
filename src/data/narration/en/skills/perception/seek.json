@@ -1,6 +1,10 @@
 {
   "key": "skill.perception.seek",
-  "label": ["Skills", "Perception", "Seek"],
+  "label": [
+    "Skills",
+    "Perception",
+    "Seek"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{actor} sweeps the area with a keen eye; no detail escapes notice.",

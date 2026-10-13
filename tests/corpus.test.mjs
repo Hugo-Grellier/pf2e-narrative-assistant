@@ -16,6 +16,7 @@ const STYLE = {
     fr: {
         article: new RegExp(String.raw`(?<![\p{L}'])(le|la|les|un|une|du|au|d'|l')\s?${NAME}`, "iu"),
         possessive: /'s\}/,
+        guard: /\b(garde|parade|parer|pare|bouclier|armure|cotte|plastron|équipement|cheveux|cape|manteau|ceinture|sangle|vêtements?|tunique|casque|bottes?|gantelet|brassard)\b|(lame|arme) de \{target\}|l'acier (rencontre|contre|heurte) l'acier|fer contre fer|lames? (se croisent|s'entrechoquent)|choc des (lames|armes)|croise le fer/i,
         mechanical: /à terre|au sol|renvers|projeté|(os|bras|jambe|côte)s? (bris|cass)|(?<!\p{L})cass[ée]|fractur|(?<!re)lâche (son|sa|ses) (arme|bouclier|épée|lame)|désarm|saign|hémorrag|meurt|(?<!\p{L})tu[ée]s?(?!\p{L})|achev|inconscien|assomm|aveugl|étourdi|paralys|immunis|résistance (au|à|aux) |\d+ ?m(ètres?)?\b|points? de vie|\bPV\b|dégâts persistants/iu,
         overused: ["violemment", "brutalement", "avec précision", "de justesse"],
     },
@@ -23,6 +24,7 @@ const STYLE = {
         // Names never take an article; the roller's gender is unknown, so no gendered pronouns at all.
         article: new RegExp(String.raw`\b(the|a|an)\s${NAME}`, "i"),
         gendered: /\b(he|she|him|her|his|hers|himself|herself)\b/i,
+        guard: /\b(guard|parr(y|ies|ied)|shield|armou?r|mail|breastplate|gear|hair|cloak|belt|straps?|cloth(es|ing)|tunic|helm(et)?|boots?|gauntlet|bracer)\b|\{target's\} (blade|weapon|sword)|steel (meets|on|against|rings on) steel|blades? (cross|meet|lock|clash)|clash of (steel|blades)|crosses? (blades|swords)/i,
         mechanical: /\bprone\b|knock(s|ed)? (down|over)|\bto the (ground|floor)|off (their|its) feet|\bshov(e|es|ed)\b|pushed back|\bbroken\b|\bbreaks? (a|the|their) (bone|arm|leg|rib)|fractur|drops? (their|its) (weapon|blade|sword|shield)|disarm|\bbleed|\bdies\b|\bdead\b|\bkill|unconscious|knocked out|\bblind(ed)?\b|\bstun(ned)?\b|paraly[sz]|\bimmune|resistan(t|ce) to|\d+ ?(ft|feet|foot)\b|hit points|\bHP\b|persistent/i,
         overused: ["violently", "brutally", "precisely", "barely"],
     },
@@ -73,6 +75,27 @@ for (const lang of corpusLanguages()) {
             each(() => true, (text) => (style.possessive.test(text) ? "{name's} is English only" : null));
         });
     }
+
+    test(`[${lang}] texts about a guard, parry, armour, gear or clothes declare needs: "armed"`, () => {
+        // A rat has no guard, gear or hair: such texts must not be drawn against animals (strike.shield is the attacker's shield).
+        each((t) => /^(strike|generic|spell)/.test(t.key) && !t.key.startsWith("strike.shield."), (text, table) => {
+            const entry = table.entries.find((e) => e.text === text);
+            return style.guard.test(text) && !entry.when ? `add "needs": "armed" (${text.match(style.guard)[0]})` : null;
+        });
+    });
+
+    test(`[${lang}] Strikes against an animal never get a guard text, and still resolve`, () => {
+        for (const degreeOfSuccess of DEGREES) {
+            for (const damageTypes of [["slashing"], ["piercing"], ["bludgeoning"], []]) {
+                const context = { eventType: "strike", range: "melee", damageTypes, targetTraits: ["animal"], degreeOfSuccess, vars: {} };
+                for (let i = 0; i < 30; i++) {
+                    const result = narrate(tables, context);
+                    assert.ok(result, `${degreeOfSuccess} ${damageTypes}`);
+                    assert.ok(!style.guard.test(result.rawText), result.rawText);
+                }
+            }
+        }
+    });
 
     test(`[${lang}] no stray braces or doubled spaces`, () => {
         each(() => true, (text) => (/\{[^}]*$|^[^{]*\}| {2}/.test(text) ? "malformed" : null));

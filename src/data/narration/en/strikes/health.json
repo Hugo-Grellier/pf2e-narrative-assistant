@@ -30,7 +30,10 @@
         "Swaying, breathing hard, {target} takes yet another hit.",
         "{target} is on the edge; one more like that could be the end.",
         "The hit lands, and {target's} knees almost give way.",
-        "{target} barely raises a guard anymore, and the blow gets through.",
+        {
+          "text": "{target} barely raises a guard anymore, and the blow gets through.",
+          "needs": "armed"
+        },
         "Every hit counts now: {target} is running out of strength."
       ]
     }

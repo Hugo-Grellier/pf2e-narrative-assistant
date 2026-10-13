@@ -1,6 +1,10 @@
 {
   "key": "skill.escape",
-  "label": ["Skills", "Basic actions", "Escape"],
+  "label": [
+    "Skills",
+    "Basic actions",
+    "Escape"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{actor} twists, slides and bursts out of the hold as if it never existed.",

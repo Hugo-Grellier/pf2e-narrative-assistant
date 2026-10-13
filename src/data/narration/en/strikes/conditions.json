@@ -18,7 +18,10 @@
         "The blow lands on {target}, still struggling on the ground.",
         "{target} raises an arm from the floor, too late.",
         "{attacker} takes advantage of {target's} awkward position.",
-        "From down there, {target} cannot get a proper guard up, and the attack gets in.",
+        {
+          "text": "From down there, {target} cannot get a proper guard up, and the attack gets in.",
+          "needs": "armed"
+        },
         "{target} scrambles on the ground, and the strike catches them mid-scramble."
       ],
       "failure,criticalFailure": [
@@ -42,14 +45,26 @@
         "{target's} fear opens a gap, and {attacker} drives the attack right through it.",
         "{target} flinches before the blow even comes, and it lands all the harder.",
         "Panic slows {target}, and the strike finds its mark with ease.",
-        "{target's} eyes widen; the attack lands before the guard comes up.",
+        {
+          "text": "{target's} eyes widen; the attack lands before the guard comes up.",
+          "needs": "armed"
+        },
         "{attacker} presses the fear home with a merciless hit."
       ],
       "success": [
-        "{target} hesitates, guard trembling, and the attack slips in.",
-        "A trembling guard is no guard at all.",
+        {
+          "text": "{target} hesitates, guard trembling, and the attack slips in.",
+          "needs": "armed"
+        },
+        {
+          "text": "A trembling guard is no guard at all.",
+          "needs": "armed"
+        },
         "{target} backs off a half-step too slowly.",
-        "Fear makes {target's} parry late.",
+        {
+          "text": "Fear makes {target's} parry late.",
+          "needs": "armed"
+        },
         "{target} sees it coming and still cannot react in time."
       ],
       "failure,criticalFailure": [
@@ -87,7 +102,10 @@
         "Even held fast, {target} manages to jerk aside.",
         "{target} twists in the hold and the attack scrapes past.",
         "{target} uses the hold itself as cover.",
-        "The attack misses by a hair as {target} wrenches against the grip.",
+        {
+          "text": "The attack misses by a hair as {target} wrenches against the grip.",
+          "needs": "armed"
+        },
         "Bound or not, {target} still has enough room to deflect it."
       ]
     }

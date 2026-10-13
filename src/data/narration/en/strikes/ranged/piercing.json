@@ -1,6 +1,10 @@
 {
   "key": "strike.ranged.piercing",
-  "label": ["Strikes", "Ranged", "Piercing (arrows, bolts)"],
+  "label": [
+    "Strikes",
+    "Ranged",
+    "Piercing (arrows, bolts)"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "The string snaps, and the shaft buries itself deep in {bodyPart}.",
@@ -10,7 +14,10 @@
       "The bolt leaves with a sharp clack and hits {target} before anyone can blink.",
       "The arrow is still quivering in {bodyPart} when {target} understands what happened.",
       "{attacker} shoots through a tiny gap; the head finds flesh.",
-      "The shaft whistles, slips between two pieces of armor and sinks in deep.",
+      {
+        "text": "The shaft whistles, slips between two pieces of armor and sinks in deep.",
+        "needs": "armed"
+      },
       "{attacker} follows {target} with the arrowhead for a long moment, then looses. The shaft is unforgiving.",
       "Two silhouettes cross, and the shaft passes between them to strike {target} full on.",
       "The head punches through leather and cloth and plants itself deep in {bodyPart}.",
@@ -18,7 +25,10 @@
       "{attacker} shoots on the move, almost without aiming, and still the arrow lands exactly where it should.",
       "The bolt drives through {target's} defense with a flat, hard thunk.",
       "The arrow rises in a gentle arc then dives straight into {bodyPart}.",
-      "{attacker} releases the string on an exhale; the shaft finds the weak point in {target's} guard.",
+      {
+        "text": "{attacker} releases the string on an exhale; the shaft finds the weak point in {target's} guard.",
+        "needs": "armed"
+      },
       "A shrill whistle, then a deep impact: the shaft stands planted in {bodyPart}.",
       "The bolt strikes with such force that {target's} whole body shudders.",
       "{attacker} looses just as {target} raises an arm, exposing {bodyPart}.",
@@ -37,13 +47,25 @@
       "{attacker} shoots in an arc; the shaft drops right onto {target}.",
       "The head scratches {target} across {bodyPart} before flying on.",
       "A swift, well-placed shaft draws a grunt from {target}.",
-      "{attacker} adjusts by a hair and the arrow finds its way.",
-      "The shaft sticks in {target's} gear and reaches the flesh beneath.",
+      {
+        "text": "{attacker} adjusts by a hair and the arrow finds its way.",
+        "needs": "armed"
+      },
+      {
+        "text": "The shaft sticks in {target's} gear and reaches the flesh beneath.",
+        "needs": "armed"
+      },
       "The string snaps twice in the quiet: the second arrow hits.",
-      "The bolt hits {target} just as the guard relaxes.",
+      {
+        "text": "The bolt hits {target} just as the guard relaxes.",
+        "needs": "armed"
+      },
       "{attacker} looses without waiting and the shaft catches {target} mid-charge.",
       "The arrow hisses and sinks into {bodyPart}.",
-      "The shaft flies low and hits {target} just under the guard.",
+      {
+        "text": "The shaft flies low and hits {target} just under the guard.",
+        "needs": "armed"
+      },
       "{attacker} aims for {bodyPart} and the arrow obeys."
     ],
     "failure": [
@@ -57,10 +79,16 @@
       "The shaft lodges in an obstacle beside {target}.",
       "{target} shifts and the shaft ends up quivering at their feet.",
       "The wind nudges the arrow, just enough for it to miss.",
-      "The head snags {target's} clothing with nothing underneath.",
+      {
+        "text": "The head snags {target's} clothing with nothing underneath.",
+        "needs": "armed"
+      },
       "{attacker} shoots too fast; the shaft goes wide.",
       "The arrow flies between {target's} legs.",
-      "The bolt bounces off {target's} guard with a ping.",
+      {
+        "text": "The bolt bounces off {target's} guard with a ping.",
+        "needs": "armed"
+      },
       "{target} dives into cover just as the arrow arrives."
     ],
     "criticalFailure": [

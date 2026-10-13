@@ -33,11 +33,17 @@
       ],
       "criticalFailure": [
         "{attacker} s'engage à fond dans un crochet et tourne sur place.",
-        "Le poing heurte une boucle de ceinture, et les jointures de {attacker} le regrettent.",
+        {
+          "text": "Le poing heurte une boucle de ceinture, et les jointures de {attacker} le regrettent.",
+          "needs": "armed"
+        },
         "Un coup de pied hasardeux laisse {attacker} sautiller pour garder l'équilibre.",
         "{attacker} met tout dans le coup, ne frappe que l'air et trébuche derrière.",
         "{target} esquive si proprement que {attacker} manque de basculer dans le vide.",
-        "Le poing de {attacker} bute sur la garde de {target} et l'onde de choc remonte jusqu'à l'épaule."
+        {
+          "text": "Le poing de {attacker} bute sur la garde de {target} et l'onde de choc remonte jusqu'à l'épaule.",
+          "needs": "armed"
+        }
       ]
     }
   },
@@ -104,7 +110,10 @@
         "La détonation résonne et {target} vacille sous l'impact.",
         "À travers la fumée, {attacker} voit la balle porter.",
         "Le tir effleure {bodyPart} dans un nuage de tissu déchiré.",
-        "Pan : un trou apparaît dans l'équipement de {target}, et la douleur derrière.",
+        {
+          "text": "Pan : un trou apparaît dans l'équipement de {target}, et la douleur derrière.",
+          "needs": "armed"
+        },
         "Un claquement sec, et {target} grimace quand la balle mord."
       ],
       "failure": [
@@ -136,21 +145,33 @@
       "criticalSuccess": [
         "L'arme de {attacker} entre et ressort avant que {target} ne la voie bouger.",
         "Un coup de poignet, et la pointe trouve la faille sur {bodyPart}.",
-        "{attacker} se glisse dans la garde de {target} et frappe deux fois en un battement de cœur.",
+        {
+          "text": "{attacker} se glisse dans la garde de {target} et frappe deux fois en un battement de cœur.",
+          "needs": "armed"
+        },
         "Vive comme un serpent, l'arme légère mord sous {bodyPart}.",
         "{attacker} menace haut, frappe bas, et le tour réussit parfaitement.",
-        "Trop rapide pour être parée : l'attaque porte avant que la garde ne bouge."
+        {
+          "text": "Trop rapide pour être parée : l'attaque porte avant que la garde ne bouge.",
+          "needs": "armed"
+        }
       ],
       "success": [
         "Une estocade vive se faufile dans la défense de {target}.",
         "{attacker} détend le bras et trace une ligne cuisante sur {bodyPart}.",
         "Jeu de jambes léger, frappe rapide, et {target} grimace.",
-        "L'arme scintille et entaille {target} sous la garde.",
+        {
+          "text": "L'arme scintille et entaille {target} sous la garde.",
+          "needs": "armed"
+        },
         "{attacker} entre, frappe et ressort déjà hors de portée.",
         "Une coupe nette et économe trouve sa cible."
       ],
       "failure": [
-        "L'estocade est vive, la parade plus vive encore.",
+        {
+          "text": "L'estocade est vive, la parade plus vive encore.",
+          "needs": "armed"
+        },
         "L'arme de {attacker} papillonne, mais {target} la lit.",
         "La vitesse ne suffit pas : {target} détourne l'attaque.",
         "La pointe file et ne rencontre que l'air.",
@@ -158,11 +179,17 @@
         "Une rafale de faux départs, et aucun ne porte."
       ],
       "criticalFailure": [
-        "{attacker} se veut trop malin et emmêle son arme dans la garde de {target}.",
+        {
+          "text": "{attacker} se veut trop malin et emmêle son arme dans la garde de {target}.",
+          "needs": "armed"
+        },
         "La fioriture se termine avec {attacker} en déséquilibre.",
         "Trop de vitesse, pas assez de contrôle : l'attaque passe loin de {target}.",
         "Les appuis de {attacker} se croisent et la fente part de travers.",
-        "L'arme légère dérape sur la garde de {target} et {attacker} perd le rythme.",
+        {
+          "text": "L'arme légère dérape sur la garde de {target} et {attacker} perd le rythme.",
+          "needs": "armed"
+        },
         "Une ruse brillante qui ne trompe que {attacker}."
       ]
     }

@@ -1,6 +1,10 @@
 {
   "key": "skill.athletics.grapple",
-  "label": ["Skills", "Athletics", "Grapple"],
+  "label": [
+    "Skills",
+    "Athletics",
+    "Grapple"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} clamps down like a vise: {target} cannot move a muscle.",

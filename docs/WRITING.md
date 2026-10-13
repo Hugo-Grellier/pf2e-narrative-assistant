@@ -38,6 +38,11 @@ A text file (one definition or an array), same `key` in every language:
 - `label`: path shown in the compendium; the first element is the folder.
 - An outcome key may group degrees: `"failure,criticalFailure"`. Use the same groups in every language.
 - An entry is a string, or `{ "text": "…", "weight": 3 }` to make it more likely.
+- `{ "text": "…", "needs": "armed" }` keeps a text for targets with a guard, gear and clothes
+  (humanoids, giants, fiends, celestials, monitors, fey; see `src/data/needs.json`). Any Strike, spell or
+  generic text that mentions the target's guard, parry, armour, gear, clothes, hair or crossed blades
+  needs it: a giant rat has none of these. The tests enforce it, and check that every Strike against an
+  animal still finds a text.
 - Missing outcomes are fine: resolution falls back to a less specific table.
 - Languages are written independently, not translated line by line; entry counts may differ.
 
@@ -54,7 +59,9 @@ of `outcomes`: `{ "key": "component.body-part.humanoid", "label": [...], "entrie
 | `{origin}` | token name of the creature behind a save | the effect | l'effet |
 | `{bodyPart}` | component table: "the shoulder", « l'épaule »… | — | — |
 
-Names are whatever the GM typed on the token ("Valeros", "the kobold"), and their gender is unknown.
+Names are whatever the GM typed on the token ("Valeros", "the kobold"), and their gender is unknown. A
+monster token never renamed ("Giant Rat 2") is not a name: it gets an article, "the giant rat" and
+« le rat géant » (always « le » or « l' », the gender being unknown).
 
 **English**
 - Never put an article before a name: no `the {target}`. Possessives: `{target's} guard` gives

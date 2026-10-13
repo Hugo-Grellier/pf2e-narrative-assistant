@@ -1,0 +1,3 @@
+{
+  "armed": { "targetTraits": { "anyOf": ["humanoid", "giant", "fiend", "celestial", "monitor", "fey"] } }
+}

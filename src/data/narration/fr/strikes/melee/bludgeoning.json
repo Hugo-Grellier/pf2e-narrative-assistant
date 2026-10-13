@@ -12,11 +12,20 @@
       "L'arme heurte {target} de plein fouet et lui vide les poumons d'un seul coup.",
       "Un choc lourd, massif : {target} titube comme sous le coup d'un bélier.",
       "{attacker} fait tournoyer son arme et l'écrase sur {bodyPart}.",
-      "Le coup cueille {target} au moment où sa garde retombe, et le choc ébranle tout son corps.",
+      {
+        "text": "Le coup cueille {target} au moment où sa garde retombe, et le choc ébranle tout son corps.",
+        "needs": "armed"
+      },
       "L'impact est si lourd que {target} en voit des étincelles.",
-      "{attacker} abat son arme de haut en bas ; la garde de {target} plie sous la masse.",
+      {
+        "text": "{attacker} abat son arme de haut en bas ; la garde de {target} plie sous la masse.",
+        "needs": "armed"
+      },
       "Un bruit mat, terrible. {target} encaisse un coup qui aurait fait plier un mur.",
-      "La frappe traverse la parade de {target} et s'écrase sur {bodyPart}.",
+      {
+        "text": "La frappe traverse la parade de {target} et s'écrase sur {bodyPart}.",
+        "needs": "armed"
+      },
       "{attacker} pivote et frappe en revers : l'onde de choc parcourt {target} de part en part.",
       "Le coup arrive comme une avalanche, impossible à arrêter.",
       "{target} sent l'impact jusque dans ses dents.",
@@ -25,7 +34,10 @@
       "Un choc écrasant : l'air sort des poumons de {target} dans un râle étranglé.",
       "{attacker} libère toute sa puissance d'un coup ; {target} en reste chancelant.",
       "Le coup tombe juste, lourd comme une sentence.",
-      "La garde de {target} cède sous la masse, et le choc poursuit sa course jusqu'à la chair.",
+      {
+        "text": "La garde de {target} cède sous la masse, et le choc poursuit sa course jusqu'à la chair.",
+        "needs": "armed"
+      },
       "{attacker} frappe en plein élan ; l'impact fait trembler {target} des pieds à la tête."
     ],
     "success": [
@@ -34,7 +46,10 @@
       "L'arme heurte {target}, qui vacille un instant.",
       "Un coup sourd sur {bodyPart} arrache un grognement à {target}.",
       "{attacker} cogne sans finesse, mais avec efficacité.",
-      "La frappe écrase la garde de {target} et touche derrière.",
+      {
+        "text": "La frappe écrase la garde de {target} et touche derrière.",
+        "needs": "armed"
+      },
       "Le choc remonte dans le bras de {attacker} : le coup a porté.",
       "{target} bloque à moitié ; l'autre moitié du coup suffit.",
       "Un impact sec sur {bodyPart}, et {target} perd un instant le rythme.",
@@ -44,7 +59,10 @@
       "L'arme rebondit sur {bodyPart}, laissant une douleur sourde.",
       "{attacker} frappe en revers et sent l'impact porter.",
       "Un coup lourd, sans élégance, qui fait mouche.",
-      "Le choc fait vibrer l'équipement de {target}.",
+      {
+        "text": "Le choc fait vibrer l'équipement de {target}.",
+        "needs": "armed"
+      },
       "{attacker} martèle la défense de {target} jusqu'à la percer.",
       "La masse de l'arme fait le travail : {target} encaisse durement.",
       "Un coup court sur {bodyPart}, assez pour couper le souffle à {target}.",
@@ -53,10 +71,16 @@
     "failure": [
       "L'arme fend l'air dans un grondement, sans rien toucher.",
       "{target} esquive le coup lourd et le laisse passer.",
-      "Le coup s'écrase sur la garde de {target}, qui tient bon.",
+      {
+        "text": "Le coup s'écrase sur la garde de {target}, qui tient bon.",
+        "needs": "armed"
+      },
       "{attacker} frappe de toutes ses forces, mais {target} n'est déjà plus dans l'axe.",
       "La masse de l'arme rend le coup trop lent : {target} s'en écarte.",
-      "Le choc se perd sur la parade de {target}.",
+      {
+        "text": "Le choc se perd sur la parade de {target}.",
+        "needs": "armed"
+      },
       "{target} recule et le coup frappe l'espace laissé vide.",
       "L'arme glisse sur l'épaule de {target} sans y mettre le poids.",
       "{attacker} cogne, {target} absorbe l'impact sur sa défense.",
@@ -65,7 +89,10 @@
       "Le coup est dévié et finit sa course loin de sa cible.",
       "{attacker} frappe au jugé, et {target} n'est déjà plus là.",
       "La défense de {target} encaisse le choc dans un bruit sourd.",
-      "Le coup arrive un temps trop tard : {target} a déjà repris sa garde.",
+      {
+        "text": "Le coup arrive un temps trop tard : {target} a déjà repris sa garde.",
+        "needs": "armed"
+      },
       "{target} accompagne l'impact et le rend inoffensif.",
       "L'arme frôle {target} dans un sifflement grave.",
       "{attacker} abat son arme ; {target} la voit venir et s'en écarte.",
@@ -92,7 +119,10 @@
       "L'arme tournoie au bout du bras de {attacker}, plus menaçante pour ses voisins que pour {target}.",
       "Un raté sonore : l'arme frappe le décor dans un bruit fracassant.",
       "{attacker} prend trop d'élan et le coup arrive bien après le passage de {target}.",
-      "Le coup s'enlise, {attacker} lutte contre le poids de son arme pour se remettre en garde."
+      {
+        "text": "Le coup s'enlise, {attacker} lutte contre le poids de son arme pour se remettre en garde.",
+        "needs": "armed"
+      }
     ]
   }
 }

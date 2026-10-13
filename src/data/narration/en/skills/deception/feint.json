@@ -1,6 +1,10 @@
 {
   "key": "skill.deception.feint",
-  "label": ["Skills", "Deception", "Feint"],
+  "label": [
+    "Skills",
+    "Deception",
+    "Feint"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{actor} starts a high attack, then the whole body lies: {target} parries nothing, guard wide open.",

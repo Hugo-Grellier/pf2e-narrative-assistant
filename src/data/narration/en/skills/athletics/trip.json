@@ -1,6 +1,10 @@
 {
   "key": "skill.athletics.trip",
-  "label": ["Skills", "Athletics", "Trip"],
+  "label": [
+    "Skills",
+    "Athletics",
+    "Trip"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "{attacker} sweeps {target's} legs with a perfect arc; the fall is heavy and loud.",

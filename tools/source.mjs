@@ -9,7 +9,8 @@
  *   narration: { key, label: [...], outcomes: { criticalSuccess: [...], "success,criticalSuccess": [...] } }
  *              -> one table per outcome key, key "<key>.<degrees joined by +>"
  *   component: { key, label: [...], entries: [...] }
- * An entry is a string or { text, weight }.
+ * An entry is a string or { text, weight, needs }. `needs` names a condition from src/data/needs.json
+ * ("armed": the target is a creature with a guard, gear and clothes to speak of), stored on the entry as `when`.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -17,9 +18,18 @@ import { DEGREES } from "../src/engine.mjs";
 
 const DATA_DIR = path.resolve(import.meta.dirname, "../src/data");
 export const RULES_FILE = path.join(DATA_DIR, "rules.json");
+export const NEEDS_FILE = path.join(DATA_DIR, "needs.json");
 export const corpusDir = (lang) => path.join(DATA_DIR, "narration", lang);
 
-const toEntry = (e) => (typeof e === "string" ? { text: e, weight: 1 } : { weight: 1, ...e });
+let needs;
+function toEntry(e) {
+    if (typeof e === "string") return { text: e, weight: 1 };
+    const { needs: need, ...entry } = e;
+    if (!need) return { weight: 1, ...entry };
+    needs ??= readJson(NEEDS_FILE);
+    if (!needs[need]) throw new Error(`unknown needs "${need}" for « ${e.text} »`);
+    return { weight: 1, ...entry, when: needs[need] };
+}
 
 function* walk(dir) {
     for (const dirent of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {

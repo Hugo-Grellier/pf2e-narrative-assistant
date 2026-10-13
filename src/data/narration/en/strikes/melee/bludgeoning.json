@@ -1,6 +1,10 @@
 {
   "key": "strike.melee.bludgeoning",
-  "label": ["Strikes", "Melee", "Bludgeoning"],
+  "label": [
+    "Strikes",
+    "Melee",
+    "Bludgeoning"
+  ],
   "outcomes": {
     "criticalSuccess": [
       "The blow comes down on {bodyPart} with a deep thud that makes onlookers wince.",
@@ -8,11 +12,20 @@
       "The weapon slams into {target} and empties their lungs in one go.",
       "A heavy, crushing hit: {target} reels as if struck by a battering ram.",
       "{attacker} whirls the weapon overhead and brings it crashing down on {bodyPart}.",
-      "The blow catches {target} just as the guard drops, and the shock shakes their whole body.",
+      {
+        "text": "The blow catches {target} just as the guard drops, and the shock shakes their whole body.",
+        "needs": "armed"
+      },
       "The impact is so heavy that {target} sees stars.",
-      "{attacker} hammers straight down; {target's} guard buckles under the weight.",
+      {
+        "text": "{attacker} hammers straight down; {target's} guard buckles under the weight.",
+        "needs": "armed"
+      },
       "A flat, terrible sound. {target} takes a hit that could have cracked a wall.",
-      "The strike blasts through {target's} parry and crashes into {bodyPart}.",
+      {
+        "text": "The strike blasts through {target's} parry and crashes into {bodyPart}.",
+        "needs": "armed"
+      },
       "{attacker} spins into a backhand: the shockwave runs through {target} from end to end.",
       "The blow arrives like an avalanche, impossible to stop.",
       "{target} feels the impact all the way to their teeth.",
@@ -21,7 +34,10 @@
       "A crushing impact: the air leaves {target's} lungs in a strangled grunt.",
       "{attacker} unleashes everything in a single swing; {target} is left swaying.",
       "The blow lands true, heavy as a verdict.",
-      "{target's} guard gives way under the mass, and the shock carries through to flesh.",
+      {
+        "text": "{target's} guard gives way under the mass, and the shock carries through to flesh.",
+        "needs": "armed"
+      },
       "{attacker} hits at full stride; the impact shakes {target} from head to toe."
     ],
     "success": [
@@ -30,7 +46,10 @@
       "The weapon slams into {target}, who wobbles for a moment.",
       "A dull blow to {bodyPart} draws a grunt from {target}.",
       "{attacker} hits without finesse, but with results.",
-      "The strike crushes {target's} guard and lands behind it.",
+      {
+        "text": "The strike crushes {target's} guard and lands behind it.",
+        "needs": "armed"
+      },
       "The jolt runs up {attacker's} arm: the blow connected.",
       "{target} half-blocks it; the other half is enough.",
       "A sharp impact on {bodyPart}, and {target} loses the rhythm for a moment.",
@@ -40,7 +59,10 @@
       "The weapon rebounds off {bodyPart}, leaving a deep ache.",
       "{attacker} swings a backhand and feels it land.",
       "A heavy, graceless blow that hits home.",
-      "The shock makes {target's} gear rattle.",
+      {
+        "text": "The shock makes {target's} gear rattle.",
+        "needs": "armed"
+      },
       "{attacker} hammers at {target's} defense until it gives.",
       "The mass of the weapon does the work: {target} takes it hard.",
       "A short blow to {bodyPart}, enough to knock {target's} wind out.",
@@ -49,10 +71,16 @@
     "failure": [
       "The weapon rumbles through the air, touching nothing.",
       "{target} slips the heavy blow and lets it pass.",
-      "The blow smashes into the guard of {target}, who holds.",
+      {
+        "text": "The blow smashes into the guard of {target}, who holds.",
+        "needs": "armed"
+      },
       "{attacker} swings with all their strength, but {target} is no longer on the line.",
       "The weight of the weapon makes the blow too slow: {target} moves clear.",
-      "The impact is lost on {target's} parry.",
+      {
+        "text": "The impact is lost on {target's} parry.",
+        "needs": "armed"
+      },
       "{target} retreats and the blow hits the space left behind.",
       "The weapon glances off {target's} shoulder without its weight behind it.",
       "{attacker} hits, {target} soaks it up on their defense.",
@@ -61,7 +89,10 @@
       "The blow is deflected and ends far from its target.",
       "{attacker} swings by guesswork, and {target} is already elsewhere.",
       "{target's} defense takes the impact with a dull thud.",
-      "The blow arrives a beat too late: {target} has already recovered their guard.",
+      {
+        "text": "The blow arrives a beat too late: {target} has already recovered their guard.",
+        "needs": "armed"
+      },
       "{target} rolls with the impact and renders it harmless.",
       "The weapon brushes past {target} with a low whistle.",
       "{attacker} brings the weapon down; {target} sees it coming and steps out of the way.",
@@ -88,7 +119,10 @@
       "The weapon whirls at the end of {attacker's} arm, more dangerous to bystanders than to {target}.",
       "A noisy miss: the weapon slams into the scenery with a resounding crash.",
       "{attacker} takes too much of a run-up and the blow arrives long after {target} has moved.",
-      "The swing bogs down; {attacker} wrestles with the weight of the weapon to get back on guard."
+      {
+        "text": "The swing bogs down; {attacker} wrestles with the weight of the weapon to get back on guard.",
+        "needs": "armed"
+      }
     ]
   }
 }

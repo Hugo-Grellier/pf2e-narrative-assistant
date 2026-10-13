@@ -1,6 +1,10 @@
 {
   "key": "skill.stealth.hide",
-  "label": ["Skills", "Stealth", "Hide"],
+  "label": [
+    "Skills",
+    "Stealth",
+    "Hide"
+  ],
   "outcomes": {
     "success,criticalSuccess": [
       "{actor} melts into the shadow and becomes one shape among many.",

@@ -57,7 +57,7 @@ for (const lang of corpusLanguages()) {
                 weight: entry.weight,
                 range,
                 drawn: false,
-                flags: {},
+                flags: entry.when ? { [MODULE_ID]: { when: entry.when } } : {},
             };
         });
         write({

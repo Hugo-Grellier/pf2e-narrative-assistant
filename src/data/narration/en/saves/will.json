@@ -1,7 +1,11 @@
 [
   {
     "key": "save.will",
-    "label": ["Saving throws", "Will", "Generic"],
+    "label": [
+      "Saving throws",
+      "Will",
+      "Generic"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor's} mind shuts like a fortress gate.",
@@ -51,7 +55,11 @@
   },
   {
     "key": "save.will.fear",
-    "label": ["Saving throws", "Will", "Fear"],
+    "label": [
+      "Saving throws",
+      "Will",
+      "Fear"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} feels fear brush the back of the neck and stares it down.",
@@ -97,7 +105,11 @@
   },
   {
     "key": "save.will.mental",
-    "label": ["Saving throws", "Will", "Mental"],
+    "label": [
+      "Saving throws",
+      "Will",
+      "Mental"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "A foreign voice whispers in the head of {actor}, who silences it with a thought.",

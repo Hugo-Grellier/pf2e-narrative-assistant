@@ -8,19 +8,34 @@
   "outcomes": {
     "criticalSuccess": [
       "La pointe file droit entre deux défenses et s'enfonce profondément sur {bodyPart}.",
-      "{attacker} se fend d'un seul coup ; l'estoc traverse la garde de {target} comme si elle n'existait pas.",
+      {
+        "text": "{attacker} se fend d'un seul coup ; l'estoc traverse la garde de {target} comme si elle n'existait pas.",
+        "needs": "armed"
+      },
       "Un éclair d'acier, et la pointe trouve le défaut exact de la protection de {target}.",
       "{attacker} attend l'ouverture, puis plonge : l'arme pénètre loin sur {bodyPart}.",
-      "L'estoc part sans élan apparent et touche {target} au cœur de sa garde.",
-      "La pointe glisse entre deux pièces d'équipement et mord en profondeur.",
+      {
+        "text": "L'estoc part sans élan apparent et touche {target} au cœur de sa garde.",
+        "needs": "armed"
+      },
+      {
+        "text": "La pointe glisse entre deux pièces d'équipement et mord en profondeur.",
+        "needs": "armed"
+      },
       "{attacker} se détend comme un ressort et perce {target} sur {bodyPart}.",
       "Le coup d'estoc arrive dans l'axe parfait ; {target} le sent avant de le voir.",
-      "{attacker} écarte la parade d'un revers et plante sa pointe dans l'ouverture.",
+      {
+        "text": "{attacker} écarte la parade d'un revers et plante sa pointe dans l'ouverture.",
+        "needs": "armed"
+      },
       "La pointe s'enfonce puis ressort aussitôt, laissant {target} le souffle coupé.",
       "Une feinte haute, un estoc bas : la pointe perce {target} sur {bodyPart}.",
       "{attacker} vise un point minuscule entre deux défenses, et l'atteint.",
       "L'arme fuse comme un dard et s'enfonce là où la protection est la plus mince.",
-      "{attacker} transperce la garde de {target} d'un estoc tendu, tout le corps derrière l'arme.",
+      {
+        "text": "{attacker} transperce la garde de {target} d'un estoc tendu, tout le corps derrière l'arme.",
+        "needs": "armed"
+      },
       "La pointe heurte, glisse, puis trouve son chemin vers la chair.",
       "Un coup sec, direct, impitoyable. La pointe mord profondément sur {bodyPart}.",
       "{attacker} profite de l'élan de {target} pour l'accueillir sur sa pointe.",
@@ -34,7 +49,10 @@
       "La pointe perce la défense de {target} et mord la chair.",
       "Un coup d'estoc rapide atteint {target} sur {bodyPart}.",
       "{target} dévie l'arme trop tard : la pointe trouve son chemin.",
-      "L'estoc de {attacker} glisse le long de la garde et pique au passage.",
+      {
+        "text": "L'estoc de {attacker} glisse le long de la garde et pique au passage.",
+        "needs": "armed"
+      },
       "La pointe s'enfonce brièvement sur {bodyPart} avant de se retirer.",
       "{attacker} frappe dans l'axe ; {target} n'a pas le temps d'écarter l'arme.",
       "Un estoc vif touche {target}, qui grimace.",
@@ -42,16 +60,28 @@
       "{attacker} vise {bodyPart} et la pointe ne dévie pas.",
       "L'arme jaillit en avant et perce {target} sur {bodyPart}.",
       "Un coup droit, sans détour, qui atteint son but.",
-      "{target} recule, mais la pointe l'atteint au défaut de la garde.",
+      {
+        "text": "{target} recule, mais la pointe l'atteint au défaut de la garde.",
+        "needs": "armed"
+      },
       "L'estoc perce, peu profond mais douloureux.",
       "La pointe accroche {target} sur {bodyPart} et laisse une marque nette.",
       "{attacker} feinte, puis pique là où {target} ne l'attendait pas.",
-      "L'arme fuse et pique {target} avant que sa parade ne se referme.",
+      {
+        "text": "L'arme fuse et pique {target} avant que sa parade ne se referme.",
+        "needs": "armed"
+      },
       "Une estocade sèche, réussie à la seconde près.",
-      "La pointe effleure la parade de {target} puis s'enfonce sur {bodyPart}."
+      {
+        "text": "La pointe effleure la parade de {target} puis s'enfonce sur {bodyPart}.",
+        "needs": "armed"
+      }
     ],
     "failure": [
-      "La pointe dévie sur la garde de {target}.",
+      {
+        "text": "La pointe dévie sur la garde de {target}.",
+        "needs": "armed"
+      },
       "{target} écarte l'estoc d'un revers de son arme.",
       "L'estoc passe à un souffle de {target}.",
       "{attacker} se fend trop tôt ; {target} est déjà hors de portée.",
@@ -60,13 +90,19 @@
       "La pointe s'arrête net sur la défense de {target}.",
       "{attacker} vise juste, mais {target} a vu le coup venir.",
       "Un estoc précis, paré avec la même précision.",
-      "La pointe effleure l'équipement de {target} sans le traverser.",
+      {
+        "text": "La pointe effleure l'équipement de {target} sans le traverser.",
+        "needs": "armed"
+      },
       "{target} recule d'un pas et l'arme n'atteint pas sa cible.",
       "Les armes se croisent ; la pointe de {attacker} est rejetée sur le côté.",
       "L'estoc vise {bodyPart} et frappe l'air.",
       "{target} chasse la pointe d'un battement sec.",
       "La pointe accroche le tissu, sans rien en dessous.",
-      "{attacker} cherche l'ouverture ; la garde de {target} reste close.",
+      {
+        "text": "{attacker} cherche l'ouverture ; la garde de {target} reste close.",
+        "needs": "armed"
+      },
       "Le coup droit de {attacker} manque de peu sa cible.",
       "{target} s'efface juste assez pour laisser passer la pointe.",
       "L'estoc rebondit sur une protection dans un bruit sec.",
@@ -76,7 +112,10 @@
       "{attacker} se fend bien trop loin et se retrouve en déséquilibre, la pointe dans le vide.",
       "L'estoc est mal aligné : l'arme dérape et part loin de {target}.",
       "{attacker} plonge sur une ouverture imaginaire et frappe le néant.",
-      "La pointe se coince un instant dans un pli de l'équipement de {target}, inutile.",
+      {
+        "text": "La pointe se coince un instant dans un pli de l'équipement de {target}, inutile.",
+        "needs": "armed"
+      },
       "{target} laisse passer l'estoc d'un simple pas de côté, et {attacker} poursuit sa course malgré lui.",
       "Une fente trop longue qui laisse {attacker} étiré et vulnérable.",
       "{attacker} vise avec tant d'application que le bon moment pour frapper passe.",
@@ -86,7 +125,10 @@
       "{attacker} trébuche sur son propre élan et l'estoc se perd dans le vide.",
       "La pointe file sous le bras de {target}, loin de tout, et {attacker} doit se rattraper.",
       "{attacker} frappe à contretemps et se découvre au pire moment.",
-      "Une fente mal préparée : {attacker} recule aussitôt pour retrouver sa garde.",
+      {
+        "text": "Une fente mal préparée : {attacker} recule aussitôt pour retrouver sa garde.",
+        "needs": "armed"
+      },
       "L'estoc part trop bas et vient frapper l'air au niveau des genoux.",
       "{attacker} vise trop haut, l'arme passe au-dessus de l'épaule de {target}.",
       "La pointe tremble au bout d'un bras mal tendu et n'approche jamais sa cible.",

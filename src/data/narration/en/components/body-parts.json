@@ -1,21 +1,66 @@
 [
   {
     "key": "component.body-part.generic",
-    "label": ["Components", "Body part", "Generic"],
-    "entries": ["the flank", "the shoulder", "the back", "the neck", "the head", "the torso", "a limb", "the side", "the chest", "the midsection"]
+    "label": [
+      "Components",
+      "Body part",
+      "Generic"
+    ],
+    "entries": [
+      "the flank",
+      "the shoulder",
+      "the back",
+      "the neck",
+      "the head",
+      "the torso",
+      "a limb",
+      "the side",
+      "the chest",
+      "the midsection"
+    ]
   },
   {
     "key": "component.body-part.humanoid",
-    "label": ["Components", "Body part", "Humanoid"],
+    "label": [
+      "Components",
+      "Body part",
+      "Humanoid"
+    ],
     "entries": [
-      "the shoulder", "the flank", "the forearm", "the thigh", "the hip", "the torso",
-      "the ribs", "the collarbone", "the upper arm", "the calf", "the cheek",
-      "the wrist", "the nape of the neck", "the lower back", "the knee"
+      "the shoulder",
+      "the flank",
+      "the forearm",
+      "the thigh",
+      "the hip",
+      "the torso",
+      "the ribs",
+      "the collarbone",
+      "the upper arm",
+      "the calf",
+      "the cheek",
+      "the wrist",
+      "the nape of the neck",
+      "the lower back",
+      "the knee"
     ]
   },
   {
     "key": "component.body-part.beast",
-    "label": ["Components", "Body part", "Beast"],
-    "entries": ["the flank", "the withers", "the neck", "the breast", "a foreleg", "the hindquarters", "the muzzle", "the spine", "the shoulder"]
+    "label": [
+      "Components",
+      "Body part",
+      "Beast"
+    ],
+    "entries": [
+      "the flank",
+      "the withers",
+      "the neck",
+      "the breast",
+      "a foreleg",
+      "the hindquarters",
+      "the muzzle",
+      "the spine",
+      "the shoulder"
+    ]
   }
 ]

@@ -1,7 +1,11 @@
 [
   {
     "key": "save.reflex",
-    "label": ["Saving throws", "Reflex", "Generic"],
+    "label": [
+      "Saving throws",
+      "Reflex",
+      "Generic"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} leaps clear before the danger even triggers.",
@@ -55,7 +59,11 @@
   },
   {
     "key": "save.reflex.fire",
-    "label": ["Saving throws", "Reflex", "Fire"],
+    "label": [
+      "Saving throws",
+      "Reflex",
+      "Fire"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} dives behind cover as the flames roar overhead.",
@@ -101,7 +109,11 @@
   },
   {
     "key": "save.reflex.cold",
-    "label": ["Saving throws", "Reflex", "Cold"],
+    "label": [
+      "Saving throws",
+      "Reflex",
+      "Cold"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} leaps out of the icy gust before it closes.",
@@ -147,7 +159,11 @@
   },
   {
     "key": "save.reflex.electricity",
-    "label": ["Saving throws", "Reflex", "Electricity"],
+    "label": [
+      "Saving throws",
+      "Reflex",
+      "Electricity"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} hurls themselves aside; the bolt strikes the ground with a deafening crack.",
@@ -193,7 +209,11 @@
   },
   {
     "key": "save.reflex.acid",
-    "label": ["Saving throws", "Reflex", "Acid"],
+    "label": [
+      "Saving throws",
+      "Reflex",
+      "Acid"
+    ],
     "outcomes": {
       "criticalSuccess": [
         "{actor} leaps out of reach; acid sizzles on the ground at their feet.",

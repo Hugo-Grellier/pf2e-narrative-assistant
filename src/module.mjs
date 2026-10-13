@@ -88,7 +88,11 @@ function toEngineTable(rollTable, banned) {
     if (!flag?.key) return null;
     const entries = rollTable.results.contents
         // GM edits go through a rich-text editor, which wraps the text in a paragraph.
-        .map((r) => ({ text: (r.description || r.name || "").trim().replace(/^<p>([\s\S]*)<\/p>$/, "$1"), weight: r.weight ?? 1 }))
+        .map((r) => ({
+            text: (r.description || r.name || "").trim().replace(/^<p>([\s\S]*)<\/p>$/, "$1"),
+            weight: r.weight ?? 1,
+            when: r.flags?.[ID]?.when,
+        }))
         .filter((e) => e.text && !banned.has(e.text));
     return { key: flag.key, slot: flag.slot ?? "narration", when: flag.when ?? {}, priority: flag.priority ?? 0, gmOnly: !!flag.gmOnly, entries };
 }
@@ -204,21 +208,38 @@ function cardHTML(head, lines, { buttons = true } = {}) {
 
 const escape = (value) => (value ? foundry.utils.escapeHTML(value) : value);
 
+const withoutNumber = (name) => name.replace(/\s*\(?\d+\)?$/, "").trim();
+
+/**
+ * Name of a token for narration. A monster placed from a compendium and never renamed ("Giant Rat", "Giant
+ * Rat 2") is not a name: the language gives it an article ("the giant rat", « le rat géant »). Renamed
+ * tokens, PCs and home-made NPCs keep their name.
+ */
+function tokenName(token) {
+    const name = token?.name;
+    const actor = token?.actor;
+    if (!name || actor?.type !== "npc") return name ?? null;
+    const fromCompendium = !!(actor._stats?.compendiumSource ?? actor.sourceId);
+    if (!fromCompendium || withoutNumber(name) !== withoutNumber(actor.name ?? "")) return name;
+    return LANGUAGES[narrationLanguage()].npcName(withoutNumber(name));
+}
+
 /** Display names, HTML-escaped since they end up in chat. Token names first: GMs often mask NPC identities there. */
 function namesFor(message) {
     let target = null;
     let item = null;
     let origin = null;
     try {
-        target = message.target?.token?.name ?? message.target?.actor?.name ?? null;
+        target = message.target?.token ? tokenName(message.target.token) : (message.target?.actor?.name ?? null);
         item = message.item?.name ?? null;
         const originFlag = message.flags.pf2e?.context?.origin;
         const originUuid = originFlag?.token ?? originFlag?.actor;
-        origin = originUuid ? fromUuidSync(originUuid)?.name : null;
+        const originDoc = originUuid ? fromUuidSync(originUuid) : null;
+        origin = originDoc?.documentName === "Token" ? tokenName(originDoc) : (originDoc?.name ?? null);
     } catch (error) {
         console.warn(`${ID} | could not resolve names`, error);
     }
-    const actor = message.token?.name ?? message.speaker?.alias ?? message.actor?.name;
+    const actor = message.token ? tokenName(message.token) : (message.speaker?.alias ?? message.actor?.name);
     return { actor: escape(actor), target: escape(target), item: escape(item), origin: escape(origin) };
 }
 
@@ -427,7 +448,7 @@ async function onUpdateActor(actor, changes) {
     const last = lastHits.get(actor.uuid);
     lastHits.delete(actor.uuid);
     const context = finishContext(actor.type, last?.context, {
-        target: escape(token?.name ?? actor.name),
+        target: escape(token ? tokenName(token) : actor.name),
         targetTraits: [...(actor.traits ?? [])],
     });
     if (Hooks.call(`${ID}.context`, context, null) === false) return;
