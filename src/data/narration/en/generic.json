@@ -5,9 +5,53 @@
     "Any roll"
   ],
   "outcomes": {
-    "criticalSuccess": [],
-    "success": [],
-    "failure": [],
-    "criticalFailure": []
+    "criticalSuccess": [
+      "{actor} pulls it off far better than anyone expected.",
+      "Everything falls into place for {actor}, all at once.",
+      "Clean and sharp, no wasted effort. {actor} couldn't have done it better.",
+      "For a moment, nothing can stop {actor}.",
+      "{actor} makes it look easy, and it wasn't.",
+      "That's the kind of moment {actor} will be telling stories about for years.",
+      "Even {actor} seems surprised by how well that went.",
+      "{actor} does it like it's nothing, and it's perfect.",
+      "Hard to ask for more. {actor} gets every part of it right.",
+      "{actor} catches everyone by surprise, and it pays off."
+    ],
+    "success": [
+      "{actor} gets it done.",
+      "It works. {actor} can breathe again.",
+      "Not pretty, but it does the job, and {actor} will take it.",
+      "{actor} manages it, with a bit of effort.",
+      "{actor} gets what was needed, nothing more.",
+      "{actor} does what needs doing, no more.",
+      "It's not art, but {actor} gets there.",
+      "{actor} keeps a cool head, and that's enough.",
+      "It holds, which is all {actor} wanted.",
+      "{actor} handles it cleanly."
+    ],
+    "failure": [
+      "{actor} gives it a real try, and it isn't enough.",
+      "Close, but not close enough for {actor}.",
+      "It doesn't go the way {actor} hoped.",
+      "{actor} knows right away it hasn't worked.",
+      "Nothing comes of it, and {actor} has to let it go.",
+      "{actor} gets nowhere this time.",
+      "Wrong moment for {actor}.",
+      "{actor} goes about it the wrong way, and it shows.",
+      "The effort is there, the result isn't. {actor} grits their teeth.",
+      "Something's missing, and {actor} can't find it in time."
+    ],
+    "criticalFailure": [
+      "Everything goes wrong for {actor} at once.",
+      "{actor} would have been better off not trying.",
+      "Worse than failing: {actor} ends up looking foolish.",
+      "A proper mess, and {actor} won't live this one down soon.",
+      "Something gives at the worst moment, and {actor} pays for it.",
+      "{actor} gets it wrong in every way possible.",
+      "Nothing works, and {actor} realises it too late.",
+      "{actor} ends up in a properly awkward spot.",
+      "People will remember this one, and not kindly for {actor}.",
+      "The worst case, and {actor} is right in the middle of it."
+    ]
   }
 }

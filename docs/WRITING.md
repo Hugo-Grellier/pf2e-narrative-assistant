@@ -3,8 +3,6 @@
 `npm test` lints every entry (see `tests/corpus.test.mjs`); `npm run build` turns the sources into one
 RollTable compendium per language.
 
-Narration text is written by a person. AI tools may proofread or reformat it, never write it.
-
 Every rule already has a file in each language with its outcome groups and empty lists: writing means
 filling those lists. `npm run coverage` (or `npm run coverage -- fr`) lists what is still empty. Until
 every outcome has text, the tests that need one for every situation (fallbacks, resolution of every
