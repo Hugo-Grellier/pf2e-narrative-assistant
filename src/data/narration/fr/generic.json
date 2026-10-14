@@ -10,28 +10,48 @@
       "Tout s'aligne pour {actor}, d'un seul coup.",
       "Net et sans bavure : {actor} n'aurait pas pu faire mieux.",
       "{actor} réussit avec une aisance qui laisse tout le monde bouche bée.",
-      "Un de ces moments où rien ne résiste à {actor}."
+      "Un de ces moments où rien ne résiste à {actor}.",
+      "C'est le genre de réussite dont {actor} parlera encore dans des années.",
+      "Le résultat surprend jusqu'à {actor}.",
+      "{actor} fait ça comme si de rien n'était, et c'est parfait.",
+      "Difficile de rêver mieux. {actor} a tout bon.",
+      "{actor} prend tout le monde de court, et ça paie."
     ],
     "success": [
       "{actor} s'en tire bien.",
       "Ça passe. {actor} peut souffler.",
       "Pas spectaculaire, mais ça marche, et {actor} s'en contente.",
       "{actor} y arrive, au prix d'un petit effort.",
-      "Le résultat est là, et {actor} n'en demande pas plus."
+      "Le résultat est là, et {actor} n'en demande pas plus.",
+      "{actor} fait le nécessaire, sans plus.",
+      "Ce n'est pas du grand art, mais {actor} y parvient.",
+      "{actor} reste calme, et ça suffit.",
+      "Ça tient, et c'est tout ce que {actor} voulait.",
+      "{actor} s'acquitte de la tâche proprement."
     ],
     "failure": [
       "{actor} y croyait, mais ça ne suit pas.",
       "Presque. Pas assez pour {actor}.",
       "Ça ne tourne pas comme {actor} l'espérait.",
       "{actor} sent tout de suite que c'est raté.",
-      "Rien n'en sort, et {actor} doit lâcher l'affaire."
+      "Rien n'en sort, et {actor} doit lâcher l'affaire.",
+      "{actor} n'arrive à rien, cette fois.",
+      "Ce n'est pas le bon moment pour {actor}.",
+      "{actor} s'y prend mal, et ça ne pardonne pas.",
+      "L'effort est là, le résultat non. {actor} serre les dents.",
+      "Il ne manque pas grand-chose, mais {actor} ne le trouve pas à temps."
     ],
     "criticalFailure": [
       "Tout part de travers pour {actor}, et en même temps.",
       "{actor} aurait mieux fait de s'abstenir.",
       "Pire qu'un échec : {actor} se met dans l'embarras.",
       "Un vrai fiasco, dont {actor} n'a pas fini d'entendre parler.",
-      "Quelque chose cède au pire moment, et {actor} en fait les frais."
+      "Quelque chose cède au pire moment, et {actor} en fait les frais.",
+      "{actor} se trompe dans les grandes largeurs.",
+      "Rien ne va, et {actor} le comprend trop tard.",
+      "{actor} se retrouve dans une situation franchement gênante.",
+      "On s'en souviendra, et pas en bien pour {actor}.",
+      "Le pire scénario, et {actor} est en plein dedans."
     ]
   }
 }
