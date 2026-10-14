@@ -5,9 +5,33 @@
     "Tout jet"
   ],
   "outcomes": {
-    "criticalSuccess": [],
-    "success": [],
-    "failure": [],
-    "criticalFailure": []
+    "criticalSuccess": [
+      "{actor} s'en sort bien mieux que prévu.",
+      "Tout s'aligne pour {actor}, d'un seul coup.",
+      "Net et sans bavure : {actor} n'aurait pas pu faire mieux.",
+      "{actor} réussit avec une aisance qui laisse tout le monde bouche bée.",
+      "Un de ces moments où rien ne résiste à {actor}."
+    ],
+    "success": [
+      "{actor} s'en tire bien.",
+      "Ça passe. {actor} peut souffler.",
+      "Pas spectaculaire, mais ça marche, et {actor} s'en contente.",
+      "{actor} y arrive, au prix d'un petit effort.",
+      "Le résultat est là, et {actor} n'en demande pas plus."
+    ],
+    "failure": [
+      "{actor} y croyait, mais ça ne suit pas.",
+      "Presque. Pas assez pour {actor}.",
+      "Ça ne tourne pas comme {actor} l'espérait.",
+      "{actor} sent tout de suite que c'est raté.",
+      "Rien n'en sort, et {actor} doit lâcher l'affaire."
+    ],
+    "criticalFailure": [
+      "Tout part de travers pour {actor}, et en même temps.",
+      "{actor} aurait mieux fait de s'abstenir.",
+      "Pire qu'un échec : {actor} se met dans l'embarras.",
+      "Un vrai fiasco, dont {actor} n'a pas fini d'entendre parler.",
+      "Quelque chose cède au pire moment, et {actor} en fait les frais."
+    ]
   }
 }
