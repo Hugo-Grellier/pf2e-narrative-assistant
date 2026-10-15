@@ -6,90 +6,9 @@
     "Perforant (flèches, carreaux)"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "La corde claque, et le trait se fiche profondément sur {bodyPart}.",
-      "{attacker} décoche au moment exact où {target} se découvre ; la pointe s'enfonce jusqu'à l'empennage.",
-      "Le trait file en ligne parfaite et transperce la défense de {target}.",
-      "{attacker} encoche, bande, relâche : un seul mouvement, et le trait se plante en plein sur {bodyPart}.",
-      "Le carreau part avec un claquement sec et frappe {target} avant que quiconque ait cligné des yeux.",
-      "La flèche vibre encore, fichée sur {bodyPart}, quand {target} comprend ce qui vient d'arriver.",
-      "{attacker} tire à travers un interstice minuscule ; la pointe trouve la chair.",
-      "Le trait siffle, se faufile entre deux protections et s'enfonce loin.",
-      "{attacker} suit {target} de la pointe un long instant, puis lâche. Le trait ne pardonne pas.",
-      "Deux silhouettes se croisent, et le trait passe entre elles pour frapper {target} de plein fouet.",
-      "La pointe perce cuir et tissu et se plante profondément sur {bodyPart}.",
-      "Le trait arrive si vite que {target} vacille avant même d'avoir entendu la corde.",
-      "{attacker} tire en mouvement, presque sans viser, et pourtant la flèche se fiche exactement où il faut.",
-      "Le carreau traverse la défense de {target} avec un bruit sec et mat.",
-      "La flèche file en légère cloche puis plonge droit sur {bodyPart}.",
-      {
-        "text": "{attacker} relâche la corde dans un souffle ; le trait trouve le défaut de la garde de {target}.",
-        "needs": "armed"
-      },
-      "Un sifflement aigu, puis un impact profond : le trait est planté sur {bodyPart}.",
-      "Le carreau frappe avec une telle force que tout le corps de {target} en tressaille.",
-      "{attacker} décoche à l'instant où {target} lève le bras, exposant {bodyPart}.",
-      "La pointe mord si profondément que l'empennage seul dépasse encore."
-    ],
-    "success": [
-      "La flèche se fiche sur {bodyPart}.",
-      "Le trait de {attacker} trouve {target} au milieu du combat.",
-      "La corde vibre, et le trait touche {target}.",
-      "Le carreau frappe {target} sur {bodyPart} avec un claquement sec.",
-      "{attacker} décoche rapidement ; la flèche fait mouche.",
-      "Le trait accroche {target} et y reste planté.",
-      "{target} sent la morsure de la pointe sur {bodyPart}.",
-      "La flèche file entre deux combattants et atteint sa cible.",
-      "Le carreau perce la défense de {target}, pas très profondément.",
-      "{attacker} tire en cloche ; le trait retombe pile sur {target}.",
-      "La pointe érafle {target} sur {bodyPart} avant de se perdre.",
-      "Un trait vif, bien placé, qui arrache un grognement à {target}.",
-      "{attacker} ajuste d'un cheveu et la flèche trouve son chemin.",
-      {
-        "text": "Le trait se plante dans l'équipement de {target} et atteint la chair dessous.",
-        "needs": "armed"
-      },
-      "La corde claque deux fois dans le silence : la seconde flèche touche.",
-      "Le carreau frappe {target} au moment où sa défense se relâche.",
-      "{attacker} décoche sans attendre et le trait atteint {target} en plein élan.",
-      "La flèche siffle et s'enfonce sur {bodyPart}.",
-      {
-        "text": "Le trait file bas et touche {target} juste sous sa garde.",
-        "needs": "armed"
-      },
-      "{attacker} vise {bodyPart} et la flèche obéit."
-    ],
-    "failure": [
-      "La flèche se plante dans le décor, juste derrière {target}.",
-      "Le trait siffle à quelques doigts de {target}.",
-      "{target} esquive et la flèche file plus loin.",
-      "Le carreau ricoche sur la protection de {target}.",
-      "La corde claque, mais le trait part un peu trop haut.",
-      "{attacker} décoche au moment où {target} change de direction.",
-      "La flèche frôle {target} et se perd dans le combat.",
-      "Le trait se fiche dans un obstacle à côté de {target}.",
-      "{target} se décale et le trait vient trembler dans le sol à ses pieds.",
-      "Le vent dévie légèrement la flèche, assez pour qu'elle manque.",
-      "La pointe accroche le tissu de {target} sans rien trouver dessous.",
-      "{attacker} tire trop vite ; le trait passe à côté.",
-      "La flèche file entre les jambes de {target}.",
-      {
-        "text": "Le carreau rebondit sur la garde de {target} dans un tintement.",
-        "needs": "armed"
-      },
-      "{target} plonge à couvert au moment où la flèche arrive."
-    ],
-    "criticalFailure": [
-      "La corde glisse des doigts de {attacker} et la flèche part en vrille.",
-      "{attacker} décoche trop tôt ; le trait se plante bien avant d'atteindre {target}.",
-      "La flèche file si haut qu'elle disparaît au-dessus du combat.",
-      "Le carreau part de travers et se perd loin de toute cible.",
-      "{attacker} encoche maladroitement et le tir part sans force.",
-      "La corde fouette l'avant-bras de {attacker}, et la flèche tombe à quelques pas.",
-      "Le trait s'envole dans une direction que personne n'aurait pu prévoir.",
-      "{attacker} hésite au moment de lâcher ; la flèche part mollement de côté.",
-      "Le tir est si large que {target} ne prend même pas la peine de bouger.",
-      "La flèche frappe un obstacle tout proche et vole en éclats de bois."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

@@ -6,16 +6,7 @@
       "Créature"
     ],
     "outcomes": {
-      "success": [
-        "Le dernier coup de {attacker} porte, et {target} vacille, puis ne bouge plus.",
-        "{target} pousse un dernier râle et s'effondre.",
-        "Avec ce coup, {target} perd toute envie de se battre, pour de bon.",
-        "{target} titube d'un pas, puis de deux, et s'écroule.",
-        "{attacker} conclut : {target} se plie autour du coup et ne se relève pas.",
-        "L'arme glisse des doigts sans force de {target} tandis que la créature s'effondre.",
-        "Le silence tombe quand {target} bascule.",
-        "{target} s'affaisse, à bout."
-      ]
+      "success": []
     }
   },
   {
@@ -25,14 +16,7 @@
       "Créature, à distance"
     ],
     "outcomes": {
-      "success": [
-        "Le tir de {attacker} fait mouche une dernière fois, et {target} bascule.",
-        "De loin, le dernier tir abat {target}.",
-        "{target} fait encore un pas vers {attacker}, puis s'écroule sous le tir.",
-        "Le dernier projectile porte et {target} s'effondre sans un bruit.",
-        "{attacker} abaisse son arme tandis que {target} s'immobilise au loin.",
-        "Un tir net, et {target} tombe."
-      ]
+      "success": []
     }
   },
   {
@@ -42,14 +26,7 @@
       "Créature, magie"
     ],
     "outcomes": {
-      "success": [
-        "La magie submerge {target}, et quand elle se dissipe, {target} ne tient plus debout.",
-        "{target} s'effondre tandis que la puissance du sort fait son œuvre.",
-        "Le dernier sursaut de magie vide {target} de ses forces.",
-        "Le sort de {attacker} est la dernière chose que {target} affronte.",
-        "Un éclair, un cri, et {target} s'écroule.",
-        "{target} chancelle sous la magie et ne s'en remet pas."
-      ]
+      "success": []
     }
   },
   {
@@ -59,15 +36,7 @@
       "Personnage joueur"
     ],
     "outcomes": {
-      "success": [
-        "{target} s'effondre, le monde s'assombrissant sur les bords.",
-        "Les jambes de {target} se dérobent, et le combat continue sans {target}.",
-        "Un dernier coup fait tomber {target} ; les voix des alliés semblent soudain très lointaines.",
-        "{target} tombe, le souffle court, et tout dépend de la suite.",
-        "{target} s'affaisse dans un halètement, hors du combat pour l'instant.",
-        "Le coup porte et {target} s'écroule, respirant encore, à peine.",
-        "L'attaque de {attacker} fauche {target}, et le cœur du groupe manque un battement."
-      ]
+      "success": []
     }
   },
   {
@@ -77,14 +46,7 @@
       "Mort-vivant"
     ],
     "outcomes": {
-      "success": [
-        "La lueur contre nature dans les yeux de {target} vacille et s'éteint ; le corps ne bouge plus.",
-        "{target} s'effondre sur soi-même : ce qui l'animait a disparu.",
-        "Un cliquetis sec, et {target} s'écroule en un tas informe.",
-        "{attacker} brise ce qui tenait {target} debout, et tout s'affaisse.",
-        "La tombe reprend {target} dans un dernier soupir glacé.",
-        "{target} titube une dernière fois, puis s'immobilise pour de bon."
-      ]
+      "success": []
     }
   },
   {
@@ -94,14 +56,7 @@
       "Créature artificielle"
     ],
     "outcomes": {
-      "success": [
-        "Quelque chose cède à l'intérieur de {target} dans un craquement sec, et la machine s'arrête.",
-        "{target} tressaille, de la poussière s'échappant de ses jointures, puis se fige.",
-        "La magie qui liait {target} se défait ; la créature reste figée un instant, puis bascule.",
-        "Dans un long gémissement de matière éprouvée, {target} cesse de bouger.",
-        "{attacker} porte le dernier coup, et la lueur qui animait {target} s'éteint.",
-        "{target} fait un pas saccadé, puis un autre, puis plus rien."
-      ]
+      "success": []
     }
   },
   {
@@ -111,14 +66,7 @@
       "Nuée"
     ],
     "outcomes": {
-      "success": [
-        "{target} se disloque, les derniers survivants s'éparpillant en tous sens.",
-        "La masse grouillante de {target} s'éclaircit, hésite, et se disperse.",
-        "Ce qui reste de {target} file dans les fissures et disparaît.",
-        "{attacker} disperse {target} ; les grésillements s'éloignent.",
-        "{target} perd sa forme et se dissout en points qui fuient.",
-        "La nuée se défait, laissant un tapis de petits corps immobiles."
-      ]
+      "success": []
     }
   },
   {
@@ -128,14 +76,7 @@
       "Intangible"
     ],
     "outcomes": {
-      "success": [
-        "{target} pousse une plainte qui s'éteint et se dissipe comme une brume.",
-        "La silhouette de {target} ondule, s'amincit, et disparaît.",
-        "{attacker} déchire {target}, qui se défait en volutes glacées.",
-        "Un dernier vacillement, et {target} quitte ce monde.",
-        "L'air se réchauffe à mesure que {target} s'efface.",
-        "{target} se défait comme une fumée dans un courant d'air."
-      ]
+      "success": []
     }
   }
 ]

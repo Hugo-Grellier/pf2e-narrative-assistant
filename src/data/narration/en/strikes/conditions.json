@@ -7,30 +7,9 @@
       "Target prone"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{attacker} strikes down at {target}, sprawled on the floor with nothing to stop the blow.",
-        "Down where {target} lies, there is no room to dodge.",
-        "{attacker} looms over {target} and the strike lands with full weight.",
-        "Caught on the ground, {target} takes the attack squarely.",
-        "{target} tries to roll away and only rolls into the blow."
-      ],
-      "success": [
-        "The blow lands on {target}, still struggling on the ground.",
-        "{target} raises an arm from the floor, too late.",
-        "{attacker} takes advantage of {target's} awkward position.",
-        {
-          "text": "From down there, {target} cannot get a proper guard up, and the attack gets in.",
-          "needs": "armed"
-        },
-        "{target} scrambles on the ground, and the strike catches them mid-scramble."
-      ],
-      "failure,criticalFailure": [
-        "Even from the ground, {target} manages to twist aside.",
-        "{target} rolls, and the attack strikes the floor instead.",
-        "Lying down, {target} still kicks the strike away.",
-        "{attacker} aims low, but {target} squirms out of the way.",
-        "Down but still fighting, {target} deflects the attack from the floor."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -41,39 +20,9 @@
       "Target frightened"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{target's} fear opens a gap, and {attacker} drives the attack right through it.",
-        "{target} flinches before the blow even comes, and it lands all the harder.",
-        "Panic slows {target}, and the strike finds its mark with ease.",
-        {
-          "text": "{target's} eyes widen; the attack lands before the guard comes up.",
-          "needs": "armed"
-        },
-        "{attacker} presses the fear home with a merciless hit."
-      ],
-      "success": [
-        {
-          "text": "{target} hesitates, guard trembling, and the attack slips in.",
-          "needs": "armed"
-        },
-        {
-          "text": "A trembling guard is no guard at all.",
-          "needs": "armed"
-        },
-        "{target} backs off a half-step too slowly.",
-        {
-          "text": "Fear makes {target's} parry late.",
-          "needs": "armed"
-        },
-        "{target} sees it coming and still cannot react in time."
-      ],
-      "failure,criticalFailure": [
-        "Fear or not, {target} gets out of the way.",
-        "{target} scrambles back in panic and, by luck, avoids the attack.",
-        "A frightened flinch saves {target} from the blow.",
-        "{target's} wild retreat spoils {attacker's} aim.",
-        "Shaking, {target} still manages to block."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -84,30 +33,9 @@
       "Target grabbed or restrained"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Held in place, {target} can only watch the strike come.",
-        "{target} strains against the hold as the attack lands squarely.",
-        "No room to move: the blow hits {target} with full force.",
-        "{attacker} picks the spot carefully, since {target} is going nowhere.",
-        "{target} twists in the hold and only offers a better opening."
-      ],
-      "success": [
-        "Pinned, {target} cannot slip the blow.",
-        "The attack lands while {target} fights the hold.",
-        "{target} tries to turn away, but the grip holds.",
-        "Trapped, {target} takes the hit on {bodyPart}.",
-        "A clean hit on a creature that cannot step back."
-      ],
-      "failure,criticalFailure": [
-        "Even held fast, {target} manages to jerk aside.",
-        "{target} twists in the hold and the attack scrapes past.",
-        "{target} uses the hold itself as cover.",
-        {
-          "text": "The attack misses by a hair as {target} wrenches against the grip.",
-          "needs": "armed"
-        },
-        "Bound or not, {target} still has enough room to deflect it."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -118,27 +46,9 @@
       "Attacker frightened"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Fear sharpens into fury, and {attacker} strikes harder than expected.",
-        "Hands shaking, {attacker} still lands a remarkable blow.",
-        "{attacker} swallows the fear and the attack lands true.",
-        "Terror lends {attacker} a desperate strength.",
-        "{attacker} attacks the way the scared do: all at once, and it works."
-      ],
-      "success": [
-        "{attacker's} grip trembles, but the blow lands.",
-        "It is a nervous, hesitant attack, but it still finds {target}.",
-        "{attacker} forces the body to move despite the fear.",
-        "A shaky attack, but a hit.",
-        "{attacker} grits teeth past the fear and connects."
-      ],
-      "failure,criticalFailure": [
-        "{attacker's} trembling hands betray the attack.",
-        "Fear holds {attacker} back a heartbeat too long.",
-        "{attacker} flinches mid-swing and the attack goes wide.",
-        "Doubt creeps in, and the strike misses.",
-        "{attacker} cannot quite commit to the blow."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -149,27 +59,9 @@
       "Attacker sickened"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Nausea or not, {attacker} puts everything into one excellent strike.",
-        "{attacker} pushes through the queasiness and lands a perfect hit.",
-        "Pale and sweating, {attacker} still finds the opening.",
-        "The sickness ebbs for a moment of clarity, and the attack lands squarely.",
-        "{attacker} turns misery into anger, and {target} pays for it."
-      ],
-      "success": [
-        "Queasy, {attacker} still makes the attack count.",
-        "A wave of nausea, a hard swallow, a hit.",
-        "{attacker} fights down the sickness long enough to connect.",
-        "Unsteady, but {attacker} lands it.",
-        "{attacker's} stomach churns, but the attack strikes home."
-      ],
-      "failure,criticalFailure": [
-        "Nausea rises at the worst moment and the attack falters.",
-        "{attacker} sways, and the strike goes astray.",
-        "Too sick to aim properly, {attacker} misses.",
-        "The lurch in {attacker's} stomach spoils the timing.",
-        "{attacker} retches mid-strike and the attack goes nowhere."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure,criticalFailure": []
     }
   }
 ]

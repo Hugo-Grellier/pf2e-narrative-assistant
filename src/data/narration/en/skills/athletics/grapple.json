@@ -6,62 +6,9 @@
     "Grapple"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} clamps down like a vise: {target} cannot move a muscle.",
-      "An arm lock, a well-placed knee, and {target} has no freedom of movement left.",
-      "{attacker} wraps {target} up with relentless strength; every attempt to move seems futile.",
-      "{target} thrashes for a moment, then realizes there is nothing to be done against this hold.",
-      "{attacker} pins {target} close and locks every limb in a flawless hold.",
-      "{attacker's} grip tightens until {target} can only pant.",
-      "{attacker} slips behind {target} and locks in a seamless hold.",
-      "{attacker's} arms close around {target} like chains.",
-      "{attacker} grabs, twists, locks: {target} cannot make a single move.",
-      "{target} feels the hold close on every joint, with not an inch of play.",
-      "{attacker} catches {target} mid-lunge and pins them in place with an inescapable hold.",
-      "A bear hug, relentless: {target} can only growl in frustration."
-    ],
-    "success": [
-      "{attacker} grabs {target} firmly and refuses to let go.",
-      "One hand on the collar, the other on the arm: the grip on {target} is solid.",
-      "{attacker} closes their fingers around {target's} wrist and squeezes.",
-      "{target} tries to pull back, but {attacker's} hand is already locked on an arm.",
-      "{attacker} presses close to {target} and keeps hold.",
-      "With a sure motion, {attacker} catches {target} by the shoulder and anchors them.",
-      "{target} squirms, but {attacker's} hold stays firm.",
-      "{attacker} seizes {target} around the waist.",
-      "An iron grip closes on {target}.",
-      "{attacker} snags {target's} gear and does not let go.",
-      "{target} feels {attacker's} grip close around an arm.",
-      "{attacker} leaps and grabs {target} before any retreat.",
-      "{attacker} traps {target's} arm under one armpit and squeezes."
-    ],
-    "failure": [
-      "{target} twists free before the hold can close.",
-      "{attacker's} hands slide over {target} without finding purchase.",
-      "{target} hops back and {attacker} grabs only air.",
-      "{attacker} catches a sleeve, which immediately slips away.",
-      "{target} pushes {attacker's} arms aside with a sharp motion.",
-      "{attacker} dives at {target}, who turns and slips loose.",
-      "The hold half forms, then {target} wrenches free.",
-      "{target} turns slippery as an eel.",
-      "{attacker} closes their hands a second too late.",
-      "{target} shoves {attacker's} shoulder away and keeps their distance.",
-      "{attacker} tries to grab, but {target} twists out of reach.",
-      "{attacker's} fingers brush {target} but cannot close."
-    ],
-    "criticalFailure": [
-      "{attacker} lunges at {target}, who reverses the situation with an expert twist.",
-      "The grab goes wrong: it is {target} who gains the upper hand.",
-      "{target} dodges, catches {attacker} on the way past, and the tables turn at once.",
-      "{attacker} overreaches, and {target} takes the opening to seize the advantage.",
-      "{target} slips free and leaves {attacker} off balance, at their mercy.",
-      "{attacker} looks for a hold and offers one instead: {target} jumps on it.",
-      "{target} goes with {attacker's} momentum and turns the hold back on its author.",
-      "The struggle flips in an instant: {attacker} is in very bad shape.",
-      "{attacker} is caught off guard by a counter-hold from {target}.",
-      "{target} almost laughs while breaking free, and now it is {attacker} in danger.",
-      "{attacker} dives, misses, and {target} is already in a position of strength.",
-      "One wrong move, and {attacker} loses all control of the scuffle."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

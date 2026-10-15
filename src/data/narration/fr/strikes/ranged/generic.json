@@ -6,84 +6,9 @@
     "Générique"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} tire dans un souffle ; le projectile file droit et frappe {target} de plein fouet.",
-      "Le tir traverse la mêlée sans rien effleurer et trouve {target} exactement là où il fallait.",
-      "{attacker} anticipe le déplacement de {target} et tire sur sa position future. Impact parfait.",
-      "Un claquement sec, puis {target} chancelle sous un impact venu de nulle part.",
-      "Le projectile fend l'air en sifflant et percute {target} sur {bodyPart}.",
-      "{attacker} retient son souffle, attend l'instant juste, et lâche son tir.",
-      "Le tir passe entre deux obstacles avec une aisance insolente et touche au but.",
-      "{target} se croit à couvert une seconde de trop : le tir l'atteint en plein mouvement.",
-      "{attacker} tire sans même sembler viser, et pourtant le coup est parfait.",
-      "Un trait fulgurant, et {target} accuse un choc terrible sur {bodyPart}.",
-      "Le projectile frappe avec une telle force que {target} fait un demi-tour forcé.",
-      "{attacker} profite d'une éclaircie dans le chaos du combat pour placer un tir d'exception.",
-      "Le tir arrive sous un angle que {target} ne surveillait pas.",
-      "{attacker} tire à l'instinct ; le projectile trouve le seul point faible exposé.",
-      "Un sifflement, un impact, un cri étouffé. Le tir est imparable.",
-      "Le projectile se faufile entre deux silhouettes, puis s'écrase exactement sur {bodyPart}.",
-      {
-        "text": "{attacker} suit {target} du regard, puis tire au moment exact où sa garde s'ouvre.",
-        "needs": "armed"
-      },
-      "Le tir file à travers la poussière et touche {target} au cœur de sa défense.",
-      "{attacker} tire deux fois du regard avant de tirer une seule fois pour de bon : le coup est magistral.",
-      "Le projectile percute {target} avec une netteté qui arrache un murmure aux témoins."
-    ],
-    "success": [
-      "Le tir de {attacker} atteint {target} sur {bodyPart}.",
-      "Le projectile file à travers le combat et touche sa cible.",
-      "{attacker} ajuste son tir et touche {target}.",
-      "{target} tente de se mettre à couvert, mais le tir l'atteint avant.",
-      "Un impact net sur {bodyPart}.",
-      "Le projectile siffle et frappe {target}, qui grimace.",
-      "{attacker} tire à travers une ouverture étroite et fait mouche.",
-      "Le tir touche {target} au moment où sa défense se relâche.",
-      "{attacker} vise vite, tire vite, et touche.",
-      "Le projectile heurte {target} et lui arrache un juron.",
-      "Le tir trouve {target} au milieu de son mouvement.",
-      "{target} sent l'impact avant d'entendre le tir.",
-      "{attacker} tire sans hésiter et le coup porte sur {bodyPart}.",
-      {
-        "text": "Le projectile file bas et touche {target} juste au-dessus de sa garde.",
-        "needs": "armed"
-      },
-      "Un tir propre, qui atteint son but.",
-      "{target} esquisse un geste pour se protéger, trop tard.",
-      "Le projectile percute {target} avec un bruit mat.",
-      "{attacker} suit la course de {target} et l'atteint en plein déplacement.",
-      "Le tir glisse entre deux combattants et atteint {target}.",
-      "Le projectile accroche {target} sur {bodyPart} avant de ricocher plus loin."
-    ],
-    "failure": [
-      "Le projectile passe à un souffle de {target}.",
-      "{target} se décale au dernier moment et le tir file plus loin.",
-      "Le tir de {attacker} frappe un obstacle derrière {target}.",
-      "Le projectile siffle aux oreilles de {target}, sans mordre.",
-      "{attacker} tire un battement trop tard ; {target} a déjà bougé.",
-      "Le tir file droit, mais {target} n'est plus sur sa trajectoire.",
-      "Le projectile ricoche sur la défense de {target}.",
-      "{target} se baisse et le tir passe au-dessus.",
-      "La trajectoire est bonne, la distance un peu moins : le tir tombe court.",
-      "Le projectile rase {target} et se perd plus loin.",
-      "{attacker} tire à travers la mêlée, mais le tir ne trouve pas son chemin.",
-      "Le tir file dans le vide laissé par {target}.",
-      "{target} se jette sur le côté, laissant passer le projectile.",
-      "Le projectile heurte une protection et dévie.",
-      "Un tir correct, contre une cible qui ne l'était pas moins."
-    ],
-    "criticalFailure": [
-      "Le tir part bien trop tôt et file loin de toute cible.",
-      "{attacker} se précipite ; le projectile s'envole complètement de travers.",
-      "Le tir s'écrase dans le décor bien avant d'atteindre {target}.",
-      "{attacker} perd sa cible de vue au moment de tirer, et le coup se perd.",
-      "Le projectile part en vrille et termine sa course à des pas de {target}.",
-      "Un tir maladroit qui fait sursauter tout le monde sauf {target}.",
-      "{attacker} lâche son tir dans un geste crispé ; rien ne va dans la bonne direction.",
-      "Le projectile file si haut qu'il semble viser le ciel.",
-      "{attacker} hésite entre deux cibles et finit par ne toucher ni l'une ni l'autre.",
-      "Le tir part si loin de {target} qu'il faut un moment pour savoir où il a atterri."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

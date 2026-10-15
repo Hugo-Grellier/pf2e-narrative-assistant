@@ -7,20 +7,8 @@
       "Steal"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "{actor's} fingers come away with the prize, and nobody notices.",
-        "A brush, a twist, and the item changes hands unseen.",
-        "{actor} lifts it clean, without a ripple.",
-        "Gone, and no one the wiser.",
-        "{actor} pockets it with the ease of long practice."
-      ],
-      "failure,criticalFailure": [
-        "The bearer feels the tug and turns sharply.",
-        "An onlooker's eyes lock onto {actor's} hand.",
-        "{actor's} fingers fumble, and the theft is noticed.",
-        "A shout goes up: someone saw that.",
-        "A hand clamps onto {actor's} wrist mid-reach."
-      ]
+      "success,criticalSuccess": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -31,20 +19,8 @@
       "Palm an Object"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "The object vanishes into {actor's} sleeve.",
-        "{actor} palms it in a single smooth gesture.",
-        "Sleight of hand: it was there, now it is not.",
-        "{actor} tucks it away while everyone looks elsewhere.",
-        "Not a single eye catches {actor's} hand."
-      ],
-      "failure,criticalFailure": [
-        "Someone's gaze lingers on {actor's} hand a moment too long.",
-        "The object catches the light just as {actor} palms it.",
-        "{actor} is a beat too slow, and it is noticed.",
-        "A raised eyebrow: someone saw that.",
-        "{actor's} hand closes, but not unseen."
-      ]
+      "success,criticalSuccess": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -55,30 +31,10 @@
       "Disable a Device"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "A last click, and the mechanism falls silent, with no trace of tampering.",
-        "{actor} works with surgical calm and leaves it looking untouched.",
-        "The device yields completely to {actor's} patient hands.",
-        "{actor} neutralizes it so neatly it could be reset later."
-      ],
-      "success": [
-        "{actor} eases a spring loose, and the device goes quiet.",
-        "Progress: one more piece of the mechanism neutralized.",
-        "Careful probing, a twist, and the device is a little safer.",
-        "{actor} wedges the trigger and breathes out."
-      ],
-      "failure": [
-        "{actor} probes, but the mechanism resists.",
-        "Nothing gives; the device stays armed.",
-        "{actor's} tools slip without effect.",
-        "A frustrating stalemate with the mechanism."
-      ],
-      "criticalFailure": [
-        "A sharp click under {actor's} fingers: the device triggers.",
-        "{actor} touches the wrong part, and the mechanism springs.",
-        "Too much pressure: the device goes off.",
-        "{actor} realizes the mistake a heartbeat too late."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

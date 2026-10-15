@@ -6,43 +6,8 @@
     "Être furtif"
   ],
   "outcomes": {
-    "success,criticalSuccess": [
-      "{actor} avance pas à pas, le poids sur la pointe des pieds, sans un bruit.",
-      "D'ombre en ombre, {actor} progresse comme un fantôme.",
-      "{actor} glisse le long du mur, en harmonie avec chaque bruit de fond.",
-      "Pas un craquement, pas un froissement : {actor} se déplace en silence absolu.",
-      "{actor} calque ses pas sur les bruits environnants et échappe à toute attention.",
-      "Le sol semble se taire sous les pieds de {actor}.",
-      "{actor} se faufile entre les regards comme entre des gouttes de pluie.",
-      "Lentement, patiemment, {actor} change de position sans attirer l'attention.",
-      "{actor} attend que les yeux se détournent, puis file au couvert suivant.",
-      "Une ombre se déplace dans la pénombre, et personne ne la remarque.",
-      "{actor} enjambe une latte grinçante avec une précaution infinie.",
-      "Avec le silence d'un chat, {actor} gagne sa nouvelle position."
-    ],
-    "failure": [
-      "Une latte craque sous le pied de {actor} ; on ne sait pas où, mais on sait que quelqu'un est là.",
-      "{actor} frôle un objet qui oscille un instant, trahissant un passage.",
-      "Un froissement d'étoffe attire l'attention dans la direction de {actor}.",
-      "{actor} progresse sans être vu, mais pas sans être entendu.",
-      "Un caillou roule sous la botte de {actor} ; les têtes se tournent, sans rien voir.",
-      "Le souffle de {actor} s'accélère, juste assez pour trahir une présence.",
-      "{actor} reste dans l'ombre, mais un léger bruit de pas révèle son approche.",
-      "Une ombre bouge, un bruit suit : quelqu'un rôde, c'est certain.",
-      "{actor} avance, et le silence se brise d'un minuscule cliquetis.",
-      "Le crissement du sol suit {actor} à la trace."
-    ],
-    "criticalFailure": [
-      "{actor} trébuche en pleine lumière, sous tous les regards.",
-      "Un fracas retentit : {actor} vient de heurter tout ce qui pouvait l'être.",
-      "{actor} sort de l'ombre au pire moment, nez à nez avec un regard attentif.",
-      "Le pied de {actor} glisse, et toute discrétion s'envole avec le bruit.",
-      "{actor} avance en se croyant invisible ; tous les yeux suivent sa progression.",
-      "Un éternuement, au pire moment possible. La présence de {actor} ne fait plus aucun doute.",
-      "{actor} choisit précisément le chemin le plus exposé.",
-      "La silhouette de {actor} se découpe nettement contre la lumière.",
-      "{actor} fait tomber quelque chose, qui rebondit bruyamment au sol.",
-      "Un regard se fixe sur {actor} et ne s'en détache plus."
-    ]
+    "success,criticalSuccess": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

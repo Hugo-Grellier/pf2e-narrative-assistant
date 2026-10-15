@@ -6,41 +6,8 @@
     "Chercher"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{actor} balaie la zone d'un regard aiguisé ; aucun détail n'échappe à son attention.",
-      "Un léger mouvement, un souffle, une ombre incongrue : {actor} voit tout.",
-      "{actor} s'immobilise, écoute, observe, et la scène se dévoile entièrement.",
-      "Rien ne résiste à l'examen minutieux de {actor}.",
-      "{actor} remarque la poussière déplacée, la porte entrouverte, l'ombre de trop.",
-      "Les sens de {actor} sont en éveil : la moindre anomalie saute aux yeux.",
-      "{actor} reconstitue la scène en un coup d'œil.",
-      "Ce qui se cachait ne se cache plus aux yeux de {actor}.",
-      "Le regard de {actor} s'arrête exactement là où il fallait.",
-      "{actor} perçoit ce que d'autres n'auraient jamais remarqué."
-    ],
-    "success": [
-      "{actor} fouille du regard et quelque chose finit par accrocher son attention.",
-      "Un bruit discret oriente l'attention de {actor} dans la bonne direction.",
-      "{actor} remarque un détail qui ne colle pas avec le reste.",
-      "En scrutant la zone, {actor} repère un indice.",
-      "{actor} plisse les yeux : il y a bien quelque chose, là.",
-      "L'attention de {actor} se fixe sur une ombre suspecte.",
-      "{actor} tend l'oreille et perçoit une présence.",
-      "Un reflet, un froissement : {actor} n'est pas dupe.",
-      "{actor} examine la zone avec méthode et en tire quelque chose.",
-      "Le regard de {actor} revient sur un détail, puis s'y arrête."
-    ],
-    "failure,criticalFailure": [
-      "{actor} scrute la zone sans rien remarquer de particulier.",
-      "Tout semble normal aux yeux de {actor}. Peut-être trop.",
-      "{actor} observe attentivement, sans que rien n'accroche son regard.",
-      "Le silence et l'immobilité ne trahissent rien à {actor}.",
-      "{actor} tend l'oreille ; seuls les bruits habituels lui parviennent.",
-      "Rien ne bouge, rien ne détonne, du moins pour {actor}.",
-      "{actor} balaie les ombres du regard sans y trouver quoi que ce soit.",
-      "La recherche de {actor} ne donne rien de concret.",
-      "{actor} hausse les épaules : il n'y a, semble-t-il, rien à voir.",
-      "Les lieux gardent leurs secrets face à {actor}."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure,criticalFailure": []
   }
 }

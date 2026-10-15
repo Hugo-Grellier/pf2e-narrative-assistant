@@ -6,62 +6,9 @@
     "Shove"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} drives in with a shoulder and sends {target} flying several steps back.",
-      "A two-handed shove, whole body behind it: {target} stumbles backward a good distance.",
-      "{attacker} meets {target} mid-charge and sends them far back.",
-      "{target} staggers backward under a force that gives no purchase at all.",
-      "{attacker} plants their feet and pushes like breaking down a door: {target} nearly takes off.",
-      "The impact is such that {target} travels several steps backward before managing to stop.",
-      "{attacker} coils, then explodes forward; {target} loses ground and goes far back.",
-      "A massive shoulder check drives {target} back across most of the room.",
-      "{target} tries to resist, but their feet slide for whole strides.",
-      "{attacker} pushes with such conviction that {target} has no choice but to retreat, a long way.",
-      "With an irresistible shove, {attacker} clears the whole space ahead.",
-      "The push carries {target} backward like a wave."
-    ],
-    "success": [
-      "{attacker} shoves {target}, who is forced back a step.",
-      "A well-placed shoulder check sends {target} back.",
-      "{attacker} plants both hands on {target} and pushes sharply.",
-      "{target} gives ground under the shove.",
-      "{attacker} braces and gains a step on {target}.",
-      "With a sharp push, {attacker} drives {target} back.",
-      "{target} slides backward, feet scraping the floor.",
-      "{attacker} pushes {target} out of position.",
-      "{target} resists for a moment, then gives a step.",
-      "A shoulder check, and {target} has no choice but to back off.",
-      "{attacker} pushes at the right moment, while {target's} footing is unsteady.",
-      "{target} loses position under the pressure from {attacker}.",
-      "{attacker} advances, {target} retreats: the ground changes hands."
-    ],
-    "failure": [
-      "{target} takes the shove without budging an inch.",
-      "{attacker} pushes with all their might against a living wall.",
-      "{target} sets their feet and does not retreat.",
-      "The shove slides off {target's} shoulder.",
-      "{target} pivots and the push from {attacker} spills off to the side.",
-      "{attacker} slams into {target}, but it is like pushing a boulder.",
-      "{target} leans forward and absorbs the impact.",
-      "{attacker} strains, in vain.",
-      "{target} gives half a step, then immediately reclaims it.",
-      "The attempt from {attacker} only rumples {target's} gear.",
-      "{target} sets their weight against it and the shove dies on the spot.",
-      "{attacker} pushes, {target} holds: nothing moves."
-    ],
-    "criticalFailure": [
-      "{target} steps aside at the last moment, and {attacker} pitches forward and sprawls.",
-      "{attacker} pushes into empty air, loses balance and falls.",
-      "The shove bounces off {target}, and it is {attacker} who ends up on the ground.",
-      "{attacker} charges, {target} dodges: the fall is inevitable.",
-      "{attacker} slips at the moment of pushing and collapses at {target's} feet.",
-      "{target} rolls with the motion and lets {attacker} crash to the floor.",
-      "{attacker} puts too much weight into the push and tips forward, prone.",
-      "{target} plants their feet; {attacker} rebounds off them and falls heavily.",
-      "A misstep mid-shove, and {attacker} ends up on the ground.",
-      "{attacker} rushes in, tangles their legs and falls full length.",
-      "{target} slips away, and {attacker's} momentum ends straight on the floor.",
-      "The shove turns into a clumsy dive: {attacker} bites the dust."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

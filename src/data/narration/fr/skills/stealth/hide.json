@@ -6,33 +6,7 @@
     "Se cacher"
   ],
   "outcomes": {
-    "success,criticalSuccess": [
-      "{actor} se fond dans l'ombre et devient une forme parmi d'autres.",
-      "Un souffle retenu, un pas en arrière, et {actor} disparaît des regards.",
-      "{actor} se plaque derrière l'abri et se fait aussi immobile que la pierre.",
-      "Les yeux glissent sur la cachette de {actor} sans s'y arrêter.",
-      "{actor} épouse les contours du décor jusqu'à ne plus en être distinct.",
-      "Plus un bruit, plus un mouvement : {actor} n'est plus qu'une ombre.",
-      "{actor} se recroqueville derrière son couvert, invisible au premier coup d'œil.",
-      "Un regard passe tout près de {actor}, puis se détourne.",
-      "{actor} règle son souffle sur les bruits ambiants et s'efface.",
-      "La silhouette de {actor} se perd dans la pénombre.",
-      "{actor} se glisse dans un recoin que personne ne songe à regarder.",
-      "Immobile, {actor} attend, et le monde l'oublie."
-    ],
-    "failure,criticalFailure": [
-      "{actor} se cache, mais un pan de vêtement dépasse de l'abri.",
-      "Un reflet sur l'équipement de {actor} trahit sa présence.",
-      "{actor} retient son souffle un peu trop bruyamment.",
-      "La cachette choisie par {actor} est moins sûre qu'elle n'y paraît.",
-      "Un raclement de pied révèle {actor} au mauvais moment.",
-      "{actor} se tasse derrière son couvert, sans parvenir à s'y faire oublier.",
-      "Une ombre bouge là où rien ne devrait bouger : la discrétion de {actor} laisse à désirer.",
-      "Un regard insistant se pose sur l'endroit où se tient {actor}.",
-      "{actor} cherche l'ombre, mais la lumière finit par l'atteindre.",
-      "Le moindre geste de {actor} semble résonner dans le silence.",
-      "{actor} s'immobilise une seconde trop tard.",
-      "La respiration de {actor} trahit sa cachette."
-    ]
+    "success,criticalSuccess": [],
+    "failure,criticalFailure": []
   }
 }

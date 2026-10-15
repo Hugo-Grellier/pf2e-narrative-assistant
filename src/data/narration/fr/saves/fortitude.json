@@ -7,50 +7,10 @@
       "Générique"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{actor} encaisse sans broncher, solide comme un roc.",
-        "Le corps de {actor} repousse l'agression comme une vague sur la falaise.",
-        "{actor} serre les dents une seconde, puis secoue la tête : rien de plus.",
-        "La constitution de {actor} fait merveille ; l'effet glisse sur sa carrure.",
-        "{actor} prend une grande inspiration et tient bon, sans même vaciller.",
-        "Rien ne semble pouvoir entamer l'endurance de {actor}.",
-        "{actor} hausse les épaules face à ce qui aurait terrassé bien d'autres.",
-        "Une force tranquille habite {actor}, que l'effet ne parvient pas à ébranler.",
-        "{actor} se contente de cracher par terre, imperturbable.",
-        "Le souffle de {actor} reste régulier, son regard clair."
-      ],
-      "success": [
-        "{actor} serre les dents et résiste.",
-        "Le corps de {actor} encaisse, au prix d'un effort visible.",
-        "{actor} chancelle un instant, puis se reprend.",
-        "Une grimace, une inspiration, et {actor} tient le coup.",
-        "{actor} lutte contre l'effet et garde le dessus.",
-        "{actor} plie sans rompre.",
-        "La robustesse de {actor} fait la différence.",
-        "{actor} sent l'effet passer, sans qu'il parvienne à s'installer.",
-        "{actor} tient bon, la mâchoire crispée.",
-        "Un frisson parcourt {actor}, puis s'éteint."
-      ],
-      "failure": [
-        "Le corps de {actor} cède sous l'assaut.",
-        "{actor} chancelle, le souffle court.",
-        "Malgré sa résolution, {actor} sent ses forces vaciller.",
-        "L'effet s'insinue en {actor}, qui ne parvient pas à le chasser.",
-        "{actor} pâlit, les jambes tremblantes.",
-        "Une vague de faiblesse submerge {actor}.",
-        "{actor} serre les dents, mais son corps ne suit pas.",
-        "Le teint de {actor} change, sa respiration se fait laborieuse."
-      ],
-      "criticalFailure": [
-        "Le corps de {actor} capitule d'un coup.",
-        "{actor} se plie en deux sous un mal venu de l'intérieur.",
-        "Toute la vigueur de {actor} semble s'évaporer en un instant.",
-        "{actor} vacille dangereusement, le visage livide.",
-        "L'effet frappe {actor} au plus profond de son être.",
-        "{actor} sent ses forces fuir comme l'eau d'un vase fêlé.",
-        "Un spasme secoue {actor} de la tête aux pieds.",
-        "{actor} lutte, mais son corps a déjà rendu les armes."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -61,46 +21,10 @@
       "Poison"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{actor} sent le venin brûler un instant dans ses veines, puis s'éteindre.",
-        "Le poison se heurte à une constitution de fer et n'y trouve aucune prise.",
-        "{actor} crache une salive amère et se redresse, parfaitement lucide.",
-        "Le corps de {actor} neutralise la toxine comme une simple gorgée de mauvais vin.",
-        "Un goût métallique, une brève nausée, puis plus rien.",
-        "{actor} cligne des yeux : le poison n'a pas trouvé son chemin.",
-        "Le venin circule, s'épuise et disparaît sans laisser de trace.",
-        "{actor} a connu pire, et son organisme le sait."
-      ],
-      "success": [
-        "{actor} sent la toxine se répandre, puis refluer.",
-        "Une vague de nausée assaille {actor}, qui la repousse.",
-        "{actor} serre les dents tandis que son corps combat le venin.",
-        "Les veines de {actor} brûlent un instant, puis la chaleur retombe.",
-        "Le poison fait tourner la tête de {actor}, sans l'emporter.",
-        "{actor} transpire à grosses gouttes, mais le venin perd la partie.",
-        "Le corps de {actor} lutte et repousse le pire du poison.",
-        "Un goût de fer envahit la bouche de {actor}, qui tient bon."
-      ],
-      "failure": [
-        "Le venin se répand dans les veines de {actor} comme un feu froid.",
-        "{actor} pâlit, la vue troublée par la toxine.",
-        "Une nausée tenace s'empare de {actor}.",
-        "Le poison mord de l'intérieur ; {actor} grimace.",
-        "{actor} sent ses membres s'alourdir sous l'effet du venin.",
-        "La toxine trouve son chemin malgré la résistance de {actor}.",
-        "Des sueurs froides perlent au front de {actor}.",
-        "Le cœur de {actor} s'emballe tandis que le poison progresse."
-      ],
-      "criticalFailure": [
-        "Le venin frappe {actor} comme une lame de fond.",
-        "{actor} se plie en deux tandis que le poison ravage ses veines.",
-        "La toxine envahit {actor} avec une rapidité terrifiante.",
-        "Le teint de {actor} vire au gris en quelques secondes.",
-        "{actor} sent le poison gagner chaque recoin de son corps.",
-        "Une douleur sourde éclate au creux du ventre de {actor}.",
-        "Le venin s'empare de {actor} sans rencontrer la moindre résistance.",
-        "Un voile sombre passe devant les yeux de {actor} tandis que le poison s'installe."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -111,46 +35,10 @@
       "Maladie"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Le mal effleure {actor} et passe son chemin.",
-        "La fièvre n'ose même pas s'installer chez {actor}.",
-        "{actor} se sent parfaitement bien, comme si de rien n'était.",
-        "La santé de fer de {actor} chasse la contagion avant qu'elle ne s'installe.",
-        "Pas un frisson, pas une toux : {actor} reste en pleine forme.",
-        "Le corps de {actor} reconnaît l'ennemi et le terrasse aussitôt.",
-        "{actor} respire profondément ; l'air vicié n'a aucune prise.",
-        "La maladie cherche une faille dans la constitution de {actor} et n'en trouve aucune."
-      ],
-      "success": [
-        "Un léger frisson parcourt {actor}, puis disparaît.",
-        "{actor} tousse un peu, mais la fièvre ne prend pas.",
-        "Le corps de {actor} combat l'infection et prend le dessus.",
-        "Une lassitude passagère gagne {actor}, qui la secoue.",
-        "{actor} sent le mal rôder, sans parvenir à s'installer.",
-        "La gorge de {actor} pique un instant, puis tout rentre dans l'ordre.",
-        "{actor} garde l'esprit clair malgré une légère fièvre.",
-        "La maladie tente sa chance ; le corps de {actor} la repousse."
-      ],
-      "failure": [
-        "Une fièvre sourde s'installe chez {actor}.",
-        "{actor} frissonne, le front moite.",
-        "La toux de {actor} se fait plus profonde, plus inquiétante.",
-        "Le mal gagne du terrain dans le corps de {actor}.",
-        "{actor} sent une faiblesse diffuse s'emparer de ses membres.",
-        "Le teint de {actor} pâlit, ses yeux se cernent.",
-        "La contagion prend racine malgré les efforts de {actor}.",
-        "Une chaleur malsaine envahit {actor}."
-      ],
-      "criticalFailure": [
-        "La maladie s'empare de {actor} avec une virulence effrayante.",
-        "Des frissons incontrôlables secouent {actor}.",
-        "Le mal se répand en {actor} comme une traînée de poudre.",
-        "La fièvre monte d'un coup, et {actor} vacille.",
-        "Une toux déchirante secoue {actor}.",
-        "{actor} sent la contagion s'enraciner au plus profond.",
-        "Le corps de {actor} plie sous l'assaut de l'infection.",
-        "En quelques instants, {actor} a le visage d'un grand malade."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -161,46 +49,10 @@
       "Choc physique"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "L'onde de choc frappe {actor}, qui ne recule pas d'un pouce.",
-        "{actor} encaisse l'impact les pieds bien plantés, comme un chêne dans la tempête.",
-        "La déflagration passe sur {actor} sans parvenir à entamer sa stature.",
-        "{actor} absorbe le choc d'un simple raidissement des épaules.",
-        "Le fracas résonne, mais {actor} reste droit et ferme.",
-        "{actor} tient bon face à la vague de force, imperturbable.",
-        "Le choc ne fait que soulever la poussière autour de {actor}.",
-        "{actor} serre les poings et laisse l'impact se briser sur sa carrure."
-      ],
-      "success": [
-        "{actor} vacille sous l'impact, puis se stabilise.",
-        "L'onde de choc ébranle {actor}, qui garde ses appuis.",
-        "{actor} serre les dents tandis que le fracas lui vibre dans les os.",
-        "Le souffle coupé un instant, {actor} reprend vite contenance.",
-        "{actor} plie les genoux et absorbe le plus gros du choc.",
-        "La force de l'impact fait trembler {actor}, sans prendre le dessus.",
-        "Les oreilles de {actor} bourdonnent, mais tout tient.",
-        "{actor} se raidit contre la vague de force et tient le coup."
-      ],
-      "failure": [
-        "L'impact secoue {actor} jusqu'aux os.",
-        "{actor} encaisse le choc de plein fouet, le souffle coupé.",
-        "La vague de force ébranle tout le corps de {actor}.",
-        "Un bourdonnement envahit le crâne de {actor}.",
-        "{actor} chancelle sous la puissance du choc.",
-        "Le fracas résonne dans la poitrine de {actor}.",
-        "{actor} sent l'onde de choc traverser chaque fibre de son corps.",
-        "Les dents de {actor} s'entrechoquent sous l'impact."
-      ],
-      "criticalFailure": [
-        "Le choc frappe {actor} avec la force d'un bélier.",
-        "{actor} encaisse la pleine puissance de l'impact, sans rien pour l'amortir.",
-        "Le monde se met à tourner autour de {actor}.",
-        "L'onde de choc vide les poumons de {actor} d'un seul coup.",
-        "{actor} sent le choc résonner dans chacun de ses os.",
-        "La déflagration frappe {actor} en plein cœur.",
-        "Le fracas emplit tout, et {actor} est au centre.",
-        "{actor} vacille comme un arbre sous la cognée."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

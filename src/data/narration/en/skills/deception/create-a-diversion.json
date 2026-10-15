@@ -6,33 +6,7 @@
     "Create a Diversion"
   ],
   "outcomes": {
-    "success,criticalSuccess": [
-      "{actor} points at an imaginary danger; every gaze follows the gesture.",
-      "A sudden shout, a noise in the distance: attention turns away, and {actor} melts into the scenery.",
-      "{actor} knocks over a tankard with a crash, and while everyone looks, slips away.",
-      "\"Over there!\" cries {actor} with perfect conviction. By the time heads turn back, the spot is empty.",
-      "{actor} tosses a pebble behind the enemies; the sound turns every head.",
-      "A theatrical gesture draws the eye, and {actor} vanishes from view.",
-      "{actor} feigns a sudden pain; by the time the others understand, it is too late.",
-      "The ruse works wonderfully: nobody is looking at {actor} anymore.",
-      "{actor} catches the eye with a glint of metal, then slips into the shadows.",
-      "{actor} delivers a line so absurd that everyone stops, baffled.",
-      "A moment of confusion, perfectly orchestrated by {actor}.",
-      "{actor} exploits the second of inattention created on purpose."
-    ],
-    "failure,criticalFailure": [
-      "{actor} points at a danger in the distance, but nobody turns their head.",
-      "The diversion from {actor} fools no one.",
-      "The noise does draw a few looks, which come straight back to {actor}.",
-      "{actor} tries a dramatic stunt; the audience stays stony.",
-      "\"Look out!\" shouts {actor}. Everyone watches, skeptical.",
-      "The ruse from {actor} is too crude: everyone sees it coming.",
-      "{actor} tries to draw attention away, but every eye stays glued to their hands.",
-      "An awkward silence greets the diversion attempt from {actor}.",
-      "The enemies exchange a knowing look: they have figured out the game.",
-      "{actor} makes a noise, and only manages to draw even more attention.",
-      "The diversion falls flat; everyone now knows {actor} is up to something.",
-      "{actor} sows confusion... but not enough to escape notice."
-    ]
+    "success,criticalSuccess": [],
+    "failure,criticalFailure": []
   }
 }

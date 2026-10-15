@@ -6,61 +6,9 @@
     "S'échapper"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{actor} se tord, glisse et jaillit hors de la prise comme si elle n'avait jamais existé.",
-      "D'une torsion parfaite, {actor} se libère et s'écarte aussitôt d'un pas léger.",
-      "{actor} retourne la pression contre elle-même et l'étreinte s'ouvre d'un coup.",
-      "Un coup de coude, une rotation des hanches, et {actor} est libre, déjà en mouvement.",
-      "{actor} attend l'instant précis où la prise se relâche, puis s'en extrait sans effort.",
-      "Les liens qui retenaient {actor} cèdent d'un seul coup ; la liberté a un goût délicieux.",
-      "{actor} se fait souple comme une anguille et file hors d'atteinte.",
-      "La prise ne tient plus qu'à un fil, et {actor} le coupe d'un mouvement net avant de reculer.",
-      "{actor} se dégage avec une aisance presque insolente.",
-      "En un battement de cœur, {actor} passe de la captivité à la liberté, et prend le large d'un pas.",
-      "{actor} déplace son poids, pivote, et l'entrave glisse au sol.",
-      "Une explosion de force soudaine : {actor} se libère et s'éloigne d'un pas."
-    ],
-    "success": [
-      "{actor} se tortille et finit par se libérer.",
-      "D'un coup de reins, {actor} échappe à la prise.",
-      "{actor} force l'ouverture et s'extrait de l'étreinte.",
-      "Les doigts qui retenaient {actor} glissent, et la voilà, la liberté.",
-      "{actor} se dégage au prix d'un effort intense.",
-      "Une torsion du poignet, un mouvement d'épaule, et {actor} est libre.",
-      "{actor} trouve la faille de la prise et s'y engouffre.",
-      "{actor} tire, pousse, se tord : l'entrave finit par céder.",
-      "Après une lutte serrée, {actor} se libère.",
-      "{actor} profite d'un relâchement infime pour s'échapper.",
-      "{actor} se glisse hors de la prise, haletant.",
-      "Les liens se desserrent juste assez pour que {actor} s'en extraie."
-    ],
-    "failure": [
-      "{actor} lutte, mais la prise ne cède pas.",
-      "{actor} se tord en tous sens, sans parvenir à se libérer.",
-      "L'étreinte se resserre à chaque mouvement de {actor}.",
-      "{actor} force, en vain : la prise tient bon.",
-      "Une torsion, une autre : rien n'y fait.",
-      "{actor} cherche une faille dans la prise, sans la trouver.",
-      "La prise se relâche une seconde, puis se referme aussitôt.",
-      "{actor} gagne quelques centimètres de liberté, aussitôt perdus.",
-      "{actor} serre les dents et tire ; l'entrave ne bouge pas.",
-      "La lutte s'éternise sans que {actor} ne progresse.",
-      "{actor} tente de glisser hors de la prise, qui ne laisse aucun jeu.",
-      "Malgré tous les efforts de {actor}, la prise tient toujours."
-    ],
-    "criticalFailure": [
-      "{actor} s'épuise dans une lutte désordonnée et doit reprendre son souffle avant de réessayer.",
-      "Chaque mouvement de {actor} ne fait que resserrer la prise ; il faudra attendre une meilleure occasion.",
-      "{actor} se débat si maladroitement que toute nouvelle tentative semble vaine pour l'instant.",
-      "La prise se resserre d'un cran, et {actor} comprend qu'insister maintenant serait inutile.",
-      "{actor} gaspille toutes ses forces dans un effort mal dirigé.",
-      "{actor} tente un mouvement brusque qui ne fait qu'empirer les choses : l'étreinte se fait étau.",
-      "Une lutte confuse qui laisse {actor} haletant et toujours dans la même prise.",
-      "{actor} tire dans le mauvais sens et s'enferre davantage.",
-      "La tentative de {actor} est si mal engagée qu'il vaut mieux reprendre son souffle.",
-      "{actor} se cogne contre l'entrave et n'en tire qu'une vive frustration.",
-      "Toute la force de {actor} s'épuise contre une prise qui ne cède pas d'un pouce.",
-      "{actor} se débat, glisse, et se retrouve dans une position encore pire."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

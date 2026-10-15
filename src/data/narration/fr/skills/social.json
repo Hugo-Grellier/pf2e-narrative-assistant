@@ -7,20 +7,8 @@
       "Mentir"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "{actor} ment sans ciller, et {target} acquiesce.",
-        "L'histoire tient parfaitement, et {target} y croit.",
-        "Un sourire chaleureux, un ton assuré : {target} gobe chaque mot.",
-        "{target} hésite, puis accepte la version de {actor}.",
-        "{actor} tisse le mensonge si bien qu'il paraît presque vrai."
-      ],
-      "failure,criticalFailure": [
-        "Le regard de {target} se plisse : quelque chose cloche dans l'histoire.",
-        "Un détail dérape, et {target} le relève.",
-        "{target} écoute poliment, mais n'en croit visiblement pas un mot.",
-        "La voix de {actor} tremble au mauvais moment.",
-        "{target} laisse le silence s'étirer, pas dupe une seconde."
-      ]
+      "success,criticalSuccess": [],
+      "failure,criticalFailure": []
     }
   },
   {
@@ -31,30 +19,10 @@
       "Solliciter"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{target} accepte aussitôt, sans condition.",
-        "{actor} demande, et {target} aide de bon cœur.",
-        "La demande tombe juste ; {target} propose même davantage.",
-        "{target} hoche la tête avec chaleur : c'est comme si c'était fait."
-      ],
-      "success": [
-        "{target} accepte, avec une ou deux conditions.",
-        "Après réflexion, {target} accepte, sous réserve.",
-        "{target} dit oui, mais attend quelque chose en retour.",
-        "Un hochement de tête réticent de {target}."
-      ],
-      "failure": [
-        "{target} secoue la tête, même si quelque chose de plus modeste pourrait passer.",
-        "{target} refuse, poliment mais fermement.",
-        "La demande est trop pour {target}.",
-        "{target} décline et suggère une autre voie."
-      ],
-      "criticalFailure": [
-        "{target} refuse, et la demande passe très mal.",
-        "La demande gâte l'ambiance : {target} ne regarde plus {actor} de la même façon.",
-        "Le visage de {target} se ferme ; demander était une erreur.",
-        "{target} se hérisse, et le ton se glace."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -65,30 +33,10 @@
       "Se produire"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "Le public se tait, puis explose ; on en parlera longtemps.",
-        "{actor} tient tous les regards de la salle.",
-        "Une prestation magistrale : même les sceptiques sont conquis.",
-        "{actor} termine dans un silence captivé, puis sous les applaudissements."
-      ],
-      "success": [
-        "{actor} se produit avec talent, et le public apprécie.",
-        "Un numéro solide, soigné, et chaleureusement accueilli.",
-        "Les têtes suivent le rythme pendant la prestation de {actor}.",
-        "{actor} gagne une salve d'applaudissements sincères."
-      ],
-      "failure": [
-        "La prestation tombe à plat ; l'attention s'éparpille.",
-        "{actor} perd le fil, et le public le remarque.",
-        "Un silence poli accueille la fin.",
-        "Quelques bâillements, quelques murmures : ça ne prend pas."
-      ],
-      "criticalFailure": [
-        "{actor} se rate lourdement, et quelqu'un rit, sans bienveillance.",
-        "Une fausse note, une réplique oubliée, et la salle grimace.",
-        "On se souviendra de la prestation pour de mauvaises raisons.",
-        "{actor} s'arrête à mi-chemin, rouge jusqu'aux oreilles."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

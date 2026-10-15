@@ -7,50 +7,10 @@
       "Treat Wounds"
     ],
     "outcomes": {
-      "criticalSuccess": [
-        "{actor} cleans, stitches and binds with exemplary assurance.",
-        "{actor's} hands work fast and well; relief shows at once on the face of the patient.",
-        "{actor} finds every cut, every bruise, and treats them like a seasoned surgeon.",
-        "A tight dressing, a well-chosen salve: {actor's} work is remarkable.",
-        "{actor} murmurs a few reassuring words while carefully closing the last wound.",
-        "The stitches from {actor} are so neat they are almost elegant.",
-        "{actor} improvises a splint, adjusts a bandage, and everything seems better at once.",
-        "The patient breathes more freely under {actor's} attentive care.",
-        "{actor} takes all the time needed, and every gesture bears fruit.",
-        "A masterful job: {actor} packs up the instruments with satisfaction."
-      ],
-      "success": [
-        "{actor} cleans the wounds and binds them neatly.",
-        "Simple, effective motions: {actor} dresses the wounds.",
-        "{actor} applies a salve and tightens a bandage; the patient winces, then relaxes.",
-        "With patience, {actor} treats the cuts one by one.",
-        "{actor} carefully stitches a wound shut.",
-        "The care from {actor} is plain, but it helps.",
-        "{actor} rinses, disinfects, binds: a healer's routine.",
-        "The patient grits their teeth while {actor} goes to work.",
-        "{actor} does what is needed, without frills.",
-        "A few well-placed bandages, and the patient feels better."
-      ],
-      "failure": [
-        "{actor} works hard, but the bandages do not hold as hoped.",
-        "Despite {actor's} efforts, the treatment has no noticeable effect.",
-        "{actor} hesitates over what to do and time slips away.",
-        "The dressing slips, comes loose, and everything must be redone.",
-        "{actor} cannot find the source of the problem.",
-        "The care from {actor} brings only superficial comfort.",
-        "{actor} frowns: the wound resists treatment.",
-        "The patient feels hardly better after {actor's} attentions."
-      ],
-      "criticalFailure": [
-        "{actor} clumsily reopens a wound while trying to close it.",
-        "An unfortunate move from {actor} wrings a cry from the patient.",
-        "{actor} ties too tight, badly, in the wrong place: the treatment does more harm than good.",
-        "The salve chosen by {actor} irritates the wound instead of soothing it.",
-        "{actor} trembles at the wrong moment and the needle slips.",
-        "The patient writhes in pain under {actor's} clumsy hands.",
-        "{actor} mixes up two remedies, with painful consequences.",
-        "One wrong move from {actor}, and the injury gets worse."
-      ]
+      "criticalSuccess": [],
+      "success": [],
+      "failure": [],
+      "criticalFailure": []
     }
   },
   {
@@ -61,38 +21,9 @@
       "Administer First Aid"
     ],
     "outcomes": {
-      "success,criticalSuccess": [
-        "{actor} presses firmly on the wound and the flow eases.",
-        "An improvised tourniquet, pressure in the right place: {actor} takes control of the situation.",
-        "{actor} clears the airway and the patient's breathing calms.",
-        "{actor's} movements are fast, sure, lifesaving.",
-        "{actor} speaks softly to the patient while binding tight.",
-        "In a few seconds, {actor} has done exactly what was needed.",
-        "{actor} presses a wad of cloth onto the wound and waits for things to settle.",
-        "The patient's pulse steadies under {actor's} fingers.",
-        "{actor} applies the motions practiced so many times, and they work.",
-        "One hand on the wound, the other on a shoulder: {actor} stays calm, and that is enough."
-      ],
-      "failure": [
-        "{actor} presses on the wound, but the cloth soaks through too fast.",
-        "{actor's} hands shake; the first aid has no effect.",
-        "{actor} searches for the right move without finding it in time.",
-        "The bandage slips through {actor's} fingers.",
-        "{actor} does their best, but the patient's condition does not change.",
-        "The pressure from {actor} is not in the right place.",
-        "{actor} hesitates one second too long.",
-        "Despite the urgency, {actor's} movements stay clumsy."
-      ],
-      "criticalFailure": [
-        "{actor} panics and the treatment makes things worse.",
-        "A bandage badly placed by {actor} does more harm than good.",
-        "{actor} presses in the wrong spot, and the patient moans louder.",
-        "In the rush, {actor} makes the one mistake not to make.",
-        "{actor} moves the patient at the worst possible moment.",
-        "{actor's} hands flail without method, and the patient's condition worsens.",
-        "{actor} confuses urgency with haste: the result is disastrous.",
-        "A rough move from {actor}, and the situation becomes even more critical."
-      ]
+      "success,criticalSuccess": [],
+      "failure": [],
+      "criticalFailure": []
     }
   }
 ]

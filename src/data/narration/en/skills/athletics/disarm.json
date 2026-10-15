@@ -6,61 +6,9 @@
     "Disarm"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "{attacker} raps {target's} wrist sharply: the item slips free and falls at their feet.",
-      "A deft twist, and {target's} weapon leaves their hand to clatter on the ground.",
-      "{attacker} wraps around {target's} grip and the item flies up before landing close by.",
-      "{target's} fingers open despite themselves; the item drops with a clink.",
-      "{attacker} hooks the weapon by the guard and wrenches it from the hand of {target}, who watches it fall.",
-      "A precise beat, and the item slides from {target's} hands to bounce on the floor.",
-      "{attacker} twists {target's} arm just enough: the item slips free.",
-      "{target} feels the grip suddenly give way; the item drops at their feet.",
-      "With a lightning backhand, {attacker} sends the item jumping from {target's} hand.",
-      "{attacker} catches the weapon and pulls in a smooth motion; it falls heavily at {target's} feet.",
-      "{target's} wrist bends, and the item falls with nothing to stop it.",
-      "{attacker} strikes the base of the fingers: {target} loses hold with a curse."
-    ],
-    "success": [
-      "{attacker} strikes {target's} hand; the grip loosens dangerously.",
-      "The item wobbles in {target's} hand, held only by the fingertips.",
-      "{attacker} twists the wrist of {target}, who grits their teeth to keep hold.",
-      "{target's} grip turns hesitant after the blow from {attacker}.",
-      "{target} catches their weapon at the very last moment, grip now unsure.",
-      "A sharp beat rattles {target's} grip without quite breaking it.",
-      "{attacker} snags the item and pulls; {target} keeps it, but with great effort.",
-      "{target's} fingers slip on the handle before tightening again, more or less.",
-      "{attacker} hammers the guard; the item twists in {target's} hand.",
-      "{target} winces: their grip has suffered from the blow by {attacker}.",
-      "{target's} weapon wavers, ready to fall at the next blow.",
-      "{attacker} sets the item vibrating in the hand of {target}, who now holds it far less firmly."
-    ],
-    "failure": [
-      "{target} tightens their grip and the item does not move.",
-      "{attacker} strikes the guard, but {target} holds on.",
-      "{target} pulls their hand back in time.",
-      "The item stays firmly between {target's} fingers.",
-      "{attacker} hooks the weapon, which immediately pulls free.",
-      "{target} rolls the wrist and makes the attempt useless.",
-      "{target's} grip does not waver.",
-      "{attacker} goes for the hand; {target} avoids it with a supple motion.",
-      "{target} clutches their weapon as if life depended on it.",
-      "The attempt slides along the guard without shaking anything loose.",
-      "{attacker} pulls on the item, {target} pulls harder.",
-      "{target} draws the hand out of reach."
-    ],
-    "criticalFailure": [
-      "{attacker} lunges for {target's} weapon and ends up off balance, guard wide open.",
-      "The attempt fails so badly that {attacker} exposes their whole flank.",
-      "{target} dodges the outstretched hand, and {attacker} is left in a vulnerable position.",
-      "{attacker} pulls on the item, meets no resistance and lurches backward, off balance.",
-      "{attacker} reaches too far and leaves a gaping hole in their defense.",
-      "{target} turns the attempt against {attacker}, who wobbles and opens up.",
-      "{attacker} contorts to reach the weapon and loses all semblance of guard.",
-      "{attacker's} hand slips, the body follows: their defense is in tatters.",
-      "{attacker} takes a dangerous risk for a move that leads nowhere.",
-      "{target} brushes {attacker's} hand aside and exploits the stumble.",
-      "{attacker} insists too long and stays exposed.",
-      "A hasty move that leaves {attacker} wobbling, at {target's} mercy."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

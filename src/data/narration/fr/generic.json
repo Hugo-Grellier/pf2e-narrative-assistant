@@ -5,45 +5,9 @@
     "Tout jet"
   ],
   "outcomes": {
-    "criticalSuccess": [
-      "Tout s'aligne : {actor} réussit avec une aisance remarquable.",
-      "{actor} dépasse toutes les attentes, à commencer par les siennes.",
-      "Un instant de grâce : chaque geste de {actor} tombe juste.",
-      "Le succès de {actor} est éclatant.",
-      "{actor} fait paraître simple ce qui ne l'était pas.",
-      "La chance et le talent s'unissent en faveur de {actor}.",
-      "{actor} réussit avec un brio qui force le respect.",
-      "C'est le genre de moment dont {actor} se souviendra."
-    ],
-    "success": [
-      "{actor} parvient à ses fins.",
-      "Les efforts de {actor} portent leurs fruits.",
-      "{actor} réussit, sans fanfare mais sans faute.",
-      "La manœuvre de {actor} fonctionne.",
-      "{actor} obtient ce qu'il fallait.",
-      "Le geste est juste, le résultat suit.",
-      "{actor} s'en sort bien.",
-      "Les choses tournent en faveur de {actor}."
-    ],
-    "failure": [
-      "L'effort de {actor} ne suffit pas, cette fois.",
-      "{actor} manque son but.",
-      "Les choses ne se passent pas comme {actor} l'espérait.",
-      "Un contretemps, et la tentative de {actor} tourne court.",
-      "{actor} doit se rendre à l'évidence : c'est raté.",
-      "Le résultat n'est pas au rendez-vous pour {actor}.",
-      "{actor} échoue, sans gravité.",
-      "La tentative de {actor} reste lettre morte."
-    ],
-    "criticalFailure": [
-      "Rien ne se passe comme prévu pour {actor}.",
-      "{actor} échoue de la pire des manières.",
-      "La tentative de {actor} tourne au désastre.",
-      "Tout ce qui pouvait mal tourner tourne mal pour {actor}.",
-      "{actor} commet une erreur dont on parlera longtemps.",
-      "Un échec cuisant pour {actor}.",
-      "{actor} se prend les pieds dans sa propre tentative.",
-      "Le sort semble s'acharner sur {actor}."
-    ]
+    "criticalSuccess": [],
+    "success": [],
+    "failure": [],
+    "criticalFailure": []
   }
 }

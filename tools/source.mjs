@@ -78,9 +78,10 @@ export function definitionToTables(def, rule) {
     });
 }
 
-export function loadSourceTables(lang = "fr") {
+/** The raw definitions of a language, checked against rules.json: [{ def, rule }]. */
+export function loadDefinitions(lang = "fr") {
     const rules = loadRules();
-    const tables = [];
+    const definitions = [];
     const seen = new Set();
     for (const file of walk(corpusDir(lang))) {
         for (const def of [readJson(file)].flat()) {
@@ -88,11 +89,20 @@ export function loadSourceTables(lang = "fr") {
             if (!rule) throw new Error(`${lang}/${path.relative(corpusDir(lang), file)}: "${def.key}" is not in rules.json`);
             if (seen.has(def.key)) throw new Error(`${lang}: "${def.key}" defined twice`);
             seen.add(def.key);
-            tables.push(...definitionToTables(def, rule));
+            definitions.push({ def, rule });
         }
     }
-    return tables;
+    return definitions;
 }
+
+/** Outcome groups (or a component) with no text yet, e.g. ["recovery.failure", "component.body-part.beast"]. */
+export const emptySlots = (lang) =>
+    loadDefinitions(lang).flatMap(({ def }) =>
+        def.entries ? (def.entries.length ? [] : [def.key]) : Object.entries(def.outcomes ?? {}).filter(([, t]) => !t?.length).map(([o]) => `${def.key}.${o}`),
+    );
+
+/** Engine tables of a language; outcomes and components without text produce no table. */
+export const loadSourceTables = (lang = "fr") => loadDefinitions(lang).flatMap(({ def, rule }) => definitionToTables(def, rule));
 
 export const corpusLanguages = () =>
     fs.readdirSync(path.join(DATA_DIR, "narration"), { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort();

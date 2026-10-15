@@ -1,16 +1,10 @@
 {
   "key": "revive",
-  "label": ["Récupération", "Retour au-dessus de 0 PV"],
+  "label": [
+    "Récupération",
+    "Retour au-dessus de 0 PV"
+  ],
   "outcomes": {
-    "success": [
-      "{actor} prend une inspiration rauque, et ouvre brusquement les yeux.",
-      "Une toux, un grognement, et {actor} revient dans la bataille.",
-      "La vie reflue en {actor}, soudaine et vive.",
-      "{actor} cligne des yeux tandis que le monde redevient net.",
-      "Les doigts de {actor} se referment de nouveau sur son arme.",
-      "{actor} reprend son souffle comme un nageur qui crève la surface.",
-      "Les couleurs reviennent au visage de {actor} : pas aujourd'hui, finalement.",
-      "{actor} remue, marmonne un juron, et ouvre les yeux."
-    ]
+    "success": []
   }
 }
